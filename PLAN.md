@@ -51,9 +51,9 @@ glow is not.
 This plan is based on the worktree on 2026-09-03, not solely on the older
 milestone prose.
 
-- Branch/HEAD is `main` at `484ae3c`, with a large uncommitted evidence and
-  seven-destination slice. Preserve it. Do not reset, regenerate, reformat, or
-  commit it as if it belonged to a new implementation task.
+- Branch/HEAD is `main` at `5c2ce6e` with a clean worktree. The seven-destination
+  evidence slice is already present in that committed baseline; do not reset,
+  regenerate, or reformat it as part of a new implementation task.
 - The current release is `m4-seven-route-atlas`: 7 places, 7 candidate routes,
   59 claims, 16 sources, 16 evidence contracts, and 0 cost observations.
 - The latest current-release automation run has 16 current decisions, 41
@@ -78,11 +78,11 @@ milestone prose.
 - Authored UI copy is split between `lib/i18n/messages.ts`, local stores in
   `localized-pages.tsx`, and `site-nav.tsx`; only the first store is parity
   checked. The ordinary detail layer exposes raw JSON and internal vocabulary.
-- `npm run check` passes content validation, freshness, i18n, typecheck, and
-  build, then fails in `tests/rendered-html.test.mjs` because the home headline
-  expectation is stale. Lint has two warnings. The build also reports a large
-  client chunk: the home feature is about 802 KB minified / 254 KB gzip, mostly
-  because client code imports the full atlas/projection stack.
+- As checked on 2026-09-03 under `.nvmrc` Node 22.22.2, content validation,
+  freshness, i18n, lint, typecheck, and build pass. The build reports a large
+  client chunk: the home feature is about 873 KB minified / 270 KB gzip, mostly
+  because client code imports the full atlas/projection stack. Re-run the full
+  unit suite when making the next source change, and record any regression.
 - `.openai/hosting.json` has neither D1 nor R2. Keep the MVP static-first and
   device-local; no database or account is needed.
 
@@ -159,20 +159,17 @@ Files to inspect first:
 
 Work:
 
-1. Confirm with the task owner whether the existing m4 worktree is to be kept as
-   one slice or reviewed/landed separately. Never stage, discard, or rewrite it
-   implicitly.
-2. Replace the stale headline-specific rendered test with an assertion for the
-   current localized home contract or the final Phase 1 heading. Retain checks
-   for `<html lang>`, opposite-language leakage, redirects, and preview metadata.
-3. Remove the two known unused-variable warnings without changing evidence-log
-   behavior.
-4. Add a small repository snapshot test/report that prints place, route, claim,
-   source, contract, cost, and decision-state counts. This makes future plans and
-   release reviews compare against executable data rather than milestone prose.
-5. Record the current minified and gzip sizes of the home feature chunk before
-   map changes.
-6. Run the complete gate under `.nvmrc` and preserve the output as the baseline.
+1. Preserve the clean committed m4 baseline. Do not stage, discard, or rewrite
+   evidence data implicitly.
+2. Keep the localized rendered-home contract, `<html lang>`, opposite-language
+   leakage, redirects, and preview metadata tests current as home UI changes.
+3. Keep lint warning-free without changing evidence-log behavior.
+4. Retain the repository snapshot report for place, route, claim, source,
+   contract, cost, and decision-state counts. Use it for release reviews.
+5. Treat 873,040 bytes minified / 270,020 bytes gzip as the pre-map-change
+   home-feature baseline, measured after a production build.
+6. Run the complete gate under `.nvmrc` after each implementation slice and
+   preserve its output in the change review.
 
 Exit gate: `npm run check` and `git diff --check` pass; the only source changes
 are deliberate; existing evidence history still validates as append-only.
