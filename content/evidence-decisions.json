@@ -1,0 +1,3611 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "schemaVersion": 1,
+      "id": "automation.20260902143729003.a7bc579cd64a.fbca95f5e27d",
+      "mode": "advisory_only",
+      "eligibleForActions": false,
+      "catalogReleaseId": "m2-two-route-shapes-review-pending",
+      "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a",
+      "policyVersion": "pinned-claim-continuity-v1",
+      "assessedAt": "2026-09-02T17:45:00.000+03:00",
+      "previousRunSha256": null,
+      "summary": {
+        "total": 28,
+        "states": {
+          "current": 16,
+          "due": 0,
+          "candidate": 0,
+          "uncovered": 10,
+          "unavailable": 0,
+          "changed": 0,
+          "contradictory": 2,
+          "stale": 0
+        },
+        "exceptions": 12
+      },
+      "decisions": [
+        {
+          "id": "decision.serbia-russian-nationality.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-russian-nationality",
+          "contractId": "contract.serbia-russian-nationality.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.2a2ce7c5bf91ca34"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-ordinary-passport.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-ordinary-passport",
+          "contractId": "contract.serbia-ordinary-passport.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.2a2ce7c5bf91ca34"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-route-availability.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-route-availability",
+          "contractId": "contract.serbia-route-availability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.2a2ce7c5bf91ca34"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-stay-rule.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "59dc19f597da579eb8974885669427d3c13623de10835e7e20828f979d02585e",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-passport-present.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-passport-present",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-passport-validity.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-passport-validity",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "aca9cf5671ca02e151ce0089cde162ba92e98f0f5c2a5c0c3036bfa2801d4fc3",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-family-applicability.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-family-applicability",
+          "contractId": "contract.serbia-family-applicability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-general-entry.00203e9bbe14845a"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-proof-of-funds.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-proof-of-funds",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-insurance.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-insurance",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "contradictory",
+          "publicAction": "queue_exception",
+          "handler": "policy_resolution",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5e6aab5b0343b5627f4ae2b139b75dc1c6cf57791fe4c206295feef02d1aa813",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "catalog_records_authoritative_disagreement",
+            "conflicts_are_not_resolved_by_source_count"
+          ]
+        },
+        {
+          "id": "decision.serbia-accommodation.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-accommodation",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "a7ed32689c86733a3779fd0c4022c036dbbf77f97a7f98bf4f4b65fa2be85cb7",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-onward-ticket.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-onward-ticket",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "37e7366c1d3f7a6094999010dad2e9d3a742e826092d496b912076bb1c6a102b",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-parental-consent.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-parental-consent",
+          "contractId": "contract.serbia-parental-consent.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-general-entry.00203e9bbe14845a"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "96400bdb119ba8e158e9c029139f1d052e49776546df83cfba0ea74168d8a502",
+          "expectedApplicabilitySha256": "b8094e1eb9dd0f96398fefb85d89cc1e60b8492ce33dc8dedc31f08ebf97031f",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-arrival-registration-host.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.serbia-arrival-registration-host",
+          "contractId": "contract.serbia-arrival-registration-host.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-welcome-registration.b54a257e086cfc00"
+          ],
+          "independentGroups": [
+            "lineage.serbia-government-portal"
+          ],
+          "expectedFactSha256": "df123da3f6e10efdcc5875583582dbc232be6d5568307dc0a022c8e92d232c8e",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-russian-nationality.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-russian-nationality",
+          "contractId": "contract.india-russian-nationality.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-ordinary-passport.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-ordinary-passport",
+          "contractId": "contract.india-ordinary-passport.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-route-availability.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-route-availability",
+          "contractId": "contract.india-route-availability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "602d25b8083959a0e87dd532231a04398831efb0bd1cfbd70e57ccf4682c5c54",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-stay-rule.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-stay-rule",
+          "contractId": "contract.india-stay-rule.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "6735688deeca1520a477fc16c0ffa71a4a15e0421f0e6c3bc9a4534cdd126ff3",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-evisa-required.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-evisa-required",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "763d08402143bb7e409bb2356eaf5a32a7091c4d9e169ca19d08aaefcdc1a214",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-passport-validity.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-passport-validity",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "0592c11fdeb83dc4a13439a0409c5606ac4cf68c6b5a71a5b2f7faa842e696d2",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-family-applicability.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-family-applicability",
+          "contractId": "contract.india-family-applicability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "b8094e1eb9dd0f96398fefb85d89cc1e60b8492ce33dc8dedc31f08ebf97031f",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-separate-application.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-separate-application",
+          "contractId": "contract.india-separate-application.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "ba1aafcbc267360433bd962def9af19d4ebbeca1447c13ad1e1d269e5702171b",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-application-window.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-application-window",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "c2b9249eb6bf956940ed90ea2b0ef7a7de133c7df54d761a1ad46e36430cbe2a",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-entry-delhi.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-entry-delhi",
+          "contractId": "contract.india-entry-delhi.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "b74860da1e4f268fea4f4afbe637b0f5b579be8806f5ecc50a27cbcb284a3cd4",
+          "expectedApplicabilitySha256": "44553158a0b1a22c5e1563642cd0b8e476f9e785ce86de99e498eaae77fcdeaa",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-onward-ticket.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-onward-ticket",
+          "contractId": "contract.india-onward-ticket.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "6c0cc2166d3598f4dd90cbd9b9165f83d90e280b86b9f72036410efb801f99f2",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-proof-of-funds.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-proof-of-funds",
+          "contractId": "contract.india-proof-of-funds.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-tourist-purpose.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-tourist-purpose",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9ef11e83e08c4c16b5021aa67b4296458b337adf4fd2572e9f6896eda6fcd1d3",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-eta-print.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-eta-print",
+          "contractId": "contract.india-eta-print.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.0aacedccb5a6a5b2"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "f44437bbb372df35981afa8548cc71172e9ed9c583cd56c5e8a4cd823a1b4c95",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-fee-conflict.20260902143729003.a7bc579cd64a",
+          "claimId": "claim.india-fee-conflict",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "contradictory",
+          "publicAction": "queue_exception",
+          "handler": "policy_resolution",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "77bdac085aa1cb41b5cbdb89c3f16205b03a631e13df91d1bbd67dd412171767",
+          "expectedApplicabilitySha256": "a75a67de01a202607fdc4a2e1cc39fde44255a389d2d211c20ca98dcee360557",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "reasonCodes": [
+            "catalog_records_authoritative_disagreement",
+            "conflicts_are_not_resolved_by_source_count"
+          ]
+        }
+      ],
+      "reportSha256": "2679e1a566c9b5bb3dec5319cc1d32f7daf61a4391177637fbf9d65c3029587f"
+    },
+    {
+      "schemaVersion": 2,
+      "id": "automation.20260902152451581.877d15a201b4.f53cfbe81acd",
+      "mode": "authoritative_automation",
+      "eligibleForActions": true,
+      "catalogReleaseId": "m3-authoritative-evidence",
+      "monitoringRunId": "monitor.20260902152451581.877d15a201b4",
+      "policyVersion": "pinned-claim-continuity-v2",
+      "assessedAt": "2026-09-02T18:25:00.000+03:00",
+      "previousRunSha256": "2679e1a566c9b5bb3dec5319cc1d32f7daf61a4391177637fbf9d65c3029587f",
+      "summary": {
+        "total": 28,
+        "states": {
+          "current": 16,
+          "due": 0,
+          "candidate": 0,
+          "uncovered": 10,
+          "unavailable": 0,
+          "changed": 0,
+          "contradictory": 2,
+          "stale": 0
+        },
+        "exceptions": 12
+      },
+      "decisions": [
+        {
+          "id": "decision.serbia-russian-nationality.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-russian-nationality",
+          "contractId": "contract.serbia-russian-nationality.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.5e73be942b39a378"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-russian-nationality.21797e6fae5b4071"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-ordinary-passport.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-ordinary-passport",
+          "contractId": "contract.serbia-ordinary-passport.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.5e73be942b39a378"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-ordinary-passport.21797e6fae5b4071"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-route-availability.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-route-availability",
+          "contractId": "contract.serbia-route-availability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.5e73be942b39a378"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-route-availability.21797e6fae5b4071"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-stay-rule.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "59dc19f597da579eb8974885669427d3c13623de10835e7e20828f979d02585e",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-passport-present.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-passport-present",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-passport-validity.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-passport-validity",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "aca9cf5671ca02e151ce0089cde162ba92e98f0f5c2a5c0c3036bfa2801d4fc3",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-family-applicability.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-family-applicability",
+          "contractId": "contract.serbia-family-applicability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-general-entry.812bb49ccd478634"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-family-applicability.4982f96c9b9758d4"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-proof-of-funds.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-proof-of-funds",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-insurance.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-insurance",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "contradictory",
+          "publicAction": "queue_exception",
+          "handler": "precedence_resolution",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5e6aab5b0343b5627f4ae2b139b75dc1c6cf57791fe4c206295feef02d1aa813",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "catalog_records_authoritative_disagreement",
+            "conflicts_are_not_resolved_by_source_count"
+          ]
+        },
+        {
+          "id": "decision.serbia-accommodation.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-accommodation",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "a7ed32689c86733a3779fd0c4022c036dbbf77f97a7f98bf4f4b65fa2be85cb7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-onward-ticket.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-onward-ticket",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "37e7366c1d3f7a6094999010dad2e9d3a742e826092d496b912076bb1c6a102b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-parental-consent.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-parental-consent",
+          "contractId": "contract.serbia-parental-consent.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-general-entry.812bb49ccd478634"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "96400bdb119ba8e158e9c029139f1d052e49776546df83cfba0ea74168d8a502",
+          "expectedApplicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-parental-consent.4982f96c9b9758d4"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-arrival-registration-host.20260902152451581.877d15a201b4",
+          "claimId": "claim.serbia-arrival-registration-host",
+          "contractId": "contract.serbia-arrival-registration-host.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-welcome-registration.995514ec1aa15c0b"
+          ],
+          "independentGroups": [
+            "lineage.serbia-government-portal"
+          ],
+          "expectedFactSha256": "df123da3f6e10efdcc5875583582dbc232be6d5568307dc0a022c8e92d232c8e",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-arrival-registration-host.088989f1571c576a"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-russian-nationality.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-russian-nationality",
+          "contractId": "contract.india-russian-nationality.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-russian-nationality.a5f2e262d2eb7af0"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-ordinary-passport.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-ordinary-passport",
+          "contractId": "contract.india-ordinary-passport.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-ordinary-passport.72cff1a55083d779"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-route-availability.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-route-availability",
+          "contractId": "contract.india-route-availability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "602d25b8083959a0e87dd532231a04398831efb0bd1cfbd70e57ccf4682c5c54",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-route-availability.751bedb94d3db35e"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-stay-rule.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-stay-rule",
+          "contractId": "contract.india-stay-rule.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "6735688deeca1520a477fc16c0ffa71a4a15e0421f0e6c3bc9a4534cdd126ff3",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-stay-rule.8c82b2a1b75d3c90"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-evisa-required.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-evisa-required",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "763d08402143bb7e409bb2356eaf5a32a7091c4d9e169ca19d08aaefcdc1a214",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-passport-validity.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-passport-validity",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "0592c11fdeb83dc4a13439a0409c5606ac4cf68c6b5a71a5b2f7faa842e696d2",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-family-applicability.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-family-applicability",
+          "contractId": "contract.india-family-applicability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-family-applicability.7af09a6f31365cc8"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-separate-application.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-separate-application",
+          "contractId": "contract.india-separate-application.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "ba1aafcbc267360433bd962def9af19d4ebbeca1447c13ad1e1d269e5702171b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-separate-application.1e09726ec27e4717"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-application-window.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-application-window",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "c2b9249eb6bf956940ed90ea2b0ef7a7de133c7df54d761a1ad46e36430cbe2a",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-entry-delhi.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-entry-delhi",
+          "contractId": "contract.india-entry-delhi.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "b74860da1e4f268fea4f4afbe637b0f5b579be8806f5ecc50a27cbcb284a3cd4",
+          "expectedApplicabilitySha256": "b74ca3691814a1338346d12166df4e2d49a7d39de791288900d8b79d214fa61b",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-entry-delhi.4ea0ef64f649eebb"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-onward-ticket.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-onward-ticket",
+          "contractId": "contract.india-onward-ticket.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "6c0cc2166d3598f4dd90cbd9b9165f83d90e280b86b9f72036410efb801f99f2",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-onward-ticket.a53d43a3e15ea564"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-proof-of-funds.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-proof-of-funds",
+          "contractId": "contract.india-proof-of-funds.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-proof-of-funds.a9ac72bd33a77cb5"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-tourist-purpose.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-tourist-purpose",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9ef11e83e08c4c16b5021aa67b4296458b337adf4fd2572e9f6896eda6fcd1d3",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-eta-print.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-eta-print",
+          "contractId": "contract.india-eta-print.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.51bd07206ffb27b1"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "f44437bbb372df35981afa8548cc71172e9ed9c583cd56c5e8a4cd823a1b4c95",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-eta-print.2ed063bbb84835ae"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-fee-conflict.20260902152451581.877d15a201b4",
+          "claimId": "claim.india-fee-conflict",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "contradictory",
+          "publicAction": "queue_exception",
+          "handler": "precedence_resolution",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "77bdac085aa1cb41b5cbdb89c3f16205b03a631e13df91d1bbd67dd412171767",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "catalog_records_authoritative_disagreement",
+            "conflicts_are_not_resolved_by_source_count"
+          ]
+        }
+      ],
+      "proofPackets": [
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-russian-nationality.21797e6fae5b4071",
+          "claimId": "claim.serbia-russian-nationality",
+          "claimRevision": 1,
+          "factSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "observationId": "observation.serbia-mfa-russia-visa.5e73be942b39a378",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "rawSha256": "c513802911957fa91e95c6781cf7b0ec4fe1d9c89961194459dfbd45fefb3dd0",
+          "normalizedSha256": "b03a1761882746af8beaf76b654f181237d708aee046d09880bde0eeedc3e998",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "contextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364",
+          "extracts": [
+            {
+              "extract": "s and Travel Advice Visa regime for entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of S",
+              "extractSha256": "7871ceb0f7ffe5937b4ae12081abb63d6230db4dfab838e363f65eee092bedd0"
+            },
+            {
+              "extract": " entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of Serbia - All rights reserved",
+              "extractSha256": "00ed2f749fe11d3461cb2fc7e00b981a5906fcb3c27c98c56400b65222d05797"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "a4273063657527aa2d754aafbf2545702c9326ff0b2517a042606fc17ef6a071"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-ordinary-passport.21797e6fae5b4071",
+          "claimId": "claim.serbia-ordinary-passport",
+          "claimRevision": 1,
+          "factSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "observationId": "observation.serbia-mfa-russia-visa.5e73be942b39a378",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "rawSha256": "c513802911957fa91e95c6781cf7b0ec4fe1d9c89961194459dfbd45fefb3dd0",
+          "normalizedSha256": "b03a1761882746af8beaf76b654f181237d708aee046d09880bde0eeedc3e998",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "contextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364",
+          "extracts": [
+            {
+              "extract": "s and Travel Advice Visa regime for entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of S",
+              "extractSha256": "7871ceb0f7ffe5937b4ae12081abb63d6230db4dfab838e363f65eee092bedd0"
+            },
+            {
+              "extract": " entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of Serbia - All rights reserved",
+              "extractSha256": "00ed2f749fe11d3461cb2fc7e00b981a5906fcb3c27c98c56400b65222d05797"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "aefe763571db780541fc78bb4686ea40d84590066200abdec7062495b6608dea"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-route-availability.21797e6fae5b4071",
+          "claimId": "claim.serbia-route-availability",
+          "claimRevision": 1,
+          "factSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "observationId": "observation.serbia-mfa-russia-visa.5e73be942b39a378",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "rawSha256": "c513802911957fa91e95c6781cf7b0ec4fe1d9c89961194459dfbd45fefb3dd0",
+          "normalizedSha256": "b03a1761882746af8beaf76b654f181237d708aee046d09880bde0eeedc3e998",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "contextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364",
+          "extracts": [
+            {
+              "extract": "s and Travel Advice Visa regime for entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of S",
+              "extractSha256": "7871ceb0f7ffe5937b4ae12081abb63d6230db4dfab838e363f65eee092bedd0"
+            },
+            {
+              "extract": " entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of Serbia - All rights reserved",
+              "extractSha256": "00ed2f749fe11d3461cb2fc7e00b981a5906fcb3c27c98c56400b65222d05797"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "a573c76c4116b5966e30adc08ced3067602b4182286258b091e7f2ec2ddabc1f"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-family-applicability.4982f96c9b9758d4",
+          "claimId": "claim.serbia-family-applicability",
+          "claimRevision": 1,
+          "factSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-general-entry",
+          "observationId": "observation.serbia-mfa-general-entry.812bb49ccd478634",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "rawSha256": "7523c144219ddda55369a93dcf6e00af2164d3ff6aab6a64a53683d21af914d7",
+          "normalizedSha256": "0c54850cdd67f5330fca601cc2065808d79f04093894033870263ef301b27920",
+          "fragmentId": "fragment.serbia-entry-family-and-funds",
+          "contextSha256": "cc64dd3b667e2c8345c2285686b7718839939cc1fd3ce1a9e85b95af56de7d4c",
+          "extracts": [
+            {
+              "extract": "Отвори претрагу Затвори претрагу Отвори навигацију Breadcrumb Home Citizens / Foreigners Travel to Serbia General Entry Requirements General Entry Requirements A valid travel document, or a valid identity card if so provided for under a bilateral agreement or by a Decision of the Government of the Republic of Serbia.; Valid visa in the passp",
+              "extractSha256": "d6c89d48c67cd4dc5cc5f6aadcf24c65d4f2241c9bf1884357753191fa5c9d98"
+            },
+            {
+              "extract": "ecision of the Government of the Republic of Serbia.; Valid visa in the passport, if a Serbian visa is required for passport holders of the respective country; Proof of sufficient funds for staying in Serbia. Sufficient funds are considered to be 50 Euros per day of stay, proved by possession of the appropriate amount of cash, bank statement; Certificate of vaccina",
+              "extractSha256": "5ef84f20a0ff636c07f32d5dd1c253a00552d79f71e3b2dfa3edcae04c4ad025"
+            },
+            {
+              "extract": "hat he/she has not contracted a contagious disease despite coming from an area affected by a pandemic, as defined by the information of the Ministry of Health. For minors, foreign citizens, parental consent is not required to enter the Republic of Serbia. In order to cross the state border, a minor, a citizen of the Republic of Serbia up to the age of 16, when traveling alone or accompanied by another person who",
+              "extractSha256": "d597e3222835ceb9a91a153a3bd9afd84d591cc6d76c54ead068a27cd4617fa7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "74e384e0e75f7d7dba1c20477e343c474f87abe7fbc79b414171e859aa3c36ed"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-parental-consent.4982f96c9b9758d4",
+          "claimId": "claim.serbia-parental-consent",
+          "claimRevision": 1,
+          "factSha256": "96400bdb119ba8e158e9c029139f1d052e49776546df83cfba0ea74168d8a502",
+          "applicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "sourceId": "source.serbia-mfa-general-entry",
+          "observationId": "observation.serbia-mfa-general-entry.812bb49ccd478634",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "rawSha256": "7523c144219ddda55369a93dcf6e00af2164d3ff6aab6a64a53683d21af914d7",
+          "normalizedSha256": "0c54850cdd67f5330fca601cc2065808d79f04093894033870263ef301b27920",
+          "fragmentId": "fragment.serbia-entry-family-and-funds",
+          "contextSha256": "cc64dd3b667e2c8345c2285686b7718839939cc1fd3ce1a9e85b95af56de7d4c",
+          "extracts": [
+            {
+              "extract": "Отвори претрагу Затвори претрагу Отвори навигацију Breadcrumb Home Citizens / Foreigners Travel to Serbia General Entry Requirements General Entry Requirements A valid travel document, or a valid identity card if so provided for under a bilateral agreement or by a Decision of the Government of the Republic of Serbia.; Valid visa in the passp",
+              "extractSha256": "d6c89d48c67cd4dc5cc5f6aadcf24c65d4f2241c9bf1884357753191fa5c9d98"
+            },
+            {
+              "extract": "ecision of the Government of the Republic of Serbia.; Valid visa in the passport, if a Serbian visa is required for passport holders of the respective country; Proof of sufficient funds for staying in Serbia. Sufficient funds are considered to be 50 Euros per day of stay, proved by possession of the appropriate amount of cash, bank statement; Certificate of vaccina",
+              "extractSha256": "5ef84f20a0ff636c07f32d5dd1c253a00552d79f71e3b2dfa3edcae04c4ad025"
+            },
+            {
+              "extract": "hat he/she has not contracted a contagious disease despite coming from an area affected by a pandemic, as defined by the information of the Ministry of Health. For minors, foreign citizens, parental consent is not required to enter the Republic of Serbia. In order to cross the state border, a minor, a citizen of the Republic of Serbia up to the age of 16, when traveling alone or accompanied by another person who",
+              "extractSha256": "d597e3222835ceb9a91a153a3bd9afd84d591cc6d76c54ead068a27cd4617fa7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "90fb63a8f4843f6e4b3101a89fe856439cccfa32bfc819adeac7944718d08071"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-arrival-registration-host.088989f1571c576a",
+          "claimId": "claim.serbia-arrival-registration-host",
+          "claimRevision": 1,
+          "factSha256": "df123da3f6e10efdcc5875583582dbc232be6d5568307dc0a022c8e92d232c8e",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-welcome-registration",
+          "observationId": "observation.serbia-welcome-registration.995514ec1aa15c0b",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://welcometoserbia.gov.rs/registration-upon-arrival",
+          "finalUrl": "https://welcometoserbia.gov.rs/registration-upon-arrival",
+          "rawSha256": "4f43e365739ceafc2f3e97f094ac6a32ce02f9bf4f2aed9527b565219c9a2bf5",
+          "normalizedSha256": "161b4c1e08db72558012fa94110f70ef69158a03c35d714a61732ff543065e3d",
+          "fragmentId": "fragment.serbia-registration-24-hours",
+          "contextSha256": "e119762570f905023539dff0f80c1c9b0b3908fb1a4014ad6df2068accba17fa",
+          "extracts": [
+            {
+              "extract": "ival Legal entities and individuals providing accommodation services to foreigners with financial compensation, as well as persons being visited by foreigners, have the obligation to register the foreigners' stay with the competent authority, within 24 hours of providing accommodation to the foreigner, i.e. the moment of foreigner's arrival for visiting purposes. Foreigner's stay can also be registered electronical",
+              "extractSha256": "413fabf798d66bdc8736214c7ad81e24fe44eea4804584a220abeed4ba251e32"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "8402166b74b22fc2b85c077b10aa66c3803d6c643be07fe0bfc8bbc89f31bf5b"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-russian-nationality.a5f2e262d2eb7af0",
+          "claimId": "claim.india-russian-nationality",
+          "claimRevision": 1,
+          "factSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-russia-eligibility",
+          "contextSha256": "271b604c90359096c2171281b92953c3479959cd8cfee3b659418acf82e982ff",
+          "extracts": [
+            {
+              "extract": " of External Affairs, Govt Of India Ministry of Tourism, Govt Of India Bureau of Immigration, Govt Of India Incredible India, Govt Of India Eligibility &times; If you hold valid passports from any of the following countries/regions, you are eligible for eVisa. 1. Albania 2. Andorra 3. Angola 4. Anguilla 5. Antigua & Barbuda 6. Argentina 7. Armenia 8. Aruba 9. Australia 10. Austria 11. Azerbaijan 12. Bahamas 13. Bahra",
+              "extractSha256": "f531a17bafcc5cf0112ba1a88af2db94bb28e3ef093486bdf488c9aeca36f8a5"
+            },
+            {
+              "extract": "21. Palau 122. Palestine 123. Panama 124. Papua New Guinea 125. Paraguay 126. Peru 127. Philippines 128. Poland 129. Portugal 130. Qatar 131. Republic of Korea 132. Romania 133. Russia 134. Rwanda 135. Saint Christopher and Nevis 136. Saint Lucia 137. Saint Vincent & the Grenadines 138. Samoa 139. San Marino 140. Senegal 141. Serb",
+              "extractSha256": "7bd9b5f9fdd78b825433af0c63259791e57d3f5a363d352b524c94e99e453137"
+            },
+            {
+              "extract": ". Palestine 123. Panama 124. Papua New Guinea 125. Paraguay 126. Peru 127. Philippines 128. Poland 129. Portugal 130. Qatar 131. Republic of Korea 132. Romania 133. Russia 134. Rwanda 135. Saint Christopher and Nevis 136. Saint Lucia 137. Saint Vincent & the Grenadines 138. Samoa 139. San Marino 140. Senegal 141. Serbia 142. Seyc",
+              "extractSha256": "438f43a533f94ed71c4121b9a9541ed081bea38a204619be79ce0401918efebd"
+            },
+            {
+              "extract": "123. Panama 124. Papua New Guinea 125. Paraguay 126. Peru 127. Philippines 128. Poland 129. Portugal 130. Qatar 131. Republic of Korea 132. Romania 133. Russia 134. Rwanda 135. Saint Christopher and Nevis 136. Saint Lucia 137. Saint Vincent & the Grenadines 138. Samoa 139. San Marino 140. Senegal 141. Serbia 142. Seychelles 143. ",
+              "extractSha256": "7609f6ad6f8ec80b3f5a1d3672a699f9f91685ba0f86767008c48a94d9aed526"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "d69f2f6574167c478db1fd026d22b58f27ac60f71471d2e89fd35c51d5ec212f"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-ordinary-passport.72cff1a55083d779",
+          "claimId": "claim.india-ordinary-passport",
+          "claimRevision": 1,
+          "factSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-ordinary-passport",
+          "contextSha256": "c6868b1e1e516a75b8deeae498fb30ff06f49f1f46ccc8fdfb3f65c79104229d",
+          "extracts": [
+            {
+              "extract": "spend during his/her stay in India. International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission. Not available to Diplomatic/Official Passport Holders or Laissez-passer travel document holders. Not available to individuals endorsed on Parent's/Spouse's Passport i.e. each individual should have a separate passport. Not available to International Travel Document Holders other than Passport. Close &times; General Instructions Advisory for Canadian Nationals e-Visa has 9 sub-categories viz. e-Tourist Visa(for 30 days/01 year/ 05 years), e-Business V",
+              "extractSha256": "6128eee6f540d4a4acbfb73940d18f1ef2d6bef8714afbf23326346f0344013d"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "9e2eaedc9690f5aa6214a09ff35bedbbf8189bdee1d4190ce223643f0a544b63"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-route-availability.751bedb94d3db35e",
+          "claimId": "claim.india-route-availability",
+          "claimRevision": 1,
+          "factSha256": "602d25b8083959a0e87dd532231a04398831efb0bd1cfbd70e57ccf4682c5c54",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-route-category",
+          "contextSha256": "320b36f7fe8e611d1cf0074416eceff181b841e04a092684f0ff4fe787216424",
+          "extracts": [
+            {
+              "extract": "e following categories: e-Tourist Visa e-Business Visa e-Medical Visa e-Medical Attendent Visa e-Student Visa e-Family Visa e-Transit Visa e-Miscellaneous Visa e-Tourist Visa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Ent",
+              "extractSha256": "f7a52d5474be51fb6e5b3f18631667b6e30425a58ebe870dd3743778a0a1c439"
+            },
+            {
+              "extract": "e-Tourist Visa e-Business Visa e-Medical Visa e-Medical Attendent Visa e-Student Visa e-Family Visa e-Transit Visa e-Miscellaneous Visa e-Tourist Visa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Entry, non-extendable and non-c",
+              "extractSha256": "2ebbd91ed087c8da778952940560585b2adf5f56837a818431ea3063d83fd536"
+            },
+            {
+              "extract": "Miscellaneous Visa e-Tourist Visa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Entry, non-extendable and non-convertible 2. One year e-Tourist Visa Duration: One year (365 Days) from the date of grant of ETA. Entries: Mu",
+              "extractSha256": "30632bd41fe7e3ad94929a4bcc521b21274e52bc88c2ae7975e697512df750cf"
+            },
+            {
+              "extract": "isa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Entry, non-extendable and non-convertible 2. One year e-Tourist Visa Duration: One year (365 Days) from the date of grant of ETA. Entries: Multiple 3. Five years e-Tourist Visa Duration: Five years fro",
+              "extractSha256": "b80b5453a27da38e584ddeec5cd7af388a89d1f36c6fd9eaaa6ea12a1b20d3b6"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "4884af5e522b6cebe510ecab60cb84e01110b42de1741832d227c990d7b061d2"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-stay-rule.8c82b2a1b75d3c90",
+          "claimId": "claim.india-stay-rule",
+          "claimRevision": 1,
+          "factSha256": "6735688deeca1520a477fc16c0ffa71a4a15e0421f0e6c3bc9a4534cdd126ff3",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-stay-30-first-arrival",
+          "contextSha256": "b7377d150283771522b01582701a59f034f35fc5bda247a7c2e1fbfcd49e6eba",
+          "extracts": [
+            {
+              "extract": "f your e-Visa application by visiting our website: https://indianvisaonline.gov.in/evisa/ and clicking on 'Check your Visa Status' Tab provided on the website. Q9. What is the validity of e-Visa? Ans- The validity of e-Visa would be according to the e-Visa service you have requested in the application form as - &emsp;&emsp; For e-Tourist Visa (01 year /",
+              "extractSha256": "8cc369dc602b638f628a15bae7bf353931a887374732a88af264a23cafaddbc6"
+            },
+            {
+              "extract": "days / 05 years from the date of grant of ETA with Multiple entries and Maximum stay in India during one Calender Year should not exceed 180 days. &emsp;&emsp; For e-Tourist Visa (30 days) , the validity would be 30 days from the date of your first arrival in India. Multiple entries will be granted within the e-Visa validity period stamped on your Passport. Your first &emsp;&emsp; arrival must be between the date of issue ",
+              "extractSha256": "100b6f13ab2d5360e472dda353a9145a6328a9b05a231a9d758a40b07bb525fa"
+            },
+            {
+              "extract": "lender Year should not exceed 180 days. &emsp;&emsp; For e-Tourist Visa (30 days) , the validity would be 30 days from the date of your first arrival in India. Multiple entries will be granted within the e-Visa validity period stamped on your Passport. Your first &emsp;&emsp; arrival must be between the date of issue and expiry of ETA. &emsp;&emsp; For e-Business Visa , the validity would be 365 days from the",
+              "extractSha256": "bdf3f7a402697c658eae5862d5c900674f6f8760efcf1a510d45a9a81b5e43f9"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "3c0599af03f3a174ace57c2f0c851a012abbce1d3af5adead3ac53286d9147bd"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-family-applicability.7af09a6f31365cc8",
+          "claimId": "claim.india-family-applicability",
+          "claimRevision": 1,
+          "factSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "applicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-child-applicability",
+          "contextSha256": "1c6f9934c841626f6c0193b283bb3abf8782ff9b7b0d19baa8da4b1c357ae915",
+          "extracts": [
+            {
+              "extract": "eva , Port Blair , Vallarpadam , Vishakhapatnam , Vizhinjam and Vizhinjam International). You may depart from any of the Indian Immigration Check Posts (ICPs). Q12. I am applying e-Visa for myself and my son/daughter who is a minor. Do I need to apply for a separate e-Visa for my minor child? Ans- Yes, ensure that your child's passport is valid at-least for next 06 (six) months from the date of arrival in India. Q13. I have submitted my e-Visa application and paid the processing fee. If I cancel my proposed visit to India, will the fees be refunded? Ans- e-Visa process",
+              "extractSha256": "3cd75c4e9b3af3dd40b75a6f32c016d0263e13ea939c25f2216455c16ee58849"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "f9fa32b40b8fc5b25b1ca215c0d46322599fbce0db309324024295a124ccfe2c"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-separate-application.1e09726ec27e4717",
+          "claimId": "claim.india-separate-application",
+          "claimRevision": 1,
+          "factSha256": "ba1aafcbc267360433bd962def9af19d4ebbeca1447c13ad1e1d269e5702171b",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-child-separate-application",
+          "contextSha256": "1c6f9934c841626f6c0193b283bb3abf8782ff9b7b0d19baa8da4b1c357ae915",
+          "extracts": [
+            {
+              "extract": "eva , Port Blair , Vallarpadam , Vishakhapatnam , Vizhinjam and Vizhinjam International). You may depart from any of the Indian Immigration Check Posts (ICPs). Q12. I am applying e-Visa for myself and my son/daughter who is a minor. Do I need to apply for a separate e-Visa for my minor child? Ans- Yes, ensure that your child's passport is valid at-least for next 06 (six) months from the date of arrival in India. Q13. I have submitted my e-Visa application and paid the processing fee. If I cancel my proposed visit to India, will the fees be refunded? Ans- e-Visa process",
+              "extractSha256": "3cd75c4e9b3af3dd40b75a6f32c016d0263e13ea939c25f2216455c16ee58849"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "46f9692a47b674395d6bb0efc509ca6e64b7b7ad0b7f182af7ef08f64630ad7b"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-entry-delhi.4ea0ef64f649eebb",
+          "claimId": "claim.india-entry-delhi",
+          "claimRevision": 1,
+          "factSha256": "b74860da1e4f268fea4f4afbe637b0f5b579be8806f5ecc50a27cbcb284a3cd4",
+          "applicabilitySha256": "b74ca3691814a1338346d12166df4e2d49a7d39de791288900d8b79d214fa61b",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-delhi-authorized-arrival",
+          "contextSha256": "a4f13ee845d9155cf8eb87a41f01548e3ec2fecff05affd0624b2bab3d32eeda",
+          "extracts": [
+            {
+              "extract": "hin the e-Visa validity period stamped on your Passport. Q10. Can I convert my e-Visa to any other Visa? Ans- No, e-Visa is non-extendable and non-convertible. Q11. Can I change the port of arrival/departure? Ans- You may arrive at 33 designated Airports i.e. Ahmedabad, Amritsar, Bagdogra, Bengaluru, Bhubaneshwar, Calicut, Chennai, Chandigarh, Cochin, Coimbatore, De",
+              "extractSha256": "4ec273fe73437ba858017bfce6e4e445ea27e4af9c29e32a6fdd22d2cb0f1868"
+            },
+            {
+              "extract": "t. Q10. Can I convert my e-Visa to any other Visa? Ans- No, e-Visa is non-extendable and non-convertible. Q11. Can I change the port of arrival/departure? Ans- You may arrive at 33 designated Airports i.e. Ahmedabad, Amritsar, Bagdogra, Bengaluru, Bhubaneshwar, Calicut, Chennai, Chandigarh, Cochin, Coimbatore, Delhi, Gaya, Goa(Dabolim), Goa(Mopa), Guwahati, ",
+              "extractSha256": "3a9566f61e370b1f91c848a7450cd03d99e1dbae9d04d6d78e44ac8371a1f1bd"
+            },
+            {
+              "extract": " of arrival/departure? Ans- You may arrive at 33 designated Airports i.e. Ahmedabad, Amritsar, Bagdogra, Bengaluru, Bhubaneshwar, Calicut, Chennai, Chandigarh, Cochin, Coimbatore, Delhi, Gaya, Goa(Dabolim), Goa(Mopa), Guwahati, Hyderabad, Indore, Jaipur, Kannur, Kolkata, Lucknow, Madurai, Mangalore, Mumbai, Nagpur, Port Blair, Pune, Surat, Tiruchira",
+              "extractSha256": "0508062e27972c2d2ac2d16a61e5a26dbbd03386035227276e4ace25100ed634"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "4c448cf986a1117f22a8fc47c7516a40e865d95e73bdc5730d72c29654251194"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-onward-ticket.a53d43a3e15ea564",
+          "claimId": "claim.india-onward-ticket",
+          "claimRevision": 1,
+          "factSha256": "6c0cc2166d3598f4dd90cbd9b9165f83d90e280b86b9f72036410efb801f99f2",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-onward-ticket",
+          "contextSha256": "ee57e26e44d37a9ee8fabdb56861a2aaa93c37278930fe45306f5831cd979db3",
+          "extracts": [
+            {
+              "extract": "y private persons/companies/organizations. Applicant's passport should have at least six months validity at the time of making application for grant of e-Visa. International Travellers should have return ticket or onward journey ticket,with sufficient money to spend during his/her stay in India. International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission. Not available to Diplomatic/Officia",
+              "extractSha256": "9c7cd5615983b5bab85a1a717efc620d5a4efe387923c1b717e62b404644b8d7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "3f45b30fc11d160afcb978a550950ce986525db44530b2085b83fdcd7f5894eb"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-proof-of-funds.a9ac72bd33a77cb5",
+          "claimId": "claim.india-proof-of-funds",
+          "claimRevision": 1,
+          "factSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-proof-of-funds",
+          "contextSha256": "ee57e26e44d37a9ee8fabdb56861a2aaa93c37278930fe45306f5831cd979db3",
+          "extracts": [
+            {
+              "extract": "y private persons/companies/organizations. Applicant's passport should have at least six months validity at the time of making application for grant of e-Visa. International Travellers should have return ticket or onward journey ticket,with sufficient money to spend during his/her stay in India. International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission. Not available to Diplomatic/Officia",
+              "extractSha256": "9c7cd5615983b5bab85a1a717efc620d5a4efe387923c1b717e62b404644b8d7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "6e48d4472cf7d566f714b93c5270261dd052e861a694836c3ea1c53fd648c512"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-eta-print.2ed063bbb84835ae",
+          "claimId": "claim.india-eta-print",
+          "claimRevision": 1,
+          "factSha256": "f44437bbb372df35981afa8548cc71172e9ed9c583cd56c5e8a4cd823a1b4c95",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.51bd07206ffb27b1",
+          "observedAt": "2026-09-02T15:24:51.581Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-printed-eta",
+          "contextSha256": "47adae8dda365f4250645b170ec04d13f23e5ac93331bd3a72be59b876b9288c",
+          "extracts": [
+            {
+              "extract": "r). eVisa Helpdesk E-VISA APPLICATION PROCESS 1 Apply online Upload Photo and Passport Page 2 Pay eVisa fee online Using Credit / Debit card / Payment Wallet 3 Receive ETA Online Electronic Travel Authorization/ETA Will be sent to your e-mail 4 Fly To India Print ETA and present at Immigration Check Post where eVisa will be stamped on p",
+              "extractSha256": "2b85400afc82b598f305fb8380ed8388326ed16a8c9661eafc7f8f467a5eba0d"
+            },
+            {
+              "extract": "E-VISA APPLICATION PROCESS 1 Apply online Upload Photo and Passport Page 2 Pay eVisa fee online Using Credit / Debit card / Payment Wallet 3 Receive ETA Online Electronic Travel Authorization/ETA Will be sent to your e-mail 4 Fly To India Print ETA and present at Immigration Check Post where eVisa will be stamped on passport. Advisory Government of India makes no provision of char",
+              "extractSha256": "c27dc1e05bde2d55cbbf17e23b9568359ee18f034ea6a411a20c403db23a095a"
+            },
+            {
+              "extract": "eVisa fee online Using Credit / Debit card / Payment Wallet 3 Receive ETA Online Electronic Travel Authorization/ETA Will be sent to your e-mail 4 Fly To India Print ETA and present at Immigration Check Post where eVisa will be stamped on passport. Advisory Government of India makes no provision of charging of any emergency fees or additional fees for grant of any emergency / express e-visa. Those travell",
+              "extractSha256": "43566351ab4b80448bdd796fcecf01a3dc6adb499f71097d68fb9acf795588fc"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "visible-text-v1",
+          "packetSha256": "d06a8c72a32103659af79ba213ac68c550c8a2bd2443dd358f82d670bbe8ef29"
+        }
+      ],
+      "reportSha256": "805f0b8781b27a44390cb24c5c1fc09c16f1f579c6db8d04dd47b6a8901102db"
+    },
+    {
+      "schemaVersion": 2,
+      "id": "automation.20260902173741000.893e365f917e.5fd8866454da",
+      "mode": "authoritative_automation",
+      "eligibleForActions": true,
+      "catalogReleaseId": "m4-seven-route-atlas",
+      "monitoringRunId": "monitor.20260902173741000.893e365f917e",
+      "policyVersion": "pinned-claim-continuity-v2",
+      "assessedAt": "2026-09-02T17:38:10.000Z",
+      "previousRunSha256": "805f0b8781b27a44390cb24c5c1fc09c16f1f579c6db8d04dd47b6a8901102db",
+      "summary": {
+        "total": 59,
+        "states": {
+          "current": 16,
+          "due": 0,
+          "candidate": 0,
+          "uncovered": 41,
+          "unavailable": 0,
+          "changed": 0,
+          "contradictory": 2,
+          "stale": 0
+        },
+        "exceptions": 43
+      },
+      "decisions": [
+        {
+          "id": "decision.serbia-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-russian-nationality",
+          "contractId": "contract.serbia-russian-nationality.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.29c2f31b7066abcb"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-russian-nationality.deb01fa6d0d7f122"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-ordinary-passport",
+          "contractId": "contract.serbia-ordinary-passport.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.29c2f31b7066abcb"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-ordinary-passport.deb01fa6d0d7f122"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-route-availability",
+          "contractId": "contract.serbia-route-availability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-russia-visa.29c2f31b7066abcb"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-route-availability.deb01fa6d0d7f122"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "59dc19f597da579eb8974885669427d3c13623de10835e7e20828f979d02585e",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-passport-present.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-passport-present",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-passport-validity.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-passport-validity",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "aca9cf5671ca02e151ce0089cde162ba92e98f0f5c2a5c0c3036bfa2801d4fc3",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-family-applicability",
+          "contractId": "contract.serbia-family-applicability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-general-entry.94d658e1f021a8a9"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-family-applicability.13e812b5cb7544dc"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-proof-of-funds.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-proof-of-funds",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-insurance.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-insurance",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "contradictory",
+          "publicAction": "queue_exception",
+          "handler": "precedence_resolution",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5e6aab5b0343b5627f4ae2b139b75dc1c6cf57791fe4c206295feef02d1aa813",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "catalog_records_authoritative_disagreement",
+            "conflicts_are_not_resolved_by_source_count"
+          ]
+        },
+        {
+          "id": "decision.serbia-accommodation.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-accommodation",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "a7ed32689c86733a3779fd0c4022c036dbbf77f97a7f98bf4f4b65fa2be85cb7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-onward-ticket.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-onward-ticket",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "37e7366c1d3f7a6094999010dad2e9d3a742e826092d496b912076bb1c6a102b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.serbia-parental-consent.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-parental-consent",
+          "contractId": "contract.serbia-parental-consent.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-mfa-general-entry.94d658e1f021a8a9"
+          ],
+          "independentGroups": [
+            "lineage.serbia-mfa"
+          ],
+          "expectedFactSha256": "96400bdb119ba8e158e9c029139f1d052e49776546df83cfba0ea74168d8a502",
+          "expectedApplicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-parental-consent.13e812b5cb7544dc"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.serbia-arrival-registration-host.20260902173741000.893e365f917e",
+          "claimId": "claim.serbia-arrival-registration-host",
+          "contractId": "contract.serbia-arrival-registration-host.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.serbia-welcome-registration.49d0fc220c8a7c0a"
+          ],
+          "independentGroups": [
+            "lineage.serbia-government-portal"
+          ],
+          "expectedFactSha256": "df123da3f6e10efdcc5875583582dbc232be6d5568307dc0a022c8e92d232c8e",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.serbia-arrival-registration-host.03767734ab090cbf"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.india-russian-nationality",
+          "contractId": "contract.india-russian-nationality.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-russian-nationality.98382abacc94a6de"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.india-ordinary-passport",
+          "contractId": "contract.india-ordinary-passport.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-ordinary-passport.7c319fea8c6b5d8d"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.india-route-availability",
+          "contractId": "contract.india-route-availability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "602d25b8083959a0e87dd532231a04398831efb0bd1cfbd70e57ccf4682c5c54",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-route-availability.bda68f641963276d"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.india-stay-rule",
+          "contractId": "contract.india-stay-rule.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "6735688deeca1520a477fc16c0ffa71a4a15e0421f0e6c3bc9a4534cdd126ff3",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-stay-rule.eee7bf7d3a62d1f3"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-evisa-required.20260902173741000.893e365f917e",
+          "claimId": "claim.india-evisa-required",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "763d08402143bb7e409bb2356eaf5a32a7091c4d9e169ca19d08aaefcdc1a214",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-passport-validity.20260902173741000.893e365f917e",
+          "claimId": "claim.india-passport-validity",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "2f6f7c8d0e8c1f4064473fe8395aa587da57580d492c58bbd7bc8fb2c5caea8a",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.india-family-applicability",
+          "contractId": "contract.india-family-applicability.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-family-applicability.8b817df93e2ff676"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-separate-application.20260902173741000.893e365f917e",
+          "claimId": "claim.india-separate-application",
+          "contractId": "contract.india-separate-application.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "ba1aafcbc267360433bd962def9af19d4ebbeca1447c13ad1e1d269e5702171b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-separate-application.04f647f16abbfa55"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-application-window.20260902173741000.893e365f917e",
+          "claimId": "claim.india-application-window",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "c2b9249eb6bf956940ed90ea2b0ef7a7de133c7df54d761a1ad46e36430cbe2a",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-entry-delhi.20260902173741000.893e365f917e",
+          "claimId": "claim.india-entry-delhi",
+          "contractId": "contract.india-entry-delhi.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "b74860da1e4f268fea4f4afbe637b0f5b579be8806f5ecc50a27cbcb284a3cd4",
+          "expectedApplicabilitySha256": "b74ca3691814a1338346d12166df4e2d49a7d39de791288900d8b79d214fa61b",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-entry-delhi.3c5db604f414aaf5"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-onward-ticket.20260902173741000.893e365f917e",
+          "claimId": "claim.india-onward-ticket",
+          "contractId": "contract.india-onward-ticket.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "6c0cc2166d3598f4dd90cbd9b9165f83d90e280b86b9f72036410efb801f99f2",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-onward-ticket.e806aca3bf392be7"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-proof-of-funds.20260902173741000.893e365f917e",
+          "claimId": "claim.india-proof-of-funds",
+          "contractId": "contract.india-proof-of-funds.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-proof-of-funds.5846b008328f622d"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-tourist-purpose.20260902173741000.893e365f917e",
+          "claimId": "claim.india-tourist-purpose",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9ef11e83e08c4c16b5021aa67b4296458b337adf4fd2572e9f6896eda6fcd1d3",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.india-eta-print.20260902173741000.893e365f917e",
+          "claimId": "claim.india-eta-print",
+          "contractId": "contract.india-eta-print.v1",
+          "contractVersion": 1,
+          "basis": "pinned_semantic_baseline",
+          "state": "current",
+          "publicAction": "no_change",
+          "handler": "scheduled_monitor",
+          "observationIds": [
+            "observation.india-central-evisa.ceeb765102c78de7"
+          ],
+          "independentGroups": [
+            "lineage.india-boi-evisa"
+          ],
+          "expectedFactSha256": "f44437bbb372df35981afa8548cc71172e9ed9c583cd56c5e8a4cd823a1b4c95",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": true,
+          "mayRenewFreshness": true,
+          "proofPacketIds": [
+            "proof.india-eta-print.8ff5f30020489fb3"
+          ],
+          "reasonCodes": [
+            "pinned_fact_applicability_and_context_unchanged"
+          ]
+        },
+        {
+          "id": "decision.india-fee-conflict.20260902173741000.893e365f917e",
+          "claimId": "claim.india-fee-conflict",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "contradictory",
+          "publicAction": "queue_exception",
+          "handler": "precedence_resolution",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "77bdac085aa1cb41b5cbdb89c3f16205b03a631e13df91d1bbd67dd412171767",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "catalog_records_authoritative_disagreement",
+            "conflicts_are_not_resolved_by_source_count"
+          ]
+        },
+        {
+          "id": "decision.turkiye-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.turkiye-russian-nationality",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.turkiye-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.turkiye-ordinary-passport",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.turkiye-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.turkiye-route-availability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.turkiye-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.turkiye-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "28defdf6b41c778357d928e05cc1c95ac6f8299b82950a1462709553664507da",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.turkiye-passport-requirement.20260902173741000.893e365f917e",
+          "claimId": "claim.turkiye-passport-requirement",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.turkiye-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.turkiye-family-applicability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.armenia-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.armenia-russian-nationality",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.armenia-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.armenia-ordinary-passport",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.armenia-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.armenia-route-availability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.armenia-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.armenia-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "b53532fbff89cafb4179c90cf727f44abfd414a0e49f1a754ef7dde1a7250958",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.armenia-passport-requirement.20260902173741000.893e365f917e",
+          "claimId": "claim.armenia-passport-requirement",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.armenia-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.armenia-family-applicability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.kazakhstan-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.kazakhstan-russian-nationality",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.kazakhstan-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.kazakhstan-ordinary-passport",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.kazakhstan-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.kazakhstan-route-availability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.kazakhstan-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.kazakhstan-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9186c10a2610bad3f473aa8028e0f5d58edcb4aa89cb9ba7fc3e9aee6011de5c",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.kazakhstan-passport-requirement.20260902173741000.893e365f917e",
+          "claimId": "claim.kazakhstan-passport-requirement",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.kazakhstan-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.kazakhstan-family-applicability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-russian-nationality",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-ordinary-passport",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-route-availability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "2d4830db31a7f32b3d525e3404e3fd41a6fac6c1417b7a452d04c1ce0c71313d",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-passport-requirement.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-passport-requirement",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-family-applicability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.georgia-tourist-insurance.20260902173741000.893e365f917e",
+          "claimId": "claim.georgia-tourist-insurance",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5e6aab5b0343b5627f4ae2b139b75dc1c6cf57791fe4c206295feef02d1aa813",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.uae-russian-nationality.20260902173741000.893e365f917e",
+          "claimId": "claim.uae-russian-nationality",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.uae-ordinary-passport.20260902173741000.893e365f917e",
+          "claimId": "claim.uae-ordinary-passport",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.uae-route-availability.20260902173741000.893e365f917e",
+          "claimId": "claim.uae-route-availability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.uae-stay-rule.20260902173741000.893e365f917e",
+          "claimId": "claim.uae-stay-rule",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "815b3db97398b60500348e61c83fc381e262783daf9f3de1dde09f3d3abedc53",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.uae-passport-requirement.20260902173741000.893e365f917e",
+          "claimId": "claim.uae-passport-requirement",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "2f6f7c8d0e8c1f4064473fe8395aa587da57580d492c58bbd7bc8fb2c5caea8a",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        },
+        {
+          "id": "decision.uae-family-applicability.20260902173741000.893e365f917e",
+          "claimId": "claim.uae-family-applicability",
+          "contractId": null,
+          "contractVersion": null,
+          "basis": null,
+          "state": "uncovered",
+          "publicAction": "queue_exception",
+          "handler": "contract_authoring",
+          "observationIds": [],
+          "independentGroups": [],
+          "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "mayAutoPublish": false,
+          "mayRenewFreshness": false,
+          "proofPacketIds": [],
+          "reasonCodes": [
+            "no_executable_claim_contract"
+          ]
+        }
+      ],
+      "proofPackets": [
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-russian-nationality.deb01fa6d0d7f122",
+          "claimId": "claim.serbia-russian-nationality",
+          "claimRevision": 1,
+          "factSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "observationId": "observation.serbia-mfa-russia-visa.29c2f31b7066abcb",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "rawSha256": "c513802911957fa91e95c6781cf7b0ec4fe1d9c89961194459dfbd45fefb3dd0",
+          "normalizedSha256": "b03a1761882746af8beaf76b654f181237d708aee046d09880bde0eeedc3e998",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "contextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364",
+          "extracts": [
+            {
+              "extract": "s and Travel Advice Visa regime for entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of S",
+              "extractSha256": "7871ceb0f7ffe5937b4ae12081abb63d6230db4dfab838e363f65eee092bedd0"
+            },
+            {
+              "extract": " entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of Serbia - All rights reserved",
+              "extractSha256": "00ed2f749fe11d3461cb2fc7e00b981a5906fcb3c27c98c56400b65222d05797"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "9673e628d2f8f5e13f86e0bf5711c7e500b313d50d5df217f0f635bb298c65c3"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-ordinary-passport.deb01fa6d0d7f122",
+          "claimId": "claim.serbia-ordinary-passport",
+          "claimRevision": 1,
+          "factSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "observationId": "observation.serbia-mfa-russia-visa.29c2f31b7066abcb",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "rawSha256": "c513802911957fa91e95c6781cf7b0ec4fe1d9c89961194459dfbd45fefb3dd0",
+          "normalizedSha256": "b03a1761882746af8beaf76b654f181237d708aee046d09880bde0eeedc3e998",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "contextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364",
+          "extracts": [
+            {
+              "extract": "s and Travel Advice Visa regime for entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of S",
+              "extractSha256": "7871ceb0f7ffe5937b4ae12081abb63d6230db4dfab838e363f65eee092bedd0"
+            },
+            {
+              "extract": " entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of Serbia - All rights reserved",
+              "extractSha256": "00ed2f749fe11d3461cb2fc7e00b981a5906fcb3c27c98c56400b65222d05797"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "b700c214bdeb8a9613c8b8ce729e315efd7e4abd6329ac19f3b9c6e44ec288fa"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-route-availability.deb01fa6d0d7f122",
+          "claimId": "claim.serbia-route-availability",
+          "claimRevision": 1,
+          "factSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "observationId": "observation.serbia-mfa-russia-visa.29c2f31b7066abcb",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+          "rawSha256": "c513802911957fa91e95c6781cf7b0ec4fe1d9c89961194459dfbd45fefb3dd0",
+          "normalizedSha256": "b03a1761882746af8beaf76b654f181237d708aee046d09880bde0eeedc3e998",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "contextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364",
+          "extracts": [
+            {
+              "extract": "s and Travel Advice Visa regime for entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of S",
+              "extractSha256": "7871ceb0f7ffe5937b4ae12081abb63d6230db4dfab838e363f65eee092bedd0"
+            },
+            {
+              "extract": " entering Serbia VISA REGIME For holders of diplomatic and official passports: No visas required for visits of up to 90 days For holders of ordinary passports: No visas required for visits of up to 30 days Подножје Sitemap Contact YouTube X (Twitter) RSS Instagram © The Ministry of Foreign Affairs of the Republic of Serbia - All rights reserved",
+              "extractSha256": "00ed2f749fe11d3461cb2fc7e00b981a5906fcb3c27c98c56400b65222d05797"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "05dd021fd9e037dfa2f63f727853d9b716f7c883e082f56f6c30cb762759601c"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-family-applicability.13e812b5cb7544dc",
+          "claimId": "claim.serbia-family-applicability",
+          "claimRevision": 1,
+          "factSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-mfa-general-entry",
+          "observationId": "observation.serbia-mfa-general-entry.94d658e1f021a8a9",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "rawSha256": "52a228d95d345c91c7d3a59bc81c6e44e52aefaf02c72d695be2bccf1ddce71a",
+          "normalizedSha256": "0c54850cdd67f5330fca601cc2065808d79f04093894033870263ef301b27920",
+          "fragmentId": "fragment.serbia-entry-family-and-funds",
+          "contextSha256": "cc64dd3b667e2c8345c2285686b7718839939cc1fd3ce1a9e85b95af56de7d4c",
+          "extracts": [
+            {
+              "extract": "Отвори претрагу Затвори претрагу Отвори навигацију Breadcrumb Home Citizens / Foreigners Travel to Serbia General Entry Requirements General Entry Requirements A valid travel document, or a valid identity card if so provided for under a bilateral agreement or by a Decision of the Government of the Republic of Serbia.; Valid visa in the passp",
+              "extractSha256": "d6c89d48c67cd4dc5cc5f6aadcf24c65d4f2241c9bf1884357753191fa5c9d98"
+            },
+            {
+              "extract": "ecision of the Government of the Republic of Serbia.; Valid visa in the passport, if a Serbian visa is required for passport holders of the respective country; Proof of sufficient funds for staying in Serbia. Sufficient funds are considered to be 50 Euros per day of stay, proved by possession of the appropriate amount of cash, bank statement; Certificate of vaccina",
+              "extractSha256": "5ef84f20a0ff636c07f32d5dd1c253a00552d79f71e3b2dfa3edcae04c4ad025"
+            },
+            {
+              "extract": "hat he/she has not contracted a contagious disease despite coming from an area affected by a pandemic, as defined by the information of the Ministry of Health. For minors, foreign citizens, parental consent is not required to enter the Republic of Serbia. In order to cross the state border, a minor, a citizen of the Republic of Serbia up to the age of 16, when traveling alone or accompanied by another person who",
+              "extractSha256": "d597e3222835ceb9a91a153a3bd9afd84d591cc6d76c54ead068a27cd4617fa7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "dd52d66f5b2dd8cd4f23d0d21c611d6bf2dbe3dc22a7239d437196ede0580974"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-parental-consent.13e812b5cb7544dc",
+          "claimId": "claim.serbia-parental-consent",
+          "claimRevision": 1,
+          "factSha256": "96400bdb119ba8e158e9c029139f1d052e49776546df83cfba0ea74168d8a502",
+          "applicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "sourceId": "source.serbia-mfa-general-entry",
+          "observationId": "observation.serbia-mfa-general-entry.94d658e1f021a8a9",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "finalUrl": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+          "rawSha256": "52a228d95d345c91c7d3a59bc81c6e44e52aefaf02c72d695be2bccf1ddce71a",
+          "normalizedSha256": "0c54850cdd67f5330fca601cc2065808d79f04093894033870263ef301b27920",
+          "fragmentId": "fragment.serbia-entry-family-and-funds",
+          "contextSha256": "cc64dd3b667e2c8345c2285686b7718839939cc1fd3ce1a9e85b95af56de7d4c",
+          "extracts": [
+            {
+              "extract": "Отвори претрагу Затвори претрагу Отвори навигацију Breadcrumb Home Citizens / Foreigners Travel to Serbia General Entry Requirements General Entry Requirements A valid travel document, or a valid identity card if so provided for under a bilateral agreement or by a Decision of the Government of the Republic of Serbia.; Valid visa in the passp",
+              "extractSha256": "d6c89d48c67cd4dc5cc5f6aadcf24c65d4f2241c9bf1884357753191fa5c9d98"
+            },
+            {
+              "extract": "ecision of the Government of the Republic of Serbia.; Valid visa in the passport, if a Serbian visa is required for passport holders of the respective country; Proof of sufficient funds for staying in Serbia. Sufficient funds are considered to be 50 Euros per day of stay, proved by possession of the appropriate amount of cash, bank statement; Certificate of vaccina",
+              "extractSha256": "5ef84f20a0ff636c07f32d5dd1c253a00552d79f71e3b2dfa3edcae04c4ad025"
+            },
+            {
+              "extract": "hat he/she has not contracted a contagious disease despite coming from an area affected by a pandemic, as defined by the information of the Ministry of Health. For minors, foreign citizens, parental consent is not required to enter the Republic of Serbia. In order to cross the state border, a minor, a citizen of the Republic of Serbia up to the age of 16, when traveling alone or accompanied by another person who",
+              "extractSha256": "d597e3222835ceb9a91a153a3bd9afd84d591cc6d76c54ead068a27cd4617fa7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "38cb8966e8a53a230925679cba432ea809d0b74558cf45571b1fe4b106129f58"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.serbia-arrival-registration-host.03767734ab090cbf",
+          "claimId": "claim.serbia-arrival-registration-host",
+          "claimRevision": 1,
+          "factSha256": "df123da3f6e10efdcc5875583582dbc232be6d5568307dc0a022c8e92d232c8e",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.serbia-welcome-registration",
+          "observationId": "observation.serbia-welcome-registration.49d0fc220c8a7c0a",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://welcometoserbia.gov.rs/registration-upon-arrival",
+          "finalUrl": "https://welcometoserbia.gov.rs/registration-upon-arrival",
+          "rawSha256": "4f43e365739ceafc2f3e97f094ac6a32ce02f9bf4f2aed9527b565219c9a2bf5",
+          "normalizedSha256": "161b4c1e08db72558012fa94110f70ef69158a03c35d714a61732ff543065e3d",
+          "fragmentId": "fragment.serbia-registration-24-hours",
+          "contextSha256": "e119762570f905023539dff0f80c1c9b0b3908fb1a4014ad6df2068accba17fa",
+          "extracts": [
+            {
+              "extract": "ival Legal entities and individuals providing accommodation services to foreigners with financial compensation, as well as persons being visited by foreigners, have the obligation to register the foreigners' stay with the competent authority, within 24 hours of providing accommodation to the foreigner, i.e. the moment of foreigner's arrival for visiting purposes. Foreigner's stay can also be registered electronical",
+              "extractSha256": "413fabf798d66bdc8736214c7ad81e24fe44eea4804584a220abeed4ba251e32"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "43a59c9e397f4cb70f97a2742e1ef918895d16a8e55060777c66e4ba65488353"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-russian-nationality.98382abacc94a6de",
+          "claimId": "claim.india-russian-nationality",
+          "claimRevision": 1,
+          "factSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-russia-eligibility",
+          "contextSha256": "271b604c90359096c2171281b92953c3479959cd8cfee3b659418acf82e982ff",
+          "extracts": [
+            {
+              "extract": " of External Affairs, Govt Of India Ministry of Tourism, Govt Of India Bureau of Immigration, Govt Of India Incredible India, Govt Of India Eligibility &times; If you hold valid passports from any of the following countries/regions, you are eligible for eVisa. 1. Albania 2. Andorra 3. Angola 4. Anguilla 5. Antigua & Barbuda 6. Argentina 7. Armenia 8. Aruba 9. Australia 10. Austria 11. Azerbaijan 12. Bahamas 13. Bahra",
+              "extractSha256": "f531a17bafcc5cf0112ba1a88af2db94bb28e3ef093486bdf488c9aeca36f8a5"
+            },
+            {
+              "extract": "21. Palau 122. Palestine 123. Panama 124. Papua New Guinea 125. Paraguay 126. Peru 127. Philippines 128. Poland 129. Portugal 130. Qatar 131. Republic of Korea 132. Romania 133. Russia 134. Rwanda 135. Saint Christopher and Nevis 136. Saint Lucia 137. Saint Vincent & the Grenadines 138. Samoa 139. San Marino 140. Senegal 141. Serb",
+              "extractSha256": "7bd9b5f9fdd78b825433af0c63259791e57d3f5a363d352b524c94e99e453137"
+            },
+            {
+              "extract": ". Palestine 123. Panama 124. Papua New Guinea 125. Paraguay 126. Peru 127. Philippines 128. Poland 129. Portugal 130. Qatar 131. Republic of Korea 132. Romania 133. Russia 134. Rwanda 135. Saint Christopher and Nevis 136. Saint Lucia 137. Saint Vincent & the Grenadines 138. Samoa 139. San Marino 140. Senegal 141. Serbia 142. Seyc",
+              "extractSha256": "438f43a533f94ed71c4121b9a9541ed081bea38a204619be79ce0401918efebd"
+            },
+            {
+              "extract": "123. Panama 124. Papua New Guinea 125. Paraguay 126. Peru 127. Philippines 128. Poland 129. Portugal 130. Qatar 131. Republic of Korea 132. Romania 133. Russia 134. Rwanda 135. Saint Christopher and Nevis 136. Saint Lucia 137. Saint Vincent & the Grenadines 138. Samoa 139. San Marino 140. Senegal 141. Serbia 142. Seychelles 143. ",
+              "extractSha256": "7609f6ad6f8ec80b3f5a1d3672a699f9f91685ba0f86767008c48a94d9aed526"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "4b67a6962fbacd17748ff24a1d578f3cbeb2ccc9a1ca9663d9fb7a68658aa316"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-ordinary-passport.7c319fea8c6b5d8d",
+          "claimId": "claim.india-ordinary-passport",
+          "claimRevision": 1,
+          "factSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-ordinary-passport",
+          "contextSha256": "c6868b1e1e516a75b8deeae498fb30ff06f49f1f46ccc8fdfb3f65c79104229d",
+          "extracts": [
+            {
+              "extract": "spend during his/her stay in India. International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission. Not available to Diplomatic/Official Passport Holders or Laissez-passer travel document holders. Not available to individuals endorsed on Parent's/Spouse's Passport i.e. each individual should have a separate passport. Not available to International Travel Document Holders other than Passport. Close &times; General Instructions Advisory for Canadian Nationals e-Visa has 9 sub-categories viz. e-Tourist Visa(for 30 days/01 year/ 05 years), e-Business V",
+              "extractSha256": "6128eee6f540d4a4acbfb73940d18f1ef2d6bef8714afbf23326346f0344013d"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "11d272dbe26bccf96f08a9b6f185a7c99b91707715c47b46d4d3b83a17859530"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-route-availability.bda68f641963276d",
+          "claimId": "claim.india-route-availability",
+          "claimRevision": 1,
+          "factSha256": "602d25b8083959a0e87dd532231a04398831efb0bd1cfbd70e57ccf4682c5c54",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-route-category",
+          "contextSha256": "320b36f7fe8e611d1cf0074416eceff181b841e04a092684f0ff4fe787216424",
+          "extracts": [
+            {
+              "extract": "e following categories: e-Tourist Visa e-Business Visa e-Medical Visa e-Medical Attendent Visa e-Student Visa e-Family Visa e-Transit Visa e-Miscellaneous Visa e-Tourist Visa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Ent",
+              "extractSha256": "f7a52d5474be51fb6e5b3f18631667b6e30425a58ebe870dd3743778a0a1c439"
+            },
+            {
+              "extract": "e-Tourist Visa e-Business Visa e-Medical Visa e-Medical Attendent Visa e-Student Visa e-Family Visa e-Transit Visa e-Miscellaneous Visa e-Tourist Visa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Entry, non-extendable and non-c",
+              "extractSha256": "2ebbd91ed087c8da778952940560585b2adf5f56837a818431ea3063d83fd536"
+            },
+            {
+              "extract": "Miscellaneous Visa e-Tourist Visa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Entry, non-extendable and non-convertible 2. One year e-Tourist Visa Duration: One year (365 Days) from the date of grant of ETA. Entries: Mu",
+              "extractSha256": "30632bd41fe7e3ad94929a4bcc521b21274e52bc88c2ae7975e697512df750cf"
+            },
+            {
+              "extract": "isa (e-T1 V) 1. One Month e-Tourist Visa For group tourist from oct 15 2021 and for individual tourist from nov 15 2021 Duration: One Month (30 Days). Entries: Multiple Entry, non-extendable and non-convertible 2. One year e-Tourist Visa Duration: One year (365 Days) from the date of grant of ETA. Entries: Multiple 3. Five years e-Tourist Visa Duration: Five years fro",
+              "extractSha256": "b80b5453a27da38e584ddeec5cd7af388a89d1f36c6fd9eaaa6ea12a1b20d3b6"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "5c8ff2f206e085334046c4bde771e4b8c99ca20b69728fa8e37f629b2c3984bd"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-stay-rule.eee7bf7d3a62d1f3",
+          "claimId": "claim.india-stay-rule",
+          "claimRevision": 1,
+          "factSha256": "6735688deeca1520a477fc16c0ffa71a4a15e0421f0e6c3bc9a4534cdd126ff3",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-stay-30-first-arrival",
+          "contextSha256": "b7377d150283771522b01582701a59f034f35fc5bda247a7c2e1fbfcd49e6eba",
+          "extracts": [
+            {
+              "extract": "f your e-Visa application by visiting our website: https://indianvisaonline.gov.in/evisa/ and clicking on 'Check your Visa Status' Tab provided on the website. Q9. What is the validity of e-Visa? Ans- The validity of e-Visa would be according to the e-Visa service you have requested in the application form as - &emsp;&emsp; For e-Tourist Visa (01 year /",
+              "extractSha256": "8cc369dc602b638f628a15bae7bf353931a887374732a88af264a23cafaddbc6"
+            },
+            {
+              "extract": "days / 05 years from the date of grant of ETA with Multiple entries and Maximum stay in India during one Calender Year should not exceed 180 days. &emsp;&emsp; For e-Tourist Visa (30 days) , the validity would be 30 days from the date of your first arrival in India. Multiple entries will be granted within the e-Visa validity period stamped on your Passport. Your first &emsp;&emsp; arrival must be between the date of issue ",
+              "extractSha256": "100b6f13ab2d5360e472dda353a9145a6328a9b05a231a9d758a40b07bb525fa"
+            },
+            {
+              "extract": "lender Year should not exceed 180 days. &emsp;&emsp; For e-Tourist Visa (30 days) , the validity would be 30 days from the date of your first arrival in India. Multiple entries will be granted within the e-Visa validity period stamped on your Passport. Your first &emsp;&emsp; arrival must be between the date of issue and expiry of ETA. &emsp;&emsp; For e-Business Visa , the validity would be 365 days from the",
+              "extractSha256": "bdf3f7a402697c658eae5862d5c900674f6f8760efcf1a510d45a9a81b5e43f9"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "a5b22ee3725b2ab0e8c7b21b669c9e248948556779fdfa0174d90af31d5f31e9"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-family-applicability.8b817df93e2ff676",
+          "claimId": "claim.india-family-applicability",
+          "claimRevision": 1,
+          "factSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+          "applicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-child-applicability",
+          "contextSha256": "1c6f9934c841626f6c0193b283bb3abf8782ff9b7b0d19baa8da4b1c357ae915",
+          "extracts": [
+            {
+              "extract": "eva , Port Blair , Vallarpadam , Vishakhapatnam , Vizhinjam and Vizhinjam International). You may depart from any of the Indian Immigration Check Posts (ICPs). Q12. I am applying e-Visa for myself and my son/daughter who is a minor. Do I need to apply for a separate e-Visa for my minor child? Ans- Yes, ensure that your child's passport is valid at-least for next 06 (six) months from the date of arrival in India. Q13. I have submitted my e-Visa application and paid the processing fee. If I cancel my proposed visit to India, will the fees be refunded? Ans- e-Visa process",
+              "extractSha256": "3cd75c4e9b3af3dd40b75a6f32c016d0263e13ea939c25f2216455c16ee58849"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "49899a16034efdee1947f3d450a5939d6bfb9042b17547df7ad82562b8d74cf9"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-separate-application.04f647f16abbfa55",
+          "claimId": "claim.india-separate-application",
+          "claimRevision": 1,
+          "factSha256": "ba1aafcbc267360433bd962def9af19d4ebbeca1447c13ad1e1d269e5702171b",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-child-separate-application",
+          "contextSha256": "1c6f9934c841626f6c0193b283bb3abf8782ff9b7b0d19baa8da4b1c357ae915",
+          "extracts": [
+            {
+              "extract": "eva , Port Blair , Vallarpadam , Vishakhapatnam , Vizhinjam and Vizhinjam International). You may depart from any of the Indian Immigration Check Posts (ICPs). Q12. I am applying e-Visa for myself and my son/daughter who is a minor. Do I need to apply for a separate e-Visa for my minor child? Ans- Yes, ensure that your child's passport is valid at-least for next 06 (six) months from the date of arrival in India. Q13. I have submitted my e-Visa application and paid the processing fee. If I cancel my proposed visit to India, will the fees be refunded? Ans- e-Visa process",
+              "extractSha256": "3cd75c4e9b3af3dd40b75a6f32c016d0263e13ea939c25f2216455c16ee58849"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "3118f7c4efebb273cfeb35d1f9862e5fe575daa55d808b6b29b7aae1eefb2bf6"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-entry-delhi.3c5db604f414aaf5",
+          "claimId": "claim.india-entry-delhi",
+          "claimRevision": 1,
+          "factSha256": "b74860da1e4f268fea4f4afbe637b0f5b579be8806f5ecc50a27cbcb284a3cd4",
+          "applicabilitySha256": "b74ca3691814a1338346d12166df4e2d49a7d39de791288900d8b79d214fa61b",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-delhi-authorized-arrival",
+          "contextSha256": "a4f13ee845d9155cf8eb87a41f01548e3ec2fecff05affd0624b2bab3d32eeda",
+          "extracts": [
+            {
+              "extract": "hin the e-Visa validity period stamped on your Passport. Q10. Can I convert my e-Visa to any other Visa? Ans- No, e-Visa is non-extendable and non-convertible. Q11. Can I change the port of arrival/departure? Ans- You may arrive at 33 designated Airports i.e. Ahmedabad, Amritsar, Bagdogra, Bengaluru, Bhubaneshwar, Calicut, Chennai, Chandigarh, Cochin, Coimbatore, De",
+              "extractSha256": "4ec273fe73437ba858017bfce6e4e445ea27e4af9c29e32a6fdd22d2cb0f1868"
+            },
+            {
+              "extract": "t. Q10. Can I convert my e-Visa to any other Visa? Ans- No, e-Visa is non-extendable and non-convertible. Q11. Can I change the port of arrival/departure? Ans- You may arrive at 33 designated Airports i.e. Ahmedabad, Amritsar, Bagdogra, Bengaluru, Bhubaneshwar, Calicut, Chennai, Chandigarh, Cochin, Coimbatore, Delhi, Gaya, Goa(Dabolim), Goa(Mopa), Guwahati, ",
+              "extractSha256": "3a9566f61e370b1f91c848a7450cd03d99e1dbae9d04d6d78e44ac8371a1f1bd"
+            },
+            {
+              "extract": " of arrival/departure? Ans- You may arrive at 33 designated Airports i.e. Ahmedabad, Amritsar, Bagdogra, Bengaluru, Bhubaneshwar, Calicut, Chennai, Chandigarh, Cochin, Coimbatore, Delhi, Gaya, Goa(Dabolim), Goa(Mopa), Guwahati, Hyderabad, Indore, Jaipur, Kannur, Kolkata, Lucknow, Madurai, Mangalore, Mumbai, Nagpur, Port Blair, Pune, Surat, Tiruchira",
+              "extractSha256": "0508062e27972c2d2ac2d16a61e5a26dbbd03386035227276e4ace25100ed634"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "c257df3ea387a6ce4625a7ba9a0352e1d78bb89dc2d1eaa1dded3460b7ca97b4"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-onward-ticket.e806aca3bf392be7",
+          "claimId": "claim.india-onward-ticket",
+          "claimRevision": 1,
+          "factSha256": "6c0cc2166d3598f4dd90cbd9b9165f83d90e280b86b9f72036410efb801f99f2",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-onward-ticket",
+          "contextSha256": "ee57e26e44d37a9ee8fabdb56861a2aaa93c37278930fe45306f5831cd979db3",
+          "extracts": [
+            {
+              "extract": "y private persons/companies/organizations. Applicant's passport should have at least six months validity at the time of making application for grant of e-Visa. International Travellers should have return ticket or onward journey ticket,with sufficient money to spend during his/her stay in India. International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission. Not available to Diplomatic/Officia",
+              "extractSha256": "9c7cd5615983b5bab85a1a717efc620d5a4efe387923c1b717e62b404644b8d7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "b6e60a542d7e991464c43cb57d6edac9c9ddd6cece4d22ac349c68ec899b5665"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-proof-of-funds.5846b008328f622d",
+          "claimId": "claim.india-proof-of-funds",
+          "claimRevision": 1,
+          "factSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-proof-of-funds",
+          "contextSha256": "ee57e26e44d37a9ee8fabdb56861a2aaa93c37278930fe45306f5831cd979db3",
+          "extracts": [
+            {
+              "extract": "y private persons/companies/organizations. Applicant's passport should have at least six months validity at the time of making application for grant of e-Visa. International Travellers should have return ticket or onward journey ticket,with sufficient money to spend during his/her stay in India. International Travellers having Pakistani Passport or Pakistani origin may please apply for regular Visa at Indian Mission. Not available to Diplomatic/Officia",
+              "extractSha256": "9c7cd5615983b5bab85a1a717efc620d5a4efe387923c1b717e62b404644b8d7"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "5e956c98b30ad389dc0d9495cd98813e9726673cafb4a1fc5a97a9515d216eaf"
+        },
+        {
+          "schemaVersion": 1,
+          "id": "proof.india-eta-print.8ff5f30020489fb3",
+          "claimId": "claim.india-eta-print",
+          "claimRevision": 1,
+          "factSha256": "f44437bbb372df35981afa8548cc71172e9ed9c583cd56c5e8a4cd823a1b4c95",
+          "applicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+          "sourceId": "source.india-central-evisa",
+          "observationId": "observation.india-central-evisa.ceeb765102c78de7",
+          "observedAt": "2026-09-02T17:37:41.000Z",
+          "requestedUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "finalUrl": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+          "rawSha256": "34b9f8f89e52c81df13dd6735baa3bf801d8eba01db3fa476a08b00a31d9cbb2",
+          "normalizedSha256": "591dda5bf8b4fe18910a45787dbf8f457fcac10f2d05522dac9e72f5c7801b77",
+          "fragmentId": "fragment.india-printed-eta",
+          "contextSha256": "47adae8dda365f4250645b170ec04d13f23e5ac93331bd3a72be59b876b9288c",
+          "extracts": [
+            {
+              "extract": "r). eVisa Helpdesk E-VISA APPLICATION PROCESS 1 Apply online Upload Photo and Passport Page 2 Pay eVisa fee online Using Credit / Debit card / Payment Wallet 3 Receive ETA Online Electronic Travel Authorization/ETA Will be sent to your e-mail 4 Fly To India Print ETA and present at Immigration Check Post where eVisa will be stamped on p",
+              "extractSha256": "2b85400afc82b598f305fb8380ed8388326ed16a8c9661eafc7f8f467a5eba0d"
+            },
+            {
+              "extract": "E-VISA APPLICATION PROCESS 1 Apply online Upload Photo and Passport Page 2 Pay eVisa fee online Using Credit / Debit card / Payment Wallet 3 Receive ETA Online Electronic Travel Authorization/ETA Will be sent to your e-mail 4 Fly To India Print ETA and present at Immigration Check Post where eVisa will be stamped on passport. Advisory Government of India makes no provision of char",
+              "extractSha256": "c27dc1e05bde2d55cbbf17e23b9568359ee18f034ea6a411a20c403db23a095a"
+            },
+            {
+              "extract": "eVisa fee online Using Credit / Debit card / Payment Wallet 3 Receive ETA Online Electronic Travel Authorization/ETA Will be sent to your e-mail 4 Fly To India Print ETA and present at Immigration Check Post where eVisa will be stamped on passport. Advisory Government of India makes no provision of charging of any emergency fees or additional fees for grant of any emergency / express e-visa. Those travell",
+              "extractSha256": "43566351ab4b80448bdd796fcecf01a3dc6adb499f71097d68fb9acf795588fc"
+            }
+          ],
+          "extractorId": "deterministic-fragment-locator",
+          "extractorVersion": "fragment-locator-v1",
+          "packetSha256": "21bc7926ef51ad97676f92bdcc381f0fba94f6a289543f0e084cf36cb2648f70"
+        }
+      ],
+      "reportSha256": "a032eddaab29cc44d5d9e1d5ee5685d1dbd54f3c67ca847e322726b15d2f1201"
+    }
+  ]
+}

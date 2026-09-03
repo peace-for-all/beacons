@@ -1,0 +1,9 @@
+import { ExternalLink } from "lucide-react";
+import type { ClaimView } from "@/lib/domain/catalog-view";
+import type { Lang, Messages } from "@/lib/i18n/messages";
+import { applicability, evidenceStatus } from "./status";
+
+function formatDate(value: string, lang: Lang) { return value ? new Intl.DateTimeFormat(lang === "ru" ? "ru-RU" : "en-GB", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(value)) : "—"; }
+export function EvidencePanel({ claims, lang, t }: { claims: ClaimView[]; lang: Lang; t: Messages }) {
+  return <section className="evidence-panel" aria-labelledby="evidence-title"><h3 id="evidence-title">{t.evidencePacket}</h3>{claims.map((claim) => <details className="claim" key={claim.id} open={claim.criticality === "gate"}><summary><span className={`review-dot ${claim.evidenceState}`} /><span><strong>{claim.summary[lang]}</strong><small>{evidenceStatus(claim, t)} · {claim.criticality === "gate" ? t.gateClaim : claim.criticality === "explanation" ? t.explanationClaim : t.contextClaim}</small></span></summary><div className="claim-body"><dl><div><dt>{t.appliesTo}</dt><dd>{applicability(claim, t)}</dd></div><div><dt>{t.observed}</dt><dd>{formatDate(claim.observedAt, lang)}</dd></div><div><dt>{t.nextCheck}</dt><dd>{formatDate(claim.nextCheckAt, lang)}</dd></div><div><dt>{t.structuredFact}</dt><dd><code>{JSON.stringify(claim.fact)}</code></dd></div></dl>{claim.limitations.length > 0 && <div className="limitations"><h4>{t.limitations}</h4><ul>{claim.limitations.map((item) => <li key={item.en}>{item[lang]}</li>)}</ul></div>}<div className="sources"><h4>{t.officialSources}</h4>{claim.sources.map((source) => <a key={source.id} href={source.url}><span>{source.publisher}<small>{source.originalTitle}</small><small className="source-url">{source.url}</small></span><ExternalLink size={14} aria-hidden="true" /></a>)}</div></div></details>)}</section>;
+}

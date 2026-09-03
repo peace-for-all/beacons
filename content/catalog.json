@@ -1,0 +1,3219 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "m4-seven-route-atlas",
+  "sources": [
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-mfa-russia-visa",
+      "tier": "primary",
+      "authority": "foreign_ministry",
+      "publisher": "Ministry of Foreign Affairs of the Republic of Serbia",
+      "publisherEntityId": "authority.serbia-mfa",
+      "publicationChainId": "publication.serbia-mfa-visa-regime",
+      "originEntityId": "authority.serbia-mfa",
+      "independenceGroupId": "lineage.serbia-mfa",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Serbia",
+      "originalTitle": "Visa regime for entering Serbia — Russian Federation",
+      "sourceLanguage": "en",
+      "url": "https://www.mfa.gov.rs/en/citizens/travel-serbia/visa-regime/ruska-federacija",
+      "retrievedAt": "2026-09-02T09:30:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-mfa-general-entry",
+      "tier": "primary",
+      "authority": "foreign_ministry",
+      "publisher": "Ministry of Foreign Affairs of the Republic of Serbia",
+      "publisherEntityId": "authority.serbia-mfa",
+      "publicationChainId": "publication.serbia-mfa-general-entry",
+      "originEntityId": "authority.serbia-mfa",
+      "independenceGroupId": "lineage.serbia-mfa",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Serbia",
+      "originalTitle": "General Entry Requirements",
+      "sourceLanguage": "en",
+      "url": "https://www.mfa.gov.rs/en/citizens/travel-serbia/general-entry-requirements",
+      "retrievedAt": "2026-09-02T09:30:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-law-foreigners-2023",
+      "tier": "primary",
+      "authority": "official_legal_text",
+      "publisher": "Ministry of Interior of the Republic of Serbia",
+      "publisherEntityId": "authority.serbia-mup",
+      "publicationChainId": "publication.serbia-law-on-foreigners",
+      "originEntityId": "authority.serbia-legislature",
+      "independenceGroupId": "lineage.serbia-law-on-foreigners",
+      "derivesFromSourceIds": [],
+      "precedence": "controlling_law",
+      "jurisdiction": "Serbia",
+      "originalTitle": "Law on Foreigners (consolidated with 2023 amendments)",
+      "sourceLanguage": "en",
+      "url": "https://www.mup.gov.rs/wps/wcm/connect/9e10bf1d-79ad-4a50-a8c1-76b6afb0d6e9/Law%2Bon%2BForeigners%2B2023.pdf?CVID=pdNziNy&MOD=AJPERES",
+      "retrievedAt": "2026-09-02T09:30:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "pdf",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-welcome-registration",
+      "tier": "primary",
+      "authority": "immigration_authority",
+      "publisher": "Government of the Republic of Serbia — Welcome to Serbia",
+      "publisherEntityId": "authority.serbia-government",
+      "publicationChainId": "publication.serbia-welcome-registration",
+      "originEntityId": "authority.serbia-government",
+      "independenceGroupId": "lineage.serbia-government-portal",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "Serbia",
+      "originalTitle": "Registration upon arrival",
+      "sourceLanguage": "en",
+      "url": "https://welcometoserbia.gov.rs/registration-upon-arrival",
+      "retrievedAt": "2026-09-02T09:30:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.india-central-evisa",
+      "tier": "primary",
+      "authority": "official_visa_portal",
+      "publisher": "Bureau of Immigration, Ministry of Home Affairs, Government of India",
+      "publisherEntityId": "authority.india-boi",
+      "publicationChainId": "publication.india-central-evisa-guide",
+      "originEntityId": "authority.india-boi",
+      "independenceGroupId": "lineage.india-boi-evisa",
+      "derivesFromSourceIds": [],
+      "precedence": "official_rule",
+      "jurisdiction": "India",
+      "originalTitle": "e-Visa — instructions, eligibility and frequently asked questions",
+      "sourceLanguage": "en",
+      "url": "https://indianvisaonline.gov.in/evisa/tvoa.html",
+      "retrievedAt": "2026-09-02T10:15:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.india-visa-home",
+      "tier": "primary",
+      "authority": "official_visa_portal",
+      "publisher": "Bureau of Immigration, Ministry of Home Affairs, Government of India",
+      "publisherEntityId": "authority.india-boi",
+      "publicationChainId": "publication.india-visa-portal-home",
+      "originEntityId": "authority.india-boi",
+      "independenceGroupId": "lineage.india-boi-evisa",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "India",
+      "originalTitle": "India Visa Online",
+      "sourceLanguage": "en",
+      "url": "https://indianvisaonline.gov.in/",
+      "retrievedAt": "2026-09-02T10:15:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.india-etourist-fees-2026",
+      "tier": "primary",
+      "authority": "official_visa_portal",
+      "publisher": "Bureau of Immigration, Ministry of Home Affairs, Government of India",
+      "publisherEntityId": "authority.india-boi",
+      "publicationChainId": "publication.india-etourist-fee-table",
+      "originEntityId": "authority.india-boi",
+      "independenceGroupId": "lineage.india-boi-evisa",
+      "derivesFromSourceIds": [],
+      "precedence": "official_rule",
+      "jurisdiction": "India",
+      "originalTitle": "Country/Territory Wise e-Tourist Visa Fee",
+      "sourceLanguage": "en",
+      "url": "https://indianvisaonline.gov.in/evisa/images/Etourist_fee_final.pdf",
+      "retrievedAt": "2026-09-02T10:15:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "pdf",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.india-moscow-revised-evisa",
+      "tier": "primary",
+      "authority": "embassy_or_consulate",
+      "publisher": "Embassy of India in Moscow",
+      "publisherEntityId": "authority.india-embassy-moscow",
+      "publicationChainId": "publication.india-moscow-revised-evisa",
+      "originEntityId": "authority.india-boi",
+      "independenceGroupId": "lineage.india-boi-evisa",
+      "derivesFromSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "precedence": "official_guidance",
+      "jurisdiction": "India",
+      "originalTitle": "Revised validity period and fees of e-visa",
+      "sourceLanguage": "ru",
+      "url": "https://www.indianembassy-moscow.gov.in/ru/Revised-Entry-Guidelines.php",
+      "retrievedAt": "2026-09-02T10:15:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.india-moscow-etourist",
+      "tier": "primary",
+      "authority": "embassy_or_consulate",
+      "publisher": "Embassy of India in Moscow",
+      "publisherEntityId": "authority.india-embassy-moscow",
+      "publicationChainId": "publication.india-moscow-etourist",
+      "originEntityId": "authority.india-boi",
+      "independenceGroupId": "lineage.india-boi-evisa",
+      "derivesFromSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "precedence": "official_guidance",
+      "jurisdiction": "India",
+      "originalTitle": "Electronic tourist visa",
+      "sourceLanguage": "ru",
+      "url": "https://www.indianembassy-moscow.gov.in/ru/2017-02-27-21-12-52.php",
+      "retrievedAt": "2026-09-02T10:15:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.turkiye-mfa-russia-visa",
+      "authority": "foreign_ministry",
+      "publisher": "Republic of Türkiye Ministry of Foreign Affairs",
+      "publisherEntityId": "authority.turkiye-mfa",
+      "publicationChainId": "publication.turkiye-mfa-visa-regime",
+      "originEntityId": "authority.turkiye-mfa",
+      "independenceGroupId": "lineage.turkiye-entry-law",
+      "precedence": "official_guidance",
+      "jurisdiction": "Türkiye",
+      "originalTitle": "Visa information for foreigners — Russian Federation",
+      "sourceLanguage": "en",
+      "url": "https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.armenia-mfa-visa-free-agreements",
+      "authority": "foreign_ministry",
+      "publisher": "Ministry of Foreign Affairs of the Republic of Armenia",
+      "publisherEntityId": "authority.armenia-mfa",
+      "publicationChainId": "publication.armenia-mfa-visa-free-agreements",
+      "originEntityId": "authority.armenia-mfa",
+      "independenceGroupId": "lineage.armenia-entry-law",
+      "precedence": "official_guidance",
+      "jurisdiction": "Armenia",
+      "originalTitle": "Countries with a visa-free regime under agreements",
+      "sourceLanguage": "en",
+      "url": "https://www.mfa.am/en/whoneedvisa"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.armenia-mfa-visa-rules",
+      "authority": "foreign_ministry",
+      "publisher": "Ministry of Foreign Affairs of the Republic of Armenia",
+      "publisherEntityId": "authority.armenia-mfa",
+      "publicationChainId": "publication.armenia-mfa-visa-rules",
+      "originEntityId": "authority.armenia-mfa",
+      "independenceGroupId": "lineage.armenia-entry-law",
+      "precedence": "official_guidance",
+      "jurisdiction": "Armenia",
+      "originalTitle": "Visa and arrival rules",
+      "sourceLanguage": "en",
+      "url": "https://www.mfa.am/en/visa"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.kazakhstan-mfa-visa-regime",
+      "authority": "foreign_ministry",
+      "publisher": "Ministry of Foreign Affairs of the Republic of Kazakhstan",
+      "publisherEntityId": "authority.kazakhstan-mfa",
+      "publicationChainId": "publication.kazakhstan-mfa-visa-table",
+      "originEntityId": "authority.kazakhstan-mfa",
+      "independenceGroupId": "lineage.kazakhstan-entry-law",
+      "precedence": "official_guidance",
+      "jurisdiction": "Kazakhstan",
+      "originalTitle": "Visa regime for foreign citizens",
+      "sourceLanguage": "en",
+      "url": "https://www.gov.kz/memleket/entities/mfa/activities/34747?lang=en&parentId=3053"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [
+        "matsne.gov.ge"
+      ],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.georgia-ordinance-255",
+      "authority": "official_legal_text",
+      "publisher": "Legislative Herald of Georgia",
+      "publisherEntityId": "authority.georgia-government",
+      "publicationChainId": "publication.georgia-ordinance-255",
+      "originEntityId": "authority.georgia-government",
+      "independenceGroupId": "lineage.georgia-visa-ordinance-255",
+      "precedence": "controlling_law",
+      "jurisdiction": "Georgia",
+      "originalTitle": "Ordinance No. 255 — countries whose citizens may enter without a visa",
+      "sourceLanguage": "en",
+      "url": "https://www.matsne.gov.ge/en/document/view/2867361?publication=8"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.georgia-mfa-tourist-insurance",
+      "authority": "embassy_or_consulate",
+      "publisher": "Ministry of Foreign Affairs of Georgia",
+      "publisherEntityId": "authority.georgia-mfa",
+      "publicationChainId": "publication.georgia-tourist-insurance-2026",
+      "originEntityId": "authority.georgia-parliament",
+      "independenceGroupId": "lineage.georgia-tourist-insurance",
+      "precedence": "official_guidance",
+      "jurisdiction": "Georgia",
+      "originalTitle": "Mandatory health insurance policy for tourists entering Georgia",
+      "sourceLanguage": "en",
+      "url": "https://australia.mfa.gov.ge/en/news/629860-information-on-the-mandatory-health-insurance-policy-for-all-tourists-entering-georgia"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-02T16:00:00.000Z",
+      "id": "source.uae-moscow-visa-exemption",
+      "authority": "embassy_or_consulate",
+      "publisher": "Ministry of Foreign Affairs of the United Arab Emirates",
+      "publisherEntityId": "authority.uae-mofa",
+      "publicationChainId": "publication.uae-russia-visa-exemption",
+      "originEntityId": "authority.uae-government",
+      "independenceGroupId": "lineage.uae-entry-agreement",
+      "precedence": "official_guidance",
+      "jurisdiction": "United Arab Emirates",
+      "originalTitle": "Mutual Visa Exemption Agreement with the Russian Federation",
+      "sourceLanguage": "en",
+      "url": "https://www.mofa.gov.ae/en/Missions/Moscow/Services/Visas"
+    }
+  ],
+  "claims": [
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russian-nationality",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Structured fact: Russian citizenship is covered by Serbia's country-specific visa regime.",
+        "ru": "Структурированный факт: граждане России подпадают под опубликованный Сербией визовый режим для России."
+      },
+      "limitations": [
+        {
+          "en": "The page states no publication or effective date and does not link the underlying agreement.",
+          "ru": "На странице нет даты публикации или вступления в силу и ссылки на исходное соглашение."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-ordinary-passport",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Structured fact: holders of ordinary Russian passports do not need a visa for visits up to 30 days.",
+        "ru": "Структурированный факт: владельцам обычных российских загранпаспортов не нужна виза для поездки сроком до 30 дней."
+      },
+      "limitations": [
+        {
+          "en": "Do not generalise this claim to emergency, diplomatic, or service travel documents.",
+          "ru": "Этот вывод нельзя переносить на временные, дипломатические или служебные документы."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-route-availability",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "verified_eligible"
+      },
+      "summary": {
+        "en": "Structured fact: an ordinary visa-free route is publicly stated, subject to all general entry conditions.",
+        "ru": "Структурированный факт: опубликован обычный безвизовый маршрут при соблюдении всех общих условий въезда."
+      },
+      "limitations": [
+        {
+          "en": "Visa exemption never guarantees admission; Serbian border police retain statutory refusal grounds.",
+          "ru": "Безвизовый режим не гарантирует допуск: у пограничной полиции Сербии остаются предусмотренные законом основания для отказа."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-russia-visa",
+        "source.serbia-law-foreigners-2023"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-stay-rule",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "per_entry",
+          "allowedDays": 30
+        }
+      },
+      "summary": {
+        "en": "Structured fact: the maximum visa-free visit is exactly 30 calendar days, counting arrival and departure.",
+        "ru": "Структурированный факт: максимальный безвизовый срок — ровно 30 календарных дней, включая дни въезда и выезда."
+      },
+      "limitations": [
+        {
+          "en": "This route has no safety margin and establishes nothing about re-entry or a reset after departure.",
+          "ru": "У маршрута нет запаса по сроку; он ничего не подтверждает о повторном въезде или новом отсчёте после выезда."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-russia-visa",
+        "source.serbia-law-foreigners-2023"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-passport-present",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "ordinary_passport_present"
+        }
+      },
+      "summary": {
+        "en": "Every traveller needs their own valid ordinary travel passport.",
+        "ru": "Каждому путешественнику нужен собственный действующий обычный загранпаспорт."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-passport-validity",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "passport_validity",
+          "basis": "arrival",
+          "minimumRemainingDays": 0
+        }
+      },
+      "summary": {
+        "en": "Draft minimum: the passport must be unexpired at entry; the residual-validity rule is not yet established.",
+        "ru": "Проект минимума: паспорт должен действовать на момент въезда; требуемый остаточный срок пока не установлен."
+      },
+      "limitations": [
+        {
+          "en": "Blocking ambiguity: no official source found states the residual passport validity for a visa-free Russian traveller.",
+          "ru": "Блокирующая неопределённость: не найден официальный источник об остаточном сроке действия паспорта для безвизового въезда граждан России."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry",
+        "source.serbia-law-foreigners-2023"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-family-applicability",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "Structured fact: Serbia's foreigner entry framework covers children aged 6–17 as well as adults.",
+        "ru": "Структурированный факт: правила въезда иностранцев Сербии охватывают детей 6–17 лет и взрослых."
+      },
+      "limitations": [
+        {
+          "en": "Child-specific treatment of funds, insurance, relationship documents, and registration is not yet established by the automated evidence contracts.",
+          "ru": "Применение требований о средствах, страховке, документах о родстве и регистрации к детям ещё не установлено автоматическими контрактами доказательств."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry",
+        "source.serbia-law-foreigners-2023"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-proof-of-funds",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "proof_of_funds",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "Serbia publishes a sufficient-funds benchmark of EUR 50 per day, evidenced by cash or a bank statement.",
+        "ru": "Сербия публикует ориентир достаточных средств: 50 евро в день, подтверждаемые наличными или выпиской из банка."
+      },
+      "limitations": [
+        {
+          "en": "Blocking ambiguity: the official wording does not state whether EUR 50 per day is assessed separately for each child.",
+          "ru": "Блокирующая неопределённость: официальный текст не уточняет, применяется ли сумма 50 евро в день отдельно к каждому ребёнку."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry",
+        "source.serbia-law-foreigners-2023"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-insurance",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "insurance",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "Draft safe interpretation: every traveller should carry medical insurance for the full stay.",
+        "ru": "Проект безопасного толкования: каждому путешественнику следует иметь медицинскую страховку на весь срок поездки."
+      },
+      "limitations": [
+        {
+          "en": "Blocking conflict: the law gives lack of insurance as a refusal ground, while the MFA page also calls insurance recommended and mentions EUR 20,000 coverage.",
+          "ru": "Блокирующее противоречие: закон называет отсутствие страховки основанием для отказа, а страница МИД также называет страховку рекомендованной и упоминает покрытие 20 000 евро."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-law-foreigners-2023"
+      ],
+      "contradictingSourceIds": [
+        "source.serbia-mfa-general-entry"
+      ],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-accommodation",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "accommodation",
+          "obligation": "may_be_requested"
+        }
+      },
+      "summary": {
+        "en": "Border police may request a paid hotel booking or confirmation of a private address.",
+        "ru": "Пограничная полиция может запросить подтверждение оплаченного отеля или частного адреса проживания."
+      },
+      "limitations": [
+        {
+          "en": "The official page does not say whether accommodation must be prepaid for all 30 days.",
+          "ru": "Официальная страница не уточняет, должно ли жильё быть оплачено на все 30 дней."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-onward-ticket",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "onward_ticket",
+          "obligation": "may_be_requested"
+        }
+      },
+      "summary": {
+        "en": "Border police may request a return ticket and evidence supporting the declared purpose of the visit.",
+        "ru": "Пограничная полиция может запросить обратный билет и подтверждения заявленной цели поездки."
+      },
+      "limitations": [
+        {
+          "en": "The page lists possible evidence, not a clear cumulative checklist for every traveller.",
+          "ru": "Страница перечисляет возможные подтверждения, а не однозначный обязательный список для каждого путешественника."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-parental-consent",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "guardian_consent",
+          "obligation": "not_required"
+        }
+      },
+      "summary": {
+        "en": "Serbia states that parental consent is not required for a foreign minor to enter.",
+        "ru": "Сербия указывает, что для въезда несовершеннолетнего иностранца согласие родителей не требуется."
+      },
+      "limitations": [
+        {
+          "en": "This says nothing about Russian departure rules, transit states, airline policy, custody disputes, or recommended relationship evidence.",
+          "ru": "Это ничего не говорит о правилах выезда из России, транзитных странах, правилах авиакомпании, спорах об опеке или рекомендуемых документах о родстве."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-mfa-general-entry"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-arrival-registration-host",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "arrival_registration",
+        "withinHours": 24,
+        "responsibleParty": "accommodation_provider_or_host"
+      },
+      "summary": {
+        "en": "The accommodation provider or private host must register a foreign guest within 24 hours.",
+        "ru": "Объект размещения или частный хозяин должен зарегистрировать иностранного гостя в течение 24 часов."
+      },
+      "limitations": [
+        {
+          "en": "The sources do not state whether one family submission operationally covers every child.",
+          "ru": "Источники не уточняют, охватывает ли одна семейная регистрация каждого ребёнка на практике."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.serbia-law-foreigners-2023",
+        "source.serbia-welcome-registration"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-russian-nationality",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Structured fact: Russia is listed among passports eligible to apply for India's e-Visa.",
+        "ru": "Структурированный факт: Россия указана в списке паспортов, владельцы которых могут подать на электронную визу Индии."
+      },
+      "limitations": [
+        {
+          "en": "Eligibility to apply is not approval and does not guarantee admission.",
+          "ru": "Право подать заявление не означает одобрение и не гарантирует въезд."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-ordinary-passport",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Structured fact: the e-Visa route is for an individual ordinary passport, not an official, diplomatic, laissez-passer, or other travel document.",
+        "ru": "Структурированный факт: маршрут электронной визы рассчитан на индивидуальный обычный загранпаспорт, а не служебный, дипломатический или иной проездной документ."
+      },
+      "limitations": [
+        {
+          "en": "The portal also lists personal-background exclusions that the v1 household profile cannot yet express.",
+          "ru": "Портал также перечисляет ограничения по биографии, которые профиль семьи v1 пока не умеет учитывать."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-route-availability",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "application_route_available"
+      },
+      "summary": {
+        "en": "Structured fact: a public online application process exists for a 30-day e-Tourist Visa.",
+        "ru": "Структурированный факт: существует открытая онлайн-процедура подачи на 30-дневную электронную туристическую визу."
+      },
+      "limitations": [
+        {
+          "en": "The route is purpose-limited; submission may be rejected and admission remains discretionary.",
+          "ru": "Маршрут ограничен целью поездки; заявление могут отклонить, а решение о допуске принимается отдельно."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa",
+        "source.india-visa-home"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-stay-rule",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "authorization_dependent",
+          "requestableDays": 30
+        }
+      },
+      "summary": {
+        "en": "Structured fact: the 30-day e-Tourist authorization is valid for 30 days from first arrival and is non-extendable and non-convertible.",
+        "ru": "Структурированный факт: 30-дневная электронная туристическая виза действует 30 дней с первого въезда, не продлевается и не меняет категорию."
+      },
+      "limitations": [
+        {
+          "en": "This threshold has no safety margin; exact day-counting and the authorized dates stamped in the passport must be checked.",
+          "ru": "У порога нет запаса; нужно проверить точный подсчёт дней и даты, проставленные в паспорте."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-evisa-required",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "entry_authorization",
+          "authorizationKind": "evisa",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "Every adult and child must receive their own granted ETA/e-Visa before travel.",
+        "ru": "Каждый взрослый и ребёнок должен получить собственное одобренное ETA/электронную визу до поездки."
+      },
+      "limitations": [
+        {
+          "en": "A submitted or paid application is not a granted authorization.",
+          "ru": "Поданное или оплаченное заявление не является одобренным разрешением."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa",
+        "source.india-visa-home"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-passport-validity",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "passport_validity",
+          "basis": "arrival",
+          "minimumRemainingCalendarMonths": 6
+        }
+      },
+      "summary": {
+        "en": "Safe draft: each passport should have at least six months remaining on arrival.",
+        "ru": "Безопасный проект: у каждого паспорта должно оставаться не менее шести месяцев действия на дату въезда."
+      },
+      "limitations": [
+        {
+          "en": "Blocking ambiguity: the central instructions also describe the six-month clock from the application date, while the minor FAQ says arrival date.",
+          "ru": "Блокирующая неоднозначность: общая инструкция также отсчитывает шесть месяцев от даты заявления, а ответ о несовершеннолетних — от даты въезда."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa",
+        "source.india-moscow-revised-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-family-applicability",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "Structured fact: minors may use the e-Visa route, but every child needs a separate passport and application.",
+        "ru": "Структурированный факт: несовершеннолетние могут пользоваться электронной визой, но каждому ребёнку нужны отдельный паспорт и заявление."
+      },
+      "limitations": [
+        {
+          "en": "Consent, birth-certificate, biometrics, and family e-Arrival handling remain unresolved.",
+          "ru": "Требования к согласию, свидетельству о рождении, биометрии и семейной карточке прибытия пока не установлены."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-separate-application",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "per_traveller_application",
+        "required": true
+      },
+      "summary": {
+        "en": "One application is required for every traveller, including each minor child.",
+        "ru": "Для каждого путешественника, включая каждого несовершеннолетнего ребёнка, требуется отдельное заявление."
+      },
+      "limitations": [
+        {
+          "en": "The portal does not explain whether a parent account can manage the whole household together.",
+          "ru": "Портал не объясняет, может ли родитель управлять заявлениями всей семьи из одной учётной записи."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-application-window",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "application_timing",
+        "minimumDaysBeforeArrival": 4,
+        "maximumDaysBeforeArrival": 120
+      },
+      "summary": {
+        "en": "The central portal says to apply between 4 and 120 days before proposed arrival.",
+        "ru": "Центральный портал указывает подачу за 4–120 дней до предполагаемого въезда."
+      },
+      "limitations": [
+        {
+          "en": "Processing time is not guaranteed; the application is not an emergency route.",
+          "ru": "Срок обработки не гарантирован; это не экстренный маршрут."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-entry-delhi",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "entry_restriction",
+        "restriction": "designated_airports_or_seaports",
+        "entryPoints": [
+          "Delhi Indira Gandhi International Airport"
+        ]
+      },
+      "summary": {
+        "en": "Delhi is listed as an authorized e-Visa arrival airport; entry is limited to designated ports.",
+        "ru": "Дели указан как разрешённый аэропорт въезда по электронной визе; въезд ограничен назначенными пунктами."
+      },
+      "limitations": [
+        {
+          "en": "The evaluator records but does not yet automatically compare a booked arrival airport.",
+          "ru": "Оценщик фиксирует, но пока автоматически не сравнивает аэропорт в бронировании."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        },
+        "entryPoints": [
+          "Delhi Indira Gandhi International Airport"
+        ]
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-onward-ticket",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "onward_ticket",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "The official portal says international travellers should hold a return or onward ticket.",
+        "ru": "Официальный портал указывает, что международные путешественники должны иметь обратный билет или билет дальше."
+      },
+      "limitations": [
+        {
+          "en": "It does not say whether every child needs separate evidence or a family booking is sufficient.",
+          "ru": "Не указано, нужно ли отдельное подтверждение каждому ребёнку или достаточно семейного бронирования."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-proof-of-funds",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "proof_of_funds",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "The official portal requires sufficient money for the stay but publishes no amount in the observed material.",
+        "ru": "Официальный портал требует достаточных средств на поездку, но в наблюдаемом материале не называет сумму."
+      },
+      "limitations": [
+        {
+          "en": "Blocking ambiguity: no per-person or household amount and no child aggregation rule were found.",
+          "ru": "Блокирующая неопределённость: не найдены сумма на человека или семью и правило расчёта для детей."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-tourist-purpose",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "qualifying_purpose",
+        "purposes": [
+          "recreation",
+          "sightseeing",
+          "casual visit to friends or relatives"
+        ],
+        "truthfulDeclarationRequired": true
+      },
+      "summary": {
+        "en": "The e-Tourist route is limited to truthful qualifying visitor purposes; it is not a work or residence route.",
+        "ru": "Электронная туристическая виза допускает только правдиво заявленные гостевые цели; это не маршрут для работы или проживания."
+      },
+      "limitations": [
+        {
+          "en": "The product must never encourage a family to misstate why it is travelling.",
+          "ru": "Продукт никогда не должен побуждать семью неверно указывать цель поездки."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-eta-print",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "printed_eta",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "Confirm the ETA status is GRANTED and carry a printed copy with the matching passport.",
+        "ru": "Убедитесь, что статус ETA — GRANTED, и возьмите распечатку вместе с соответствующим паспортом."
+      },
+      "limitations": [
+        {
+          "en": "The exact airline document check for each child needs operational confirmation.",
+          "ru": "Практическую проверку документов каждого ребёнка авиакомпанией нужно уточнить."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.india-fee-conflict",
+      "subjectId": "route.india-etourist-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "fee_rule",
+        "currency": "USD",
+        "amountMinor": 0,
+        "perTraveller": true,
+        "refundable": false
+      },
+      "summary": {
+        "en": "Official sources conflict on the Russian 30-day e-Tourist fee and entry count.",
+        "ru": "Официальные источники противоречат друг другу по сбору для россиян и числу въездов по 30-дневной электронной туристической визе."
+      },
+      "limitations": [
+        {
+          "en": "The central 2026 fee table says USD 0, while Moscow Embassy pages show several older paid amounts and older entry mechanics. Do not budget from this field yet.",
+          "ru": "Центральная таблица 2026 года указывает 0 долларов, а страницы посольства в Москве — несколько старых платных тарифов и старые правила въезда. Пока не используйте это поле для бюджета."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.india-etourist-fees-2026",
+        "source.india-central-evisa"
+      ],
+      "contradictingSourceIds": [
+        "source.india-moscow-revised-evisa",
+        "source.india-moscow-etourist"
+      ],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.turkiye-russian-nationality",
+      "subjectId": "route.turkiye-visa-free-60",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Russian citizens are covered by Türkiye's published visa exemption.",
+        "ru": "Граждане России подпадают под опубликованный Турцией безвизовый режим."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.turkiye-ordinary-passport",
+      "subjectId": "route.turkiye-visa-free-60",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "The exemption expressly covers ordinary Russian passports.",
+        "ru": "Безвизовый режим прямо распространяется на обычные российские загранпаспорта."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.turkiye-route-availability",
+      "subjectId": "route.turkiye-visa-free-60",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "verified_eligible"
+      },
+      "summary": {
+        "en": "A visa-free tourist route is published for Russian ordinary-passport holders.",
+        "ru": "Для владельцев обычных российских загранпаспортов опубликован безвизовый туристический маршрут."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.turkiye-stay-rule",
+      "subjectId": "route.turkiye-visa-free-60",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "per_entry",
+          "allowedDays": 60
+        }
+      },
+      "summary": {
+        "en": "The published per-trip ceiling is 60 days.",
+        "ru": "Опубликованный предел одной поездки — 60 дней."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.turkiye-passport-requirement",
+      "subjectId": "route.turkiye-visa-free-60",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "ordinary_passport_present"
+        }
+      },
+      "summary": {
+        "en": "Every traveller should carry an individual valid ordinary passport.",
+        "ru": "Каждому путешественнику следует иметь собственный действующий обычный загранпаспорт."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.turkiye-family-applicability",
+      "subjectId": "route.turkiye-visa-free-60",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
+        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+      },
+      "limitations": [
+        {
+          "en": "Automation has not yet established every child-specific document, consent, registration, insurance, and carrier rule.",
+          "ru": "Автоматика ещё не установила все детские требования к документам, согласиям, регистрации, страховке и перевозчику."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-russia-visa"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.armenia-russian-nationality",
+      "subjectId": "route.armenia-visa-free-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Russia appears in Armenia's agreement-based visa-free list.",
+        "ru": "Россия включена Арменией в перечень стран с безвизовым режимом по соглашениям."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.armenia-ordinary-passport",
+      "subjectId": "route.armenia-visa-free-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Armenia's list covers all Russian passport categories, including ordinary passports.",
+        "ru": "Перечень Армении охватывает все категории российских паспортов, включая обычные загранпаспорта."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.armenia-route-availability",
+      "subjectId": "route.armenia-visa-free-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "verified_eligible"
+      },
+      "summary": {
+        "en": "A visa-free route is published for Russian passport holders.",
+        "ru": "Для владельцев российских паспортов опубликован безвизовый маршрут."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.armenia-stay-rule",
+      "subjectId": "route.armenia-visa-free-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "rolling_window",
+          "allowedDays": 180,
+          "windowDays": 365
+        }
+      },
+      "summary": {
+        "en": "The general published ceiling for visa-free visitors is 180 days during one year.",
+        "ru": "Общий опубликованный предел для безвизовых посетителей — 180 дней в течение одного года."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.armenia-passport-requirement",
+      "subjectId": "route.armenia-visa-free-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "ordinary_passport_present"
+        }
+      },
+      "summary": {
+        "en": "Every traveller should carry an individual valid ordinary passport.",
+        "ru": "Каждому путешественнику следует иметь собственный действующий обычный загранпаспорт."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.armenia-family-applicability",
+      "subjectId": "route.armenia-visa-free-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
+        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+      },
+      "limitations": [
+        {
+          "en": "Automation has not yet established every child-specific document, consent, registration, insurance, and carrier rule.",
+          "ru": "Автоматика ещё не установила все детские требования к документам, согласиям, регистрации, страховке и перевозчику."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.kazakhstan-russian-nationality",
+      "subjectId": "route.kazakhstan-visa-free-90",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Russia appears in Kazakhstan's official visa-free table.",
+        "ru": "Россия указана в официальной таблице безвизового режима Казахстана."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.kazakhstan-mfa-visa-regime"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.kazakhstan-ordinary-passport",
+      "subjectId": "route.kazakhstan-visa-free-90",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "The official table marks ordinary Russian passports visa-free up to 90 days.",
+        "ru": "Официальная таблица указывает безвизовый въезд до 90 дней для обычных российских загранпаспортов."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.kazakhstan-mfa-visa-regime"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.kazakhstan-route-availability",
+      "subjectId": "route.kazakhstan-visa-free-90",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "verified_eligible"
+      },
+      "summary": {
+        "en": "Kazakhstan publishes a visa-free ordinary-passport route for Russian citizens.",
+        "ru": "Казахстан публикует безвизовый маршрут для граждан России с обычными загранпаспортами."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.kazakhstan-mfa-visa-regime"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.kazakhstan-stay-rule",
+      "subjectId": "route.kazakhstan-visa-free-90",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "per_entry",
+          "allowedDays": 90
+        }
+      },
+      "summary": {
+        "en": "The official passport table states a ceiling of 90 days.",
+        "ru": "Официальная таблица паспортов указывает предел 90 дней."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.kazakhstan-mfa-visa-regime"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.kazakhstan-passport-requirement",
+      "subjectId": "route.kazakhstan-visa-free-90",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "ordinary_passport_present"
+        }
+      },
+      "summary": {
+        "en": "Every traveller should carry an individual valid ordinary passport.",
+        "ru": "Каждому путешественнику следует иметь собственный действующий обычный загранпаспорт."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.kazakhstan-mfa-visa-regime"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.kazakhstan-family-applicability",
+      "subjectId": "route.kazakhstan-visa-free-90",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
+        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+      },
+      "limitations": [
+        {
+          "en": "Automation has not yet established every child-specific document, consent, registration, insurance, and carrier rule.",
+          "ru": "Автоматика ещё не установила все детские требования к документам, согласиям, регистрации, страховке и перевозчику."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.kazakhstan-mfa-visa-regime"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-russian-nationality",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "Russia remains on Georgia's official visa-free country list.",
+        "ru": "Россия остаётся в официальном перечне стран с безвизовым въездом в Грузию."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-ordinance-255"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-ordinary-passport",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "An individual valid Russian foreign passport is the conservative document assumption.",
+        "ru": "Консервативное предположение о документе — собственный действующий российский загранпаспорт."
+      },
+      "limitations": [
+        {
+          "en": "The destination ordinance establishes citizenship eligibility but the ordinary-passport bridge is not yet contracted.",
+          "ru": "Постановление страны устанавливает право по гражданству, но связь с обычным загранпаспортом ещё не закреплена контрактом."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-ordinance-255"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-route-availability",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "verified_eligible"
+      },
+      "summary": {
+        "en": "Georgia's ordinance publishes a visa-free route for Russian citizens.",
+        "ru": "Постановление Грузии публикует безвизовый маршрут для граждан России."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-ordinance-255"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-stay-rule",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "per_entry",
+          "allowedDays": 365
+        }
+      },
+      "summary": {
+        "en": "The ordinance states one full visa-free year; 365 days is used only as a conservative floor.",
+        "ru": "Постановление указывает один полный безвизовый год; 365 дней используются только как консервативный минимум."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-ordinance-255"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-passport-requirement",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "ordinary_passport_present"
+        }
+      },
+      "summary": {
+        "en": "Every traveller should carry an individual valid ordinary passport.",
+        "ru": "Каждому путешественнику следует иметь собственный действующий обычный загранпаспорт."
+      },
+      "limitations": [
+        {
+          "en": "This conservative document requirement is not yet backed by a claim-specific proof contract.",
+          "ru": "Это консервативное требование к документу ещё не подтверждено отдельным контрактом доказательств."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-ordinance-255"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-family-applicability",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
+        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+      },
+      "limitations": [
+        {
+          "en": "Automation has not yet established every child-specific document, consent, registration, insurance, and carrier rule.",
+          "ru": "Автоматика ещё не установила все детские требования к документам, согласиям, регистрации, страховке и перевозчику."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-ordinance-255"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.georgia-tourist-insurance",
+      "subjectId": "route.georgia-visa-free-year",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "declared_document",
+          "documentKind": "insurance",
+          "obligation": "required"
+        }
+      },
+      "summary": {
+        "en": "Every tourist must carry health and accident insurance for the full stay.",
+        "ru": "Каждый турист должен иметь медицинскую страховку от несчастных случаев на весь срок поездки."
+      },
+      "limitations": [
+        {
+          "en": "The policy must be in Georgian or English and provide at least GEL 30,000 coverage.",
+          "ru": "Полис должен быть на грузинском или английском языке и обеспечивать покрытие не менее 30 000 лари."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.georgia-mfa-tourist-insurance"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.uae-russian-nationality",
+      "subjectId": "route.uae-visa-free-90-in-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "nationality_eligibility",
+        "nationality": "RU",
+        "eligible": true
+      },
+      "summary": {
+        "en": "The UAE–Russia agreement covers nationals of the Russian Federation.",
+        "ru": "Соглашение ОАЭ и России распространяется на граждан Российской Федерации."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.uae-moscow-visa-exemption"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.uae-ordinary-passport",
+      "subjectId": "route.uae-visa-free-90-in-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "passport_type_eligibility",
+        "passportType": "ordinary",
+        "eligible": true
+      },
+      "summary": {
+        "en": "The agreement expressly includes ordinary passports.",
+        "ru": "Соглашение прямо включает обычные загранпаспорта."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.uae-moscow-visa-exemption"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.uae-route-availability",
+      "subjectId": "route.uae-visa-free-90-in-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "route_availability",
+        "availability": "verified_eligible"
+      },
+      "summary": {
+        "en": "The agreement permits visa-free tourism or visits, but not work, study, or residence.",
+        "ru": "Соглашение разрешает безвизовые туристические и гостевые поездки, но не работу, учёбу или проживание."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.uae-moscow-visa-exemption"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.uae-stay-rule",
+      "subjectId": "route.uae-visa-free-90-in-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "stay_rule",
+        "rule": {
+          "kind": "rolling_window",
+          "allowedDays": 90,
+          "windowDays": 180
+        }
+      },
+      "summary": {
+        "en": "The total stay is limited to 90 days in any 180-day period.",
+        "ru": "Общий срок пребывания ограничен 90 днями в любом 180-дневном периоде."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.uae-moscow-visa-exemption"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.uae-passport-requirement",
+      "subjectId": "route.uae-visa-free-90-in-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "requirement",
+        "requirement": {
+          "kind": "passport_validity",
+          "basis": "arrival",
+          "minimumRemainingCalendarMonths": 6
+        }
+      },
+      "summary": {
+        "en": "Every traveller's passport must remain valid for at least six months at entry.",
+        "ru": "Паспорт каждого путешественника должен действовать не менее шести месяцев на момент въезда."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.uae-moscow-visa-exemption"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.uae-family-applicability",
+      "subjectId": "route.uae-visa-free-90-in-180",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "traveller_applicability",
+        "applies": true
+      },
+      "summary": {
+        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
+        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+      },
+      "limitations": [
+        {
+          "en": "Automation has not yet established every child-specific document, consent, registration, insurance, and carrier rule.",
+          "ru": "Автоматика ещё не установила все детские требования к документам, согласиям, регистрации, страховке и перевозчику."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": [
+          "adult",
+          "child"
+        ],
+        "childAgeRange": {
+          "minInclusive": 6,
+          "maxInclusive": 17
+        }
+      },
+      "supportingSourceIds": [
+        "source.uae-moscow-visa-exemption"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "schemaVersion": 1,
+      "id": "route.serbia-visa-free-30",
+      "placeId": "place.belgrade",
+      "kind": "visa_free",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.serbia-russian-nationality",
+        "claim.serbia-ordinary-passport",
+        "claim.serbia-route-availability",
+        "claim.serbia-stay-rule",
+        "claim.serbia-passport-present",
+        "claim.serbia-passport-validity",
+        "claim.serbia-family-applicability",
+        "claim.serbia-proof-of-funds",
+        "claim.serbia-insurance",
+        "claim.serbia-accommodation",
+        "claim.serbia-onward-ticket",
+        "claim.serbia-parental-consent",
+        "claim.serbia-arrival-registration-host"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "route.india-etourist-30",
+      "placeId": "place.delhi",
+      "kind": "evisa",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.india-russian-nationality",
+        "claim.india-ordinary-passport",
+        "claim.india-route-availability",
+        "claim.india-stay-rule",
+        "claim.india-evisa-required",
+        "claim.india-passport-validity",
+        "claim.india-family-applicability",
+        "claim.india-separate-application",
+        "claim.india-application-window",
+        "claim.india-entry-delhi",
+        "claim.india-onward-ticket",
+        "claim.india-proof-of-funds",
+        "claim.india-tourist-purpose",
+        "claim.india-eta-print",
+        "claim.india-fee-conflict"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "route.turkiye-visa-free-60",
+      "placeId": "place.istanbul",
+      "kind": "visa_free",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.turkiye-russian-nationality",
+        "claim.turkiye-ordinary-passport",
+        "claim.turkiye-route-availability",
+        "claim.turkiye-stay-rule",
+        "claim.turkiye-passport-requirement",
+        "claim.turkiye-family-applicability"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "route.armenia-visa-free-180",
+      "placeId": "place.yerevan",
+      "kind": "visa_free",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.armenia-russian-nationality",
+        "claim.armenia-ordinary-passport",
+        "claim.armenia-route-availability",
+        "claim.armenia-stay-rule",
+        "claim.armenia-passport-requirement",
+        "claim.armenia-family-applicability"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "route.kazakhstan-visa-free-90",
+      "placeId": "place.almaty",
+      "kind": "visa_free",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.kazakhstan-russian-nationality",
+        "claim.kazakhstan-ordinary-passport",
+        "claim.kazakhstan-route-availability",
+        "claim.kazakhstan-stay-rule",
+        "claim.kazakhstan-passport-requirement",
+        "claim.kazakhstan-family-applicability"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "route.georgia-visa-free-year",
+      "placeId": "place.tbilisi",
+      "kind": "visa_free",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.georgia-russian-nationality",
+        "claim.georgia-ordinary-passport",
+        "claim.georgia-route-availability",
+        "claim.georgia-stay-rule",
+        "claim.georgia-passport-requirement",
+        "claim.georgia-family-applicability",
+        "claim.georgia-tourist-insurance"
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "route.uae-visa-free-90-in-180",
+      "placeId": "place.dubai",
+      "kind": "visa_free",
+      "ordinary": true,
+      "publicationState": "candidate",
+      "claimIds": [
+        "claim.uae-russian-nationality",
+        "claim.uae-ordinary-passport",
+        "claim.uae-route-availability",
+        "claim.uae-stay-rule",
+        "claim.uae-passport-requirement",
+        "claim.uae-family-applicability"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "schemaVersion": 1,
+      "id": "place.belgrade",
+      "city": {
+        "en": "Belgrade",
+        "ru": "Белград"
+      },
+      "country": {
+        "en": "Serbia",
+        "ru": "Сербия"
+      },
+      "coordinates": [
+        20.46,
+        44.81
+      ],
+      "routeIds": [
+        "route.serbia-visa-free-30"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "Residual passport validity for visa-free Russian travellers",
+          "ru": "Остаточный срок действия паспорта для безвизового въезда граждан России"
+        },
+        {
+          "en": "Whether the EUR 50/day benchmark is applied separately to each child",
+          "ru": "Применяется ли ориентир 50 евро в день отдельно к каждому ребёнку"
+        },
+        {
+          "en": "Whether insurance is mandatory and whether EUR 20,000 coverage is per traveller",
+          "ru": "Обязательна ли страховка и требуется ли покрытие 20 000 евро для каждого путешественника"
+        },
+        {
+          "en": "Operational expectations for relationship documents and registration of each child",
+          "ru": "Практические требования к документам о родстве и регистрации каждого ребёнка"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "place.delhi",
+      "city": {
+        "en": "Delhi",
+        "ru": "Дели"
+      },
+      "country": {
+        "en": "India",
+        "ru": "Индия"
+      },
+      "coordinates": [
+        77.209,
+        28.6139
+      ],
+      "routeIds": [
+        "route.india-etourist-30"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "Owner resolution of conflicting official fee and entry-count information",
+          "ru": "Решение владельцем противоречий в официальных данных о сборе и числе въездов"
+        },
+        {
+          "en": "Whether passport validity for adults is measured from application or arrival",
+          "ru": "Отсчитывается ли срок действия паспорта взрослого от подачи или от въезда"
+        },
+        {
+          "en": "Child consent, relationship documents, biometrics, and e-Arrival handling",
+          "ru": "Согласие на детей, документы о родстве, биометрия и карточка e-Arrival"
+        },
+        {
+          "en": "Household treatment of sufficient funds and onward tickets",
+          "ru": "Семейный расчёт достаточных средств и обратных билетов"
+        },
+        {
+          "en": "Payment operation for Russian applicants if any charge is presented",
+          "ru": "Практическая оплата российскими заявителями, если система покажет сбор"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "place.istanbul",
+      "city": {
+        "en": "Istanbul",
+        "ru": "Стамбул"
+      },
+      "country": {
+        "en": "Türkiye",
+        "ru": "Турция"
+      },
+      "coordinates": [
+        28.9784,
+        41.0082
+      ],
+      "routeIds": [
+        "route.turkiye-visa-free-60"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "Prior Türkiye days against the overall 90-in-180-day ceiling",
+          "ru": "Предыдущие дни в Турции для общего ограничения 90 из 180 дней"
+        },
+        {
+          "en": "Passport-validity margin, child documents, and any consent needed for this exact household",
+          "ru": "Запас срока паспорта, детские документы и согласия для конкретного состава семьи"
+        },
+        {
+          "en": "Current transport, accommodation reporting, and two-husky acceptance",
+          "ru": "Текущий транспорт, учёт по месту проживания и возможность въезда с двумя хаски"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "place.yerevan",
+      "city": {
+        "en": "Yerevan",
+        "ru": "Ереван"
+      },
+      "country": {
+        "en": "Armenia",
+        "ru": "Армения"
+      },
+      "coordinates": [
+        44.5152,
+        40.1872
+      ],
+      "routeIds": [
+        "route.armenia-visa-free-180"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "Mandatory place-of-stay registration for a stay over 30 days",
+          "ru": "Обязательная регистрация по месту пребывания при поездке свыше 30 дней"
+        },
+        {
+          "en": "Each child's passport, relationship documents, and consent details",
+          "ru": "Паспорт каждого ребёнка, документы о родстве и детали согласия"
+        },
+        {
+          "en": "Current transport, housing, and two-husky import requirements",
+          "ru": "Текущий транспорт, жильё и требования к ввозу двух хаски"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "place.almaty",
+      "city": {
+        "en": "Almaty",
+        "ru": "Алматы"
+      },
+      "country": {
+        "en": "Kazakhstan",
+        "ru": "Казахстан"
+      },
+      "coordinates": [
+        76.886,
+        43.2389
+      ],
+      "routeIds": [
+        "route.kazakhstan-visa-free-90"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "Prior Kazakhstan days against the controlling 90-in-180-day rule",
+          "ru": "Предыдущие дни в Казахстане для обязательного ограничения 90 из 180 дней"
+        },
+        {
+          "en": "Host or hotel arrival notification within three working days",
+          "ru": "Уведомление о прибытии хозяином жилья или гостиницей в течение трёх рабочих дней"
+        },
+        {
+          "en": "Child travel documents, current transport, and two-husky import requirements",
+          "ru": "Детские проездные документы, текущий транспорт и требования к ввозу двух хаски"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "place.tbilisi",
+      "city": {
+        "en": "Tbilisi",
+        "ru": "Тбилиси"
+      },
+      "country": {
+        "en": "Georgia",
+        "ru": "Грузия"
+      },
+      "coordinates": [
+        44.793,
+        41.7151
+      ],
+      "routeIds": [
+        "route.georgia-visa-free-year"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "A valid health and accident policy for every traveller, all stay dates, and at least GEL 30,000 coverage",
+          "ru": "Действующая медицинская страховка от несчастных случаев для каждого путешественника, на все даты и с покрытием не менее 30 000 лари"
+        },
+        {
+          "en": "Current consolidated effect of the ordinance and individual border-admission risk",
+          "ru": "Текущая консолидированная редакция постановления и индивидуальный риск отказа на границе"
+        },
+        {
+          "en": "Child documents, current transport, and two-husky import requirements",
+          "ru": "Детские документы, текущий транспорт и требования к ввозу двух хаски"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "id": "place.dubai",
+      "city": {
+        "en": "Dubai",
+        "ru": "Дубай"
+      },
+      "country": {
+        "en": "United Arab Emirates",
+        "ru": "Объединённые Арабские Эмираты"
+      },
+      "coordinates": [
+        55.2708,
+        25.2048
+      ],
+      "routeIds": [
+        "route.uae-visa-free-90-in-180"
+      ],
+      "publicationState": "candidate",
+      "unknowns": [
+        {
+          "en": "Prior UAE days within the 180-day window",
+          "ru": "Предыдущие дни в ОАЭ в пределах 180-дневного окна"
+        },
+        {
+          "en": "Child-specific passport, consent, insurance, and accommodation evidence",
+          "ru": "Детские требования к паспортам, согласиям, страховке и подтверждению проживания"
+        },
+        {
+          "en": "Current transport, practical affordability, and two-husky import and airline rules",
+          "ru": "Текущий транспорт, практическая доступность и правила ввоза и перевозки двух хаски"
+        }
+      ]
+    }
+  ],
+  "costObservations": [],
+  "changes": [
+    {
+      "schemaVersion": 1,
+      "id": "change.add-serbia-candidate.2026-09-02",
+      "changedAt": "2026-09-02T09:30:00.000Z",
+      "subjectId": "route.serbia-visa-free-30",
+      "summary": {
+        "en": "Added the Serbia visa-free route as an evidence-automation candidate.",
+        "ru": "Безвизовый маршрут в Сербию добавлен как кандидат для автоматической проверки доказательств."
+      },
+      "nextValue": {
+        "publicationState": "candidate",
+        "evidenceState": "insufficient"
+      },
+      "reason": {
+        "en": "Create the first evidence-complete vertical slice without implying support before automation succeeds.",
+        "ru": "Создать первый сквозной срез с доказательствами, не выдавая маршрут за подтверждённый до успешной автоматической проверки."
+      },
+      "sourceIds": [
+        "source.serbia-mfa-russia-visa",
+        "source.serbia-mfa-general-entry",
+        "source.serbia-law-foreigners-2023",
+        "source.serbia-welcome-registration"
+      ],
+      "rollbackReleaseId": "m0-foundation",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1",
+        "runId": "change.add-serbia-candidate.2026-09-02"
+      },
+      "releaseId": "m1-serbia-review-pending"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.add-india-candidate.2026-09-02",
+      "changedAt": "2026-09-02T10:15:00.000Z",
+      "subjectId": "route.india-etourist-30",
+      "summary": {
+        "en": "Added the India e-Tourist application route with official contradictions exposed.",
+        "ru": "Добавлен маршрут электронной туристической визы Индии с явно показанными противоречиями официальных источников."
+      },
+      "nextValue": {
+        "publicationState": "candidate",
+        "evidenceState": "conflicting"
+      },
+      "reason": {
+        "en": "Prove the model with an application route that differs materially from visa-free entry.",
+        "ru": "Проверить модель на маршруте с подачей, существенно отличающемся от безвизового въезда."
+      },
+      "sourceIds": [
+        "source.india-central-evisa",
+        "source.india-visa-home",
+        "source.india-etourist-fees-2026",
+        "source.india-moscow-revised-evisa",
+        "source.india-moscow-etourist"
+      ],
+      "rollbackReleaseId": "m1-serbia-review-pending",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-research",
+        "version": "research-v1",
+        "runId": "change.add-india-candidate.2026-09-02"
+      },
+      "releaseId": "m2-two-route-shapes-review-pending"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.expand-real-world-possibilities.2026-09-02",
+      "changedAt": "2026-09-02T16:00:00.000Z",
+      "subjectId": "catalog.destinations",
+      "summary": {
+        "en": "Added five researched candidates queued for automated evidence evaluation.",
+        "ru": "Добавлены пять исследованных кандидатов, поставленных в очередь на автоматическую оценку доказательств."
+      },
+      "previousValue": {
+        "mappedPlaces": 2
+      },
+      "nextValue": {
+        "mappedPlaces": 7,
+        "addedPlaceIds": [
+          "place.istanbul",
+          "place.yerevan",
+          "place.almaty",
+          "place.tbilisi",
+          "place.dubai"
+        ]
+      },
+      "reason": {
+        "en": "Broaden partial map coverage without treating incomplete family routes as published Beacons.",
+        "ru": "Расширить неполное покрытие карты, не выдавая незавершённые семейные маршруты за опубликованные Маяки."
+      },
+      "sourceIds": [
+        "source.turkiye-mfa-russia-visa",
+        "source.armenia-mfa-visa-free-agreements",
+        "source.armenia-mfa-visa-rules",
+        "source.kazakhstan-mfa-visa-regime",
+        "source.georgia-ordinance-255",
+        "source.georgia-mfa-tourist-insurance",
+        "source.uae-moscow-visa-exemption"
+      ],
+      "rollbackReleaseId": "m3-authoritative-evidence",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-source-research",
+        "version": "destination-expansion-v1",
+        "runId": "research.2026-09-02.destination-expansion"
+      },
+      "releaseId": "m4-seven-route-atlas"
+    }
+  ]
+}

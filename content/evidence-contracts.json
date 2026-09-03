@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 2,
+  "policyVersion": "pinned-claim-continuity-v2",
+  "currentForDays": 8,
+  "staleAfterDays": 14,
+  "contracts": [
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russian-nationality.v1",
+      "version": 1,
+      "claimId": "claim.serbia-russian-nationality",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "expectedContextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.serbia-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T16:20:00.000+03:00",
+        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-ordinary-passport.v1",
+      "version": 1,
+      "claimId": "claim.serbia-ordinary-passport",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "expectedContextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.serbia-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T16:20:00.000+03:00",
+        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-route-availability.v1",
+      "version": 1,
+      "claimId": "claim.serbia-route-availability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "88585f239bc9c10a92ac2bc719977c1c244f1c9e95d067e726c8ff2390e629b1",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "expectedContextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.serbia-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T16:20:00.000+03:00",
+        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.serbia-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-entry-family-and-funds",
+          "expectedContextSha256": "cc64dd3b667e2c8345c2285686b7718839939cc1fd3ce1a9e85b95af56de7d4c"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.serbia-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T16:20:00.000+03:00",
+        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-parental-consent.v1",
+      "version": 1,
+      "claimId": "claim.serbia-parental-consent",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "96400bdb119ba8e158e9c029139f1d052e49776546df83cfba0ea74168d8a502",
+      "expectedApplicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-entry-family-and-funds",
+          "expectedContextSha256": "cc64dd3b667e2c8345c2285686b7718839939cc1fd3ce1a9e85b95af56de7d4c"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.serbia-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T16:20:00.000+03:00",
+        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-arrival-registration-host.v1",
+      "version": 1,
+      "claimId": "claim.serbia-arrival-registration-host",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "df123da3f6e10efdcc5875583582dbc232be6d5568307dc0a022c8e92d232c8e",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-welcome-registration",
+          "fragmentId": "fragment.serbia-registration-24-hours",
+          "expectedContextSha256": "e119762570f905023539dff0f80c1c9b0b3908fb1a4014ad6df2068accba17fa"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.serbia-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T16:20:00.000+03:00",
+        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-russian-nationality.v1",
+      "version": 1,
+      "claimId": "claim.india-russian-nationality",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "9d7368c5b7d882a65c3be1d76b2b43d88a3fabe46825786b96d738fb992e39a7",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-russia-eligibility",
+          "expectedContextSha256": "271b604c90359096c2171281b92953c3479959cd8cfee3b659418acf82e982ff"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-ordinary-passport.v1",
+      "version": 1,
+      "claimId": "claim.india-ordinary-passport",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "31872ddef5c7d4e9b619a9e1a89d81037ef9c9d52bc49d6d411131a6768c6fbc",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-ordinary-passport",
+          "expectedContextSha256": "c6868b1e1e516a75b8deeae498fb30ff06f49f1f46ccc8fdfb3f65c79104229d"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-route-availability.v1",
+      "version": 1,
+      "claimId": "claim.india-route-availability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "602d25b8083959a0e87dd532231a04398831efb0bd1cfbd70e57ccf4682c5c54",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-route-category",
+          "expectedContextSha256": "320b36f7fe8e611d1cf0074416eceff181b841e04a092684f0ff4fe787216424"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-stay-rule.v1",
+      "version": 1,
+      "claimId": "claim.india-stay-rule",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "6735688deeca1520a477fc16c0ffa71a4a15e0421f0e6c3bc9a4534cdd126ff3",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-stay-30-first-arrival",
+          "expectedContextSha256": "b7377d150283771522b01582701a59f034f35fc5bda247a7c2e1fbfcd49e6eba"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.india-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "2d364dca73b4e0111c11107b0f6b488bcbae85b5c04b095f1aeaa96f2488d5dc",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-child-applicability",
+          "expectedContextSha256": "1c6f9934c841626f6c0193b283bb3abf8782ff9b7b0d19baa8da4b1c357ae915"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-separate-application.v1",
+      "version": 1,
+      "claimId": "claim.india-separate-application",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "ba1aafcbc267360433bd962def9af19d4ebbeca1447c13ad1e1d269e5702171b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-child-separate-application",
+          "expectedContextSha256": "1c6f9934c841626f6c0193b283bb3abf8782ff9b7b0d19baa8da4b1c357ae915"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-entry-delhi.v1",
+      "version": 1,
+      "claimId": "claim.india-entry-delhi",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "b74860da1e4f268fea4f4afbe637b0f5b579be8806f5ecc50a27cbcb284a3cd4",
+      "expectedApplicabilitySha256": "b74ca3691814a1338346d12166df4e2d49a7d39de791288900d8b79d214fa61b",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-delhi-authorized-arrival",
+          "expectedContextSha256": "a4f13ee845d9155cf8eb87a41f01548e3ec2fecff05affd0624b2bab3d32eeda"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-onward-ticket.v1",
+      "version": 1,
+      "claimId": "claim.india-onward-ticket",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "6c0cc2166d3598f4dd90cbd9b9165f83d90e280b86b9f72036410efb801f99f2",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-onward-ticket",
+          "expectedContextSha256": "ee57e26e44d37a9ee8fabdb56861a2aaa93c37278930fe45306f5831cd979db3"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-proof-of-funds.v1",
+      "version": 1,
+      "claimId": "claim.india-proof-of-funds",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-proof-of-funds",
+          "expectedContextSha256": "ee57e26e44d37a9ee8fabdb56861a2aaa93c37278930fe45306f5831cd979db3"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.india-eta-print.v1",
+      "version": 1,
+      "claimId": "claim.india-eta-print",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "f44437bbb372df35981afa8548cc71172e9ed9c583cd56c5e8a4cd823a1b4c95",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.india-central-evisa",
+          "fragmentId": "fragment.india-printed-eta",
+          "expectedContextSha256": "47adae8dda365f4250645b170ec04d13f23e5ac93331bd3a72be59b876b9288c"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-02T17:40:00.000+03:00",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.india-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-02T17:40:00.000+03:00",
+        "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    }
+  ]
+}

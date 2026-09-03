@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "evidence-acquisition-v2",
+  "fetcherVersion": "official-source-fetch-v2",
+  "normalizerVersion": "visible-text-v1",
+  "timeoutMs": 20000,
+  "maximumResponseBytes": 10485760,
+  "maximumRedirects": 5,
+  "fragmentChecks": [
+    {
+      "id": "fragment.serbia-ordinary-passport-30-days",
+      "sourceId": "source.serbia-mfa-russia-visa",
+      "claimIds": [
+        "claim.serbia-russian-nationality",
+        "claim.serbia-ordinary-passport",
+        "claim.serbia-route-availability",
+        "claim.serbia-stay-rule"
+      ],
+      "requiredText": [
+        "For holders of ordinary passports:",
+        "No visas required for visits of up to 30 days"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-entry-family-and-funds",
+      "sourceId": "source.serbia-mfa-general-entry",
+      "claimIds": [
+        "claim.serbia-passport-present",
+        "claim.serbia-family-applicability",
+        "claim.serbia-proof-of-funds",
+        "claim.serbia-parental-consent"
+      ],
+      "requiredText": [
+        "A valid travel document",
+        "Proof of sufficient funds for staying in Serbia",
+        "For minors, foreign citizens, parental consent is not required to enter the Republic of Serbia."
+      ],
+      "maximumSpanCharacters": 3000
+    },
+    {
+      "id": "fragment.serbia-registration-24-hours",
+      "sourceId": "source.serbia-welcome-registration",
+      "claimIds": [
+        "claim.serbia-arrival-registration-host"
+      ],
+      "requiredText": [
+        "have the obligation to register the foreigners' stay with the competent authority, within 24 hours"
+      ],
+      "maximumSpanCharacters": 1000
+    },
+    {
+      "id": "fragment.india-portal-operational",
+      "sourceId": "source.india-visa-home",
+      "claimIds": [
+        "claim.india-route-availability",
+        "claim.india-evisa-required"
+      ],
+      "requiredText": [
+        "Authorized Portal for Visa Application to India",
+        "For eVisa by Bureau of Immigration, Apply here."
+      ],
+      "maximumSpanCharacters": 2500
+    },
+    {
+      "id": "fragment.india-moscow-passport-and-one-month",
+      "sourceId": "source.india-moscow-revised-evisa",
+      "claimIds": [
+        "claim.india-stay-rule",
+        "claim.india-passport-validity"
+      ],
+      "requiredText": [
+        "A short duration e-visa for tourist, with one-month validity",
+        "паспорт заявителя должен быть действительным по крайней мере в течение 6 месяцев с момента въезда в Индию"
+      ],
+      "maximumSpanCharacters": 3500
+    },
+    {
+      "id": "fragment.india-moscow-legacy-conflict",
+      "sourceId": "source.india-moscow-etourist",
+      "claimIds": [
+        "claim.india-fee-conflict"
+      ],
+      "requiredText": [
+        "однократную электронную туристическую визу сроком на 30 дней",
+        "Визовый сбор в размере 60 долларов США"
+      ],
+      "maximumSpanCharacters": 2500
+    },
+    {
+      "id": "fragment.india-russia-eligibility",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-russian-nationality"
+      ],
+      "requiredText": [
+        "If you hold valid passports from any of the following countries/regions, you are eligible for eVisa.",
+        "132. Romania",
+        "133. Russia",
+        "134. Rwanda"
+      ],
+      "maximumSpanCharacters": 5000
+    },
+    {
+      "id": "fragment.india-ordinary-passport",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-ordinary-passport"
+      ],
+      "requiredText": [
+        "Not available to Diplomatic/Official Passport Holders or Laissez-passer travel document holders. Not available to individuals endorsed on Parent's/Spouse's Passport i.e. each individual should have a separate passport. Not available to International Travel Document Holders other than Passport."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.india-route-category",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-route-availability"
+      ],
+      "requiredText": [
+        "e-Tourist Visa (e-T1 V)",
+        "1. One Month e-Tourist Visa",
+        "One Month (30 Days).",
+        "Multiple Entry, non-extendable and non-convertible"
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.india-stay-30-first-arrival",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-stay-rule"
+      ],
+      "requiredText": [
+        "Q9. What is the validity of e-Visa?",
+        "For e-Tourist Visa (30 days) , the validity would be 30 days from the date of your first arrival in India.",
+        "Multiple entries will be granted within the e-Visa validity period stamped on your Passport."
+      ],
+      "maximumSpanCharacters": 1300
+    },
+    {
+      "id": "fragment.india-child-applicability",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-family-applicability"
+      ],
+      "requiredText": [
+        "Q12. I am applying e-Visa for myself and my son/daughter who is a minor. Do I need to apply for a separate e-Visa for my minor child? Ans- Yes, ensure that your child's passport is valid at-least for next 06 (six) months from the date of arrival in India."
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.india-child-separate-application",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-separate-application"
+      ],
+      "requiredText": [
+        "Q12. I am applying e-Visa for myself and my son/daughter who is a minor. Do I need to apply for a separate e-Visa for my minor child? Ans- Yes, ensure that your child's passport is valid at-least for next 06 (six) months from the date of arrival in India."
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.india-tourist-application-window",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-application-window"
+      ],
+      "requiredText": [
+        "For e-Tourist Visa (30 days) , applicants of the eligible countries/territories may apply online minimum 4 days in advance of the date of arrival.",
+        "Such application can be made 120 days in advance from proposed date of travel."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.india-delhi-authorized-arrival",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-entry-delhi"
+      ],
+      "requiredText": [
+        "Q11. Can I change the port of arrival/departure?",
+        "You may arrive at 33 designated Airports",
+        "Cochin, Coimbatore, Delhi, Gaya"
+      ],
+      "maximumSpanCharacters": 900
+    },
+    {
+      "id": "fragment.india-onward-ticket",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-onward-ticket"
+      ],
+      "requiredText": [
+        "International Travellers should have return ticket or onward journey ticket,with sufficient money to spend during his/her stay in India."
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.india-proof-of-funds",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-proof-of-funds"
+      ],
+      "requiredText": [
+        "International Travellers should have return ticket or onward journey ticket,with sufficient money to spend during his/her stay in India."
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.india-printed-eta",
+      "sourceId": "source.india-central-evisa",
+      "claimIds": [
+        "claim.india-eta-print"
+      ],
+      "requiredText": [
+        "Receive ETA Online",
+        "Electronic Travel Authorization/ETA Will be sent to your e-mail",
+        "Print ETA and present at Immigration Check Post where eVisa will be stamped on passport."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.turkiye-russia-ordinary-60-days",
+      "sourceId": "source.turkiye-mfa-russia-visa",
+      "claimIds": [
+        "claim.turkiye-russian-nationality",
+        "claim.turkiye-ordinary-passport",
+        "claim.turkiye-route-availability",
+        "claim.turkiye-stay-rule",
+        "claim.turkiye-passport-requirement"
+      ],
+      "requiredText": [
+        "Russian Federation: Ordinary passport holders are exempted from visa for their touristic and business travels up to 60 days."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.armenia-russia-all-passports",
+      "sourceId": "source.armenia-mfa-visa-free-agreements",
+      "claimIds": [
+        "claim.armenia-russian-nationality",
+        "claim.armenia-ordinary-passport",
+        "claim.armenia-route-availability",
+        "claim.armenia-passport-requirement"
+      ],
+      "requiredText": [
+        "Russian Federation All types of passports"
+      ],
+      "maximumSpanCharacters": 300
+    },
+    {
+      "id": "fragment.armenia-visa-free-180-year",
+      "sourceId": "source.armenia-mfa-visa-rules",
+      "claimIds": [
+        "claim.armenia-stay-rule"
+      ],
+      "requiredText": [
+        "Citizens of foreign countries for whom a visa-free regime is set can stay on the territory of the Republic of Armenia for no more than 180 days during one year"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.kazakhstan-ordinary-passport-legend",
+      "sourceId": "source.kazakhstan-mfa-visa-regime",
+      "claimIds": [
+        "claim.kazakhstan-ordinary-passport"
+      ],
+      "requiredText": [
+        "N ordinary passport"
+      ],
+      "maximumSpanCharacters": 100
+    },
+    {
+      "id": "fragment.kazakhstan-russia-ordinary-90-days",
+      "sourceId": "source.kazakhstan-mfa-visa-regime",
+      "claimIds": [
+        "claim.kazakhstan-russian-nationality",
+        "claim.kazakhstan-ordinary-passport",
+        "claim.kazakhstan-route-availability",
+        "claim.kazakhstan-stay-rule",
+        "claim.kazakhstan-passport-requirement"
+      ],
+      "requiredText": [
+        "Russian Federation visa-free up to 90 days visa-free up to 90 days visa-free up to 90 days"
+      ],
+      "maximumSpanCharacters": 600
+    },
+    {
+      "id": "fragment.georgia-russia-one-year",
+      "sourceId": "source.georgia-ordinance-255",
+      "claimIds": [
+        "claim.georgia-russian-nationality",
+        "claim.georgia-route-availability",
+        "claim.georgia-stay-rule"
+      ],
+      "requiredText": [
+        "66 Russian Federation",
+        "Citizens of the countries listed in the annex may enter and stay in Georgia without visa for one full year."
+      ],
+      "maximumSpanCharacters": 5000
+    },
+    {
+      "id": "fragment.georgia-tourist-insurance-2026",
+      "sourceId": "source.georgia-mfa-tourist-insurance",
+      "claimIds": [
+        "claim.georgia-tourist-insurance"
+      ],
+      "requiredText": [
+        "starting from January 01, 2026, all tourists entering Georgia are required to hold a valid health and accident insurance policy.",
+        "the insurance coverage amount must be no less than 30 000 GEL",
+        "cover the full period of a tourist’s stay"
+      ],
+      "maximumSpanCharacters": 2500
+    },
+    {
+      "id": "fragment.uae-russia-90-in-180",
+      "sourceId": "source.uae-moscow-visa-exemption",
+      "claimIds": [
+        "claim.uae-russian-nationality",
+        "claim.uae-ordinary-passport",
+        "claim.uae-route-availability",
+        "claim.uae-stay-rule",
+        "claim.uae-passport-requirement"
+      ],
+      "requiredText": [
+        "nationals of both countries holding valid passports of any category (diplomatic, special, or ordinary), with a validity of at least six months",
+        "up to 90 days without a visa",
+        "must not exceed ninety (90) days within any one hundred and eighty (180)-day period"
+      ],
+      "maximumSpanCharacters": 1800
+    }
+  ]
+}
