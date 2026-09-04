@@ -17,15 +17,14 @@ import { routeKindLabel } from "./status";
 
 type ModuleId = "where" | "documents" | "pack" | "travel" | "stay";
 
-function checklist({ items, checked, onChange, t }: { items: PracticalChecklistItem[]; checked: Set<string>; onChange: (id: string, value: boolean) => void; t: Messages }) {
+function checklist({ items, checked, onChange }: { items: PracticalChecklistItem[]; checked: Set<string>; onChange: (id: string, value: boolean) => void }) {
   return <ul className="action-checklist">{items.map((item) => <li key={item.id}>
     <label><input type="checkbox" checked={checked.has(item.id)} onChange={(event) => onChange(item.id, event.currentTarget.checked)} /><span>{item.text}</span></label>
-    {item.status !== "confirm" && <small className={item.status}>{t.planningStep}</small>}
   </li>)}</ul>;
 }
 
-function linesForChecklist(title: string, items: PracticalChecklistItem[], checked: Set<string>, t: Messages) {
-  return [title, ...items.map((item) => `${checked.has(item.id) ? "☑" : "☐"} ${item.text}${item.status !== "confirm" ? ` — ${t.planningStep}` : ""}`)].join("\n");
+function linesForChecklist(title: string, items: PracticalChecklistItem[], checked: Set<string>) {
+  return [title, ...items.map((item) => `${checked.has(item.id) ? "☑" : "☐"} ${item.text}`)].join("\n");
 }
 
 export function formatDepartureActionPlan({ destination, route, stay, uncertainty, members, packing, firstStayChecks, checked, origin, airport, phases, t }: {
@@ -43,13 +42,13 @@ export function formatDepartureActionPlan({ destination, route, stay, uncertaint
     `2. ${t.actionDocuments}`,
     formatMemberChecklistsForCopy(members, t),
     "",
-    `3. ${linesForChecklist(t.actionPack, packing, checked, t)}`,
+    `3. ${linesForChecklist(t.actionPack, packing, checked)}`,
     "",
     `4. ${t.actionTravel}`,
     `${origin} → ${airport}`,
     "",
     `5. ${t.actionFirstStay}`,
-    linesForChecklist(t.actionFirstStay, firstStayChecks, checked, t),
+    linesForChecklist(t.actionFirstStay, firstStayChecks, checked),
     "",
     t.actionPlanCandidateNotice,
     "",
@@ -105,9 +104,9 @@ export function ActionPlanWorkspace({ place, household, members, phases, lang, t
       })}</TabsList>
       <TabsContent value="where" className="action-module" data-action-panel="where"><h4>{destination}</h4><dl className="action-summary"><div><dt>{t.actionPlanRoute}</dt><dd>{routeText}</dd></div><div><dt>{t.actionPlanStay}</dt><dd>{stayText}</dd></div><div><dt>{t.actionPlanBlocker}</dt><dd>{uncertainty}</dd></div></dl><p className="action-warning">{t.actionPlanCandidateNotice}</p></TabsContent>
       <TabsContent value="documents" className="action-module" data-action-panel="documents"><DocumentChecklist place={place} members={members} lang={lang} t={t} nested /></TabsContent>
-      <TabsContent value="pack" className="action-module" data-action-panel="pack"><h4>{t.actionPack}</h4><p>{t.actionPackNotice}</p>{checklist({ items: packing, checked, onChange: setCheck, t })}</TabsContent>
+      <TabsContent value="pack" className="action-module" data-action-panel="pack"><h4>{t.actionPack}</h4><p>{t.actionPackNotice}</p>{checklist({ items: packing, checked, onChange: setCheck })}</TabsContent>
       <TabsContent value="travel" className="action-module" data-action-panel="travel"><h4>{originLabel} → {airport}</h4><p>{t.actionTravelNotice}</p>{departure && <a className="action-external-link" href={departure.flightSearch} target="_blank" rel="noreferrer">{t.searchLiveFlights}<ExternalLink aria-hidden="true" /></a>}</TabsContent>
-      <TabsContent value="stay" className="action-module" data-action-panel="stay"><h4>{t.actionFirstStay}</h4><p>{t.actionFirstStayNotice}</p>{departure && <a className="action-external-link" href={departure.staySearch} target="_blank" rel="noreferrer">{t.actionSearchFirstStay}<ExternalLink aria-hidden="true" /></a>}{checklist({ items: firstStayChecks, checked, onChange: setCheck, t })}</TabsContent>
+      <TabsContent value="stay" className="action-module" data-action-panel="stay"><h4>{t.actionFirstStay}</h4><p>{t.actionFirstStayNotice}</p>{departure && <a className="action-external-link" href={departure.staySearch} target="_blank" rel="noreferrer">{t.actionSearchFirstStay}<ExternalLink aria-hidden="true" /></a>}{checklist({ items: firstStayChecks, checked, onChange: setCheck })}</TabsContent>
     </Tabs>
     <details className="action-additional"><summary>{t.actionAdditionalSequence}</summary><p>{t.actionAdditionalSequenceNotice}</p><RelocationPlan place={place} phases={phases} members={members} lang={lang} t={t} nested includeDocuments={false} /></details>
     <p className="action-copy-status" role="status" aria-live="polite">{copyState === "error" ? t.checklistCopyFailed : copyState === "copied" ? t.checklistCopied : ""}</p>

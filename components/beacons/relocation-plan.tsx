@@ -22,7 +22,6 @@ function phasePosition(phase: RelocationPhase, t: Messages) {
 }
 
 function taskStatus(task: RelocationTask, t: Messages) {
-  if (task.status === "planning") return t.planningStep;
   if (task.status === "required") return t.routeRequirement;
   return "";
 }

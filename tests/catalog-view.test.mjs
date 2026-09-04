@@ -388,7 +388,7 @@ test("the move stepper shows one stage at a time while full copy preserves the w
   assert.ok(copyText.indexOf("1. Prepare locally") < copyText.indexOf("2. Arrange remotely"));
   assert.ok(copyText.indexOf("2. Arrange remotely") < copyText.indexOf("3. Complete after arrival"));
   assert.match(copyText, /Documents and preparations[\s\S]*Adult 1[\s\S]*Adult 2[\s\S]*Dog 1/);
-  assert.match(copyText, /Planning step/);
+  assert.doesNotMatch(copyText, /Planning step/);
   assert.doesNotMatch(copyText, /Confirm before travel/);
   assert.doesNotMatch(html, /Confirm before travel/);
   assert.equal(clipboardText, copyText);
@@ -448,6 +448,8 @@ test("the departure workspace exposes five focused modules and produces one comp
   assert.doesNotMatch(html, /<textarea\b/i);
   assert.doesNotMatch(html, /Flight or route note|Departure date and time|Property or host|Contact and arrival instructions|Airport transfer/);
   assert.doesNotMatch(text, /Personal note|Not entered/);
+  assert.doesNotMatch(text, /Planning step/);
+  assert.doesNotMatch(html, /Planning step/);
   assert.match(text, /planning candidate/i);
   assert.match(text, /Your move sequence/);
 });
