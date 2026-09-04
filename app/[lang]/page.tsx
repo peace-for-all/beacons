@@ -4,7 +4,11 @@ import { catalog } from "@/lib/content/catalog";
 import { latestEvidenceAutomationRun } from "@/lib/content/evidence-automation";
 import { householdMobility } from "@/lib/content/household-mobility";
 import { projectCatalog } from "@/lib/domain/catalog-view";
-import { isLang } from "@/lib/i18n/routing";
+import { isLang, langs } from "@/lib/i18n/routing";
+
+export function generateStaticParams() {
+  return langs.map((lang) => ({ lang }));
+}
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

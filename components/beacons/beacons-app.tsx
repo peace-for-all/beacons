@@ -1,6 +1,7 @@
 "use client";
 
 import { Radio } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PlaceView } from "@/lib/domain/catalog-view";
 import type { DepartureOrigin } from "@/lib/domain/departure-links";
@@ -81,7 +82,7 @@ export function BeaconsApp({ places, mobilityRules = [], asOf = new Date().toISO
   };
   return <main className="app-shell" lang={lang}>
     <header className="topbar">
-      <a className="brand-home" href={`/${lang}`} aria-label={t.homeLabel}><span className="brand-mark"><Radio size={18} /></span><span className="brand">{lang === "ru" ? "МАЯКИ" : "BEACONS"}</span></a>
+      <Link className="brand-home" href={`/${lang}`} aria-label={t.homeLabel}><span className="brand-mark"><Radio size={18} /></span><span className="brand">{lang === "ru" ? "МАЯКИ" : "BEACONS"}</span></Link>
       <SiteNav lang={lang} mobileOpen={navOpen} onMobileOpenChange={(open) => { setNavOpen(open); if (open) setFiltersOpen(false); }} />
       <div className="topbar-actions"><LocaleSwitch lang={lang} onNavigate={saveLocaleHandoff} /></div>
     </header>

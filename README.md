@@ -4,6 +4,8 @@ A map-first browser of realistic departure options. Useful facts remain visible
 when they are unchecked or incomplete, with their confidence and sources shown
 clearly. The interface is available in English and Russian.
 
+Public site: <https://peace-for-all.github.io/beacons/>
+
 Карта реалистичных вариантов отъезда. Полезные факты остаются видимыми, даже
 если они ещё не проверены или неполны; степень уверенности и источники указываются
 явно. Интерфейс доступен на русском и английском.

@@ -1,4 +1,5 @@
 import { CircleHelp, ExternalLink, MapPin, Plane, WalletCards } from "lucide-react";
+import Link from "next/link";
 import type { PlaceView } from "@/lib/domain/catalog-view";
 import { departureLinks, type DepartureOrigin } from "@/lib/domain/departure-links";
 import type { HouseholdCountProfile, HouseholdMobilityRule } from "@/lib/domain/household-eligibility";
@@ -50,7 +51,7 @@ export function BeaconDetail({ place, mobilityRule, householdCounts = { adults: 
     <section className="practical-gaps"><article><Plane aria-hidden="true" /><div><h3>{t.practicalDeparture}</h3>{departure ? <><p>{t.arrivalAirport}: <strong>{departure.airport}</strong>. {t.departureNotCollected}</p><a href={departure.flightSearch} target="_blank" rel="noreferrer">{t.searchLiveFlights}<ExternalLink aria-hidden="true" /></a></> : <p>{t.departureNotCollected}</p>}</div></article><article><WalletCards aria-hidden="true" /><div><h3>{t.firstMonthEstimate}</h3><p>{t.estimateNotCollected}</p>{departure && <a href={departure.costGuide} target="_blank" rel="noreferrer">{t.browseCostGuide}<ExternalLink aria-hidden="true" /></a>}</div></article>{departure && <p className="external-search-notice">{t.externalSearchNotice}</p>}</section>
     {unresolved.length > 0 && <section className="unknowns"><h3><CircleHelp size={15} />{t.whatNeedsChecking}</h3><ul>{unresolved.map((item, index) => <li key={`${item.en}.${index}`}>{item[lang]}</li>)}</ul></section>}
     <section className="source-summary" aria-labelledby="source-summary-title"><h3 id="source-summary-title">{t.sourcesForThisRoute}</h3><p>{t.sourceSummaryNotice}</p>{sources.map((source) => <a key={source.id} className={source.relationship} href={source.url} target="_blank" rel="noreferrer"><span>{source.publisher}<small>{source.originalTitle}</small><small className="source-relationship">{source.relationship === "contradicts" ? t.sourceContradicts : t.sourceSupports}</small></span><ExternalLink size={15} aria-hidden="true" /><span className="sr-only">{t.opensNewTab}</span></a>)}</section>
-    <a className="review-link" href={`/${lang}/reviews#${place.id}`}>{t.openProofs}</a>
+    <Link className="review-link" href={`/${lang}/reviews#${place.id}`}>{t.openProofs}</Link>
     <details className="technical-evidence"><summary>{t.detailsAndSources}</summary><EvidencePanel claims={claims} lang={lang} t={t} /></details>
     </div></details>
   </aside>;

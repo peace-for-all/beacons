@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { publicAssetPath } from "@/lib/deployment";
 import { isLang, langs } from "@/lib/i18n/routing";
 import "../globals.css";
 
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: ru ? "Маяки — исследованные возможности" : "Beacons — researched possibilities",
     description: ru ? "Карта исследованных возможностей с частичными, проверяемыми доказательствами; не инструкция для поездки." : "An evidence-first map of researched possibilities with partial, traceable evidence; not travel instructions.",
     other: { "codex-preview": "development" },
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+    icons: { icon: publicAssetPath("/favicon.svg"), shortcut: publicAssetPath("/favicon.svg") },
   };
 }
 
