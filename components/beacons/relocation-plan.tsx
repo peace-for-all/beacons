@@ -71,7 +71,7 @@ export function RelocationPlan({ place, phases, members, lang, t }: { place: Pla
     });
   };
   return <section className="relocation-plan" aria-labelledby="relocation-plan-title">
-    <div className="relocation-plan-heading"><div><h3 id="relocation-plan-title">{t.relocationPlanTitle}</h3><p>{t.relocationPlanNotice}</p></div><button type="button" onClick={() => copy("all", formatRelocationPlanForCopy(destination, phases, members, t))}><Copy aria-hidden="true" />{copied === "all" ? t.checklistCopied : t.copyFullPlan}</button></div>
+    <div className="relocation-plan-heading"><div><h3 id="relocation-plan-title">{t.relocationPlanTitle}</h3><p>{t.relocationPlanNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyFullPlan} title={t.copyFullPlan} onClick={() => copy("all", formatRelocationPlanForCopy(destination, phases, members, t))}>{copied === "all" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
     <Tabs className="relocation-stage-tabs" value={selectedPhaseId} onValueChange={(value) => setSelectedPhaseId(value as RelocationPhaseId)}>
       <div className="relocation-stage-prompt"><strong>{t.relocationStageQuestion}</strong><span>{t.relocationStageHint}</span></div>
       <TabsList className="relocation-stage-list" aria-label={t.relocationStageQuestion}>{phases.map((phase, phaseIndex) => <TabsTrigger key={phase.id} className="relocation-stage-trigger" value={phase.id} data-stage-choice={phase.id}>
@@ -80,7 +80,7 @@ export function RelocationPlan({ place, phases, members, lang, t }: { place: Pla
       {phases.map((phase, phaseIndex) => {
         const completedCount = phase.tasks.filter((task) => completedTasks.has(`${place.id}:${task.id}`)).length;
         return <TabsContent key={phase.id} className="relocation-phase" value={phase.id} data-phase={phase.id}>
-          <div className="relocation-phase-heading"><span>{phaseIndex + 1}</span><div><small>{t.actionsForThisStage}</small><h4>{phaseTitle(phase, t)}</h4><p>{t.stageProgress.replace("{done}", String(completedCount)).replace("{total}", String(phase.tasks.length))}</p></div><button type="button" aria-label={`${t.copyPhase}: ${phaseTitle(phase, t)}`} onClick={() => copy(phase.id, formatPhaseForCopy(phase, members, t))}>{copied === phase.id ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}{copied === phase.id ? t.checklistCopied : t.copyPhase}</button></div>
+          <div className="relocation-phase-heading"><span>{phaseIndex + 1}</span><div><small>{t.actionsForThisStage}</small><h4>{phaseTitle(phase, t)}</h4><p>{t.stageProgress.replace("{done}", String(completedCount)).replace("{total}", String(phase.tasks.length))}</p></div><button className="icon-copy-button" type="button" aria-label={`${t.copyPhase}: ${phaseTitle(phase, t)}`} title={`${t.copyPhase}: ${phaseTitle(phase, t)}`} onClick={() => copy(phase.id, formatPhaseForCopy(phase, members, t))}>{copied === phase.id ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
           <ul className="relocation-task-list">{phase.tasks.map((task, taskIndex) => {
             const checkboxId = `${place.id}-${phase.id}-task-${taskIndex + 1}`;
             const checked = completedTasks.has(`${place.id}:${task.id}`);

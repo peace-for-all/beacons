@@ -100,6 +100,13 @@ test("mobile details use a labelled dialog and return focus on close", async ({ 
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText("Belgrade");
+  const copyButton = dialog.getByRole("button", { name: "Copy full plan" });
+  await expect(copyButton).toBeVisible();
+  await expect(copyButton).toHaveText("");
+  const copyBox = await copyButton.boundingBox();
+  expect(copyBox).not.toBeNull();
+  expect(copyBox!.width).toBe(44);
+  expect(copyBox!.height).toBe(44);
   await page.getByRole("button", { name: "Close details" }).click();
   await expect(dialog).toBeHidden();
   await expect(option).toBeFocused();

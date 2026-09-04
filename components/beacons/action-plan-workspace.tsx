@@ -109,7 +109,7 @@ export function ActionPlanWorkspace({ place, household, members, phases, lang, t
     { id: "stay", title: t.actionFirstStay, summary: notes.stayAddress.trim() ? t.actionFirstStaySummaryReady : t.actionFirstStaySummaryEmpty, icon: House },
   ];
   return <section className="action-plan" aria-labelledby="action-plan-title">
-    <div className="action-plan-heading"><div><p className="action-plan-kicker">{t.actionPlanDestination}</p><h3 id="action-plan-title">{t.actionPlanTitle}</h3><p>{t.actionPlanNotice}</p></div><button type="button" onClick={copyPlan}>{copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}{copyState === "copied" ? t.checklistCopied : t.copyFullPlan}</button></div>
+    <div className="action-plan-heading"><div><p className="action-plan-kicker">{t.actionPlanDestination}</p><h3 id="action-plan-title">{t.actionPlanTitle}</h3><p>{t.actionPlanNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyFullPlan} title={t.copyFullPlan} onClick={copyPlan}>{copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
     <p className="action-plan-local-note">{t.actionPlanLocalNote}</p>
     <Tabs value={selected} onValueChange={(value) => setSelected(value as ModuleId)} className="action-module-tabs">
       <span className="sr-only" id="action-module-question">{t.actionPlanModuleQuestion}</span>

@@ -311,7 +311,8 @@ test("a two-adult household with one dog gets independently copyable actionable 
   assert.equal(clipboardText, copyText);
   assert.equal((html.match(/type="checkbox"/g) ?? []).length, members.flatMap((member) => member.items).length);
   assert.equal((html.match(/aria-label="Copy checklist:/g) ?? []).length, 3);
-  assert.match(html, /Copy all/);
+  assert.match(html, /aria-label="Copy all"/);
+  assert.doesNotMatch(html, />Copy all</);
   assert.match(html, /Adult 1/);
   assert.match(html, /Adult 2/);
   assert.match(html, /Dog 1/);
@@ -395,7 +396,8 @@ test("the move stepper shows one stage at a time while full copy preserves the w
   assert.equal((html.match(/data-phase=/g) ?? []).length, 3);
   assert.equal((html.match(/data-state="active"[^>]*data-phase="prepare_local"/g) ?? []).length, 1);
   assert.equal((html.match(/data-state="inactive"[^>]*hidden=""[^>]*data-phase=/g) ?? []).length, 2);
-  assert.match(html, /Copy full plan/);
+  assert.match(html, /aria-label="Copy full plan"/);
+  assert.doesNotMatch(html, />Copy full plan</);
   assert.equal((html.match(/aria-label="Copy phase:/g) ?? []).length, 1);
   assert.match(html, /Documents and preparations/);
 });
