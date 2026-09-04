@@ -136,6 +136,12 @@ test("a destination opens as one modular, editable departure plan", async ({ pag
   const plan = page.locator(".action-plan");
   await expect(plan.getByRole("heading", { name: "Departure plan" })).toBeVisible();
   await expect(plan.locator('[data-action-module]')).toHaveCount(5);
+  const moduleBoxes = await plan.locator('[data-action-module]').evaluateAll((items) => items.map((item) => {
+    const box = item.getBoundingClientRect();
+    return { left: box.left, top: box.top, width: box.width };
+  }));
+  expect(moduleBoxes.every((box) => Math.abs(box.left - moduleBoxes[0].left) < 1 && Math.abs(box.width - moduleBoxes[0].width) < 1)).toBe(true);
+  expect(moduleBoxes.every((box, index) => index === 0 || box.top > moduleBoxes[index - 1].top)).toBe(true);
   await expect(plan.locator('[data-action-panel="where"]')).toBeVisible();
   await expect(plan.locator('[data-action-panel="documents"]')).toBeHidden();
   const accessibility = await new AxeBuilder({ page }).include(".action-plan").analyze();
