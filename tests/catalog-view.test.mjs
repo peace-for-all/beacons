@@ -308,6 +308,7 @@ test("a two-adult household with one dog gets independently copyable actionable 
   assert.match(copyText, /☐ Valid ordinary passport/);
   assert.match(copyText, /☐ Microchip identification/);
   assert.match(copyText, /Source: https:\/\//);
+  assert.doesNotMatch(copyText, /Confirm before travel/);
   assert.equal(clipboardText, copyText);
   assert.equal((html.match(/type="checkbox"/g) ?? []).length, members.flatMap((member) => member.items).length);
   assert.equal((html.match(/aria-label="Copy checklist:/g) ?? []).length, 3);
@@ -316,6 +317,7 @@ test("a two-adult household with one dog gets independently copyable actionable 
   assert.match(html, /Adult 1/);
   assert.match(html, /Adult 2/);
   assert.match(html, /Dog 1/);
+  assert.doesNotMatch(html, /Confirm before travel/);
 });
 
 test("application-route checklists include per-person authorisation documents without false certainty", () => {
@@ -387,7 +389,8 @@ test("the move stepper shows one stage at a time while full copy preserves the w
   assert.ok(copyText.indexOf("2. Arrange remotely") < copyText.indexOf("3. Complete after arrival"));
   assert.match(copyText, /Documents and preparations[\s\S]*Adult 1[\s\S]*Adult 2[\s\S]*Dog 1/);
   assert.match(copyText, /Planning step/);
-  assert.match(copyText, /Confirm before travel/);
+  assert.doesNotMatch(copyText, /Confirm before travel/);
+  assert.doesNotMatch(html, /Confirm before travel/);
   assert.equal(clipboardText, copyText);
   assert.match(html, /Where are you now\?/);
   assert.equal((html.match(/data-stage-choice=/g) ?? []).length, 3);

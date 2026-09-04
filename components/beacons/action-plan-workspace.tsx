@@ -23,12 +23,12 @@ const emptyNotes: PersonalNotes = { travelRoute: "", travelDate: "", stayName: "
 function checklist({ items, checked, onChange, t }: { items: PracticalChecklistItem[]; checked: Set<string>; onChange: (id: string, value: boolean) => void; t: Messages }) {
   return <ul className="action-checklist">{items.map((item) => <li key={item.id}>
     <label><input type="checkbox" checked={checked.has(item.id)} onChange={(event) => onChange(item.id, event.currentTarget.checked)} /><span>{item.text}</span></label>
-    <small className={item.status}>{item.status === "confirm" ? t.checklistConfirm : t.planningStep}</small>
+    {item.status !== "confirm" && <small className={item.status}>{t.planningStep}</small>}
   </li>)}</ul>;
 }
 
 function linesForChecklist(title: string, items: PracticalChecklistItem[], checked: Set<string>, t: Messages) {
-  return [title, ...items.map((item) => `${checked.has(item.id) ? "☑" : "☐"} ${item.text} — ${item.status === "confirm" ? t.checklistConfirm : t.planningStep}`)].join("\n");
+  return [title, ...items.map((item) => `${checked.has(item.id) ? "☑" : "☐"} ${item.text}${item.status !== "confirm" ? ` — ${t.planningStep}` : ""}`)].join("\n");
 }
 
 export function formatDepartureActionPlan({ destination, route, stay, uncertainty, members, packing, firstStayChecks, checked, notes, origin, airport, phases, t }: {

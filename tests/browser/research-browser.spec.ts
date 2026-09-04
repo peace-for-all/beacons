@@ -107,6 +107,12 @@ test("mobile details use a labelled dialog and return focus on close", async ({ 
   expect(copyBox).not.toBeNull();
   expect(copyBox!.width).toBe(44);
   expect(copyBox!.height).toBe(44);
+  await dialog.getByRole("tab", { name: /Documents/ }).click();
+  const documents = dialog.locator('[data-action-panel="documents"]');
+  await expect(documents).toBeVisible();
+  await expect(documents).not.toContainText("Confirm before travel");
+  const documentLayout = await documents.evaluate((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth }));
+  expect(documentLayout.scrollWidth).toBeLessThanOrEqual(documentLayout.clientWidth);
   await page.getByRole("button", { name: "Close details" }).click();
   await expect(dialog).toBeHidden();
   await expect(option).toBeFocused();

@@ -24,7 +24,7 @@ function phasePosition(phase: RelocationPhase, t: Messages) {
 function taskStatus(task: RelocationTask, t: Messages) {
   if (task.status === "planning") return t.planningStep;
   if (task.status === "required") return t.routeRequirement;
-  return t.checklistConfirm;
+  return "";
 }
 
 function uniqueSources(task: RelocationTask) {
@@ -32,11 +32,14 @@ function uniqueSources(task: RelocationTask) {
 }
 
 function formatPhaseForCopy(phase: RelocationPhase, members: MemberTravelChecklist[], t: Messages) {
-  const tasks = phase.tasks.flatMap((task) => [
-    `☐ [${task.timing}] ${task.text} — ${taskStatus(task, t)}`,
-    ...task.notes.map((note) => `  ${t.checklistNote}: ${note}`),
-    ...uniqueSources(task).map((source) => `  ${t.checklistSource}: ${source.url}`),
-  ]);
+  const tasks = phase.tasks.flatMap((task) => {
+    const status = taskStatus(task, t);
+    return [
+      `☐ [${task.timing}] ${task.text}${status ? ` — ${status}` : ""}`,
+      ...task.notes.map((note) => `  ${t.checklistNote}: ${note}`),
+      ...uniqueSources(task).map((source) => `  ${t.checklistSource}: ${source.url}`),
+    ];
+  });
   if (phase.id === "prepare_local") tasks.push("", t.documentChecklistTitle, formatMemberChecklistsForCopy(members, t));
   return [`${phaseTitle(phase, t)}`, ...tasks].join("\n");
 }
@@ -84,7 +87,8 @@ export function RelocationPlan({ place, phases, members, lang, t }: { place: Pla
           <ul className="relocation-task-list">{phase.tasks.map((task, taskIndex) => {
             const checkboxId = `${place.id}-${phase.id}-task-${taskIndex + 1}`;
             const checked = completedTasks.has(`${place.id}:${task.id}`);
-            return <li key={task.id}><label htmlFor={checkboxId}><input id={checkboxId} type="checkbox" checked={checked} onChange={(event) => setTaskComplete(task.id, event.currentTarget.checked)} /><span><small>{task.timing}</small>{task.text}</span></label><span className={`relocation-task-status ${task.status}`}>{taskStatus(task, t)}</span>{task.notes.map((note) => <p key={note}>{note}</p>)}{task.sources.length > 0 && <span className="relocation-task-sources">{uniqueSources(task).map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer" aria-label={`${t.officialSources} ${index + 1}: ${source.publisher}`}>[{index + 1}]</a>)}</span>}</li>;
+            const status = taskStatus(task, t);
+            return <li key={task.id}><label htmlFor={checkboxId}><input id={checkboxId} type="checkbox" checked={checked} onChange={(event) => setTaskComplete(task.id, event.currentTarget.checked)} /><span><small>{task.timing}</small>{task.text}</span></label>{status && <span className={`relocation-task-status ${task.status}`}>{status}</span>}{task.notes.map((note) => <p key={note}>{note}</p>)}{task.sources.length > 0 && <span className="relocation-task-sources">{uniqueSources(task).map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer" aria-label={`${t.officialSources} ${index + 1}: ${source.publisher}`}>[{index + 1}]</a>)}</span>}</li>;
           })}</ul>
           {phase.id === "prepare_local" && <DocumentChecklist place={place} members={members} lang={lang} t={t} nested />}
         </TabsContent>;

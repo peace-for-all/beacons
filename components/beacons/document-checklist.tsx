@@ -15,7 +15,7 @@ function statusLabel(item: TravelChecklistItem, t: Messages) {
   if (item.status === "required") return t.checklistRequired;
   if (item.status === "may_be_requested") return t.checklistMayBeRequested;
   if (item.status === "recommended") return t.checklistRecommended;
-  return t.checklistConfirm;
+  return "";
 }
 
 function uniqueSourceUrls(item: TravelChecklistItem) {
@@ -25,11 +25,14 @@ function uniqueSourceUrls(item: TravelChecklistItem) {
 export function formatMemberChecklistsForCopy(members: MemberTravelChecklist[], t: Messages) {
   return members.flatMap((member) => [
     memberLabel(member, t),
-    ...member.items.flatMap((item) => [
-      `☐ ${item.text} — ${statusLabel(item, t)}`,
-      ...item.notes.map((note) => `  ${t.checklistNote}: ${note}`),
-      ...uniqueSourceUrls(item).map((source) => `  ${t.checklistSource}: ${source.url}`),
-    ]),
+    ...member.items.flatMap((item) => {
+      const status = statusLabel(item, t);
+      return [
+        `☐ ${item.text}${status ? ` — ${status}` : ""}`,
+        ...item.notes.map((note) => `  ${t.checklistNote}: ${note}`),
+        ...uniqueSourceUrls(item).map((source) => `  ${t.checklistSource}: ${source.url}`),
+      ];
+    }),
     "",
   ]).join("\n").trimEnd();
 }
@@ -64,7 +67,8 @@ export function DocumentChecklist({ place, members, lang, t, nested = false }: {
       <div className="member-checklist-heading"><h4>{memberLabel(member, t)}</h4><button className="icon-copy-button" type="button" aria-label={`${t.copyChecklist}: ${memberLabel(member, t)}`} title={`${t.copyChecklist}: ${memberLabel(member, t)}`} onClick={() => copy(member.id, [member])}>{copied === member.id ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
       <ul>{member.items.map((item, itemIndex) => {
         const checkboxId = `${place.id}-${member.id}-document-${itemIndex + 1}`;
-        return <li key={item.id}><label htmlFor={checkboxId}><input id={checkboxId} type="checkbox" /><span>{item.text}</span></label><span className={`checklist-status ${item.status}`}>{statusLabel(item, t)}</span>{item.notes.map((note) => <p key={note} className="checklist-note">{note}</p>)}{item.sources.length > 0 && <span className="checklist-sources">{uniqueSourceUrls(item).map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer" aria-label={`${t.officialSources} ${index + 1}: ${source.publisher}`}>[{index + 1}]</a>)}</span>}</li>;
+        const status = statusLabel(item, t);
+        return <li key={item.id}><label htmlFor={checkboxId}><input id={checkboxId} type="checkbox" /><span>{item.text}</span></label>{status && <span className={`checklist-status ${item.status}`}>{status}</span>}{item.notes.map((note) => <p key={note} className="checklist-note">{note}</p>)}{item.sources.length > 0 && <span className="checklist-sources">{uniqueSourceUrls(item).map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer" aria-label={`${t.officialSources} ${index + 1}: ${source.publisher}`}>[{index + 1}]</a>)}</span>}</li>;
       })}</ul>
     </article>)}</div>
     <p className="checklist-copy-status" role="status" aria-live="polite">{copied === "error" ? t.checklistCopyFailed : copied ? t.checklistCopied : ""}</p>
