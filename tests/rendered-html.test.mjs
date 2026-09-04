@@ -40,12 +40,12 @@ test("publishes one-language English and Russian project routes", async () => {
   const context = { waitUntil() {}, passThroughOnException() {} };
   const pages = [
     ["/en", "Candidate destination map", "Карта возможных направлений", "en"],
-    ["/en/reviews", "Proof explorer", "Проводник по доказательствам", "en"],
+    ["/en/reviews", "Evidence review", "Проверка доказательств", "en"],
     ["/en/monitoring", "Official sources, captured", "Официальные источники", "en"],
     ["/en/methodology", "Automation retrieves facts", "Автоматика извлекает факты", "en"],
     ["/en/changes", "Semantic changelog", "Журнал смысловых изменений", "en"],
     ["/ru", "Карта возможных направлений", "Candidate destination map", "ru"],
-    ["/ru/reviews", "Проводник по доказательствам", "Proof explorer", "ru"],
+    ["/ru/reviews", "Проверка доказательств", "Evidence review", "ru"],
     ["/ru/monitoring", "Официальные источники", "Official sources", "ru"],
     ["/ru/methodology", "Автоматика извлекает факты", "Automation retrieves facts", "ru"],
     ["/ru/changes", "Журнал смысловых изменений", "Semantic changelog", "ru"],
@@ -58,6 +58,25 @@ test("publishes one-language English and Russian project routes", async () => {
     assert.match(html, new RegExp(`<html[^>]+lang=["']${lang}["']`, "i"), path);
     assert.match(visibleHtml, new RegExp(expected, "i"), path);
     assert.doesNotMatch(visibleHtml, new RegExp(absent, "i"), path);
+  }
+});
+
+test("review pages use neutral technical headings", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("review-copy", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const pages = [
+    ["/en/reviews", ["Evidence review", "Fact and evidence status", "Next automated checks", "Automated publication checks"], ["PROOF EXPLORER", "Facts first", "What automation tries next", "Authoritative automation"]],
+    ["/ru/reviews", ["Проверка доказательств", "Статус фактов и доказательств", "Следующие автоматические проверки", "Автоматическая проверка публикации"], ["ПРОВОДНИК ПО ДОКАЗАТЕЛЬСТВАМ", "Сначала факты", "Что автоматика попробует дальше", "Авторитетная автоматика"]],
+  ];
+  for (const [path, expected, absent] of pages) {
+    const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), env, context);
+    assert.equal(response.status, 200, path);
+    const visibleHtml = (await response.text()).replaceAll(/<script[\s\S]*?<\/script>/gi, "");
+    for (const heading of expected) assert.ok(visibleHtml.includes(heading), `${path}: ${heading}`);
+    for (const heading of absent) assert.ok(!visibleHtml.includes(heading), `${path}: ${heading}`);
   }
 });
 
