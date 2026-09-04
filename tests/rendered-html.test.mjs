@@ -80,6 +80,31 @@ test("review pages use neutral technical headings", async () => {
   }
 });
 
+test("static page header labels use sentence case", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("header-case", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const pages = [
+    ["/en/reviews", "Evidence review", "EVIDENCE REVIEW"],
+    ["/en/monitoring", "Evidence acquisition", "EVIDENCE ACQUISITION"],
+    ["/en/methodology", "Public method", "PUBLIC METHOD"],
+    ["/en/changes", "Semantic changelog", "SEMANTIC CHANGELOG"],
+    ["/ru/reviews", "Проверка доказательств", "ПРОВЕРКА ДОКАЗАТЕЛЬСТВ"],
+    ["/ru/monitoring", "Сбор доказательств", "СБОР ДОКАЗАТЕЛЬСТВ"],
+    ["/ru/methodology", "Публичная методика", "ПУБЛИЧНАЯ МЕТОДИКА"],
+    ["/ru/changes", "Журнал смысловых изменений", "ЖУРНАЛ СМЫСЛОВЫХ ИЗМЕНЕНИЙ"],
+  ];
+  for (const [path, expected, absent] of pages) {
+    const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), env, context);
+    assert.equal(response.status, 200, path);
+    const visibleHtml = (await response.text()).replaceAll(/<script[\s\S]*?<\/script>/gi, "");
+    assert.ok(visibleHtml.includes(`<p class="eyebrow page-eyebrow">${expected}</p>`), `${path}: ${expected}`);
+    assert.ok(!visibleHtml.includes(absent), `${path}: ${absent}`);
+  }
+});
+
 test("redirects every unlocalized entry point to Russian", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("redirects", `${process.pid}-${Date.now()}`);
