@@ -18,10 +18,20 @@ export type EvidenceState =
   | "conflicting"
   | "stale";
 
+export type ConfidenceState =
+  | "current_checked"
+  | "sourced_unchecked"
+  | "stale"
+  | "source_unavailable"
+  | "uncorroborated"
+  | "disputed";
+
+export type GuidanceActionState = "do_this" | "confirm_first" | "not_established" | "blocked";
+
 export type SourceView = Pick<
   SourceRecord,
   "id" | "publisher" | "originalTitle" | "sourceLanguage" | "url"
->;
+> & { relationship: "supports" | "contradicts" };
 
 export type ClaimView = {
   id: string;
@@ -29,8 +39,11 @@ export type ClaimView = {
   summary: LocalizedText;
   fact: EvidenceClaim["fact"];
   limitations: LocalizedText[];
+  actionQuarantine?: { reason: LocalizedText };
   evidenceState: EvidenceState;
   evidenceCondition: EvidenceCondition;
+  confidenceState: ConfidenceState;
+  actionState: GuidanceActionState;
   observedAt: string;
   nextCheckAt: string;
   decisionId?: string;
@@ -133,6 +146,14 @@ function stateForEvidence(
   return "insufficient";
 }
 
+function confidenceForEvidence(condition: EvidenceCondition, hasSources: boolean): ConfidenceState {
+  if (condition === "current" || condition === "due") return "current_checked";
+  if (condition === "contradictory") return "disputed";
+  if (condition === "stale") return "stale";
+  if (condition === "unavailable") return "source_unavailable";
+  return hasSources ? "sourced_unchecked" : "uncorroborated";
+}
+
 export function projectCatalog(
   catalog: ContentCatalog,
   asOf: string,
@@ -159,37 +180,52 @@ export function projectCatalog(
         const validProof = evidence.condition === "current" || evidence.condition === "due"
           ? decision?.proofPacketIds?.map((id) => proofPackets.get(id)).find(Boolean)
           : undefined;
+        const sourceViews: SourceView[] = [...claim.supportingSourceIds.flatMap((sourceId) => {
+          const source = sources.get(sourceId);
+          return source ? [{
+            id: source.id,
+            publisher: source.publisher,
+            originalTitle: source.originalTitle,
+            sourceLanguage: source.sourceLanguage,
+            url: source.url,
+            relationship: "supports" as const,
+          }] : [];
+        }), ...claim.contradictingSourceIds.flatMap((sourceId) => {
+          const source = sources.get(sourceId);
+          return source ? [{
+            id: source.id,
+            publisher: source.publisher,
+            originalTitle: source.originalTitle,
+            sourceLanguage: source.sourceLanguage,
+            url: source.url,
+            relationship: "contradicts" as const,
+          }] : [];
+        })];
         return [{
           id: claim.id,
           criticality: claim.criticality,
           summary: claim.summary,
           fact: claim.fact,
           limitations: claim.limitations,
+          actionQuarantine: claim.actionQuarantine,
           evidenceState: stateForEvidence(evidence.condition),
           evidenceCondition: evidence.condition,
+          confidenceState: confidenceForEvidence(evidence.condition, sourceViews.length > 0),
+          // Catalog browsing does not consume corridor guidance authority. A
+          // fact may be useful and current here without becoming an instruction.
+          actionState: route.publicationState === "withdrawn" ? "blocked" : "confirm_first",
           observedAt: validProof?.observedAt ?? "",
           nextCheckAt: validProof ? addDays(validProof.observedAt, 8) : "",
           decisionId: decision?.id,
           proofPacketIds: decision?.proofPacketIds ?? [],
           travellerKinds: claim.applicability.travellerKinds,
           childAgeRange: claim.applicability.childAgeRange,
-          sources: claim.supportingSourceIds.flatMap((sourceId) => {
-            const source = sources.get(sourceId);
-            return source ? [{
-              id: source.id,
-              publisher: source.publisher,
-              originalTitle: source.originalTitle,
-              sourceLanguage: source.sourceLanguage,
-              url: source.url,
-            }] : [];
-          }),
+          sources: sourceViews,
         }];
       });
-      const publicationState = route.publicationState === "withdrawn"
-        ? "withdrawn" as const
-        : evaluation.evidence.canPromote
-          ? "published" as const
-          : "candidate" as const;
+      // Evidence can support claims, but it cannot silently mutate the route's
+      // separately controlled publication authority.
+      const publicationState = route.publicationState;
       const currentAuthoredClaimCount = claimViews.filter((claim) => claim.evidenceCondition === "current").length;
       const hasCurrentCoreEntryFact = claimViews.some((claim) =>
         claim.evidenceCondition === "current" &&
@@ -199,7 +235,7 @@ export function projectCatalog(
         id: route.id,
         kind: route.kind,
         publicationState,
-        presentation: evaluation.presentation,
+        presentation: publicationState === "published" ? evaluation.presentation : "not_verified",
         availability: evaluation.availability.state,
         evidenceCondition: evaluation.evidence.aggregateCondition,
         evidenceState: worstState(claimViews.map((claim) => claim.evidenceState)),

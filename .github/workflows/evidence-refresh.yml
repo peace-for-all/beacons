@@ -1,0 +1,39 @@
+name: Refresh official evidence
+
+on:
+  schedule:
+    - cron: "17 4 */3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: evidence-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check and renew unchanged household evidence
+        run: npm run evidence:household-refresh
+      - name: Acquire and evaluate route evidence
+        run: |
+          npm run evidence:monitor
+          npm run evidence:evaluate
+          npm run validate:content
+      - name: Commit machine-generated evidence state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/household-mobility.json content/monitoring-reports.json content/evidence-decisions.json
+          git diff --cached --quiet || git commit -m "chore: refresh official evidence"
+          git push

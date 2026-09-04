@@ -1,2 +1,2 @@
 import { redirect } from "next/navigation";
-export default function LegacyChangesPage() { redirect("/en/changes"); }
+export default function LegacyChangesPage() { redirect("/ru/changes"); }

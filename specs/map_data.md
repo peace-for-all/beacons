@@ -1,8 +1,8 @@
 # Map data provenance
 
-The local candidate map uses `world-atlas` 2.0.2 `countries-50m.json`, a
+The local candidate map uses `world-atlas` 2.0.2 `countries-110m.json`, a
 TopoJSON redistribution of Natural Earth 4.1.0 Admin 0 country boundaries at
-1:50m scale. Natural Earth places its vector map data in the public domain;
+1:110m scale. Natural Earth places its vector map data in the public domain;
 `world-atlas`, `topojson-client`, and `d3-geo` use ISC licenses.
 
 - Natural Earth: https://www.naturalearthdata.com/

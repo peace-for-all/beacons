@@ -3,7 +3,7 @@
   "policyVersion": "evidence-acquisition-v2",
   "fetcherVersion": "official-source-fetch-v2",
   "normalizerVersion": "visible-text-v1",
-  "timeoutMs": 20000,
+  "timeoutMs": 60000,
   "maximumResponseBytes": 10485760,
   "maximumRedirects": 5,
   "fragmentChecks": [
@@ -13,6 +13,7 @@
       "claimIds": [
         "claim.serbia-russian-nationality",
         "claim.serbia-ordinary-passport",
+        "claim.serbia-passport-present",
         "claim.serbia-route-availability",
         "claim.serbia-stay-rule"
       ],
@@ -26,9 +27,7 @@
       "id": "fragment.serbia-entry-family-and-funds",
       "sourceId": "source.serbia-mfa-general-entry",
       "claimIds": [
-        "claim.serbia-passport-present",
         "claim.serbia-family-applicability",
-        "claim.serbia-proof-of-funds",
         "claim.serbia-parental-consent"
       ],
       "requiredText": [
@@ -37,6 +36,29 @@
         "For minors, foreign citizens, parental consent is not required to enter the Republic of Serbia."
       ],
       "maximumSpanCharacters": 3000
+    },
+    {
+      "id": "fragment.serbia-general-valid-document",
+      "sourceId": "source.serbia-mfa-general-entry",
+      "claimIds": [
+        "claim.serbia-passport-present",
+        "claim.serbia-passport-validity"
+      ],
+      "requiredText": [
+        "A valid travel document, or a valid identity card if so provided for under a bilateral agreement or by a Decision of the Government of the Republic of Serbia.;"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-general-funds",
+      "sourceId": "source.serbia-mfa-general-entry",
+      "claimIds": [
+        "claim.serbia-proof-of-funds"
+      ],
+      "requiredText": [
+        "Proof of sufficient funds for staying in Serbia. Sufficient funds are considered to be 50 Euros per day of stay, proved by possession of the appropriate amount of cash, bank statement;"
+      ],
+      "maximumSpanCharacters": 600
     },
     {
       "id": "fragment.serbia-registration-24-hours",
@@ -48,6 +70,256 @@
         "have the obligation to register the foreigners' stay with the competent authority, within 24 hours"
       ],
       "maximumSpanCharacters": 1000
+    },
+    {
+      "id": "fragment.serbia-aip-entry-at-border-stations",
+      "sourceId": "source.serbia-aip-entry-requirements-2026-09-03",
+      "claimIds": ["claim.serbia-entry-beg"],
+      "requiredText": [
+        "Entry into and departure from the Republic of Serbia shall be done at border stations"
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.serbia-aip-international-aerodrome-condition",
+      "sourceId": "source.serbia-aip-aerodrome-conditions-2026-09-03",
+      "claimIds": ["claim.serbia-entry-beg"],
+      "requiredText": [
+        "An aerodrome may be used for international air transport operations if an aerodrome operator provides conditions for the State border crossing",
+        "the crossborder transition for international air transport operations is defined by an act of the Government."
+      ],
+      "maximumSpanCharacters": 1400
+    },
+    {
+      "id": "fragment.serbia-aip-beg-international",
+      "sourceId": "source.serbia-aip-aerodrome-index-2026-09-03",
+      "claimIds": ["claim.serbia-entry-beg"],
+      "requiredText": [
+        "BEOGRAD/Nikola Tesla LYBE INTL-NTL IFR-VFR S-NS-G AIP AD 2 LYBE"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.russia-valid-travel-document",
+      "sourceId": "source.russia-prosecutor-valid-travel-document",
+      "claimIds": ["claim.serbia-russia-exit-valid-document", "claim.serbia-russia-child-passport-2026"],
+      "locatorAnchor": "Текст Поделиться",
+      "requiredText": [
+        "Выезд из Российской Федерации и въезд в Российскую Федерацию граждане Российской Федерации осуществляют по действительным документам, удостоверяющим личность гражданина Российской Федерации за пределами территории Российской Федерации"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.russia-child-passport-2026",
+      "sourceId": "source.russia-prosecutor-child-passport-2026",
+      "claimIds": ["claim.serbia-russia-child-passport-2026"],
+      "locatorAnchor": "Текст Поделиться",
+      "requiredText": [
+        "С 20 января 2026 года несовершеннолетние до 14 лет смогут выезжать за границу только с паспортом.",
+        "свидетельство о рождении более не будет являться документом, предоставляющим право для выезда из Российской Федерации."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.russia-child-accompanied-no-objection",
+      "sourceId": "source.russia-prosecutor-child-departure",
+      "claimIds": ["claim.serbia-russia-child-accompanied-no-objection"],
+      "locatorAnchor": "Текст Поделиться",
+      "requiredText": [
+        "В соответствии с Федеральным законом «О порядке выезда из Российской Федерации и въезда в Российскую Федерацию» несовершеннолетний гражданин Российской Федерации может выехать из Российской Федерации совместно с одним из его законных представителей, если другим законным представителем не подано заявление о несогласии на такой выезд."
+      ],
+      "maximumSpanCharacters": 600
+    },
+    {
+      "id": "fragment.russia-child-unaccompanied-consent",
+      "sourceId": "source.russia-prosecutor-child-departure",
+      "claimIds": ["claim.serbia-russia-child-unaccompanied-consent"],
+      "locatorAnchor": "Текст Поделиться",
+      "requiredText": [
+        "В случае, если несовершеннолетний выезжает из Российской Федерации без сопровождения своих законных представителей, он должен иметь при себе кроме паспорта нотариально оформленное согласие одного из законных представителей несовершеннолетнего на выезд."
+      ],
+      "maximumSpanCharacters": 900
+    },
+    {
+      "id": "fragment.russia-child-objection-scope-withdrawal",
+      "sourceId": "source.russia-prosecutor-child-departure",
+      "claimIds": ["claim.serbia-russia-child-departure-objection"],
+      "locatorAnchor": "Текст Поделиться",
+      "requiredText": [
+        "Законный представитель несовершеннолетнего вправе заявить о несогласии на выезд из Российской Федерации ребенка, при этом указать срок действия такого заявления о несогласии и государство (государства), выезд в которое (которые) несовершеннолетнему гражданину Российской Федерации запрещается.",
+        "Данный запрет не распространяется на выезд несовершеннолетнего из Российской Федерации в сопровождении лица, заявившего о таком несогласии.",
+        "Заявление законного представителя несовершеннолетнего о несогласии на его выезд из Российской Федерации может быть отозвано указанным законным представителем во внесудебном порядке."
+      ],
+      "maximumSpanCharacters": 1500
+    },
+    {
+      "id": "fragment.russia-child-court-dispute",
+      "sourceId": "source.russia-prosecutor-child-departure",
+      "claimIds": ["claim.serbia-russia-child-departure-court-dispute"],
+      "locatorAnchor": "Текст Поделиться",
+      "requiredText": [
+        "В случае спора между родителями в связи с несогласием законного представителя несовершеннолетнего на выезд из Российской Федерации несовершеннолетнего вопрос о возможности его выезда разрешается в судебном порядке."
+      ],
+      "maximumSpanCharacters": 1800
+    },
+    {
+      "id": "fragment.russia-law-valid-travel-document",
+      "sourceId": "source.russia-kdmid-federal-law-114fz",
+      "claimIds": ["claim.serbia-russia-exit-valid-document", "claim.serbia-russia-child-passport-2026"],
+      "requiredText": [
+        "Выезд из Российской Федерации и въезд в Российскую Федерацию граждане Российской Федерации осуществляют по действительным документам, удостоверяющим личность гражданина Российской Федерации за пределами территории Российской Федерации"
+      ],
+      "maximumSpanCharacters": 600
+    },
+    {
+      "id": "fragment.russia-law-child-accompanied-no-objection",
+      "sourceId": "source.russia-kdmid-federal-law-114fz",
+      "claimIds": ["claim.serbia-russia-child-accompanied-no-objection"],
+      "requiredText": [
+        "Несовершеннолетний гражданин Российской Федерации может выехать из Российской Федерации совместно с одним из его законных представителей, если другим законным представителем не подано заявление о несогласии на такой выезд, предусмотренное частью первой статьи 21 настоящего Федерального закона."
+      ],
+      "maximumSpanCharacters": 600
+    },
+    {
+      "id": "fragment.russia-law-child-unaccompanied-consent",
+      "sourceId": "source.russia-kdmid-federal-law-114fz",
+      "claimIds": ["claim.serbia-russia-child-unaccompanied-consent"],
+      "requiredText": [
+        "В случае, если несовершеннолетний гражданин Российской Федерации выезжает из Российской Федерации без сопровождения своих законных представителей, он должен иметь при себе кроме паспорта (в случаях, установленных международными договорами Российской Федерации, внутрироссийского паспорта) нотариально оформленное согласие одного из законных представителей несовершеннолетнего на выезд несовершеннолетнего гражданина Российской Федерации"
+      ],
+      "maximumSpanCharacters": 900
+    },
+    {
+      "id": "fragment.russia-law-child-objection-scope-withdrawal",
+      "sourceId": "source.russia-kdmid-federal-law-114fz",
+      "claimIds": ["claim.serbia-russia-child-departure-objection"],
+      "requiredText": [
+        "При подаче заявления о несогласии на выезд из Российской Федерации несовершеннолетнего гражданина Российской Федерации законный представитель несовершеннолетнего может указать срок действия такого заявления о несогласии и государство (государства), выезд в которое (которые) несовершеннолетнему гражданину Российской Федерации запрещается.",
+        "При этом данный запрет не распространяется на выезд несовершеннолетнего гражданина Российской Федерации из Российской Федерации в сопровождении являющегося гражданином Российской Федерации и заявившего о таком несогласии законного представителя несовершеннолетнего.",
+        "Заявление законного представителя несовершеннолетнего о несогласии на выезд из Российской Федерации несовершеннолетнего гражданина Российской Федерации может быть отозвано указанным законным представителем во внесудебном порядке."
+      ],
+      "maximumSpanCharacters": 2200
+    },
+    {
+      "id": "fragment.russia-law-child-court-dispute",
+      "sourceId": "source.russia-kdmid-federal-law-114fz",
+      "claimIds": ["claim.serbia-russia-child-departure-court-dispute"],
+      "requiredText": [
+        "В случае спора в связи с несогласием законного представителя несовершеннолетнего на выезд из Российской Федерации несовершеннолетнего гражданина Российской Федерации вопрос о возможности его выезда из Российской Федерации разрешается в судебном порядке."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.serbia-law-valid-document",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-passport-present",
+        "claim.serbia-passport-validity"
+      ],
+      "requiredText": [
+        "The foreigner does not have a valid travel document or visa, if required;"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-law-sufficient-means",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-proof-of-funds"
+      ],
+      "requiredText": [
+        "The foreigner does not have sufficient means of subsistence during his stay in the Republic of Serbia, for return to his country of origin or transit to another country, or is not in other ways provided with subsistence during his stay in the Republic of Serbia;"
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.serbia-law-medical-insurance",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-insurance"
+      ],
+      "requiredText": [
+        "The foreigner does not have travel medical insurance for the intended period of stay in the Republic of Serbia;"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-general-insurance-recommendation",
+      "sourceId": "source.serbia-mfa-general-entry",
+      "claimIds": [
+        "claim.serbia-insurance"
+      ],
+      "requiredText": [
+        "It is recommended to have a health insurance for the period of stay in Serbia, covering possible medical costs to the amount of not less than 20,000 Euros."
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-law-inclusive-stay",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-stay-rule"
+      ],
+      "requiredText": [
+        "The day of entry into the Republic of Serbia and the day of exit from the Republic of Serbia shall be counted as days of stay"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-law-departure-document",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-passport-validity"
+      ],
+      "requiredText": [
+        "He does not have a valid travel or other document required to cross the state border;"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-law-registration-host",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-arrival-registration-host"
+      ],
+      "requiredText": [
+        "must register the foreigner’s place of stay address with the police directorate responsible for the foreigner’s place of accommodation within 24 hours",
+        "receive foreigners for visit, must register the foreigner’s place of stay address to the police directorate responsible for the place of accommodation of the foreigner, within 24 hours of the foreigner’s arrival"
+      ],
+      "maximumSpanCharacters": 900
+    },
+    {
+      "id": "fragment.serbia-law-registration-self",
+      "sourceId": "source.serbia-law-foreigners-2023",
+      "claimIds": [
+        "claim.serbia-arrival-registration-self"
+      ],
+      "requiredText": [
+        "must register his own place of stay address, in the police directorate responsible for the place of residence, within 24 hours of the entry into the Republic of Serbia, or on the day of change of place of stay address"
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.serbia-general-accommodation",
+      "sourceId": "source.serbia-mfa-general-entry",
+      "claimIds": [
+        "claim.serbia-accommodation"
+      ],
+      "requiredText": [
+        "a proof of paid hotel booking or a certificate verifying the private residence address during his/her visit"
+      ],
+      "maximumSpanCharacters": 500
+    },
+    {
+      "id": "fragment.serbia-general-return-ticket",
+      "sourceId": "source.serbia-mfa-general-entry",
+      "claimIds": [
+        "claim.serbia-onward-ticket"
+      ],
+      "requiredText": [
+        "a return flight ticket"
+      ],
+      "maximumSpanCharacters": 500
     },
     {
       "id": "fragment.india-portal-operational",
@@ -229,10 +501,34 @@
         "claim.turkiye-ordinary-passport",
         "claim.turkiye-route-availability",
         "claim.turkiye-stay-rule",
-        "claim.turkiye-passport-requirement"
+        "claim.turkiye-passport-requirement",
+        "claim.turkiye-family-applicability"
       ],
       "requiredText": [
         "Russian Federation: Ordinary passport holders are exempted from visa for their touristic and business travels up to 60 days."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.turkiye-mfa-airside-no-transit-visa",
+      "sourceId": "source.turkiye-mfa-airport-transit-faq",
+      "claimIds": [
+        "claim.serbia-turkiye-airside-transit"
+      ],
+      "requiredText": [
+        "If you will not leave the transit lounge at the airport you are not required to have transit visa.",
+        "Otherwise, you have to make visa application to the nearest Turkish Representation."
+      ],
+      "maximumSpanCharacters": 700
+    },
+    {
+      "id": "fragment.turkiye-migration-airport-transit-checks",
+      "sourceId": "source.turkiye-migration-airport-transit-checks",
+      "claimIds": [
+        "claim.serbia-turkiye-airside-transit"
+      ],
+      "requiredText": [
+        "Foreigners using transit areas at airports may be subject to [document] checks by the competent authorities."
       ],
       "maximumSpanCharacters": 700
     },
@@ -243,7 +539,8 @@
         "claim.armenia-russian-nationality",
         "claim.armenia-ordinary-passport",
         "claim.armenia-route-availability",
-        "claim.armenia-passport-requirement"
+        "claim.armenia-passport-requirement",
+        "claim.armenia-family-applicability"
       ],
       "requiredText": [
         "Russian Federation All types of passports"
@@ -280,7 +577,8 @@
         "claim.kazakhstan-ordinary-passport",
         "claim.kazakhstan-route-availability",
         "claim.kazakhstan-stay-rule",
-        "claim.kazakhstan-passport-requirement"
+        "claim.kazakhstan-passport-requirement",
+        "claim.kazakhstan-family-applicability"
       ],
       "requiredText": [
         "Russian Federation visa-free up to 90 days visa-free up to 90 days visa-free up to 90 days"
@@ -288,12 +586,25 @@
       "maximumSpanCharacters": 600
     },
     {
+      "id": "fragment.kazakhstan-russian-children",
+      "sourceId": "source.russia-consular-kazakhstan-entry",
+      "claimIds": [
+        "claim.kazakhstan-family-applicability"
+      ],
+      "requiredText": [
+        "Между Россией и Казахстаном действует безвизовый режим въезда.",
+        "С 20 января 2026 г. свидетельство о рождении исключается из числа документов"
+      ],
+      "maximumSpanCharacters": 4000
+    },
+    {
       "id": "fragment.georgia-russia-one-year",
       "sourceId": "source.georgia-ordinance-255",
       "claimIds": [
         "claim.georgia-russian-nationality",
         "claim.georgia-route-availability",
-        "claim.georgia-stay-rule"
+        "claim.georgia-stay-rule",
+        "claim.georgia-family-applicability"
       ],
       "requiredText": [
         "66 Russian Federation",
@@ -322,7 +633,8 @@
         "claim.uae-ordinary-passport",
         "claim.uae-route-availability",
         "claim.uae-stay-rule",
-        "claim.uae-passport-requirement"
+        "claim.uae-passport-requirement",
+        "claim.uae-family-applicability"
       ],
       "requiredText": [
         "nationals of both countries holding valid passports of any category (diplomatic, special, or ordinary), with a validity of at least six months",

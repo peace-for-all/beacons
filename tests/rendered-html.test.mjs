@@ -39,12 +39,12 @@ test("publishes one-language English and Russian project routes", async () => {
   const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
   const context = { waitUntil() {}, passThroughOnException() {} };
   const pages = [
-    ["/en", "Seven researched possibilities, shown honestly", "Семь исследованных возможностей", "en"],
+    ["/en", "Candidate destination map", "Карта возможных направлений", "en"],
     ["/en/reviews", "Proof explorer", "Проводник по доказательствам", "en"],
     ["/en/monitoring", "Official sources, captured", "Официальные источники", "en"],
     ["/en/methodology", "Automation retrieves facts", "Автоматика извлекает факты", "en"],
     ["/en/changes", "Semantic changelog", "Журнал смысловых изменений", "en"],
-    ["/ru", "Семь исследованных возможностей", "Seven researched possibilities, shown honestly", "ru"],
+    ["/ru", "Карта возможных направлений", "Candidate destination map", "ru"],
     ["/ru/reviews", "Проводник по доказательствам", "Proof explorer", "ru"],
     ["/ru/monitoring", "Официальные источники", "Official sources", "ru"],
     ["/ru/methodology", "Автоматика извлекает факты", "Automation retrieves facts", "ru"],
@@ -61,15 +61,33 @@ test("publishes one-language English and Russian project routes", async () => {
   }
 });
 
-test("redirects unlocalized entry points to English", async () => {
+test("redirects every unlocalized entry point to Russian", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("redirects", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
   const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
   const context = { waitUntil() {}, passThroughOnException() {} };
-  for (const [path, location] of [["/", "/en"], ["/reviews", "/en/reviews"], ["/monitoring", "/en/monitoring"]]) {
+  for (const [path, location] of [["/", "/ru"], ["/reviews", "/ru/reviews"], ["/monitoring", "/ru/monitoring"], ["/methodology", "/ru/methodology"], ["/changes", "/ru/changes"]]) {
     const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" }, redirect: "manual" }), env, context);
     assert.ok([307, 308].includes(response.status), `${path}: ${response.status}`);
     assert.equal(new URL(response.headers.get("location"), "http://localhost").pathname, location);
+  }
+});
+
+test("shows only the link to the alternative language", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("locale-switch", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  for (const [path, expectedHref, expectedLabel, absentLabel] of [["/ru", "/en", "EN", "RU"], ["/en", "/ru", "RU", "EN"]]) {
+    const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), env, context);
+    assert.equal(response.status, 200, path);
+    const html = (await response.text()).replaceAll(/<script[\s\S]*?<\/script>/gi, "");
+    const switcher = html.match(/<div class="language-switch"[\s\S]*?<\/div>/)?.[0] ?? "";
+    assert.match(switcher, new RegExp(`href="${expectedHref}"`), path);
+    assert.match(switcher, new RegExp(`>${expectedLabel}<`), path);
+    assert.doesNotMatch(switcher, new RegExp(`>${absentLabel}<`), path);
+    assert.equal((switcher.match(/<a\b/g) ?? []).length, 1, path);
   }
 });

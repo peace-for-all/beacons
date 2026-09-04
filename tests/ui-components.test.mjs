@@ -83,3 +83,11 @@ test("renders sidebar skeletons deterministically", async () => {
   assert.equal(first, second);
   assert.match(first, /--skeleton-width:70%/);
 });
+
+test("desktop details use a non-modal dock so the map remains interactive", async () => {
+  const detail = await readFile(path.join(root, "components/beacons/beacon-detail-sheet.tsx"), "utf8");
+
+  assert.match(detail, /if \(place && !phone\)/);
+  assert.match(detail, /beacon-detail-dock/);
+  assert.match(detail, /return <Sheet open=/);
+});

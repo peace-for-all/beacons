@@ -16,12 +16,31 @@ export const localDateSchema = z.string().refine((value) => {
   return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().startsWith(value);
 }, "Expected a real calendar date in YYYY-MM-DD form");
 
+function semanticNumberTokens(value: string) {
+  return [...value.matchAll(/\d+(?:[\s,.]\d+)*/g)]
+    .map(([token]) => token.replace(/[\s,.]/g, ""))
+    .sort();
+}
+
 export const localizedTextSchema = z
   .object({
     en: z.string().trim().min(1),
     ru: z.string().trim().min(1),
   })
   .strict();
+
+export const semanticallyBoundLocalizedTextSchema = localizedTextSchema
+  .superRefine((text, context) => {
+    const english = semanticNumberTokens(text.en);
+    const russian = semanticNumberTokens(text.ru);
+    if (english.join("|") !== russian.join("|")) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["ru"],
+        message: `English/Russian semantic numbers differ: ${english.join(", ")} vs ${russian.join(", ")}`,
+      });
+    }
+  });
 
 export const evidenceConditionSchema = z.enum([
   "current",
@@ -71,6 +90,7 @@ export const sourceRecordSchema = z
       "official_visa_portal",
       "embassy_or_consulate",
       "official_legal_text",
+      "prosecutorial_authority",
       "transport_operator",
       "cost_observation",
       "other",
@@ -132,6 +152,7 @@ export const fragmentCheckConfigSchema = z
     // column key). Semantic review still decides whether a compact locator is
     // sufficient for a claim contract.
     requiredText: z.array(z.string().trim().min(3)).min(1),
+    locatorAnchor: z.string().trim().min(3).optional(),
     maximumSpanCharacters: z.number().int().positive().max(20_000),
   })
   .strict();
@@ -325,6 +346,15 @@ export const evidenceContractSchema = z.object({
     fragmentId: identifierSchema,
     expectedContextSha256: sha256Schema,
   }).strict()).min(1),
+  precedenceResolution: z.object({
+    kind: z.literal("controlling_law_over_official_guidance"),
+    controllingSourceId: identifierSchema,
+    conflictingFragments: z.array(z.object({
+      sourceId: identifierSchema,
+      fragmentId: identifierSchema,
+      expectedContextSha256: sha256Schema,
+    }).strict()).min(1),
+  }).strict().optional(),
   minimumIndependentGroups: z.number().int().positive(),
   policyVersion: identifierSchema,
   activatedAt: isoInstantSchema,
@@ -547,6 +577,7 @@ export const routeRequirementSchema = z.discriminatedUnion("kind", [
         "insurance",
         "accommodation",
         "onward_ticket",
+        "return_ticket",
         "guardian_consent",
         "birth_certificate",
         "proof_of_funds",
@@ -559,6 +590,7 @@ export const routeRequirementSchema = z.discriminatedUnion("kind", [
       obligation: z
         .enum([
           "required",
+          "entry_may_be_refused_if_missing",
           "may_be_requested",
           "recommended",
           "not_required",
@@ -623,6 +655,12 @@ export const claimFactSchema = z.discriminatedUnion("kind", [
     entryPoints: z.array(z.string().trim().min(1)).min(1),
   }).strict(),
   z.object({
+    kind: z.literal("airport_transit_rule"),
+    condition: z.literal("remain_in_airport_transit_area"),
+    transitVisaRequired: z.literal(false),
+    documentChecksMayOccur: z.literal(true),
+  }).strict(),
+  z.object({
     kind: z.literal("per_traveller_application"),
     required: z.boolean(),
   }).strict(),
@@ -638,6 +676,19 @@ export const claimFactSchema = z.discriminatedUnion("kind", [
     perTraveller: z.boolean(),
     refundable: z.boolean(),
   }).strict(),
+  z.object({
+    kind: z.literal("origin_departure_rule"),
+    rule: z.enum([
+      "valid_travel_document",
+      "child_birth_certificate_not_exit_document",
+      "child_own_valid_travel_document",
+      "child_with_legal_representative_if_no_objection",
+      "unaccompanied_child_notarized_consent",
+      "representative_objection_scope_and_withdrawal",
+      "court_resolution_if_disputed",
+    ]),
+    effectiveFrom: isoInstantSchema.optional(),
+  }).strict(),
 ]);
 
 export const evidenceClaimSchema = z
@@ -648,9 +699,16 @@ export const evidenceClaimSchema = z
     revision: z.number().int().positive(),
     criticality: z.enum(["gate", "explanation", "context"]),
     fact: claimFactSchema,
-    summary: localizedTextSchema,
-    limitations: z.array(localizedTextSchema).default([]),
+    summary: semanticallyBoundLocalizedTextSchema,
+    limitations: z.array(semanticallyBoundLocalizedTextSchema).default([]),
+    actionQuarantine: z.object({
+      reason: semanticallyBoundLocalizedTextSchema,
+    }).strict().optional(),
     applicability: applicabilitySchema,
+    sourceScope: z.object({
+      role: z.enum(["destination_rule", "origin_departure_rule", "transit_rule"]),
+      ruleJurisdiction: z.string().trim().min(1),
+    }).strict().optional(),
     supportingSourceIds: z.array(identifierSchema),
     contradictingSourceIds: z.array(identifierSchema).default([]),
     effectiveFrom: isoInstantSchema.optional(),
@@ -664,6 +722,25 @@ export const evidenceClaimSchema = z
   })
   .strict()
   .superRefine((claim, context) => {
+    const supporting = new Set(claim.supportingSourceIds);
+    if (claim.contradictingSourceIds.some((sourceId) => supporting.has(sourceId))) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["contradictingSourceIds"],
+        message: "Supporting and contradicting source sets must be disjoint",
+      });
+    }
+    if (
+      claim.fact.kind === "origin_departure_rule" &&
+      claim.fact.rule === "child_birth_certificate_not_exit_document" &&
+      !claim.fact.effectiveFrom
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["fact", "effectiveFrom"],
+        message: "The dated child-document rule needs an effective instant in the hashed fact",
+      });
+    }
     if (claim.fact.kind !== "requirement" || claim.fact.requirement.kind !== "passport_validity") return;
     const { minimumRemainingDays, minimumRemainingCalendarMonths } = claim.fact.requirement;
     if ((minimumRemainingDays === undefined) === (minimumRemainingCalendarMonths === undefined)) {
@@ -704,6 +781,7 @@ export const documentDeclarationSchema = z
       "insurance",
       "accommodation",
       "onward_ticket",
+      "return_ticket",
       "guardian_consent",
       "birth_certificate",
       "proof_of_funds",
@@ -970,6 +1048,36 @@ export const contentCatalogSchema = z
           }
         },
       );
+    });
+
+    const routeById = new Map(catalog.routes.map((route) => [route.id, route]));
+    const placeById = new Map(catalog.places.map((place) => [place.id, place]));
+    const sourceById = new Map(catalog.sources.map((source) => [source.id, source]));
+    catalog.claims.forEach((claim, index) => {
+      const route = routeById.get(claim.subjectId);
+      const place = route ? placeById.get(route.placeId) : undefined;
+      if (!route || !place) return;
+      const expectedJurisdiction = claim.sourceScope?.ruleJurisdiction ?? place.country.en;
+      if (
+        claim.sourceScope?.role === "origin_departure_rule" &&
+        (!claim.applicability.applicationOrigins?.length || expectedJurisdiction === place.country.en)
+      ) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["claims", index, "sourceScope"],
+          message: `Origin-departure claim ${claim.id} needs an origin applicability and a non-destination rule jurisdiction`,
+        });
+      }
+      for (const sourceId of [...claim.supportingSourceIds, ...claim.contradictingSourceIds]) {
+        const source = sourceById.get(sourceId);
+        if (source && source.jurisdiction !== expectedJurisdiction) {
+          context.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: ["claims", index, "supportingSourceIds"],
+            message: `Claim ${claim.id} scoped to ${expectedJurisdiction} cannot bind source ${source.id} scoped to ${source.jurisdiction}`,
+          });
+        }
+      }
     });
 
     catalog.changes.forEach((change, index) => {

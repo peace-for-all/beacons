@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "rules": [
+    {
+      "placeId": "place.belgrade",
+      "reviewedAt": "2026-09-03T09:32:16.907Z",
+      "reviewAfter": "2026-09-17T09:32:16.907Z",
+      "dogCount": {
+        "status": "supported",
+        "maximum": 5
+      },
+      "summary": {
+        "en": "Up to five non-commercial dogs, cats, or ferrets may travel with their owner or an authorised person.",
+        "ru": "До пяти собак, кошек или хорьков можно ввозить некоммерчески в сопровождении владельца или уполномоченного лица."
+      },
+      "requirements": [
+        {
+          "en": "Microchip identification",
+          "ru": "Идентификация микрочипом"
+        },
+        {
+          "en": "Valid rabies vaccination; 21 days after a first vaccination",
+          "ru": "Действующая вакцинация от бешенства; после первой вакцинации должно пройти 21 день"
+        },
+        {
+          "en": "Veterinary certificate and, for non-listed origins, an approved rabies antibody titre test",
+          "ru": "Ветеринарный сертификат и, для стран вне установленного списка, анализ титра антител к бешенству в одобренной лаборатории"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "Confirm which Serbian origin-country category applies immediately before travel.",
+          "ru": "Непосредственно перед поездкой проверьте, к какой категории стран происхождения Сербия относит маршрут."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.serbia-veterinary-pets",
+          "publisher": "Serbian Veterinary Directorate",
+          "title": "Movement of pets",
+          "url": "https://www.vet.minpolj.gov.rs/movement-of-pets/",
+          "monitoring": {
+            "strategy": "exact_text",
+            "requiredText": [
+              "Veterinary certificate for non-commercial movement of five or less dogs, cats or ferrets."
+            ],
+            "maximumSpanCharacters": 7000
+          }
+        }
+      ]
+    },
+    {
+      "placeId": "place.delhi",
+      "reviewedAt": "2026-09-03T09:32:16.907Z",
+      "reviewAfter": "2026-09-17T09:32:16.907Z",
+      "dogCount": {
+        "status": "permit_required",
+        "maximum": null
+      },
+      "summary": {
+        "en": "The two-pet baggage route is limited to a transfer of residence after two years abroad; short visits require a DGFT licence, whose simple dog-count ceiling is not established here.",
+        "ru": "Провоз до двух животных как багажа доступен при переносе места жительства после двух лет за рубежом; для короткой поездки нужна лицензия DGFT, а простой лимит собак для неё здесь не установлен."
+      },
+      "requirements": [
+        {
+          "en": "For a short visit, obtain the applicable DGFT licence before travel",
+          "ru": "Для короткой поездки заранее получить применимую лицензию DGFT"
+        },
+        {
+          "en": "Official health certificate with vaccination details",
+          "ru": "Официальный ветеринарный сертификат с данными о вакцинации"
+        },
+        {
+          "en": "Rabies vaccination more than one month and no more than twelve months before embarkation for dogs aged three months or older",
+          "ru": "Для собак от трёх месяцев вакцинация от бешенства более чем за месяц, но не более чем за 12 месяцев до отправления"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "This tourist-route prototype does not treat the transfer-of-residence baggage allowance as visitor eligibility.",
+          "ru": "Прототип туристических маршрутов не считает багажную льготу при переносе места жительства доступностью для посетителя."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.india-aqcs-pet-baggage",
+          "publisher": "Government of India, Animal Quarantine and Certification Service",
+          "title": "Import of pets under baggage",
+          "url": "https://aqcsindia.gov.in/Home/ImportPetUnderBaggage",
+          "monitoring": {
+            "strategy": "exact_text",
+            "requiredText": [
+              "Kindly check your below mentioned applicable category A, B or C",
+              "LIVESTOCK (IMPORT of pet under baggage rule for owners -Dog/Cat upto 2 number) DOG and CAT",
+              "DGFT (Directorate General of Foreign Trade) License : (for short visits, R&D, Defence, Police and other than baggage rule)"
+            ],
+            "maximumSpanCharacters": 8000
+          }
+        }
+      ]
+    },
+    {
+      "placeId": "place.istanbul",
+      "reviewedAt": "2026-09-03T09:32:16.907Z",
+      "reviewAfter": "2026-09-17T09:32:16.907Z",
+      "dogCount": {
+        "status": "supported",
+        "maximum": 2
+      },
+      "summary": {
+        "en": "A passenger may bring a total of two accompanied household pets (cats, dogs, or birds).",
+        "ru": "Пассажир может ввезти в сопровождении суммарно двух домашних животных: кошек, собак или птиц."
+      },
+      "requirements": [
+        {
+          "en": "Veterinary health report or official veterinary certificate",
+          "ru": "Ветеринарное заключение или официальный ветеринарный сертификат"
+        },
+        {
+          "en": "Vaccination certificate",
+          "ru": "Сертификат о вакцинации"
+        },
+        {
+          "en": "Veterinary passport or identification document and veterinary control on arrival",
+          "ru": "Ветеринарный паспорт или идентификационный документ и ветеринарный контроль по прибытии"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "The ceiling is two pets in total, not two dogs plus other pets.",
+          "ru": "Лимит — два животных суммарно, а не две собаки плюс другие животные."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.turkiye-customs-pets",
+          "publisher": "Republic of Türkiye Ministry of Trade",
+          "title": "Passenger transactions: household pet entry requirements",
+          "url": "https://ticaret.gov.tr/gumruk-islemleri/sikca-sorulan-sorular/english/passenger-transactions",
+          "monitoring": {
+            "strategy": "exact_text",
+            "requiredText": [
+              "Totally 2 pets(cats, dogs or birds)",
+              "Certificate of vaccination",
+              "Official veterinary certificate"
+            ],
+            "maximumSpanCharacters": 3500
+          }
+        }
+      ]
+    },
+    {
+      "placeId": "place.yerevan",
+      "reviewedAt": "2026-09-03T11:30:00.000+03:00",
+      "reviewAfter": "2026-09-17T11:30:00.000+03:00",
+      "dogCount": {
+        "status": "supported",
+        "maximum": 2
+      },
+      "summary": {
+        "en": "Armenia's food-safety authority says up to two dogs or cats may be accompanied by a veterinary passport under the EAEU veterinary rules.",
+        "ru": "Орган пищевой безопасности Армении указывает, что по ветеринарным правилам ЕАЭС до двух собак или кошек могут сопровождаться ветеринарным паспортом."
+      },
+      "requirements": [
+        {
+          "en": "Veterinary passport for each dog",
+          "ru": "Ветеринарный паспорт на каждую собаку"
+        },
+        {
+          "en": "Current rabies vaccination and a veterinary clinical examination recorded before travel",
+          "ru": "Действующая вакцинация от бешенства и отметка о ветеринарном клиническом осмотре перед поездкой"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "The exact passport endorsements and timing must be confirmed with the border veterinary authority immediately before travel.",
+          "ru": "Точные отметки в паспорте и сроки нужно подтвердить у пограничной ветеринарной службы непосредственно перед поездкой."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.armenia-food-safety-faq",
+          "publisher": "Food Safety Inspection Body of Armenia",
+          "title": "Frequently asked questions: import and export of pets",
+          "url": "https://snund.am/hy/page/frequently-asked-questions/119",
+          "monitoring": {
+            "strategy": "exact_text",
+            "requiredText": [
+              "մինչև 2 գլուխ շունը և կատուն կարող են ուղեկցվել անասնաբուժական անձնագրով",
+              "Միասնական անասնաբուժական"
+            ],
+            "maximumSpanCharacters": 2500
+          }
+        }
+      ]
+    },
+    {
+      "placeId": "place.almaty",
+      "reviewedAt": "2026-09-03T09:32:16.907Z",
+      "reviewAfter": "2026-09-17T09:32:16.907Z",
+      "dogCount": {
+        "status": "supported",
+        "maximum": 2
+      },
+      "summary": {
+        "en": "The EAEU personal-use rule permits movement of up to two dogs or cats with veterinary passports; Russia and Kazakhstan are EAEU member states.",
+        "ru": "Правило ЕАЭС для личного пользования допускает перемещение до двух собак или кошек с ветеринарными паспортами; Россия и Казахстан входят в ЕАЭС."
+      },
+      "requirements": [
+        {
+          "en": "Veterinary passport for each dog",
+          "ru": "Ветеринарный паспорт на каждую собаку"
+        },
+        {
+          "en": "Current rabies vaccination and a veterinary clinical examination recorded before travel",
+          "ru": "Действующая вакцинация от бешенства и отметка о ветеринарном клиническом осмотре перед поездкой"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "This assessment applies to non-commercial movement from Russia; confirm any temporary animal-health restrictions before departure.",
+          "ru": "Оценка относится к некоммерческому перемещению из России; перед выездом проверьте временные ветеринарные ограничения."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.eaeu-personal-pets-via-armenia",
+          "publisher": "Food Safety Inspection Body of Armenia",
+          "title": "EAEU veterinary requirements for pet imports",
+          "url": "https://snund.am/hy/page/frequently-asked-questions/119",
+          "monitoring": {
+            "strategy": "exact_text",
+            "requiredText": [
+              "մինչև 2 գլուխ շունը և կատուն կարող են ուղեկցվել անասնաբուժական անձնագրով",
+              "Միասնական անասնաբուժական"
+            ],
+            "maximumSpanCharacters": 2500
+          }
+        }
+      ]
+    },
+    {
+      "placeId": "place.tbilisi",
+      "reviewedAt": "2026-09-03T11:30:00.000+03:00",
+      "reviewAfter": "2026-09-17T11:30:00.000+03:00",
+      "dogCount": {
+        "status": "supported",
+        "maximum": 5
+      },
+      "summary": {
+        "en": "Georgia's non-commercial pet movement rule allows up to five covered pets, including dogs, when the identification, vaccination, testing, treatment, and document conditions are met.",
+        "ru": "Правило Грузии о некоммерческом перемещении домашних животных допускает до пяти животных, включая собак, при выполнении требований к идентификации, вакцинации, анализам, обработке и документам."
+      },
+      "requirements": [
+        {
+          "en": "Identification and valid rabies vaccination",
+          "ru": "Идентификация и действующая вакцинация от бешенства"
+        },
+        {
+          "en": "Rabies antibody titration, parasite treatment, and the required identification document",
+          "ru": "Анализ титра антител к бешенству, обработка от паразитов и требуемый идентификационный документ"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "The exact certificate form and any origin-country exceptions must be confirmed immediately before travel.",
+          "ru": "Точную форму сертификата и исключения для страны происхождения нужно проверить непосредственно перед поездкой."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.georgia-pet-movement-law",
+          "publisher": "Legislative Herald of Georgia",
+          "title": "Rule for non-commercial movement of pet animals across the customs border",
+          "url": "https://www.matsne.gov.ge/ka/document/view/4367880",
+          "monitoring": {
+            "strategy": "raw_sha256",
+            "expectedSha256": "ad2bb9473736174b64a2c5a5f2f7e749c09fcd67dd17c4aac8735ccdd74b7e9e"
+          }
+        }
+      ]
+    },
+    {
+      "placeId": "place.dubai",
+      "reviewedAt": "2026-09-03T09:32:16.907Z",
+      "reviewAfter": "2026-09-17T09:32:16.907Z",
+      "dogCount": {
+        "status": "supported",
+        "maximum": 2
+      },
+      "summary": {
+        "en": "An individual may personally import no more than two cats, two dogs, or one of each per year.",
+        "ru": "Физическое лицо может ввезти для личных целей не более двух кошек, двух собак либо одной кошки и одной собаки в год."
+      },
+      "requirements": [
+        {
+          "en": "Prior MOCCAE import permit, valid for 90 days",
+          "ru": "Предварительное разрешение MOCCAE на импорт, действующее 90 дней"
+        },
+        {
+          "en": "Permanent microchip identification and authorised veterinary health certificate",
+          "ru": "Постоянная идентификация микрочипом и заверенный ветеринарный сертификат"
+        },
+        {
+          "en": "Required vaccinations and internal/external parasite treatment within 14 days before shipment",
+          "ru": "Необходимые вакцинации и обработка от внутренних и внешних паразитов в течение 14 дней до отправления"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "Some dog breeds are prohibited; count eligibility is not breed eligibility.",
+          "ru": "Ввоз некоторых пород запрещён; допустимое количество не означает допустимость конкретной породы."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mobility-source.uae-moccae-pet-import",
+          "publisher": "UAE Ministry of Climate Change and Environment",
+          "title": "Import of pets (cats / dogs)",
+          "url": "https://moccae.gov.ae/ar/services/import-permit-pets",
+          "monitoring": {
+            "strategy": "exact_text",
+            "requiredText": [
+              "بحد أقصاه عدد 2 من حيوانات الرفقة للفرد خلال العام",
+              "الحصول على اذن استيراد مسبق",
+              "يحظر دخول السلالات"
+            ],
+            "maximumSpanCharacters": 15000
+          }
+        }
+      ]
+    }
+  ]
+}

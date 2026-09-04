@@ -332,7 +332,7 @@ function evaluateEntryPoint(input: {
     claim.fact.kind === "entry_restriction" ? claim.fact.entryPoints : [],
   );
   if (allowedEntryPoints.length === 0) {
-    return { state: "eligible" as const, allowedEntryPoints };
+    return { state: "not_evaluated" as const, allowedEntryPoints };
   }
   if (!input.journey.entryPoint) {
     return { state: "not_evaluated" as const, allowedEntryPoints };

@@ -160,3 +160,120 @@ test("uncontracted disagreements remain policy exceptions, never votes", () => {
   assert.equal(decision.handler, "precedence_resolution");
   assert.equal(decision.mayAutoPublish, false);
 });
+
+test("a pinned controlling-law resolution preserves the guidance discrepancy", () => {
+  const resolvedCatalog = structuredClone(catalog);
+  resolvedCatalog.sources[0].precedence = "controlling_law";
+  resolvedCatalog.sources[0].authority = "official_legal_text";
+  resolvedCatalog.sources.push({
+    id: "source.guidance",
+    independenceGroupId: "lineage.guidance",
+    precedence: "official_guidance",
+    authority: "foreign_ministry",
+  });
+  resolvedCatalog.claims[0].contradictingSourceIds = ["source.guidance"];
+
+  const resolvedContracts = structuredClone(contracts);
+  resolvedContracts.contracts[0].precedenceResolution = {
+    kind: "controlling_law_over_official_guidance",
+    controllingSourceId: "source.test",
+    conflictingFragments: [{
+      sourceId: "source.guidance",
+      fragmentId: "fragment.guidance",
+      expectedContextSha256: "d".repeat(64),
+    }],
+  };
+  resolvedContracts.contracts[0].minimumIndependentGroups = 2;
+
+  const resolvedConfig = structuredClone(monitoringConfig);
+  resolvedConfig.fragmentChecks.push({
+    id: "fragment.guidance",
+    sourceId: "source.guidance",
+    claimIds: ["claim.test"],
+  });
+  const resolvedRun = structuredClone(monitoringRun);
+  resolvedRun.observations.push({
+    ...structuredClone(monitoringRun.observations[0]),
+    id: "observation.guidance",
+    sourceId: "source.guidance",
+    fragmentChecks: [{
+      id: "fragment.guidance",
+      status: "exact_match",
+      contextSha256: "d".repeat(64),
+      evidence: [{
+        start: 0,
+        end: 30,
+        extract: "Insurance is recommended.",
+        extractSha256: textSha256("Insurance is recommended."),
+      }],
+    }],
+  });
+
+  const candidate = evaluate({
+    catalog: resolvedCatalog,
+    contracts: resolvedContracts,
+    monitoringConfig: resolvedConfig,
+    monitoringRun: resolvedRun,
+  });
+  assert.equal(candidate.state, "candidate", "conflicting guidance must not count as corroboration");
+
+  resolvedContracts.contracts[0].minimumIndependentGroups = 1;
+  const current = evaluate({
+    catalog: resolvedCatalog,
+    contracts: resolvedContracts,
+    monitoringConfig: resolvedConfig,
+    monitoringRun: resolvedRun,
+  });
+  assert.equal(current.state, "current");
+  assert.equal(current.proofPacketIds.length, 2);
+  assert.deepEqual(current.reasonCodes, [
+    "pinned_fact_applicability_and_context_unchanged",
+    "controlling_law_precedence_applied",
+    "lower_precedence_discrepancy_preserved",
+  ]);
+
+  resolvedRun.observations[1].fragmentChecks[0].contextSha256 = "e".repeat(64);
+  const changed = evaluate({
+    catalog: resolvedCatalog,
+    contracts: resolvedContracts,
+    monitoringConfig: resolvedConfig,
+    monitoringRun: resolvedRun,
+  });
+  assert.equal(changed.state, "changed");
+});
+
+test("a precedence contract rejects non-law controllers and partial conflict coverage", () => {
+  const resolvedCatalog = structuredClone(catalog);
+  resolvedCatalog.sources[0].precedence = "official_rule";
+  resolvedCatalog.sources[0].authority = "official_legal_text";
+  resolvedCatalog.sources.push({
+    id: "source.guidance",
+    independenceGroupId: "lineage.guidance",
+    precedence: "official_guidance",
+    authority: "foreign_ministry",
+  });
+  resolvedCatalog.claims[0].contradictingSourceIds = ["source.guidance"];
+  const resolvedContracts = structuredClone(contracts);
+  resolvedContracts.contracts[0].precedenceResolution = {
+    kind: "controlling_law_over_official_guidance",
+    controllingSourceId: "source.test",
+    conflictingFragments: [{
+      sourceId: "source.guidance",
+      fragmentId: "fragment.guidance",
+      expectedContextSha256: "d".repeat(64),
+    }],
+  };
+  const resolvedConfig = structuredClone(monitoringConfig);
+  resolvedConfig.fragmentChecks.push({ id: "fragment.guidance", sourceId: "source.guidance", claimIds: ["claim.test"] });
+  assert.throws(
+    () => evaluate({ catalog: resolvedCatalog, contracts: resolvedContracts, monitoringConfig: resolvedConfig }),
+    /invalid_precedence_controller/,
+  );
+
+  resolvedCatalog.sources[0].precedence = "controlling_law";
+  resolvedCatalog.claims[0].contradictingSourceIds.push("source.second-guidance");
+  assert.throws(
+    () => evaluate({ catalog: resolvedCatalog, contracts: resolvedContracts, monitoringConfig: resolvedConfig }),
+    /incomplete_precedence_conflict_coverage/,
+  );
+});

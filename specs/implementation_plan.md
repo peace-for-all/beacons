@@ -1,6 +1,12 @@
 # Beacons implementation and launch plan
 
-- **Status:** Milestone 2 implementation underway — two route shapes plus authoritative-automation assurance foundation
+> **Direction note (2026-09-03):** [`PLAN.md`](../PLAN.md) is the current product
+> roadmap. This document retains useful evidence, domain, and launch engineering
+> detail, but its publication-grade display gates and milestone order are
+> superseded. Current work must use the roadmap's browsable/actionable split,
+> independent action state, corridor manifest, and packet-complete pilot gate.
+
+- **Status:** Historical engineering reference; execution status lives in `PLAN.md`
 - **Date:** 2026-09-02
 - **Source RFC:** [`specs/beacons_rfc.md`](./beacons_rfc.md)
 - **Target:** A responsible public beta, not merely a deployed prototype
@@ -25,7 +31,12 @@ Beacons has four release levels.
 
 ### Team alpha
 
-The semantic model, evaluator, map/list experience, and withdrawal controls work with synthetic or prominently non-actionable content. Nothing here is safe to use for travel.
+The semantic model, evaluator, map marker-index experience, and withdrawal controls work with synthetic or prominently non-actionable content. Nothing here is safe to use for travel.
+
+The current repository remains at this research-browser authority level even
+when individual facts are current. Current proof supports fact confidence; it
+does not authorize destination-specific instructions without the complete
+manifest and operational packets in `PLAN.md`.
 
 ### Evidence alpha
 
@@ -33,7 +44,7 @@ Two deliberately different real routes are extracted and evaluated end to end. F
 
 ### Closed beta
 
-Five routes meet the evidence standard. Emergency and Basic cost models, household evaluation, local save, deliberate export, and the accessible map/list experience are complete. Target users test the product on their own devices.
+Five routes meet the evidence standard. Emergency and Basic cost models, household evaluation, local save, deliberate export, and the accessible map marker-index experience are complete. Target users test the product on their own devices.
 
 ### Public beta
 
@@ -70,7 +81,11 @@ type HouseholdReadiness =
 
 Money distance is a fourth, independent result. It never changes document eligibility.
 
-### 3.2 Public labels
+### 3.2 Historical public labels
+
+The labels below are retained for design history and must not be emitted by the
+current research browser. Use `Research only`, fact-level evidence condition,
+coverage/blockers, and `Confirm first` until the roadmap's activation gates pass.
 
 - Before a household profile exists, show **Verified ordinary route**, **Application route available**, or **Not verified**.
 - Show **Open now** only after evaluating every declared adult and child.
@@ -161,7 +176,7 @@ tests/
   e2e/
 ```
 
-The current hardcoded records in `app/page.tsx` become research candidates, not automatically supported production Beacons.
+The current hardcoded records in `app/[lang]/page.tsx` become research candidates, not automatically supported production Beacons.
 
 ### 4.3 Core records
 
@@ -304,7 +319,7 @@ Exit gate: terminology settled, clean baseline checks, deterministic fixtures, a
 
 Work:
 
-- Extract hardcoded content from `app/page.tsx`.
+- Extract hardcoded content from `app/[lang]/page.tsx`.
 - Implement claim schemas, publish projection, runtime freshness, and pure route evaluation.
 - Split the page into feature components.
 - Render one fully evidenced route through map, list, detail, and evidence views.
@@ -358,7 +373,7 @@ Work:
 
 - Select five candidates using evidence quality, family applicability, operational availability, and cost reproducibility—not geographic marketing value.
 - Complete action-eligible proof packets for every critical claim and confirm each result is reproducible from the same catalog, observations, contracts, and policy versions.
-- Finish responsive map/list/detail behavior and WCAG 2.2 AA testing.
+- Finish responsive map-marker/detail behavior and WCAG 2.2 AA testing.
 - Run a closed usability beta with approximately 8–12 participants covering Russian-first, limited-English, children, mobile-only, low bandwidth, keyboard, low vision, and screen-reader use.
 - Test comprehension with hypothetical profiles or on-device data; do not collect reasons for travel, political views, or family histories.
 
@@ -393,7 +408,7 @@ Every candidate release must pass:
 6. Freshness and explicit-expiry checks.
 7. Truth-table tests for every route state and every adult/child combination.
 8. Cost range, inclusion, currency, and rate-date invariants.
-9. Map/list equivalence and keyboard interaction tests.
+9. Semantic marker-index and keyboard interaction tests.
 10. Production build and rendered-worker smoke tests.
 11. Automated accessibility scan plus manual keyboard, screen-reader, zoom/reflow, contrast, reduced-motion, and low-bandwidth checks.
 12. Privacy-egress and security-header checks.
@@ -482,7 +497,7 @@ but a disclaimer or opinion does not make an unresolved claim safe.
 2. Extract the current page into map, list, detail, and evidence components.
 3. Render the supported route and candidates from validated content.
 4. Implement visible field dates, applicability, unknowns, and immediate demotion.
-5. Test map/list parity, keyboard use, both languages, and false-open withdrawal.
+5. Test semantic marker-index coverage, keyboard use, both languages, and false-open withdrawal.
 6. Review the vertical slice with two or three target users before scaling research.
 
 Do not research all five destinations in depth until the first vertical route proves that the schema, automation workflow, and proof interface expose the right facts.

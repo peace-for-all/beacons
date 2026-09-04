@@ -1,13 +1,24 @@
-# RFC: Beacons — an actionable map of open doors
+# RFC: Beacons — evidence and map foundations
 
-- **Status:** Accepted for implementation; Milestone 0 semantics amended
+> **Direction note (2026-09-03):** [`PLAN.md`](../PLAN.md) is the current product
+> roadmap. The map remains source-aware, but unchecked or incomplete information
+> may now be displayed with an explicit confidence label. Evidence status no
+> longer acts as the sole display gate. The roadmap's independent action state,
+> corridor manifest, and complete-pilot definition supersede this RFC's older
+> “actionable,” “Open now,” and 30-day-ready language. Every current route is
+> research-only.
+
+- **Status:** Historical foundation; normative product direction lives in `PLAN.md`
 - **Date:** 2026-09-02
 - **Product languages:** Russian and English
 - **Initial audience:** Households of one or two adults and exactly two school-age children, all travelling on ordinary Russian passports
 
 ## 1. Summary
 
-Beacons is a current, evidence-backed map of places where a travelling household with ordinary Russian passports can legally enter and remain for at least 30 days.
+Beacons is a research browser for possible destinations. Its current catalog
+does not establish that a household can enter, travel, remain, or settle safely.
+The roadmap defines the evidence and operational packets required before any
+route can become actionable for a declared corridor and household.
 
 Its primary job is practical: show real temporary options, explain the document gate, separate money requirements from document requirements, and turn a chosen option into a small plan.
 
@@ -62,15 +73,15 @@ Every supported v1 traveller uses an ordinary Russian passport. The unpersonalis
 
 ### Optional large-dog overlay
 
-V1 may model zero, one, or two husky-sized dogs as a separate pet-travel overlay. Pet import rules, veterinary documents, carrier acceptance, transit restrictions, and accommodation feasibility never create, extinguish, promote, or demote a human Beacon.
+V1 may model zero, one, or two husky-sized dogs as a separate pet-travel overlay. A user-requested children/dogs count filter may hide map markers only for the current local exploration; it does not create, extinguish, promote, or demote the underlying human Beacon. Child counts use current child-applicability evidence, and dog counts require a current count-specific official rule. Unknown, unsupported, or overdue count evidence fails closed while the filter is active.
 
-A human route may be verified while dog logistics remain not assessed or operationally uncertain. Pet requirements use their own evidence and freshness, and plan steps for dogs appear on a separate track. V1 does not promise that a carrier, route, or property will accept large dogs.
+A human route may be verified while dog logistics remain not assessed or operationally uncertain. The count filter establishes only that the published numerical ceiling covers the selected number; veterinary documents, permits, prohibited breeds, carrier acceptance, transit restrictions, and accommodation remain separate requirements. Pet requirements use their own evidence and freshness, and plan steps for dogs appear on a separate track. V1 does not promise that a carrier, route, or property will accept large dogs.
 
 ## 4. Desired user outcome
 
 The map is the first experience. No questionnaire may block it.
 
-After exploring, a user should be able to say:
+The following remains a future outcome, not a description of the current build:
 
 1. “These real options currently exist for my travelling household.”
 2. “I understand which documents make each door open.”
@@ -256,6 +267,11 @@ The first viewport shows the map immediately, with:
 - a short statement: “A passport records an origin. It is not a moral verdict.”
 
 The map must not begin with a marketing hero or lengthy intake form.
+
+The home route has no persistent destination list. Its single semantic marker
+collection is the non-geographic destination index: every place remains a named
+native button reachable by keyboard, with its evidence state exposed in the
+accessible name and in the detail sheet.
 
 ### 7.2 Progressive personalisation
 

@@ -5,6 +5,7 @@ import {
   fetchOfficialSource,
   inspectFragment,
   isBlockedAddress,
+  normalizeExtractedPdf,
   normalizeVisibleHtml,
   validateFetchTarget,
 } from "../scripts/lib/evidence-monitor-core.mjs";
@@ -43,6 +44,13 @@ test("HTML normalization decodes typographic apostrophes used by official pages"
   assert.equal(normalizeVisibleHtml("tourist&rsquo;s stay"), "tourist’s stay");
 });
 
+test("PDF extraction normalization preserves legal text and removes page separators", () => {
+  assert.equal(
+    normalizeExtractedPdf("Article 15\f\n  Travel   medical insurance\n\n\nArticle 16"),
+    "Article 15\n\nTravel medical insurance\n\nArticle 16",
+  );
+});
+
 test("fragment locators produce one compact traceable proof extract", () => {
   const matched = inspectFragment(
     "Entry rules. Ordinary passports: no visa for visits up to 30 days. Conditions follow.",
@@ -61,6 +69,22 @@ test("fragment locators produce one compact traceable proof extract", () => {
     check,
   );
   assert.equal(ambiguous.status, "ambiguous");
+});
+
+test("a unique locator anchor can select one occurrence from duplicated page chrome", () => {
+  const anchored = inspectFragment(
+    "Navigation Text Share The child needs a passport. Print view The child needs a passport.",
+    {
+      id: "fragment.anchored",
+      claimIds: ["claim.anchored"],
+      locatorAnchor: "Text Share",
+      requiredText: ["The child needs a passport."],
+      maximumSpanCharacters: 40,
+    },
+  );
+  assert.equal(anchored.status, "exact_match");
+  assert.equal(anchored.reasonCode, "configured_text_located");
+  assert.equal(anchored.evidence.length, 1);
 });
 
 test("private, loopback, link-local, documentation, and metadata addresses are blocked", () => {
@@ -94,6 +118,23 @@ test("a successful monitor fetch records hashes and proof-bearing exact matches"
   assert.equal(observation.fragmentChecks[0].status, "exact_match");
   assert.match(observation.fragmentChecks[0].evidence[0].extract, /Ordinary passports/);
   assert.match(observation.fragmentChecks[0].evidence[0].extractSha256, /^[a-f0-9]{64}$/);
+});
+
+test("a PDF monitor uses deterministic extracted text for proof fragments", async () => {
+  const pdfSource = { ...source, expectedContentType: "pdf", url: "https://example.gov/law.pdf" };
+  const body = new TextEncoder().encode("%PDF-1.7 synthetic fixture");
+  const observation = await fetchOfficialSource({
+    source: pdfSource,
+    checks: [check],
+    policy,
+    observedAt: "2026-09-03T10:00:00.000Z",
+    dnsLookup: publicDns,
+    fetchImpl: async () => new Response(body, { status: 200, headers: { "content-type": "application/pdf" } }),
+    pdfTextExtractor: async () => "Entry law. Ordinary passports: no visa for visits up to 30 days.",
+  });
+  assert.equal(observation.status, "reachable");
+  assert.equal(observation.normalization, "pdftotext-layout-v1");
+  assert.equal(observation.fragmentChecks[0].status, "exact_match");
 });
 
 test("a hostile redirect and a soft CAPTCHA page fail closed", async () => {

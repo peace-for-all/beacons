@@ -3,7 +3,7 @@ import type { GeoPermissibleObjects } from "d3-geo";
 import type { MultiPoint } from "geojson";
 import { feature, mesh } from "topojson-client";
 import type { GeometryCollection, Objects, Topology } from "topojson-specification";
-import worldAtlas from "world-atlas/countries-50m.json";
+import worldAtlas from "world-atlas/countries-110m.json";
 
 type WorldObjects = Objects & {
   countries: GeometryCollection;
@@ -20,10 +20,11 @@ const regionalFrame: MultiPoint = {
 };
 
 export const MOSCOW_COORDINATES: [number, number] = [37.6173, 55.7558];
+export const SAINT_PETERSBURG_COORDINATES: [number, number] = [30.3351, 59.9343];
 
 export const MAP_DATASET = {
   name: "Natural Earth Admin 0 countries",
-  scale: "1:50m",
+  scale: "1:110m",
   redistributedBy: "world-atlas",
   version: "2.0.2 / Natural Earth 4.1.0",
   source: "https://www.naturalearthdata.com/",
@@ -47,8 +48,8 @@ export function createRegionalMap(width: number, height: number) {
     return { x: point[0], y: point[1] };
   }
 
-  function routePath(destination: [number, number]) {
-    return path({ type: "LineString", coordinates: [MOSCOW_COORDINATES, destination] }) ?? "";
+  function routePath(destination: [number, number], origin: [number, number] = MOSCOW_COORDINATES) {
+    return path({ type: "LineString", coordinates: [origin, destination] }) ?? "";
   }
 
   return {

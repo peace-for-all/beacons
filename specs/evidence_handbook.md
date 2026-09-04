@@ -10,6 +10,13 @@ This handbook turns the RFC’s evidence standard into a repeatable publication 
 
 The governing rule is simple: no claim may make a human Beacon appear open unless its applicability, current primary support, dates, and automation proof chain are complete. Publication depends on reproducible source observations and versioned policy, never on a confirmation click.
 
+Current fact support is necessary but not sufficient for action. Every current
+route remains research-only until its versioned corridor requirement manifest
+and legal, departure, first-72-hour, stay/exit, safety, money, household, and
+offline packets pass. Before then, useful facts may remain visible but
+destination-specific guidance is `Confirm first`; it cannot be `Do this`,
+`Required`, or generate a deadline.
+
 ## Components and responsibilities
 
 - **Source discovery:** a search process or agent proposes official sources. Discovery output has no publication authority.
@@ -83,6 +90,11 @@ For every claim:
 8. Record unknowns instead of filling gaps by inference.
 9. Retain only a short bounded extract in the proof packet; fingerprint the complete observed artifact and archive it when permitted.
 10. Record fetcher, normalizer, extractor, model, policy, and run versions.
+11. Verify that the source jurisdiction matches the claim's route, place, and
+    destination country; a valid source for another subject cannot support it.
+12. Preserve identical numeric values in English and Russian claim text. Render
+    obligations and applicability from the shared structured fact rather than
+    translating them as independent conclusions.
 
 ## Automated baseline and changed-evidence evaluation
 
@@ -149,6 +161,11 @@ A monitoring outage, blocked response, parse failure, or model disagreement neve
 - Otherwise, matching independent official publication chains are required by the contract. Two URLs copied from one publisher or origin remain one lineage.
 - Exact agreement between the structured fact, applicability, cited fragments, surrounding context, and extraction policy may establish or renew automated support.
 - A relevant change, missing proof link, extractor disagreement, or authoritative conflict blocks renewal and produces a diagnostic packet.
+- The sole executable conflict exception is a versioned
+  `controlling_law_over_official_guidance` contract. It must pin an official
+  legal-text controller and every lower-precedence guidance fragment. Both
+  sides produce proof packets, but only supporting fragments count toward the
+  minimum independent lineages; any drift or newly unpinned conflict blocks.
 - A restrictive or unresolved change may demote automatically. A relaxing change requires a new claim revision and a fresh complete automation run; it never inherits an older decision.
 - Legal and operational support remain separate: a valid e-visa rule does not prove its portal is working.
 
@@ -184,6 +201,38 @@ Each observation names Moscow or Saint Petersburg. Moscow is the UI default. Nev
 Record household composition, destination city, observation window/season, currency and exchange-rate date, lower and upper bounds, inclusions, methodology, and sources. Missing travel data is “not estimated,” not zero.
 
 Money never changes human route availability. Legally required funds, insurance, accommodation, and fees still appear in both the requirement explanation and cost calculation.
+
+## Journey guidance authority
+
+`content/journey-guidance.json` separates the eight corridor packets from the
+authority class of an individual record. Legal rules, itineraries, housing,
+health, emergency contacts, communications, costs, stay timelines, household
+facts, offline snapshots, and general preparedness have distinct policies.
+Evidence accepted for one class cannot fill another merely because both records
+appear in the same first-72-hour or safety packet.
+
+Authored guidance never stores a trusted action state. The evaluator derives
+`do_this`, `confirm_first`, `not_established`, or `blocked` from the exact
+manifest slot, policy version, claim and proof revisions, jurisdiction and
+traveller scope, freshness, conflicts, and dependencies. `Recheck` is a separate
+validity state for a saved task, deadline, contact, or snapshot. Restrictive
+changes block immediately; relaxing changes require a new revision and complete
+proof and never reactivate an old saved instruction.
+
+Source role is recorded on each binding. Origin rules, destination law,
+bilateral rules, transit rules, carrier rules, and dated observations retain
+separate stable jurisdictions. A legacy stay claim remains inspectable, but
+only a detailed version-2 timeline input with entry/exit inclusivity, window
+anchor, day-counting and non-working-day behavior, legal timezone, structured
+exceptions, and registration trigger/responsibility can feed a calculation.
+
+A departure record must keep the owner-supplied inclusive planning window and
+the observed departure date separate. Segment instants use explicit offsets;
+connections must be chronological and connected, transfer points must match the
+segments, and elapsed duration is validated. Future timetable evidence is
+`scheduled`, not `observed_operating`. A transit candidate that depends on
+remaining airside must keep `single_ticket_to_confirm` until the carrier confirms
+one ticket and through-checked baggage for the exact party and itinerary.
 
 ## Large dogs
 

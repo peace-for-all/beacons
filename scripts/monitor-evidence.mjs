@@ -50,6 +50,10 @@ const [catalog, config, reports] = await Promise.all([
 ]);
 const observedAt = argumentValue("--observed-at") ?? new Date().toISOString();
 isoInstantSchema.parse(observedAt);
+const requestedConcurrency = Number(argumentValue("--concurrency") ?? 3);
+if (!Number.isInteger(requestedConcurrency) || requestedConcurrency < 1 || requestedConcurrency > 10) {
+  throw new Error("--concurrency must be an integer from 1 through 10");
+}
 
 const sourceIds = new Set(catalog.sources.map((source) => source.id));
 const claimIds = new Set(catalog.claims.map((claim) => claim.id));
@@ -68,7 +72,7 @@ const policy = {
   maximumRedirects: config.maximumRedirects,
 };
 const startedAt = new Date().toISOString();
-const observations = await mapWithConcurrency(catalog.sources, 3, async (source) => {
+const observations = await mapWithConcurrency(catalog.sources, requestedConcurrency, async (source) => {
   const checks = config.fragmentChecks.filter((check) => check.sourceId === source.id);
   return fetchOfficialSource({ source, checks, policy, observedAt });
 });

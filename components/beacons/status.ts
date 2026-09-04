@@ -1,4 +1,4 @@
-import type { ClaimView, PlaceView } from "@/lib/domain/catalog-view";
+import type { ClaimView, ConfidenceState, PlaceView } from "@/lib/domain/catalog-view";
 import type { Messages } from "@/lib/i18n/messages";
 
 export function placeStatus(place: PlaceView, t: Messages) {
@@ -9,6 +9,10 @@ export function placeStatus(place: PlaceView, t: Messages) {
   if (place.presentation === "application_route_available") return t.applicationRoute;
   if (place.hasCurrentCoreEntryFact) return t.partialCandidate;
   return t.notVerified;
+}
+
+export function confidenceStatus(confidence: ConfidenceState, t: Messages) {
+  return t.confidence[confidence];
 }
 
 export function routeKindLabel(kind: PlaceView["routes"][number]["kind"], t: Messages) {

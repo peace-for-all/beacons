@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "manifests": [
+    {
+      "schemaVersion": 1,
+      "id": "corridor.serbia-belgrade.alpha.v1",
+      "version": 1,
+      "requirementPolicyVersion": "corridor-alpha-v1",
+      "catalogReleaseId": "m11-beg-entry-point-evidence",
+      "authoritativeRunId": "automation.20260904070540602.ad8439e212b9.be6521a92b41",
+      "routeId": "route.serbia-visa-free-30",
+      "researchTargetOnly": true,
+      "activationAuthority": false,
+      "stage3Closure": {
+        "status": "closed_research_scope",
+        "closedOn": "2026-09-04",
+        "actionReady": false
+      },
+      "decisionRecord": "specs/research-target-serbia-2026-09-03.md",
+      "household": {
+        "nationality": "RU",
+        "passportType": "ordinary",
+        "minimumAdults": 1,
+        "maximumAdults": 2,
+        "childCount": 2,
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 }
+      },
+      "origins": ["moscow", "saint_petersburg"],
+      "routeClaimRevisions": [
+        { "claimId": "claim.serbia-russian-nationality", "revision": 1 },
+        { "claimId": "claim.serbia-ordinary-passport", "revision": 1 },
+        { "claimId": "claim.serbia-route-availability", "revision": 1 },
+        { "claimId": "claim.serbia-stay-rule", "revision": 1 },
+        { "claimId": "claim.serbia-passport-present", "revision": 1 },
+        { "claimId": "claim.serbia-passport-validity", "revision": 2 },
+        { "claimId": "claim.serbia-family-applicability", "revision": 1 },
+        { "claimId": "claim.serbia-proof-of-funds", "revision": 1 },
+        { "claimId": "claim.serbia-insurance", "revision": 2 },
+        { "claimId": "claim.serbia-accommodation", "revision": 1 },
+        { "claimId": "claim.serbia-onward-ticket", "revision": 2 },
+        { "claimId": "claim.serbia-parental-consent", "revision": 1 },
+        { "claimId": "claim.serbia-arrival-registration-host", "revision": 1 },
+        { "claimId": "claim.serbia-arrival-registration-self", "revision": 1 },
+        { "claimId": "claim.serbia-russia-exit-valid-document", "revision": 1 },
+        { "claimId": "claim.serbia-russia-child-passport-2026", "revision": 2 },
+        { "claimId": "claim.serbia-russia-child-accompanied-no-objection", "revision": 1 },
+        { "claimId": "claim.serbia-russia-child-unaccompanied-consent", "revision": 1 },
+        { "claimId": "claim.serbia-russia-child-departure-objection", "revision": 1 },
+        { "claimId": "claim.serbia-russia-child-departure-court-dispute", "revision": 1 },
+        { "claimId": "claim.serbia-turkiye-airside-transit", "revision": 1 },
+        { "claimId": "claim.serbia-entry-beg", "revision": 1 }
+      ],
+      "requirements": [
+        {
+          "requirementId": "legal.origin_departure_requirements",
+          "origin": "moscow",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-russia-exit-valid-document", "claim.serbia-russia-child-passport-2026", "claim.serbia-russia-child-accompanied-no-objection", "claim.serbia-russia-child-unaccompanied-consent", "claim.serbia-russia-child-departure-objection", "claim.serbia-russia-child-departure-court-dispute"],
+          "gap": { "summary": "Current federal-law and prosecutorial lineages cover the adult and child departure rules, but case-specific legal-representative authority, objections, custody, and each traveller's actual documents remain unresolved.", "workstreams": ["schema", "evaluator"], "remainingKinds": ["runtime_input"] }
+        },
+        {
+          "requirementId": "legal.origin_departure_requirements",
+          "origin": "saint_petersburg",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-russia-exit-valid-document", "claim.serbia-russia-child-passport-2026", "claim.serbia-russia-child-accompanied-no-objection", "claim.serbia-russia-child-unaccompanied-consent", "claim.serbia-russia-child-departure-objection", "claim.serbia-russia-child-departure-court-dispute"],
+          "gap": { "summary": "Current federal-law and prosecutorial lineages cover the adult and child departure rules, but case-specific legal-representative authority, objections, custody, and each traveller's actual documents remain unresolved.", "workstreams": ["schema", "evaluator"], "remainingKinds": ["runtime_input"] }
+        },
+        {
+          "requirementId": "legal.nationality_and_passport_scope",
+          "status": "current",
+          "claimIds": ["claim.serbia-russian-nationality", "claim.serbia-ordinary-passport"]
+        },
+        {
+          "requirementId": "legal.passport_presence_and_validity",
+          "status": "current",
+          "claimIds": ["claim.serbia-passport-present", "claim.serbia-passport-validity"]
+        },
+        {
+          "requirementId": "legal.minor_documents",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-parental-consent"],
+          "gap": { "summary": "Destination consent and Russian accompaniment, passport, consent, objection, and dispute rules are current, but no general border-carry rule for relationship or representative-authority documents is established and individual case facts remain unresolved.", "workstreams": ["source", "schema", "evaluator"], "remainingKinds": ["evidence_gap", "runtime_input"] }
+        },
+        {
+          "requirementId": "legal.entry_authorization_or_exemption",
+          "status": "current",
+          "claimIds": ["claim.serbia-route-availability"]
+        },
+        {
+          "requirementId": "legal.transit_and_entry_point_constraints",
+          "origin": "moscow",
+          "status": "current",
+          "claimIds": ["claim.serbia-turkiye-airside-transit", "claim.serbia-entry-beg"]
+        },
+        {
+          "requirementId": "legal.transit_and_entry_point_constraints",
+          "origin": "saint_petersburg",
+          "status": "current",
+          "claimIds": ["claim.serbia-turkiye-airside-transit", "claim.serbia-entry-beg"]
+        },
+        {
+          "requirementId": "legal.border_supporting_requirements",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-proof-of-funds", "claim.serbia-insurance", "claim.serbia-accommodation", "claim.serbia-onward-ticket"],
+          "gap": { "summary": "Funds, insurance, accommodation, and the exact return-ticket fact are current. No child-specific or household-pooling interpretation of the funds rule is established, and actual per-traveller coverage remains a future case input.", "workstreams": ["source", "schema", "evaluator"], "remainingKinds": ["evidence_gap", "runtime_input"] }
+        },
+        {
+          "requirementId": "legal.stay_counting_and_registration",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-stay-rule", "claim.serbia-arrival-registration-host", "claim.serbia-arrival-registration-self"],
+          "gap": { "summary": "Stay duration, inclusive day counting, host registration, and self-arranged registration are current. No family-batching rule or complete exception set is established, and the actual accommodation arrangement remains a future case input.", "workstreams": ["source", "schema", "evaluator"], "remainingKinds": ["evidence_gap", "runtime_input"] }
+        },
+        {
+          "requirementId": "legal.source_provenance_and_validity",
+          "status": "current",
+          "claimIds": ["claim.serbia-russian-nationality", "claim.serbia-ordinary-passport", "claim.serbia-route-availability", "claim.serbia-stay-rule", "claim.serbia-passport-present", "claim.serbia-passport-validity", "claim.serbia-family-applicability", "claim.serbia-proof-of-funds", "claim.serbia-insurance", "claim.serbia-accommodation", "claim.serbia-onward-ticket", "claim.serbia-parental-consent", "claim.serbia-arrival-registration-host", "claim.serbia-arrival-registration-self", "claim.serbia-russia-exit-valid-document", "claim.serbia-russia-child-passport-2026", "claim.serbia-russia-child-accompanied-no-objection", "claim.serbia-russia-child-unaccompanied-consent", "claim.serbia-russia-child-departure-objection", "claim.serbia-russia-child-departure-court-dispute", "claim.serbia-turkiye-airside-transit", "claim.serbia-entry-beg"]
+        },
+
+        {
+          "requirementId": "departure.itineraries_and_fallback",
+          "origin": "moscow",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.moscow.primary.v1", "record.serbia.departure.moscow.fallback.v1"],
+          "gap": { "summary": "A dated direct schedule and an Istanbul fallback candidate are recorded for 11 and 16 September 2026; exact bookability for every traveller and the fallback's single-ticket structure must be reconfirmed.", "workstreams": ["transport", "operations"] }
+        },
+        {
+          "requirementId": "departure.itineraries_and_fallback",
+          "origin": "saint_petersburg",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.saint_petersburg.primary.v1", "record.serbia.departure.saint_petersburg.fallback.v1"],
+          "gap": { "summary": "A dated direct schedule and an Istanbul fallback candidate are recorded for 11 and 23 September 2026; exact bookability for every traveller and the fallback's single-ticket structure must be reconfirmed.", "workstreams": ["transport", "operations"] }
+        },
+        {
+          "requirementId": "departure.points_modes_transfers_duration",
+          "origin": "moscow",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.moscow.primary.v1", "record.serbia.departure.moscow.fallback.v1"],
+          "gap": { "summary": "SVO/VKO, BEG, air mode, Istanbul transfer, and elapsed durations are recorded as dated schedule observations, not confirmed bookings.", "workstreams": ["transport"] }
+        },
+        {
+          "requirementId": "departure.points_modes_transfers_duration",
+          "origin": "saint_petersburg",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.saint_petersburg.primary.v1", "record.serbia.departure.saint_petersburg.fallback.v1"],
+          "gap": { "summary": "LED, BEG, air mode, Istanbul transfer, and elapsed durations are recorded as dated schedule observations, not confirmed bookings.", "workstreams": ["transport"] }
+        },
+        {
+          "requirementId": "departure.transit_and_carrier_constraints",
+          "origin": "moscow",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.moscow.primary.v1", "record.serbia.departure.moscow.fallback.v1"],
+          "gap": { "summary": "Air Serbia and Turkish Airlines candidates and the Türkiye airside-transfer condition are recorded; the fallback remains blocked until one ticket, exact segments, and through-checked baggage are confirmed.", "workstreams": ["transport", "evaluator"] }
+        },
+        {
+          "requirementId": "departure.transit_and_carrier_constraints",
+          "origin": "saint_petersburg",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.saint_petersburg.primary.v1", "record.serbia.departure.saint_petersburg.fallback.v1"],
+          "gap": { "summary": "Air Serbia and Turkish Airlines candidates and the Türkiye airside-transfer condition are recorded; the fallback remains blocked until one ticket, exact segments, and through-checked baggage are confirmed.", "workstreams": ["transport", "evaluator"] }
+        },
+        {
+          "requirementId": "departure.baggage_and_accessibility",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "Baggage and accessibility assumptions are not recorded for Moscow.", "workstreams": ["schema", "transport", "operations"] }
+        },
+        {
+          "requirementId": "departure.baggage_and_accessibility",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "Baggage and accessibility assumptions are not recorded for Saint Petersburg.", "workstreams": ["schema", "transport", "operations"] }
+        },
+        {
+          "requirementId": "departure.fare_observation",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "No reproducible dated fare observation exists for Moscow.", "workstreams": ["schema", "transport", "cost"] }
+        },
+        {
+          "requirementId": "departure.fare_observation",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "No reproducible dated fare observation exists for Saint Petersburg.", "workstreams": ["schema", "transport", "cost"] }
+        },
+        {
+          "requirementId": "departure.operating_state",
+          "origin": "moscow",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.moscow.primary.v1", "record.serbia.departure.moscow.fallback.v1"],
+          "gap": { "summary": "The candidate services were observed as scheduled, but future operation and bookability are not confirmed.", "workstreams": ["transport", "evaluator"] }
+        },
+        {
+          "requirementId": "departure.operating_state",
+          "origin": "saint_petersburg",
+          "status": "incomplete",
+          "operationalRecordIds": ["record.serbia.departure.saint_petersburg.primary.v1", "record.serbia.departure.saint_petersburg.fallback.v1"],
+          "gap": { "summary": "The candidate services were observed as scheduled, but future operation and bookability are not confirmed.", "workstreams": ["transport", "evaluator"] }
+        },
+
+        {
+          "requirementId": "first72.accommodation_and_registration",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-arrival-registration-host", "claim.serbia-arrival-registration-self"],
+          "gap": { "summary": "Registration responsibility is current, but no cancellable first accommodation or host capability is observed.", "workstreams": ["source", "schema", "operations"] }
+        },
+        {
+          "requirementId": "first72.arrival_transfer",
+          "status": "missing",
+          "gap": { "summary": "No arrival transfer or fallback transfer is recorded.", "workstreams": ["schema", "transport", "operations"] }
+        },
+        {
+          "requirementId": "first72.communication_and_payment",
+          "status": "missing",
+          "gap": { "summary": "No working communication path or payment fallback is recorded.", "workstreams": ["source", "schema", "operations"] }
+        },
+        {
+          "requirementId": "first72.food_medicine_and_healthcare",
+          "status": "missing",
+          "gap": { "summary": "Food, medication, and urgent healthcare guidance is not recorded.", "workstreams": ["source", "schema", "safety", "operations"] }
+        },
+        {
+          "requirementId": "first72.child_and_pet_needs",
+          "status": "missing",
+          "gap": { "summary": "Essential child and optional pet arrival needs are not represented in a corridor packet.", "workstreams": ["source", "schema", "safety", "operations"] }
+        },
+        {
+          "requirementId": "first72.trusted_contact_check_in",
+          "status": "missing",
+          "gap": { "summary": "No device-local trusted-contact check-in plan is represented.", "workstreams": ["schema", "safety", "product"] }
+        },
+        {
+          "requirementId": "first72.failure_paths",
+          "status": "missing",
+          "gap": { "summary": "Entry, transport, payment, and accommodation failure paths are not structured.", "workstreams": ["schema", "safety", "operations", "product"] }
+        },
+
+        {
+          "requirementId": "stay.deadlines",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-stay-rule", "claim.serbia-arrival-registration-host", "claim.serbia-arrival-registration-self"],
+          "gap": { "summary": "Available stay and registration facts do not yet support exact registration, application, renewal, or last-lawful-day calculations.", "workstreams": ["source", "schema", "extractor", "evaluator"] }
+        },
+        {
+          "requirementId": "stay.unauthorized_activities",
+          "status": "missing",
+          "gap": { "summary": "Activities not authorised by the visitor route are not collected.", "workstreams": ["source", "schema", "extractor", "evaluator"] }
+        },
+        {
+          "requirementId": "stay.longer_term_paths",
+          "status": "missing",
+          "gap": { "summary": "Official longer-term status pathways are not collected as separate conditional routes.", "workstreams": ["source", "schema", "extractor", "evaluator"] }
+        },
+        {
+          "requirementId": "stay.safe_exit_route",
+          "status": "missing",
+          "gap": { "summary": "No safe-exit or onward route before stay expiry is recorded.", "workstreams": ["source", "schema", "transport", "operations"] }
+        },
+        {
+          "requirementId": "stay.reminder_margin",
+          "status": "missing",
+          "gap": { "summary": "Reminder lead times and a calculation safety margin are not defined.", "workstreams": ["schema", "evaluator", "product"] }
+        },
+
+        {
+          "requirementId": "safety.emergency_numbers",
+          "status": "missing",
+          "gap": { "summary": "Police, ambulance, fire, and general emergency numbers are not in a validated operational packet.", "workstreams": ["source", "schema", "safety"] }
+        },
+        {
+          "requirementId": "safety.consular_and_lost_document",
+          "status": "missing",
+          "gap": { "summary": "Applicable consular assistance and lost-document procedures are not collected.", "workstreams": ["source", "schema", "safety"] }
+        },
+        {
+          "requirementId": "safety.medical_and_insurance_contacts",
+          "status": "missing",
+          "gap": { "summary": "Urgent medical and insurance-assistance contacts are not collected.", "workstreams": ["source", "schema", "safety"] }
+        },
+        {
+          "requirementId": "safety.failure_paths",
+          "status": "missing",
+          "gap": { "summary": "Refusal, stranded transit, lost phone or money, housing failure, domestic violence, and child safeguarding paths are not complete.", "workstreams": ["source", "schema", "safety", "operations"] }
+        },
+        {
+          "requirementId": "safety.local_laws_and_hazards",
+          "status": "missing",
+          "gap": { "summary": "Material local laws and operational hazards for the declared trip are not inventoried.", "workstreams": ["source", "schema", "safety"] }
+        },
+        {
+          "requirementId": "safety.contact_metadata_and_offline_copy",
+          "status": "missing",
+          "gap": { "summary": "Contact scope, check time, validity, copy/call behavior, and offline availability are not represented.", "workstreams": ["schema", "safety", "product"] }
+        },
+
+        {
+          "requirementId": "money.cost_components",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "No component-level Moscow cost packet exists.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.cost_components",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "No component-level Saint Petersburg cost packet exists.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.first_72_hour_range",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "No reproducible first-72-hour range exists for Moscow.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.first_72_hour_range",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "No reproducible first-72-hour range exists for Saint Petersburg.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.first_30_day_range",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "No reproducible 30-day range exists for Moscow.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.first_30_day_range",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "No reproducible 30-day range exists for Saint Petersburg.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.assumptions_and_exchange",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "Household assumptions, native currency, exchange date, exclusions, and missing components are not recorded for Moscow.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.assumptions_and_exchange",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "Household assumptions, native currency, exchange date, exclusions, and missing components are not recorded for Saint Petersburg.", "workstreams": ["schema", "cost"] }
+        },
+        {
+          "requirementId": "money.payment_access",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "Payment-method accessibility and fallbacks are not tested for the Moscow variant.", "workstreams": ["source", "schema", "cost", "operations"] }
+        },
+        {
+          "requirementId": "money.payment_access",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "Payment-method accessibility and fallbacks are not tested for the Saint Petersburg variant.", "workstreams": ["source", "schema", "cost", "operations"] }
+        },
+        {
+          "requirementId": "money.emergency_and_return_reserve",
+          "origin": "moscow",
+          "status": "missing",
+          "gap": { "summary": "No separate emergency and return reserve is defined for Moscow.", "workstreams": ["schema", "cost", "safety"] }
+        },
+        {
+          "requirementId": "money.emergency_and_return_reserve",
+          "origin": "saint_petersburg",
+          "status": "missing",
+          "gap": { "summary": "No separate emergency and return reserve is defined for Saint Petersburg.", "workstreams": ["schema", "cost", "safety"] }
+        },
+
+        {
+          "requirementId": "household.alpha_envelope",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-family-applicability"],
+          "gap": { "summary": "Current family applicability does not establish the complete one-or-two-adult and two-child corridor envelope.", "workstreams": ["source", "schema", "extractor", "evaluator"] }
+        },
+        {
+          "requirementId": "household.per_traveller_readiness",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-family-applicability", "claim.serbia-passport-present", "claim.serbia-passport-validity"],
+          "gap": { "summary": "Every traveller can be represented, but passport and route requirements are not currently proved for each person.", "workstreams": ["source", "schema", "evaluator"] }
+        },
+        {
+          "requirementId": "household.child_specific_requirements",
+          "status": "incomplete",
+          "claimIds": ["claim.serbia-family-applicability", "claim.serbia-parental-consent"],
+          "gap": { "summary": "Child count is not ruled out, but custody, relationship, origin departure, and individual document gates are incomplete.", "workstreams": ["source", "schema", "extractor", "evaluator"] }
+        },
+        {
+          "requirementId": "household.pet_feasibility",
+          "status": "missing",
+          "gap": { "summary": "Pet evidence exists separately, but no corridor-level pet transport and first-72-hour feasibility packet is bound to this route.", "workstreams": ["source", "schema", "transport", "evaluator", "operations"] }
+        },
+
+        {
+          "requirementId": "offline.emergency_packet",
+          "status": "missing",
+          "gap": { "summary": "No validated emergency packet is available offline.", "workstreams": ["schema", "safety", "product"] }
+        },
+        {
+          "requirementId": "offline.plan_and_evidence_snapshot",
+          "status": "missing",
+          "gap": { "summary": "No explicit local save or versioned plan and evidence snapshot exists.", "workstreams": ["schema", "product"] }
+        },
+        {
+          "requirementId": "offline.expiry_and_recheck_behavior",
+          "status": "missing",
+          "gap": { "summary": "Offline expiry, demotion, recheck, and invalidation behavior is not implemented.", "workstreams": ["schema", "evaluator", "product"] }
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,7 @@ const { projectCatalog } = await vite.ssrLoadModule("/lib/domain/catalog-view.ts
 const catalog = schemas.contentCatalogSchema.parse(JSON.parse(await readFile(new URL("../content/catalog.json", import.meta.url), "utf8")));
 const reports = schemas.evidenceAutomationReportsSchema.parse(JSON.parse(await readFile(new URL("../content/evidence-decisions.json", import.meta.url), "utf8")));
 const authoritativeRun = [...reports.runs].reverse().find((run) => run.schemaVersion === 2 && run.mode === "authoritative_automation" && run.eligibleForActions);
+const testAsOf = "2026-09-04T07:10:00.000Z";
 const textSha256 = (value) => createHash("sha256").update(value).digest("hex");
 after(async () => vite.close());
 
@@ -72,13 +73,14 @@ function runWithRouteState(route, state) {
 test("false-open drill: one withdrawal contains a route and preserves its audit evidence", () => {
   const synthetic = structuredClone(catalog);
   const route = synthetic.routes.find((item) => item.id === "route.serbia-visa-free-30");
+  route.publicationState = "published";
   const run = runWithRouteState(route, "current");
-  const before = projectCatalog(schemas.contentCatalogSchema.parse(synthetic), "2026-09-02T20:00:00.000Z", run).find((place) => place.id === "place.belgrade");
+  const before = projectCatalog(schemas.contentCatalogSchema.parse(synthetic), testAsOf, run).find((place) => place.id === "place.belgrade");
   assert.equal(before.presentation, "verified_ordinary_route");
   assert.equal(before.publicationState, "published");
 
   const withdrawn = withdrawRoute(synthetic, { routeId: route.id, changeId: "change.drill-false-open", nextReleaseId: "drill-false-open-contained", operatorId: "project-owner", changedAt: "2026-09-02T16:01:00.000Z", reason: { en: "False-open containment drill", ru: "Учебное снятие ошибочно открытого маршрута" } });
-  const after = projectCatalog(withdrawn, "2026-09-02T16:02:00.000Z", run).find((place) => place.id === "place.belgrade");
+  const after = projectCatalog(withdrawn, testAsOf, run).find((place) => place.id === "place.belgrade");
   assert.equal(after.publicationState, "withdrawn");
   assert.equal(after.presentation, "not_verified");
   assert.equal(withdrawn.claims.length, synthetic.claims.length);
@@ -89,7 +91,7 @@ test("false-open drill: one withdrawal contains a route and preserves its audit 
 test("source-unavailable drill blocks otherwise automatically supported evidence", () => {
   const claim = catalog.claims.find((item) => item.id === "claim.serbia-russian-nationality");
   const route = catalog.routes.find((item) => item.id === claim.subjectId);
-  const result = evaluateClaimEvidence({ claim, automationRun: runWithRouteState(route, "unavailable"), asOf: "2026-09-02T20:00:00.000Z" });
+  const result = evaluateClaimEvidence({ claim, automationRun: runWithRouteState(route, "unavailable"), asOf: testAsOf });
   assert.equal(result.condition, "unavailable");
   assert.equal(result.blocking, true);
 });
@@ -97,7 +99,7 @@ test("source-unavailable drill blocks otherwise automatically supported evidence
 test("semantic extraction disagreement blocks an otherwise supported gate", () => {
   const claim = catalog.claims.find((item) => item.id === "claim.serbia-russian-nationality");
   const route = catalog.routes.find((item) => item.id === claim.subjectId);
-  const result = evaluateClaimEvidence({ claim, automationRun: runWithRouteState(route, "changed"), asOf: "2026-09-02T20:00:00.000Z" });
+  const result = evaluateClaimEvidence({ claim, automationRun: runWithRouteState(route, "changed"), asOf: testAsOf });
   assert.equal(result.condition, "unknown");
   assert.equal(result.blocking, true);
   assert.deepEqual(result.reasonCodes, ["automation_changed"]);

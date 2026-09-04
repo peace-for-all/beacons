@@ -141,8 +141,260 @@
     },
     {
       "schemaVersion": 2,
-      "id": "contract.serbia-arrival-registration-host.v1",
+      "id": "contract.serbia-stay-rule.v1",
       "version": 1,
+      "claimId": "claim.serbia-stay-rule",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "59dc19f597da579eb8974885669427d3c13623de10835e7e20828f979d02585e",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "expectedContextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364"
+        },
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-inclusive-stay",
+          "expectedContextSha256": "9ce2af56283e13341906c56dc35566d284da16ba9a7d4e91892a0b5614b65e57"
+        }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T13:38:00.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "bounded-pdf-extraction-v1",
+        "producedAt": "2026-09-03T13:38:00.000Z",
+        "monitoringRunId": "monitor.20260903133800000.1085df312387"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-passport-present.v1",
+      "version": 1,
+      "claimId": "claim.serbia-passport-present",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "505a0b5ccbd20133c037ccc0d654162aa6eaceb76da750204fa38e4d3f991627",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-russia-visa",
+          "fragmentId": "fragment.serbia-ordinary-passport-30-days",
+          "expectedContextSha256": "59776eb89b7bd97a02584e09764cd8e33810607a4776f6f263383237c697d364"
+        },
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-general-valid-document",
+          "expectedContextSha256": "e7f3253027469924410b251416d28900d446e2081a16aeedb19b4e9250013064"
+        },
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-valid-document",
+          "expectedContextSha256": "0fdf1aa66a6f63669ba24c144ccdfe63b74bdd70f05d57669dffe8bb8725e75b"
+        }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T13:38:00.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "bounded-pdf-extraction-v1",
+        "producedAt": "2026-09-03T13:38:00.000Z",
+        "monitoringRunId": "monitor.20260903133800000.1085df312387"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-passport-validity.v2",
+      "version": 2,
+      "claimId": "claim.serbia-passport-validity",
+      "claimRevision": 2,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "ee7f24e5ce81f1cc85bb416bed0baba09efdc5961c9e59175bb84398d71d7acb",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-general-valid-document",
+          "expectedContextSha256": "e7f3253027469924410b251416d28900d446e2081a16aeedb19b4e9250013064"
+        },
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-departure-document",
+          "expectedContextSha256": "d3134e2d10beb20ea6b80e7ad47c377b69382f152cc125cfb7794e9e584ae89f"
+        }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T13:38:00.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "bounded-pdf-extraction-v1",
+        "producedAt": "2026-09-03T13:38:00.000Z",
+        "monitoringRunId": "monitor.20260903133800000.1085df312387"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-proof-of-funds.v1",
+      "version": 1,
+      "claimId": "claim.serbia-proof-of-funds",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "d738079a2473531af7204cdcdf7fd6e70d4c1d949879f9f4cdad0bb864441691",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-general-funds",
+          "expectedContextSha256": "0ebbff67475f0603c7d300ce73a4e610d604f6324a757cd303ff34cd2ae8a29e"
+        },
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-sufficient-means",
+          "expectedContextSha256": "821d3cf9f5489630202ca73e597de6b0a62562e4cbd44b7500997badb1eb7fd1"
+        }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T13:38:00.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "bounded-pdf-extraction-v1",
+        "producedAt": "2026-09-03T13:38:00.000Z",
+        "monitoringRunId": "monitor.20260903133800000.1085df312387"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-insurance.v2",
+      "version": 2,
+      "claimId": "claim.serbia-insurance",
+      "claimRevision": 2,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "eb744f99078d67e2fc3971996f2e0223ddd73e5e76ac988d8099413e44080b00",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-medical-insurance",
+          "expectedContextSha256": "423d48d99b9787917c8dfdeb3ae68d80c34d667636380a752dbb6fbdb90e68d1"
+        }
+      ],
+      "precedenceResolution": {
+        "kind": "controlling_law_over_official_guidance",
+        "controllingSourceId": "source.serbia-law-foreigners-2023",
+        "conflictingFragments": [
+          {
+            "sourceId": "source.serbia-mfa-general-entry",
+            "fragmentId": "fragment.serbia-general-insurance-recommendation",
+            "expectedContextSha256": "93726a8638cacd96773cdf7241f125bb116efe4187dbe52ee9f9b3f1ac400543"
+          }
+        ]
+      },
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T14:13:06.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "serbia-exact-facts-v1",
+        "producedAt": "2026-09-03T14:13:06.000Z",
+        "monitoringRunId": "monitor.20260903141306000.bbda4cefb70a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-return-ticket.v2",
+      "version": 2,
+      "claimId": "claim.serbia-onward-ticket",
+      "claimRevision": 2,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "ccebbf29460ae89b034f26723631215a6787d2e65604bb389ce0048e9b9073d5",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-general-return-ticket",
+          "expectedContextSha256": "b110652f992593b8aad69a902c9b8a7c63fd827e6da3e46c04fd56acf6858d40"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T14:13:06.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "serbia-exact-facts-v1",
+        "producedAt": "2026-09-03T14:13:06.000Z",
+        "monitoringRunId": "monitor.20260903141306000.bbda4cefb70a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-arrival-registration-self.v1",
+      "version": 1,
+      "claimId": "claim.serbia-arrival-registration-self",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "0c8874bbd786eeac2ca06db565571648d306390fc4dddc8633f06ec2ef76cd8a",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-registration-self",
+          "expectedContextSha256": "4eea226dcf425e22ddd26d498855f8b0401235bdf152eb33bd4c582e6b10c569"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T14:13:06.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "serbia-exact-facts-v1",
+        "producedAt": "2026-09-03T14:13:06.000Z",
+        "monitoringRunId": "monitor.20260903141306000.bbda4cefb70a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-accommodation.v1",
+      "version": 1,
+      "claimId": "claim.serbia-accommodation",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "a7ed32689c86733a3779fd0c4022c036dbbf77f97a7f98bf4f4b65fa2be85cb7",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-mfa-general-entry",
+          "fragmentId": "fragment.serbia-general-accommodation",
+          "expectedContextSha256": "b9df8b4cd888647cf221b8009a0adfd4267a2c1982c181a58d78e2326cbaf0b1"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T13:38:00.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "bounded-pdf-extraction-v1",
+        "producedAt": "2026-09-03T13:38:00.000Z",
+        "monitoringRunId": "monitor.20260903133800000.1085df312387"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-arrival-registration-host.v2",
+      "version": 2,
       "claimId": "claim.serbia-arrival-registration-host",
       "claimRevision": 1,
       "basis": "pinned_semantic_baseline",
@@ -153,17 +405,148 @@
           "sourceId": "source.serbia-welcome-registration",
           "fragmentId": "fragment.serbia-registration-24-hours",
           "expectedContextSha256": "e119762570f905023539dff0f80c1c9b0b3908fb1a4014ad6df2068accba17fa"
+        },
+        {
+          "sourceId": "source.serbia-law-foreigners-2023",
+          "fragmentId": "fragment.serbia-law-registration-host",
+          "expectedContextSha256": "503122e3eb5f34144af28d0b1a6e3780874bd49f8eeea18d3ecaaae3165aba02"
         }
       ],
-      "minimumIndependentGroups": 1,
+      "minimumIndependentGroups": 2,
       "policyVersion": "pinned-claim-continuity-v2",
-      "activatedAt": "2026-09-02T16:20:00.000+03:00",
+      "activatedAt": "2026-09-03T13:38:00.000Z",
       "baselineProvenance": {
         "kind": "model_pipeline",
-        "producerId": "agent.codex.serbia-audit",
-        "producerVersion": "baseline-audit-v1",
-        "producedAt": "2026-09-02T16:20:00.000+03:00",
-        "monitoringRunId": "monitor.20260902133058189.72dfa90a75d7"
+        "producerId": "agent.codex.phase3-legal",
+        "producerVersion": "bounded-pdf-extraction-v1",
+        "producedAt": "2026-09-03T13:38:00.000Z",
+        "monitoringRunId": "monitor.20260903133800000.1085df312387"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russia-exit-valid-document.v4",
+      "version": 4,
+      "claimId": "claim.serbia-russia-exit-valid-document",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "2f05b1ba453330341f5a372a8b57822067018dcf11a4c840e7e6589432e04826",
+      "expectedApplicabilitySha256": "db41dd21ee76add2ea66fc139d7da49f0c4ece8d590da66830e4898068c82e68",
+      "requiredFragments": [
+        { "sourceId": "source.russia-prosecutor-valid-travel-document", "fragmentId": "fragment.russia-valid-travel-document", "expectedContextSha256": "931e227719583a5e1c9f1a4f6fde71a99218306c984a1011e9ef36c07b93d7a4" },
+        { "sourceId": "source.russia-kdmid-federal-law-114fz", "fragmentId": "fragment.russia-law-valid-travel-document", "expectedContextSha256": "b87a27c08bee93abd13d10576b1c79ecc0a78c4b80e1375ac3b9ae64dd565488" }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-04T06:31:20.723Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline", "producerId": "agent.codex.phase3-legal", "producerVersion": "two-lineage-origin-evidence-v4",
+        "producedAt": "2026-09-04T06:31:20.723Z", "monitoringRunId": "monitor.20260904063120723.7e7c60795d2e"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russia-child-own-document.v4",
+      "version": 4,
+      "claimId": "claim.serbia-russia-child-passport-2026",
+      "claimRevision": 2,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "4908119ea870ba59026f146290d535c67d6848747c08fd339059522b0b2bb8e0",
+      "expectedApplicabilitySha256": "bc6a250cc29fb3076381c79368aa6c9a0c212a1237a9284b3725fc4f1480e4d9",
+      "requiredFragments": [
+        { "sourceId": "source.russia-prosecutor-valid-travel-document", "fragmentId": "fragment.russia-valid-travel-document", "expectedContextSha256": "931e227719583a5e1c9f1a4f6fde71a99218306c984a1011e9ef36c07b93d7a4" },
+        { "sourceId": "source.russia-kdmid-federal-law-114fz", "fragmentId": "fragment.russia-law-valid-travel-document", "expectedContextSha256": "b87a27c08bee93abd13d10576b1c79ecc0a78c4b80e1375ac3b9ae64dd565488" }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-04T06:31:20.723Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline", "producerId": "agent.codex.phase3-legal", "producerVersion": "two-lineage-origin-evidence-v4",
+        "producedAt": "2026-09-04T06:31:20.723Z", "monitoringRunId": "monitor.20260904063120723.7e7c60795d2e"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russia-child-accompanied-no-objection.v4",
+      "version": 4,
+      "claimId": "claim.serbia-russia-child-accompanied-no-objection",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "bd3ba71e55ed6649a4714ccad159905b5c46ef86c9c32ef7b8301171643aa224",
+      "expectedApplicabilitySha256": "bc6a250cc29fb3076381c79368aa6c9a0c212a1237a9284b3725fc4f1480e4d9",
+      "requiredFragments": [
+        { "sourceId": "source.russia-prosecutor-child-departure", "fragmentId": "fragment.russia-child-accompanied-no-objection", "expectedContextSha256": "57650e81f4799b0ad3103d63ee9e4088395ddba23ada05bacf04be5f1d3b6b3a" },
+        { "sourceId": "source.russia-kdmid-federal-law-114fz", "fragmentId": "fragment.russia-law-child-accompanied-no-objection", "expectedContextSha256": "0525c9d50efb0b0e98e92acddec96565ff1d8c7869ceba2bad8c57e81c1ee1b9" }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-04T06:31:20.723Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline", "producerId": "agent.codex.phase3-legal", "producerVersion": "two-lineage-origin-evidence-v4",
+        "producedAt": "2026-09-04T06:31:20.723Z", "monitoringRunId": "monitor.20260904063120723.7e7c60795d2e"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russia-child-unaccompanied-consent.v2",
+      "version": 2,
+      "claimId": "claim.serbia-russia-child-unaccompanied-consent",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "fc48fc9fb3b3cb669c95a5bedbb1d81c1511384a152abfa1374cda8953354442",
+      "expectedApplicabilitySha256": "bc6a250cc29fb3076381c79368aa6c9a0c212a1237a9284b3725fc4f1480e4d9",
+      "requiredFragments": [
+        { "sourceId": "source.russia-prosecutor-child-departure", "fragmentId": "fragment.russia-child-unaccompanied-consent", "expectedContextSha256": "3c9ef0ff7ebfb0eed8dc52e7dc983e1fd0da7cb4c672b25fd82d26f087a921a1" },
+        { "sourceId": "source.russia-kdmid-federal-law-114fz", "fragmentId": "fragment.russia-law-child-unaccompanied-consent", "expectedContextSha256": "c9225541a062b91a9db79971cd81052fdc6dbf0934dbbbc169bdf488b6dcd3ef" }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T14:20:13.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline", "producerId": "agent.codex.phase3-legal", "producerVersion": "two-lineage-origin-evidence-v2",
+        "producedAt": "2026-09-03T14:20:13.000Z", "monitoringRunId": "monitor.20260903142013000.1d9706ec60bb"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russia-child-departure-objection.v2",
+      "version": 2,
+      "claimId": "claim.serbia-russia-child-departure-objection",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5fd86cd35f5d7eb8e615f3b269ba3ee145a944c12b01fdb2cb5a9ac1eda554b4",
+      "expectedApplicabilitySha256": "bc6a250cc29fb3076381c79368aa6c9a0c212a1237a9284b3725fc4f1480e4d9",
+      "requiredFragments": [
+        { "sourceId": "source.russia-prosecutor-child-departure", "fragmentId": "fragment.russia-child-objection-scope-withdrawal", "expectedContextSha256": "b64edab41729290455cac67f2eb8670cde631125f155db068c5da7febb3c9006" },
+        { "sourceId": "source.russia-kdmid-federal-law-114fz", "fragmentId": "fragment.russia-law-child-objection-scope-withdrawal", "expectedContextSha256": "8626d871685050e1753c27ea87a933ebc8572e41da83249ddba33c3c69cd4bfc" }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T14:20:13.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline", "producerId": "agent.codex.phase3-legal", "producerVersion": "two-lineage-origin-evidence-v2",
+        "producedAt": "2026-09-03T14:20:13.000Z", "monitoringRunId": "monitor.20260903142013000.1d9706ec60bb"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-russia-child-departure-court-dispute.v2",
+      "version": 2,
+      "claimId": "claim.serbia-russia-child-departure-court-dispute",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "b334fddb5090e87a90d50773d1e6ac2fb612bd5360c7a440a6ec902878dac20b",
+      "expectedApplicabilitySha256": "bc6a250cc29fb3076381c79368aa6c9a0c212a1237a9284b3725fc4f1480e4d9",
+      "requiredFragments": [
+        { "sourceId": "source.russia-prosecutor-child-departure", "fragmentId": "fragment.russia-child-court-dispute", "expectedContextSha256": "af43cdb2aeac9c676faaea9b7f9be716cfb1eb7afe53f09ff29dbf86f4f3eb53" },
+        { "sourceId": "source.russia-kdmid-federal-law-114fz", "fragmentId": "fragment.russia-law-child-court-dispute", "expectedContextSha256": "eb106a095f99763c62e445053eda319f31e68e7ebb3bbcd8b5201b9dce89c1a8" }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T14:20:13.000Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline", "producerId": "agent.codex.phase3-legal", "producerVersion": "two-lineage-origin-evidence-v2",
+        "producedAt": "2026-09-03T14:20:13.000Z", "monitoringRunId": "monitor.20260903142013000.1d9706ec60bb"
       }
     },
     {
@@ -434,6 +817,210 @@
         "producerVersion": "baseline-audit-v1",
         "producedAt": "2026-09-02T17:40:00.000+03:00",
         "monitoringRunId": "monitor.20260902143729003.a7bc579cd64a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.turkiye-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.turkiye-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.turkiye-mfa-russia-visa",
+          "fragmentId": "fragment.turkiye-russia-ordinary-60-days",
+          "expectedContextSha256": "5f048c88fa6043ca44bdef869d1822f0716ff33435f39ad74257bbcf17ac1ca9"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T09:21:54.383Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.family-entry-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-03T09:21:54.383Z",
+        "monitoringRunId": "monitor.20260903092154383.abe099c24226"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.armenia-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.armenia-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.armenia-mfa-visa-free-agreements",
+          "fragmentId": "fragment.armenia-russia-all-passports",
+          "expectedContextSha256": "4f6313ef33faceca2e005e025304953884a19798714126ea91b7e8395e6bcf95"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T09:21:54.383Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.family-entry-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-03T09:21:54.383Z",
+        "monitoringRunId": "monitor.20260903092154383.abe099c24226"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.georgia-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.georgia-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.georgia-ordinance-255",
+          "fragmentId": "fragment.georgia-russia-one-year",
+          "expectedContextSha256": "ed0f9b87f995f5cf2c01a592f9826dbb73c6612a1beda9c9f1f86ddf92e6db06"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T09:21:54.383Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.family-entry-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-03T09:21:54.383Z",
+        "monitoringRunId": "monitor.20260902173741000.893e365f917e"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.uae-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.uae-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.uae-moscow-visa-exemption",
+          "fragmentId": "fragment.uae-russia-90-in-180",
+          "expectedContextSha256": "5a79432ca6fe6203eb8440306fa4d35b3dfce377af448aadb0e4693953b9aeca"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T09:38:54.956Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.family-entry-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-03T09:38:54.956Z",
+        "monitoringRunId": "monitor.20260903093854956.d256e2d8203a"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.kazakhstan-family-applicability.v1",
+      "version": 1,
+      "claimId": "claim.kazakhstan-family-applicability",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "5c319834dabab856210171be6ae927042e192fb760bbe5d6d39008d8bdcaa20b",
+      "expectedApplicabilitySha256": "82a78ccdeb190ad24be0953d2ae2675d1fccdac7b5477300c9e7368c79ba1936",
+      "requiredFragments": [
+        {
+          "sourceId": "source.russia-consular-kazakhstan-entry",
+          "fragmentId": "fragment.kazakhstan-russian-children",
+          "expectedContextSha256": "d28a2803f40f342eecd0c72592dc841074de282ed93c77c3056e472d9e8dd72e"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-03T09:40:57.217Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.family-entry-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-03T09:40:57.217Z",
+        "monitoringRunId": "monitor.20260903094057217.737634512e82"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-turkiye-airside-transit.v1",
+      "version": 1,
+      "claimId": "claim.serbia-turkiye-airside-transit",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "bf9c123ac263f0367d1f183dec3c1bd4981d780968a20d380c7b17981a90acf1",
+      "expectedApplicabilitySha256": "db41dd21ee76add2ea66fc139d7da49f0c4ece8d590da66830e4898068c82e68",
+      "requiredFragments": [
+        {
+          "sourceId": "source.turkiye-mfa-airport-transit-faq",
+          "fragmentId": "fragment.turkiye-mfa-airside-no-transit-visa",
+          "expectedContextSha256": "43d02316e485e28faeb5945bacc1c407129c011e1c0eca8b8c12698818494c79"
+        },
+        {
+          "sourceId": "source.turkiye-migration-airport-transit-checks",
+          "fragmentId": "fragment.turkiye-migration-airport-transit-checks",
+          "expectedContextSha256": "c4538fc6fea829b0edc2e68c8bfe20fb4e85f783f8db0a8d8b8e1d2b054349ad"
+        }
+      ],
+      "minimumIndependentGroups": 2,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-04T06:15:36.875Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.transit-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-04T06:15:36.875Z",
+        "monitoringRunId": "monitor.20260904061536875.23932f843f4b"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "contract.serbia-entry-beg.v1",
+      "version": 1,
+      "claimId": "claim.serbia-entry-beg",
+      "claimRevision": 1,
+      "basis": "pinned_semantic_baseline",
+      "expectedFactSha256": "e4781786d8e6a8e3d11fc2d7feca1fdcc1c57df0883af51d3cf28e9272f504c3",
+      "expectedApplicabilitySha256": "caca1ff6877776a47fbe465d887bd220c005037279251153a3fc77afd0b02885",
+      "requiredFragments": [
+        {
+          "sourceId": "source.serbia-aip-entry-requirements-2026-09-03",
+          "fragmentId": "fragment.serbia-aip-entry-at-border-stations",
+          "expectedContextSha256": "f866f245e023b8dea1e845b033af65a5871a66bf6406fdfec4f63e581809aecb"
+        },
+        {
+          "sourceId": "source.serbia-aip-aerodrome-conditions-2026-09-03",
+          "fragmentId": "fragment.serbia-aip-international-aerodrome-condition",
+          "expectedContextSha256": "291018577e9de4337fe034b40de281df65cda1a020acfcfc7aec4190c067c9d2"
+        },
+        {
+          "sourceId": "source.serbia-aip-aerodrome-index-2026-09-03",
+          "fragmentId": "fragment.serbia-aip-beg-international",
+          "expectedContextSha256": "f265b75e98b157fc417ab83a3f6d08e992d2b72eb8d4f0df1b296072f8b9f0d4"
+        }
+      ],
+      "minimumIndependentGroups": 1,
+      "policyVersion": "pinned-claim-continuity-v2",
+      "activatedAt": "2026-09-04T07:05:40.602Z",
+      "baselineProvenance": {
+        "kind": "model_pipeline",
+        "producerId": "agent.codex.entry-point-audit",
+        "producerVersion": "baseline-audit-v1",
+        "producedAt": "2026-09-04T07:05:40.602Z",
+        "monitoringRunId": "monitor.20260904070540602.ad8439e212b9"
       }
     }
   ]

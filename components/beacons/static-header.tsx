@@ -7,7 +7,7 @@ import { SiteNav } from "./site-nav";
 export function StaticHeader({ lang, page }: { lang: Lang; page: string }) {
   return <header className="static-header">
     <Link className="static-brand" href={localizedPath(lang)}>{lang === "ru" ? "МАЯКИ" : "BEACONS"}</Link>
-    <SiteNav lang={lang} />
+    <SiteNav lang={lang} page={page} />
     <LocaleSwitch lang={lang} page={page} />
   </header>;
 }

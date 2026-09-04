@@ -61,7 +61,7 @@ export function projectOptions(
         availability: route.availability,
         publicationState: route.publicationState,
         evidenceCondition: route.evidenceCondition,
-        stay: stayClaim?.fact.kind === "stay_rule" ? { rule: stayClaim.fact.rule } : null,
+        stay: stayClaim?.fact.kind === "stay_rule" && !stayClaim.actionQuarantine ? { rule: stayClaim.fact.rule } : null,
         checkedAt: route.observedAt || null,
         nextCheckAt: route.claims.map((claim) => claim.nextCheckAt).filter(Boolean).sort().at(-1) ?? null,
       },

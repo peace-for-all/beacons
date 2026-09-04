@@ -162,7 +162,7 @@ export function evaluatePreparedRoute(input: {
         const declaration = traveller.authorizations.find((value) => value.kind === requirement.authorizationKind);
         if (!declaration || declaration.state === "unknown") unknown.push(`authorization:${requirement.authorizationKind}`);
         else if (declaration.state === "missing" || (declaration.validUntil && journey.arrivalOn && declaration.validUntil < journey.arrivalOn)) missing.push(`authorization:${requirement.authorizationKind}`);
-      } else if (requirement.obligation === "required") {
+      } else if (["required", "entry_may_be_refused_if_missing"].includes(requirement.obligation)) {
         const declaration = traveller.documents.find((value) => value.kind === requirement.documentKind);
         if (!declaration || declaration.state === "unknown") unknown.push(`document:${requirement.documentKind}`);
         else if (declaration.state === "missing") missing.push(`document:${requirement.documentKind}`);
@@ -183,7 +183,7 @@ export function evaluatePreparedRoute(input: {
   } else if (rule.kind === "calendar_period") availableDays = journey.arrivalOn ? Math.round((addCalendarMonths(dateAtUtcStart(journey.arrivalOn), rule.allowedMonths).valueOf() - dateAtUtcStart(journey.arrivalOn).valueOf()) / 86_400_000) : undefined;
   else availableDays = rule.requestableDays;
   const stay = availableDays === undefined ? { state: "not_evaluated" as const } : { state: availableDays >= 30 ? "meets_30_days" as const : "under_30_days" as const, availableDays };
-  const entryPoint = input.route.allowedEntryPoints.length === 0 ? { state: "eligible" as const, allowedEntryPoints: [] } : !journey.entryPoint ? { state: "not_evaluated" as const, allowedEntryPoints: input.route.allowedEntryPoints } : { state: input.route.allowedEntryPoints.includes(journey.entryPoint) ? "eligible" as const : "ineligible" as const, allowedEntryPoints: input.route.allowedEntryPoints };
+  const entryPoint = input.route.allowedEntryPoints.length === 0 ? { state: "not_evaluated" as const, allowedEntryPoints: [] } : !journey.entryPoint ? { state: "not_evaluated" as const, allowedEntryPoints: input.route.allowedEntryPoints } : { state: input.route.allowedEntryPoints.includes(journey.entryPoint) ? "eligible" as const : "ineligible" as const, allowedEntryPoints: input.route.allowedEntryPoints };
   const presentation = householdState === "ready" && stay.state === "meets_30_days" && entryPoint.state === "eligible" ? "open_now" as const : input.route.availability === "application_route_available" ? "application_route_available" as const : "verified_ordinary_route" as const;
   return { household: { state: householdState, travellers }, stay, entryPoint, presentation, provisional: !input.journey?.arrivalOn };
 }

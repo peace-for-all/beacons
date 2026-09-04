@@ -63,6 +63,44 @@ export function evaluateEvidenceAutomation({ catalog, contracts, monitoringRun, 
         throw new Error(`invalid_contract_fragment_mapping:${contract.id}:${required.fragmentId}`);
       }
     }
+    const resolution = contract.precedenceResolution;
+    if (!resolution) continue;
+    if (claim.contradictingSourceIds.length === 0) {
+      throw new Error(`precedence_resolution_without_conflict:${contract.id}`);
+    }
+    const controlling = sources.get(resolution.controllingSourceId);
+    if (
+      !controlling ||
+      controlling.precedence !== "controlling_law" ||
+      controlling.authority !== "official_legal_text" ||
+      !claim.supportingSourceIds.includes(controlling.id) ||
+      !contract.requiredFragments.some((fragment) => fragment.sourceId === controlling.id)
+    ) {
+      throw new Error(`invalid_precedence_controller:${contract.id}`);
+    }
+    const coveredConflicts = new Set(resolution.conflictingFragments.map((fragment) => fragment.sourceId));
+    if (
+      coveredConflicts.size !== claim.contradictingSourceIds.length ||
+      claim.contradictingSourceIds.some((sourceId) => !coveredConflicts.has(sourceId))
+    ) {
+      throw new Error(`incomplete_precedence_conflict_coverage:${contract.id}`);
+    }
+    for (const conflicting of resolution.conflictingFragments) {
+      const source = sources.get(conflicting.sourceId);
+      const configuredFragment = monitoringConfig.fragmentChecks.find(
+        (fragment) => fragment.id === conflicting.fragmentId,
+      );
+      if (
+        !source ||
+        source.precedence !== "official_guidance" ||
+        !claim.contradictingSourceIds.includes(source.id) ||
+        !configuredFragment ||
+        configuredFragment.sourceId !== source.id ||
+        !configuredFragment.claimIds.includes(claim.id)
+      ) {
+        throw new Error(`invalid_precedence_conflict_fragment:${contract.id}:${conflicting.fragmentId}`);
+      }
+    }
   }
 
   const proofPackets = [];
@@ -87,7 +125,7 @@ export function evaluateEvidenceAutomation({ catalog, contracts, monitoringRun, 
       contractVersion: contract.version,
       basis: contract.basis,
     };
-    if (claim.contradictingSourceIds.length > 0) {
+    if (claim.contradictingSourceIds.length > 0 && !contract.precedenceResolution) {
       return { ...withContract, ...decisionForUncontractedClaim(claim) };
     }
     if (contract.claimRevision !== claim.revision ||
@@ -106,18 +144,18 @@ export function evaluateEvidenceAutomation({ catalog, contracts, monitoringRun, 
     const independentGroups = new Set();
     const failures = [];
     const claimProofPacketIds = [];
-    for (const required of contract.requiredFragments) {
+    const inspectFragment = (required, countAsSupportingGroup) => {
       const source = sources.get(required.sourceId);
       const observation = observations.get(required.sourceId);
       if (!source || !observation) {
         failures.push("required_observation_missing");
-        continue;
+        return;
       }
       observationIds.push(observation.id);
-      independentGroups.add(source.independenceGroupId);
+      if (countAsSupportingGroup) independentGroups.add(source.independenceGroupId);
       if (observation.status !== "reachable") {
         failures.push("required_source_unavailable");
-        continue;
+        return;
       }
       const fragment = observation.fragmentChecks.find((item) => item.id === required.fragmentId);
       if (!fragment || fragment.status === "not_evaluated") {
@@ -153,6 +191,10 @@ export function evaluateEvidenceAutomation({ catalog, contracts, monitoringRun, 
         proofPackets.push(packet);
         claimProofPacketIds.push(packet.id);
       }
+    };
+    for (const required of contract.requiredFragments) inspectFragment(required, true);
+    for (const conflicting of contract.precedenceResolution?.conflictingFragments ?? []) {
+      inspectFragment(conflicting, false);
     }
     const groups = [...independentGroups].sort();
     const ageDays = (assessedAtMs - observedAtMs) / DAY_MS;
@@ -187,6 +229,10 @@ export function evaluateEvidenceAutomation({ catalog, contracts, monitoringRun, 
     if (ageDays > contracts.currentForDays) {
       return { ...withContract, observationIds, independentGroups: groups, proofPacketIds: claimProofPacketIds, state: "due", publicAction: "no_change", handler: "scheduled_monitor", reasonCodes: ["monitoring_run_due"] };
     }
+    const reasonCodes = ["pinned_fact_applicability_and_context_unchanged"];
+    if (contract.precedenceResolution) {
+      reasonCodes.push("controlling_law_precedence_applied", "lower_precedence_discrepancy_preserved");
+    }
     return {
       ...withContract,
       observationIds,
@@ -197,7 +243,7 @@ export function evaluateEvidenceAutomation({ catalog, contracts, monitoringRun, 
       handler: "scheduled_monitor",
       mayAutoPublish: true,
       mayRenewFreshness: true,
-      reasonCodes: ["pinned_fact_applicability_and_context_unchanged"],
+      reasonCodes,
     };
   });
 

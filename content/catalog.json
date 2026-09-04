@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseId": "m4-seven-route-atlas",
+  "releaseId": "m11-beg-entry-point-evidence",
   "sources": [
     {
       "schemaVersion": 2,
@@ -84,6 +84,153 @@
       "retrievedAt": "2026-09-02T09:30:00.000Z",
       "availability": "reachable",
       "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-aip-entry-requirements-2026-09-03",
+      "tier": "primary",
+      "authority": "other",
+      "publisher": "Serbia and Montenegro Air Traffic Services SMATSA — Aeronautical Information Service",
+      "publisherEntityId": "authority.smatsa-ais",
+      "publicationChainId": "publication.serbia-aip-2026-09-03",
+      "originEntityId": "authority.serbia-government",
+      "independenceGroupId": "lineage.serbia-aip",
+      "derivesFromSourceIds": [],
+      "precedence": "official_rule",
+      "jurisdiction": "Serbia",
+      "originalTitle": "AIP Serbia/Montenegro GEN 1.3 — Entry, transit and departure of passengers and crew",
+      "sourceLanguage": "en",
+      "url": "https://www.smatsa.rs/upload/aip/published/03-Sep-2026-A/2026-09-03-AIRAC/html/eAIP/LY-GEN-1.3-en-GB.html",
+      "retrievedAt": "2026-09-04T06:59:59.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-aip-aerodrome-conditions-2026-09-03",
+      "tier": "primary",
+      "authority": "other",
+      "publisher": "Serbia and Montenegro Air Traffic Services SMATSA — Aeronautical Information Service",
+      "publisherEntityId": "authority.smatsa-ais",
+      "publicationChainId": "publication.serbia-aip-2026-09-03",
+      "originEntityId": "authority.serbia-government",
+      "independenceGroupId": "lineage.serbia-aip",
+      "derivesFromSourceIds": [],
+      "precedence": "official_rule",
+      "jurisdiction": "Serbia",
+      "originalTitle": "AIP Serbia/Montenegro AD 1.1 — Aerodrome availability and conditions of use",
+      "sourceLanguage": "en",
+      "url": "https://www.smatsa.rs/upload/aip/published/03-Sep-2026-A/2026-09-03-AIRAC/html/eAIP/LY-AD-1.1-en-GB.html",
+      "retrievedAt": "2026-09-04T06:59:59.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.serbia-aip-aerodrome-index-2026-09-03",
+      "tier": "primary",
+      "authority": "other",
+      "publisher": "Serbia and Montenegro Air Traffic Services SMATSA — Aeronautical Information Service",
+      "publisherEntityId": "authority.smatsa-ais",
+      "publicationChainId": "publication.serbia-aip-2026-09-03",
+      "originEntityId": "authority.serbia-government",
+      "independenceGroupId": "lineage.serbia-aip",
+      "derivesFromSourceIds": [],
+      "precedence": "official_rule",
+      "jurisdiction": "Serbia",
+      "originalTitle": "AIP Serbia/Montenegro AD 1.3 — Index of aerodromes and heliports",
+      "sourceLanguage": "en",
+      "url": "https://www.smatsa.rs/upload/aip/published/03-Sep-2026-A/2026-09-03-AIRAC/html/eAIP/LY-AD-1.3-en-GB.html",
+      "retrievedAt": "2026-09-04T06:59:59.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.russia-prosecutor-child-passport-2026",
+      "tier": "primary",
+      "authority": "prosecutorial_authority",
+      "publisher": "Prosecutor's Office of Moscow",
+      "publisherEntityId": "authority.russia-prosecutor-moscow",
+      "publicationChainId": "publication.russia-prosecutor-child-passport-2026",
+      "originEntityId": "authority.russia-prosecutor-general",
+      "independenceGroupId": "lineage.russia-prosecutor-general",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Russia",
+      "originalTitle": "Children under 14 may leave Russia only with a passport from 20 January 2026",
+      "sourceLanguage": "ru",
+      "url": "https://epp.genproc.gov.ru/ru/proc_77/activity/legal-education/about-law/e8417736/",
+      "retrievedAt": "2026-09-03T13:38:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.russia-prosecutor-child-departure",
+      "tier": "primary",
+      "authority": "prosecutorial_authority",
+      "publisher": "Prosecutor's Office of Yaroslavl Region",
+      "publisherEntityId": "authority.russia-prosecutor-yaroslavl",
+      "publicationChainId": "publication.russia-prosecutor-child-departure",
+      "originEntityId": "authority.russia-prosecutor-general",
+      "independenceGroupId": "lineage.russia-prosecutor-general",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Russia",
+      "originalTitle": "Procedure for a minor citizen of Russia to leave the Russian Federation",
+      "sourceLanguage": "ru",
+      "url": "https://epp.genproc.gov.ru/ru/proc_76/activity/legal-education/explain/e1956204/",
+      "retrievedAt": "2026-09-03T13:38:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.russia-prosecutor-valid-travel-document",
+      "tier": "primary",
+      "authority": "prosecutorial_authority",
+      "publisher": "Prosecutor's Office of Moscow",
+      "publisherEntityId": "authority.russia-prosecutor-moscow",
+      "publicationChainId": "publication.russia-prosecutor-valid-travel-document",
+      "originEntityId": "authority.russia-prosecutor-general",
+      "independenceGroupId": "lineage.russia-prosecutor-general",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Russia",
+      "originalTitle": "Documents for departure from and entry into the Russian Federation",
+      "sourceLanguage": "ru",
+      "url": "https://epp.genproc.gov.ru/ru/proc_77/activity/legal-education/about-law/e1986144/",
+      "retrievedAt": "2026-09-03T13:38:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.russia-kdmid-federal-law-114fz",
+      "tier": "primary",
+      "authority": "official_legal_text",
+      "publisher": "Consular Department, Ministry of Foreign Affairs of the Russian Federation",
+      "publisherEntityId": "authority.russia-kdmid",
+      "publicationChainId": "publication.russia-federal-law-114fz",
+      "originEntityId": "authority.russia-federal-legislature",
+      "independenceGroupId": "lineage.russia-federal-law-114fz",
+      "derivesFromSourceIds": [],
+      "precedence": "controlling_law",
+      "jurisdiction": "Russia",
+      "originalTitle": "Federal Law No. 114-FZ on the procedure for exit from and entry into the Russian Federation",
+      "sourceLanguage": "ru",
+      "url": "https://www.kdmid.ru/regulatory-frameworks/federal-laws/FZ_%E2%84%96114_15.08.1996.pdf",
+      "retrievedAt": "2026-09-03T14:16:00.000Z",
+      "availability": "reachable",
+      "expectedContentType": "pdf",
       "allowedRedirectHosts": []
     },
     {
@@ -285,6 +432,27 @@
       "derivesFromSourceIds": [],
       "availability": "reachable",
       "expectedContentType": "html",
+      "allowedRedirectHosts": [],
+      "retrievedAt": "2026-09-03T09:45:00.000Z",
+      "id": "source.russia-consular-kazakhstan-entry",
+      "authority": "foreign_ministry",
+      "publisher": "Consular Department of the Ministry of Foreign Affairs of Russia",
+      "publisherEntityId": "authority.russia-mfa-consular",
+      "publicationChainId": "publication.russia-consular-kazakhstan-entry",
+      "originEntityId": "authority.russia-mfa",
+      "independenceGroupId": "lineage.russia-mfa-kazakhstan-guidance",
+      "precedence": "official_guidance",
+      "jurisdiction": "Kazakhstan",
+      "originalTitle": "Kazakhstan: entry, stay, and transit requirements",
+      "sourceLanguage": "ru",
+      "url": "https://www.kdmid.ru/docs/kazakhstan/information-about-the-country/"
+    },
+    {
+      "schemaVersion": 2,
+      "tier": "primary",
+      "derivesFromSourceIds": [],
+      "availability": "reachable",
+      "expectedContentType": "html",
       "allowedRedirectHosts": [
         "matsne.gov.ge"
       ],
@@ -343,6 +511,279 @@
       "originalTitle": "Mutual Visa Exemption Agreement with the Russian Federation",
       "sourceLanguage": "en",
       "url": "https://www.mofa.gov.ae/en/Missions/Moscow/Services/Visas"
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.air-serbia-moscow-belgrade-offers",
+      "tier": "primary",
+      "authority": "transport_operator",
+      "publisher": "Air Serbia",
+      "publisherEntityId": "carrier.air-serbia",
+      "publicationChainId": "publication.air-serbia.moscow-belgrade",
+      "originEntityId": "carrier.air-serbia",
+      "independenceGroupId": "lineage.air-serbia",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "Serbia",
+      "originalTitle": "Flights from Moscow to Belgrade",
+      "sourceLanguage": "en",
+      "url": "https://www.airserbia.com/en-ru/flights-from-moscow-to-belgrade",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.air-serbia-saint-petersburg-belgrade-offers",
+      "tier": "primary",
+      "authority": "transport_operator",
+      "publisher": "Air Serbia",
+      "publisherEntityId": "carrier.air-serbia",
+      "publicationChainId": "publication.air-serbia.saint-petersburg-belgrade",
+      "originEntityId": "carrier.air-serbia",
+      "independenceGroupId": "lineage.air-serbia",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "Serbia",
+      "originalTitle": "Flights from Saint Petersburg to Belgrade",
+      "sourceLanguage": "en",
+      "url": "https://www.airserbia.com/en/flights-from-saint-petersburg-to-belgrade",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.zbordirect-moscow-belgrade-schedule",
+      "tier": "secondary",
+      "authority": "other",
+      "publisher": "ZborDirect",
+      "publisherEntityId": "publisher.zbordirect",
+      "publicationChainId": "publication.zbordirect.moscow-belgrade",
+      "originEntityId": "publisher.zbordirect",
+      "independenceGroupId": "lineage.zbordirect",
+      "derivesFromSourceIds": [],
+      "precedence": "secondary",
+      "jurisdiction": "International",
+      "originalTitle": "Moscow to Belgrade flight schedule",
+      "sourceLanguage": "en",
+      "url": "https://zbordirect.com/en/tools/schedule?arrival_city=BEG&departure_city=MOW",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.zbordirect-saint-petersburg-belgrade-schedule",
+      "tier": "secondary",
+      "authority": "other",
+      "publisher": "ZborDirect",
+      "publisherEntityId": "publisher.zbordirect",
+      "publicationChainId": "publication.zbordirect.saint-petersburg-belgrade",
+      "originEntityId": "publisher.zbordirect",
+      "independenceGroupId": "lineage.zbordirect",
+      "derivesFromSourceIds": [],
+      "precedence": "secondary",
+      "jurisdiction": "International",
+      "originalTitle": "Saint Petersburg to Belgrade flight schedule",
+      "sourceLanguage": "en",
+      "url": "https://zbordirect.com/en/tools/schedule?arrival_city=BEG&departure_city=LED",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.turkish-airlines-moscow-belgrade-offers",
+      "tier": "primary",
+      "authority": "transport_operator",
+      "publisher": "Turkish Airlines",
+      "publisherEntityId": "carrier.turkish-airlines",
+      "publicationChainId": "publication.turkish-airlines.moscow-belgrade",
+      "originEntityId": "carrier.turkish-airlines",
+      "independenceGroupId": "lineage.turkish-airlines",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "Türkiye",
+      "originalTitle": "Flights from Moscow to Belgrade",
+      "sourceLanguage": "en",
+      "url": "https://www.turkishairlines.com/en//flights-from-moscow-to-belgrade",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.turkish-airlines-saint-petersburg-belgrade-offers",
+      "tier": "primary",
+      "authority": "transport_operator",
+      "publisher": "Turkish Airlines",
+      "publisherEntityId": "carrier.turkish-airlines",
+      "publicationChainId": "publication.turkish-airlines.saint-petersburg-belgrade",
+      "originEntityId": "carrier.turkish-airlines",
+      "independenceGroupId": "lineage.turkish-airlines",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "Türkiye",
+      "originalTitle": "Flights from Saint Petersburg to Belgrade",
+      "sourceLanguage": "en",
+      "url": "https://www.turkishairlines.com/en-ru/flights-from-st-petersburg-to-belgrade",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.turkish-airlines-transfer-passengers",
+      "tier": "primary",
+      "authority": "transport_operator",
+      "publisher": "Turkish Airlines",
+      "publisherEntityId": "carrier.turkish-airlines",
+      "publicationChainId": "publication.turkish-airlines.transfer-passengers",
+      "originEntityId": "carrier.turkish-airlines",
+      "independenceGroupId": "lineage.turkish-airlines",
+      "derivesFromSourceIds": [],
+      "precedence": "operational_official",
+      "jurisdiction": "Türkiye",
+      "originalTitle": "Transfer and transit passengers",
+      "sourceLanguage": "en",
+      "url": "https://www.turkishairlines.com/en-int/any-questions/transfer-transit-passengers/",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.turkiye-migration-airport-transit-checks",
+      "tier": "primary",
+      "authority": "immigration_authority",
+      "publisher": "Republic of Türkiye Ministry of Interior Presidency of Migration Management",
+      "publisherEntityId": "authority.turkiye-migration-management",
+      "publicationChainId": "publication.turkiye-migration-management.entry-into-turkey",
+      "originEntityId": "authority.turkiye-migration-management",
+      "independenceGroupId": "lineage.turkiye-migration-law",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Türkiye",
+      "originalTitle": "Entry into Turkey",
+      "sourceLanguage": "en",
+      "url": "https://en.goc.gov.tr/entry-into-turkey",
+      "retrievedAt": "2026-09-04T06:14:17.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.turkiye-mfa-airport-transit-faq",
+      "tier": "primary",
+      "authority": "foreign_ministry",
+      "publisher": "Republic of Türkiye Ministry of Foreign Affairs",
+      "publisherEntityId": "authority.turkiye-mfa",
+      "publicationChainId": "publication.turkiye-mfa.airport-transit-faq",
+      "originEntityId": "authority.turkiye-mfa",
+      "independenceGroupId": "lineage.turkiye-entry-law",
+      "derivesFromSourceIds": [],
+      "precedence": "official_guidance",
+      "jurisdiction": "Türkiye",
+      "originalTitle": "Frequently asked questions: airport transit",
+      "sourceLanguage": "ru",
+      "url": "https://www.mfa.gov.tr/frequently-asked-questions.ru.mfa",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.zbordirect-moscow-istanbul-schedule",
+      "tier": "secondary",
+      "authority": "other",
+      "publisher": "ZborDirect",
+      "publisherEntityId": "publisher.zbordirect",
+      "publicationChainId": "publication.zbordirect.moscow-istanbul",
+      "originEntityId": "publisher.zbordirect",
+      "independenceGroupId": "lineage.zbordirect",
+      "derivesFromSourceIds": [],
+      "precedence": "secondary",
+      "jurisdiction": "International",
+      "originalTitle": "Moscow to Istanbul flight schedule",
+      "sourceLanguage": "en",
+      "url": "https://zbordirect.com/en/tools/schedule?arrival_city=IST&departure_city=MOW",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.zbordirect-saint-petersburg-istanbul-schedule",
+      "tier": "secondary",
+      "authority": "other",
+      "publisher": "ZborDirect",
+      "publisherEntityId": "publisher.zbordirect",
+      "publicationChainId": "publication.zbordirect.saint-petersburg-istanbul",
+      "originEntityId": "publisher.zbordirect",
+      "independenceGroupId": "lineage.zbordirect",
+      "derivesFromSourceIds": [],
+      "precedence": "secondary",
+      "jurisdiction": "International",
+      "originalTitle": "Saint Petersburg to Istanbul flight schedule",
+      "sourceLanguage": "en",
+      "url": "https://zbordirect.com/en/tools/schedule?arrival_city=IST&departure_city=LED",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.flight-info-tk1079-schedule",
+      "tier": "secondary",
+      "authority": "other",
+      "publisher": "Flight.info",
+      "publisherEntityId": "publisher.flight-info",
+      "publicationChainId": "publication.flight-info.tk1079",
+      "originEntityId": "publisher.flight-info",
+      "independenceGroupId": "lineage.flight-info",
+      "derivesFromSourceIds": [],
+      "precedence": "secondary",
+      "jurisdiction": "International",
+      "originalTitle": "Turkish Airlines TK1079 schedule",
+      "sourceLanguage": "en",
+      "url": "https://www.flight.info/TK1079",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
+    },
+    {
+      "schemaVersion": 2,
+      "id": "source.flight-info-tk1081-schedule",
+      "tier": "secondary",
+      "authority": "other",
+      "publisher": "Flight.info",
+      "publisherEntityId": "publisher.flight-info",
+      "publicationChainId": "publication.flight-info.tk1081",
+      "originEntityId": "publisher.flight-info",
+      "independenceGroupId": "lineage.flight-info",
+      "derivesFromSourceIds": [],
+      "precedence": "secondary",
+      "jurisdiction": "International",
+      "originalTitle": "Turkish Airlines TK1081 schedule",
+      "sourceLanguage": "en",
+      "url": "https://www.flight.info/TK1081",
+      "retrievedAt": "2026-09-04T05:44:08.000Z",
+      "availability": "reachable",
+      "expectedContentType": "html",
+      "allowedRedirectHosts": []
     }
   ],
   "claims": [
@@ -526,8 +967,8 @@
         }
       },
       "summary": {
-        "en": "Every traveller needs their own valid ordinary travel passport.",
-        "ru": "Каждому путешественнику нужен собственный действующий обычный загранпаспорт."
+        "en": "Every traveller needs their own ordinary travel passport; validity is evaluated separately.",
+        "ru": "Каждому путешественнику нужен собственный обычный загранпаспорт; срок действия оценивается отдельно."
       },
       "limitations": [],
       "applicability": {
@@ -541,7 +982,9 @@
         }
       },
       "supportingSourceIds": [
-        "source.serbia-mfa-general-entry"
+        "source.serbia-mfa-russia-visa",
+        "source.serbia-mfa-general-entry",
+        "source.serbia-law-foreigners-2023"
       ],
       "contradictingSourceIds": [],
       "producer": {
@@ -554,24 +997,24 @@
       "schemaVersion": 2,
       "id": "claim.serbia-passport-validity",
       "subjectId": "route.serbia-visa-free-30",
-      "revision": 1,
+      "revision": 2,
       "criticality": "gate",
       "fact": {
         "kind": "requirement",
         "requirement": {
           "kind": "passport_validity",
-          "basis": "arrival",
+          "basis": "planned_departure",
           "minimumRemainingDays": 0
         }
       },
       "summary": {
-        "en": "Draft minimum: the passport must be unexpired at entry; the residual-validity rule is not yet established.",
-        "ru": "Проект минимума: паспорт должен действовать на момент въезда; требуемый остаточный срок пока не установлен."
+        "en": "The passport must remain valid through planned departure; no additional residual-validity period is established.",
+        "ru": "Паспорт должен действовать до запланированного выезда включительно; дополнительный остаточный срок не установлен."
       },
       "limitations": [
         {
-          "en": "Blocking ambiguity: no official source found states the residual passport validity for a visa-free Russian traveller.",
-          "ru": "Блокирующая неопределённость: не найден официальный источник об остаточном сроке действия паспорта для безвизового въезда граждан России."
+          "en": "The official sources establish a valid document at entry and departure, but do not state an additional residual-validity period for a visa-free Russian traveller.",
+          "ru": "Официальные источники требуют действующий документ при въезде и выезде, но не устанавливают дополнительный остаточный срок для безвизового путешественника из России."
         }
       ],
       "applicability": {
@@ -685,24 +1128,24 @@
       "schemaVersion": 2,
       "id": "claim.serbia-insurance",
       "subjectId": "route.serbia-visa-free-30",
-      "revision": 1,
+      "revision": 2,
       "criticality": "gate",
       "fact": {
         "kind": "requirement",
         "requirement": {
           "kind": "declared_document",
           "documentKind": "insurance",
-          "obligation": "required"
+          "obligation": "entry_may_be_refused_if_missing"
         }
       },
       "summary": {
-        "en": "Draft safe interpretation: every traveller should carry medical insurance for the full stay.",
-        "ru": "Проект безопасного толкования: каждому путешественнику следует иметь медицинскую страховку на весь срок поездки."
+        "en": "To avoid the statutory entry-refusal ground, every traveller should have medical insurance for the intended stay and be prepared to show proof if requested.",
+        "ru": "Чтобы избежать предусмотренного законом основания для отказа во въезде, каждому путешественнику следует иметь медицинскую страховку на предполагаемый срок пребывания и быть готовым предъявить подтверждение по запросу."
       },
       "limitations": [
         {
-          "en": "Blocking conflict: the law gives lack of insurance as a refusal ground, while the MFA page also calls insurance recommended and mentions EUR 20,000 coverage.",
-          "ru": "Блокирующее противоречие: закон называет отсутствие страховки основанием для отказа, а страница МИД также называет страховку рекомендованной и упоминает покрытие 20 000 евро."
+          "en": "The MFA guidance calls insurance recommended and mentions EUR 20,000 coverage. The controlling Law on Foreigners makes lack of insurance a refusal ground; the reviewed contract applies legal precedence while preserving and monitoring that discrepancy.",
+          "ru": "Рекомендация МИД называет страховку рекомендуемой и упоминает покрытие 20 000 евро. Имеющий приоритет Закон об иностранцах считает отсутствие страховки основанием для отказа; проверенный контракт применяет приоритет закона, сохраняя и отслеживая это расхождение."
         }
       ],
       "applicability": {
@@ -775,24 +1218,24 @@
       "schemaVersion": 2,
       "id": "claim.serbia-onward-ticket",
       "subjectId": "route.serbia-visa-free-30",
-      "revision": 1,
+      "revision": 2,
       "criticality": "explanation",
       "fact": {
         "kind": "requirement",
         "requirement": {
           "kind": "declared_document",
-          "documentKind": "onward_ticket",
+          "documentKind": "return_ticket",
           "obligation": "may_be_requested"
         }
       },
       "summary": {
-        "en": "Border police may request a return ticket and evidence supporting the declared purpose of the visit.",
-        "ru": "Пограничная полиция может запросить обратный билет и подтверждения заявленной цели поездки."
+        "en": "Border police may request a return flight ticket.",
+        "ru": "Пограничная полиция может запросить обратный авиабилет."
       },
       "limitations": [
         {
-          "en": "The page lists possible evidence, not a clear cumulative checklist for every traveller.",
-          "ru": "Страница перечисляет возможные подтверждения, а не однозначный обязательный список для каждого путешественника."
+          "en": "The source says return flight ticket, not a generic onward ticket, and lists it as evidence that may be requested rather than a universal cumulative checklist.",
+          "ru": "Источник говорит именно об обратном авиабилете, а не о любом билете для дальнейшего выезда, и указывает его среди возможных запросов, а не как универсальный совокупный перечень."
         }
       ],
       "applicability": {
@@ -898,6 +1341,253 @@
         "kind": "model_pipeline",
         "systemId": "codex-research",
         "version": "research-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-arrival-registration-self",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "explanation",
+      "fact": {
+        "kind": "arrival_registration",
+        "withinHours": 24,
+        "responsibleParty": "traveller_when_self_arranged"
+      },
+      "summary": {
+        "en": "A traveller arranging their own accommodation must register their place-of-stay address with the responsible police directorate within 24 hours of entry or on the day the address changes.",
+        "ru": "Путешественник, самостоятельно организующий размещение, должен зарегистрировать адрес пребывания в компетентном управлении полиции в течение 24 часов после въезда или в день смены адреса."
+      },
+      "limitations": [
+        {
+          "en": "The law states an individual duty but does not establish whether one operational submission can cover an accompanying family or what evidence the police require in a particular case.",
+          "ru": "Закон устанавливает индивидуальную обязанность, но не уточняет, может ли одно обращение охватывать сопровождаемую семью и какие подтверждения полиция потребует в конкретном случае."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["adult", "child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 }
+      },
+      "supportingSourceIds": ["source.serbia-law-foreigners-2023"],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-phase3-legal",
+        "version": "serbia-exact-facts-v1"
+      }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russia-exit-valid-document",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "origin_departure_rule",
+        "rule": "valid_travel_document"
+      },
+      "summary": {
+        "en": "Russian citizens leave Russia using a valid document that proves identity outside Russia.",
+        "ru": "Граждане России выезжают из России по действующему документу, удостоверяющему личность за пределами России."
+      },
+      "limitations": [
+        {
+          "en": "The consolidated statutory PDF is hosted by the Russian Foreign Ministry's consular department; its legal-text lineage is monitored independently from prosecutorial guidance.",
+          "ru": "Сводный текст закона в PDF размещён консульским департаментом МИД России; линия текста закона отслеживается независимо от разъяснения прокуратуры."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["adult", "child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": { "role": "origin_departure_rule", "ruleJurisdiction": "Russia" },
+      "supportingSourceIds": ["source.russia-prosecutor-valid-travel-document", "source.russia-kdmid-federal-law-114fz"],
+      "contradictingSourceIds": [],
+      "producer": { "kind": "model_pipeline", "systemId": "codex-phase3-legal", "version": "russia-origin-v1" }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russia-child-passport-2026",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 2,
+      "criticality": "gate",
+      "fact": {
+        "kind": "origin_departure_rule",
+        "rule": "child_own_valid_travel_document"
+      },
+      "summary": {
+        "en": "A child travelling from Russia to Serbia needs their own valid document proving identity outside Russia.",
+        "ru": "Для поездки из России в Сербию ребёнку нужен собственный действующий документ, удостоверяющий личность за пределами России."
+      },
+      "limitations": [
+        {
+          "en": "The earlier 20 January 2026 birth-certificate transition concerned five treaty destinations, not Serbia. The remaining case-specific question is which document each child actually holds and whether it is valid for the planned journey.",
+          "ru": "Переходное правило о свидетельстве о рождении с 20 января 2026 года относилось к пяти договорным направлениям, а не к Сербии. Остаётся проверить для каждого ребёнка наличие и срок действия фактического документа для планируемой поездки."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": { "role": "origin_departure_rule", "ruleJurisdiction": "Russia" },
+      "supportingSourceIds": ["source.russia-prosecutor-valid-travel-document", "source.russia-kdmid-federal-law-114fz"],
+      "contradictingSourceIds": [],
+      "producer": { "kind": "model_pipeline", "systemId": "codex-phase3-legal", "version": "russia-origin-v2" }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russia-child-accompanied-no-objection",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "origin_departure_rule",
+        "rule": "child_with_legal_representative_if_no_objection"
+      },
+      "summary": {
+        "en": "A child may leave Russia with one legal representative if another legal representative has not filed an applicable objection.",
+        "ru": "Ребёнок может выехать из России с одним законным представителем, если другой законный представитель не подал применимое заявление о несогласии."
+      },
+      "limitations": [
+        {
+          "en": "The rule concerns a legal representative, not necessarily a parent; representative authority still needs case-specific verification.",
+          "ru": "Правило относится к законному представителю, не обязательно к родителю; полномочия представителя требуют проверки для конкретной ситуации."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": { "role": "origin_departure_rule", "ruleJurisdiction": "Russia" },
+      "supportingSourceIds": ["source.russia-prosecutor-child-departure", "source.russia-kdmid-federal-law-114fz"],
+      "contradictingSourceIds": [],
+      "producer": { "kind": "model_pipeline", "systemId": "codex-phase3-legal", "version": "russia-origin-v1" }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russia-child-unaccompanied-consent",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "origin_departure_rule",
+        "rule": "unaccompanied_child_notarized_consent"
+      },
+      "summary": {
+        "en": "A child leaving Russia without legal representatives must carry notarized consent from one legal representative in addition to a passport.",
+        "ru": "Ребёнок, выезжающий из России без законных представителей, должен иметь кроме паспорта нотариальное согласие одного законного представителя."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": ["child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": { "role": "origin_departure_rule", "ruleJurisdiction": "Russia" },
+      "supportingSourceIds": ["source.russia-prosecutor-child-departure", "source.russia-kdmid-federal-law-114fz"],
+      "contradictingSourceIds": [],
+      "producer": { "kind": "model_pipeline", "systemId": "codex-phase3-legal", "version": "russia-origin-v1" }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russia-child-departure-objection",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "origin_departure_rule",
+        "rule": "representative_objection_scope_and_withdrawal"
+      },
+      "summary": {
+        "en": "A legal representative may file a time- and country-scoped objection to a child's departure and may withdraw it outside court.",
+        "ru": "Законный представитель может подать ограниченное сроком и странами заявление о несогласии на выезд ребёнка и отозвать его во внесудебном порядке."
+      },
+      "limitations": [
+        {
+          "en": "The objection does not apply when the child travels with the representative who filed it.",
+          "ru": "Запрет не применяется, когда ребёнок выезжает с представителем, подавшим заявление."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": { "role": "origin_departure_rule", "ruleJurisdiction": "Russia" },
+      "supportingSourceIds": ["source.russia-prosecutor-child-departure", "source.russia-kdmid-federal-law-114fz"],
+      "contradictingSourceIds": [],
+      "producer": { "kind": "model_pipeline", "systemId": "codex-phase3-legal", "version": "russia-origin-v1" }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-russia-child-departure-court-dispute",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "origin_departure_rule",
+        "rule": "court_resolution_if_disputed"
+      },
+      "summary": {
+        "en": "When legal representatives dispute an objection to a child's departure, the ability to leave is decided by a court.",
+        "ru": "При споре законных представителей из-за несогласия на выезд ребёнка возможность выезда определяется судом."
+      },
+      "limitations": [],
+      "applicability": {
+        "travellerKinds": ["child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": { "role": "origin_departure_rule", "ruleJurisdiction": "Russia" },
+      "supportingSourceIds": ["source.russia-prosecutor-child-departure", "source.russia-kdmid-federal-law-114fz"],
+      "contradictingSourceIds": [],
+      "producer": { "kind": "model_pipeline", "systemId": "codex-phase3-legal", "version": "russia-origin-v1" }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-entry-beg",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "entry_restriction",
+        "restriction": "named_entry_points",
+        "entryPoints": ["BEG"]
+      },
+      "summary": {
+        "en": "The current official aeronautical publication identifies Belgrade Nikola Tesla (BEG/LYBE) as an international airport at which entry and border checks can take place.",
+        "ru": "Действующий официальный сборник аэронавигационной информации указывает аэропорт Белград имени Николы Теслы (BEG/LYBE) как международный аэропорт, где возможны въезд и пограничная проверка."
+      },
+      "limitations": [
+        {
+          "en": "This establishes the general entry point, not admission for a particular traveller, operation of a particular flight, or satisfaction of passport, visa-exemption, funds, insurance, accommodation, return-ticket, carrier, or transit conditions.",
+          "ru": "Это устанавливает общий пункт въезда, но не разрешение на въезд конкретному путешественнику, выполнение конкретного рейса или соблюдение условий по паспорту, безвизовому режиму, средствам, страховке, жилью, обратному билету, перевозчику или транзиту."
+        },
+        {
+          "en": "The active AIP edition and applicable NOTAM must be rechecked before travel.",
+          "ru": "Перед поездкой необходимо перепроверить действующую редакцию AIP и применимые NOTAM."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["adult", "child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"],
+        "entryPoints": ["BEG"]
+      },
+      "sourceScope": { "role": "destination_rule", "ruleJurisdiction": "Serbia" },
+      "supportingSourceIds": [
+        "source.serbia-aip-entry-requirements-2026-09-03",
+        "source.serbia-aip-aerodrome-conditions-2026-09-03",
+        "source.serbia-aip-aerodrome-index-2026-09-03"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-entry-point-research",
+        "version": "beg-entry-point-v1"
       }
     },
     {
@@ -1667,10 +2357,16 @@
         }
       },
       "summary": {
-        "en": "The published per-trip ceiling is 60 days.",
-        "ru": "Опубликованный предел одной поездки — 60 дней."
+        "en": "Türkiye's published per-trip ceiling is 60 days.",
+        "ru": "Опубликованный Турцией предел одной поездки — 60 дней."
       },
       "limitations": [],
+      "actionQuarantine": {
+        "reason": {
+          "en": "The relationship between the 60-day per-trip limit and the unresolved overall 90-in-180-day ceiling has not been established.",
+          "ru": "Связь между лимитом 60 дней за поездку и неразрешённым общим ограничением 90 из 180 дней не установлена."
+        }
+      },
       "applicability": {
         "travellerKinds": [
           "adult",
@@ -1739,8 +2435,8 @@
         "applies": true
       },
       "summary": {
-        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
-        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+        "en": "Türkiye's published exemption covers Russian adults and children travelling on their own ordinary passports.",
+        "ru": "Опубликованный Турцией безвизовый режим распространяется на взрослых и детей из России с собственными обычными загранпаспортами."
       },
       "limitations": [
         {
@@ -2024,7 +2720,8 @@
         }
       },
       "supportingSourceIds": [
-        "source.kazakhstan-mfa-visa-regime"
+        "source.kazakhstan-mfa-visa-regime",
+        "source.russia-consular-kazakhstan-entry"
       ],
       "contradictingSourceIds": [],
       "producer": {
@@ -2118,10 +2815,16 @@
         }
       },
       "summary": {
-        "en": "The official passport table states a ceiling of 90 days.",
-        "ru": "Официальная таблица паспортов указывает предел 90 дней."
+        "en": "Kazakhstan's official passport table states a ceiling of 90 days.",
+        "ru": "Официальная таблица паспортов Казахстана указывает предел 90 дней."
       },
       "limitations": [],
+      "actionQuarantine": {
+        "reason": {
+          "en": "The collected per-entry representation does not establish how the controlling 90-in-180-day rule must be calculated.",
+          "ru": "Собранное представление лимита одной поездки не устанавливает порядок расчёта обязательного ограничения 90 из 180 дней."
+        }
+      },
       "applicability": {
         "travellerKinds": [
           "adult",
@@ -2190,8 +2893,8 @@
         "applies": true
       },
       "summary": {
-        "en": "The nationality rule is expected to cover adults and children, but child-specific conditions remain separate.",
-        "ru": "Правило по гражданству предположительно охватывает взрослых и детей, но детские условия проверяются отдельно."
+        "en": "Russia's consular guidance confirms visa-free entry to Kazakhstan and specifically addresses Russian children's travel documents.",
+        "ru": "Консульская памятка России подтверждает безвизовый въезд в Казахстан и отдельно описывает проездные документы российских детей."
       },
       "limitations": [
         {
@@ -2210,7 +2913,8 @@
         }
       },
       "supportingSourceIds": [
-        "source.kazakhstan-mfa-visa-regime"
+        "source.kazakhstan-mfa-visa-regime",
+        "source.russia-consular-kazakhstan-entry"
       ],
       "contradictingSourceIds": [],
       "producer": {
@@ -2719,6 +3423,48 @@
         "systemId": "codex-source-research",
         "version": "destination-expansion-v1"
       }
+    },
+    {
+      "schemaVersion": 2,
+      "id": "claim.serbia-turkiye-airside-transit",
+      "subjectId": "route.serbia-visa-free-30",
+      "revision": 1,
+      "criticality": "gate",
+      "fact": {
+        "kind": "airport_transit_rule",
+        "condition": "remain_in_airport_transit_area",
+        "transitVisaRequired": false,
+        "documentChecksMayOccur": true
+      },
+      "summary": {
+        "en": "A passenger who remains in a Turkish airport transit area does not need a transit visa, but competent authorities may check documents.",
+        "ru": "Пассажиру, который остаётся в транзитной зоне аэропорта Турции, транзитная виза не нужна, но компетентные органы могут проверить документы."
+      },
+      "limitations": [
+        {
+          "en": "This does not prove that a particular booking keeps every traveller and checked bag airside; a landside or self-transfer itinerary needs a separate entry assessment.",
+          "ru": "Этот факт не доказывает, что конкретная бронь оставляет каждого путешественника и зарегистрированный багаж в транзитной зоне; пересадка с выходом или самостоятельная пересадка требует отдельной проверки въезда."
+        }
+      ],
+      "applicability": {
+        "travellerKinds": ["adult", "child"],
+        "childAgeRange": { "minInclusive": 6, "maxInclusive": 17 },
+        "applicationOrigins": ["moscow", "saint_petersburg"]
+      },
+      "sourceScope": {
+        "role": "transit_rule",
+        "ruleJurisdiction": "Türkiye"
+      },
+      "supportingSourceIds": [
+        "source.turkiye-mfa-airport-transit-faq",
+        "source.turkiye-migration-airport-transit-checks"
+      ],
+      "contradictingSourceIds": [],
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-transit-research",
+        "version": "transit-case-v1"
+      }
     }
   ],
   "routes": [
@@ -2742,7 +3488,16 @@
         "claim.serbia-accommodation",
         "claim.serbia-onward-ticket",
         "claim.serbia-parental-consent",
-        "claim.serbia-arrival-registration-host"
+        "claim.serbia-arrival-registration-host",
+        "claim.serbia-arrival-registration-self",
+        "claim.serbia-russia-exit-valid-document",
+        "claim.serbia-russia-child-passport-2026",
+        "claim.serbia-russia-child-accompanied-no-objection",
+        "claim.serbia-russia-child-unaccompanied-consent",
+        "claim.serbia-russia-child-departure-objection",
+        "claim.serbia-russia-child-departure-court-dispute",
+        "claim.serbia-turkiye-airside-transit",
+        "claim.serbia-entry-beg"
       ]
     },
     {
@@ -3108,6 +3863,153 @@
   "changes": [
     {
       "schemaVersion": 1,
+      "id": "change.russia-two-lineage-evidence.2026-09-03",
+      "changedAt": "2026-09-03T14:20:13.000Z",
+      "subjectId": "route.serbia-visa-free-30",
+      "summary": {
+        "en": "Added a monitorable current federal-law lineage beside prosecutorial guidance for Russian adult and child departure rules.",
+        "ru": "К правилам выезда взрослых и детей из России добавлена отслеживаемая актуальная линия федерального закона наряду с разъяснениями прокуратуры."
+      },
+      "previousValue": {
+        "releaseId": "m7-serbia-exact-legal-facts",
+        "originDepartureIndependentLineages": 1,
+        "childDocumentClaimRevision": 1
+      },
+      "nextValue": {
+        "releaseId": "m8-russia-two-lineage-evidence",
+        "originDepartureIndependentLineages": 2,
+        "childDocumentClaimRevision": 2,
+        "publicationState": "candidate"
+      },
+      "reason": {
+        "en": "Bind the consolidated Federal Law 114-FZ as controlling text and remove the inapplicable Serbia reading of the 20 January birth-certificate transition.",
+        "ru": "Привязать сводный текст Федерального закона 114-ФЗ как имеющий приоритет и убрать неприменимое к Сербии толкование переходного правила о свидетельстве о рождении с 20 января."
+      },
+      "sourceIds": [
+        "source.russia-kdmid-federal-law-114fz",
+        "source.russia-prosecutor-valid-travel-document",
+        "source.russia-prosecutor-child-departure"
+      ],
+      "rollbackReleaseId": "m7-serbia-exact-legal-facts",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-phase3-legal",
+        "version": "two-lineage-origin-evidence-v2",
+        "runId": "research.2026-09-03.russia-two-lineage"
+      },
+      "releaseId": "m8-russia-two-lineage-evidence"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.serbia-exact-legal-facts.2026-09-03",
+      "changedAt": "2026-09-03T15:10:00.000Z",
+      "subjectId": "route.serbia-visa-free-30",
+      "summary": {
+        "en": "Resolved the insurance hierarchy explicitly, narrowed onward travel to the exact return-ticket wording, and added self-arranged registration responsibility.",
+        "ru": "Явно разрешена иерархия правил о страховке, требование о дальнейшем выезде сужено до точной формулировки об обратном билете, а также добавлена обязанность регистрации при самостоятельном размещении."
+      },
+      "previousValue": {
+        "releaseId": "m6-phase3-legal-evidence",
+        "insuranceRevision": 1,
+        "returnTicketRevision": 1,
+        "selfRegistrationClaim": false
+      },
+      "nextValue": {
+        "releaseId": "m7-serbia-exact-legal-facts",
+        "insuranceRevision": 2,
+        "returnTicketRevision": 2,
+        "selfRegistrationClaim": true,
+        "publicationState": "candidate"
+      },
+      "reason": {
+        "en": "Encode only the exact legal effects supported by the monitored sources while retaining lower-precedence disagreement and unresolved family operations.",
+        "ru": "Закодировать только точные правовые последствия, подтверждённые отслеживаемыми источниками, сохранив расхождение с источником меньшего приоритета и неопределённость семейной процедуры."
+      },
+      "sourceIds": [
+        "source.serbia-law-foreigners-2023",
+        "source.serbia-mfa-general-entry"
+      ],
+      "rollbackReleaseId": "m6-phase3-legal-evidence",
+      "producer": {
+        "kind": "operator_policy_change",
+        "systemId": "codex-phase3-legal",
+        "version": "serbia-exact-facts-v1",
+        "runId": "research.2026-09-03.serbia-exact-facts"
+      },
+      "releaseId": "m7-serbia-exact-legal-facts"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.phase3-legal-evidence.2026-09-03",
+      "changedAt": "2026-09-03T13:48:00.000Z",
+      "subjectId": "catalog.phase3-legal-evidence",
+      "summary": {
+        "en": "Added atomic Serbian legal proofs and Russian-jurisdiction origin-departure evidence for the Serbia research corridor.",
+        "ru": "Для исследовательского маршрута в Сербию добавлены атомарные доказательства сербских правил и российские правила выезда."
+      },
+      "previousValue": { "releaseId": "m5-family-entry-evidence" },
+      "nextValue": {
+        "releaseId": "m6-phase3-legal-evidence",
+        "routeId": "route.serbia-visa-free-30",
+        "publicationState": "candidate"
+      },
+      "reason": {
+        "en": "Version the changed claim facts, source jurisdiction model, fragment locators, contracts, and route snapshot without granting activation authority.",
+        "ru": "Версионировать изменённые факты, модель юрисдикций, локаторы, контракты и снимок маршрута без предоставления полномочий на активацию."
+      },
+      "sourceIds": [
+        "source.serbia-law-foreigners-2023",
+        "source.russia-prosecutor-child-passport-2026",
+        "source.russia-prosecutor-child-departure",
+        "source.russia-prosecutor-valid-travel-document"
+      ],
+      "rollbackReleaseId": "m5-family-entry-evidence",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-phase3-legal",
+        "version": "phase3-legal-evidence-v1",
+        "runId": "research.2026-09-03.phase3-legal-evidence"
+      },
+      "releaseId": "m6-phase3-legal-evidence"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.serbia-passport-validity-departure.2026-09-03",
+      "changedAt": "2026-09-03T13:30:00.000Z",
+      "subjectId": "claim.serbia-passport-validity",
+      "summary": {
+        "en": "Revised Serbia passport validity from entry-only to validity through planned departure.",
+        "ru": "Требование Сербии к сроку действия паспорта уточнено: документ должен действовать до запланированного выезда."
+      },
+      "previousValue": {
+        "revision": 1,
+        "basis": "arrival",
+        "minimumRemainingDays": 0
+      },
+      "nextValue": {
+        "revision": 2,
+        "basis": "planned_departure",
+        "minimumRemainingDays": 0
+      },
+      "reason": {
+        "en": "Article 17 of Serbia's Law on Foreigners permits departure to be temporarily prohibited when the traveller lacks a valid border document.",
+        "ru": "Статья 17 Закона Сербии об иностранцах допускает временный запрет выезда при отсутствии действующего документа для пересечения границы."
+      },
+      "sourceIds": [
+        "source.serbia-mfa-general-entry",
+        "source.serbia-law-foreigners-2023"
+      ],
+      "rollbackReleaseId": "m5-family-entry-evidence",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-phase3-legal",
+        "version": "atomic-legal-evidence-v1",
+        "runId": "research.2026-09-03.serbia-passport-validity"
+      },
+      "releaseId": "m6-phase3-legal-evidence"
+    },
+    {
+      "schemaVersion": 1,
       "id": "change.add-serbia-candidate.2026-09-02",
       "changedAt": "2026-09-02T09:30:00.000Z",
       "subjectId": "route.serbia-visa-free-30",
@@ -3214,6 +4116,156 @@
         "runId": "research.2026-09-02.destination-expansion"
       },
       "releaseId": "m4-seven-route-atlas"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.family-entry-evidence.2026-09-03",
+      "changedAt": "2026-09-03T09:45:00.000Z",
+      "subjectId": "catalog.household-entry-evidence",
+      "summary": {
+        "en": "Added count-specific pet assessments and automated family-entry evidence renewal.",
+        "ru": "Добавлены оценки ввоза животных по количеству и автоматическое обновление доказательств для семейного въезда."
+      },
+      "previousValue": {
+        "releaseId": "m4-seven-route-atlas",
+        "automatedChildClaims": 2
+      },
+      "nextValue": {
+        "releaseId": "m5-family-entry-evidence",
+        "automatedChildClaims": 7,
+        "scheduledHouseholdEvidence": true
+      },
+      "reason": {
+        "en": "Answer the two-children and two-dogs question without treating missing evidence as a negative result.",
+        "ru": "Ответить на вопрос о двух детях и двух собаках, не выдавая отсутствие доказательств за запрет."
+      },
+      "sourceIds": [
+        "source.russia-consular-kazakhstan-entry"
+      ],
+      "rollbackReleaseId": "m4-seven-route-atlas",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-family-entry-audit",
+        "version": "family-entry-v1",
+        "runId": "research.2026-09-03.family-entry"
+      },
+      "releaseId": "m5-family-entry-evidence"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.departure-window-observations.2026-09-04",
+      "changedAt": "2026-09-04T05:44:08.000Z",
+      "subjectId": "corridor.serbia-belgrade.alpha.v1",
+      "summary": {
+        "en": "Added dated primary and fallback schedule observations for Moscow and Saint Petersburg within the 11 September 2026 to 4 January 2027 planning window.",
+        "ru": "Добавлены датированные наблюдения основных и запасных расписаний из Москвы и Санкт-Петербурга в интервале с 11 сентября 2026 года по 4 января 2027 года."
+      },
+      "previousValue": {
+        "releaseId": "m8-russia-two-lineage-evidence",
+        "departureObservationState": "not_collected"
+      },
+      "nextValue": {
+        "releaseId": "m9-departure-window-observations",
+        "departureObservationState": "scheduled_candidates",
+        "actionAuthority": false
+      },
+      "reason": {
+        "en": "Record the owner-supplied departure window and dated transport candidates without treating schedules, fares, or transfer conditions as guaranteed.",
+        "ru": "Зафиксировать заданный владельцем интервал выезда и датированные варианты транспорта, не выдавая расписание, цены или условия пересадки за гарантированные."
+      },
+      "sourceIds": [
+        "source.air-serbia-moscow-belgrade-offers",
+        "source.air-serbia-saint-petersburg-belgrade-offers",
+        "source.zbordirect-moscow-belgrade-schedule",
+        "source.zbordirect-saint-petersburg-belgrade-schedule",
+        "source.turkish-airlines-moscow-belgrade-offers",
+        "source.turkish-airlines-saint-petersburg-belgrade-offers",
+        "source.turkish-airlines-transfer-passengers",
+        "source.turkiye-mfa-airport-transit-faq",
+        "source.zbordirect-moscow-istanbul-schedule",
+        "source.zbordirect-saint-petersburg-istanbul-schedule",
+        "source.flight-info-tk1079-schedule",
+        "source.flight-info-tk1081-schedule"
+      ],
+      "rollbackReleaseId": "m8-russia-two-lineage-evidence",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-departure-research",
+        "version": "departure-window-v1",
+        "runId": "research.2026-09-04.departure-window"
+      },
+      "releaseId": "m9-departure-window-observations"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.transit-case-evidence.2026-09-04",
+      "changedAt": "2026-09-04T06:14:17.000Z",
+      "subjectId": "corridor.serbia-belgrade.alpha.v1",
+      "summary": {
+        "en": "Added a two-lineage Turkish airport-transit rule and fail-closed per-traveller transit, funds, and registration case checks.",
+        "ru": "Добавлены правило транзита через аэропорт Турции из двух независимых линий источников и закрытые при неопределённости проверки транзита, средств и регистрации для каждого путешественника."
+      },
+      "previousValue": {
+        "releaseId": "m9-departure-window-observations",
+        "legalTransitEvidence": "not_collected"
+      },
+      "nextValue": {
+        "releaseId": "m10-transit-case-evidence",
+        "legalTransitEvidence": "airside_condition_collected",
+        "actionAuthority": false
+      },
+      "reason": {
+        "en": "Distinguish a documented airside condition from a landside or self-transfer case without treating a candidate itinerary as legally cleared.",
+        "ru": "Отделить подтверждённое условие транзита без выхода из транзитной зоны от пересадки с выходом или самостоятельной пересадки, не считая маршрут-кандидат юридически проверенным."
+      },
+      "sourceIds": [
+        "source.turkiye-mfa-airport-transit-faq",
+        "source.turkiye-migration-airport-transit-checks"
+      ],
+      "rollbackReleaseId": "m9-departure-window-observations",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-transit-research",
+        "version": "transit-case-v1",
+        "runId": "research.2026-09-04.transit-case"
+      },
+      "releaseId": "m10-transit-case-evidence"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "change.beg-entry-point-evidence.2026-09-04",
+      "changedAt": "2026-09-04T06:59:59.000Z",
+      "subjectId": "corridor.serbia-belgrade.alpha.v1",
+      "summary": {
+        "en": "Added a bounded official-AIP claim that identifies BEG as an international Serbian entry point without treating it as an admission guarantee.",
+        "ru": "Добавлен ограниченный факт из официального AIP, который устанавливает BEG как международный пункт въезда в Сербию, не выдавая это за гарантию допуска."
+      },
+      "previousValue": {
+        "releaseId": "m10-transit-case-evidence",
+        "begEntryPointEvidence": "not_established"
+      },
+      "nextValue": {
+        "releaseId": "m11-beg-entry-point-evidence",
+        "begEntryPointEvidence": "official_aip_chain_collected",
+        "actionAuthority": false
+      },
+      "reason": {
+        "en": "Bind Serbia's passenger-entry rule, international-aerodrome condition, and current LYBE classification as one official publication lineage while preserving every traveller and booking gate.",
+        "ru": "Связать правило въезда пассажиров в Сербию, условие международного аэропорта и действующую классификацию LYBE в одной линии официальной публикации, сохранив все проверки путешественников и брони."
+      },
+      "sourceIds": [
+        "source.serbia-aip-entry-requirements-2026-09-03",
+        "source.serbia-aip-aerodrome-conditions-2026-09-03",
+        "source.serbia-aip-aerodrome-index-2026-09-03"
+      ],
+      "rollbackReleaseId": "m10-transit-case-evidence",
+      "producer": {
+        "kind": "model_pipeline",
+        "systemId": "codex-entry-point-research",
+        "version": "beg-entry-point-v1",
+        "runId": "research.2026-09-04.beg-entry-point"
+      },
+      "releaseId": "m11-beg-entry-point-evidence"
     }
   ]
 }

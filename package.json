@@ -12,17 +12,21 @@
     "build": "npm run runtime:check && bash scripts/build-verified.sh",
     "start": "npm run runtime:check && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test:unit": "npm run runtime:check && node --test tests/*.test.mjs",
+    "test:browser": "npm run build && npm run test:browser:built",
+    "test:browser:built": "npm run runtime:check && playwright test",
     "test": "npm run build && npm run test:unit",
     "lint": "npm run runtime:check && bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "typecheck": "npm run runtime:check && bash scripts/sites-env.sh -- tsc --noEmit --incremental false",
     "validate:content": "npm run runtime:check && node scripts/validate-content.mjs",
     "check:freshness": "npm run runtime:check && node scripts/check-freshness.mjs",
+    "check:household-mobility": "npm run runtime:check && node scripts/check-household-mobility.mjs",
+    "evidence:household-refresh": "npm run runtime:check && node scripts/refresh-household-evidence.mjs --write",
     "evidence:monitor": "npm run runtime:check && node scripts/monitor-evidence.mjs",
     "evidence:evaluate": "npm run runtime:check && node scripts/evaluate-evidence.mjs",
     "snapshot:repo": "npm run runtime:check && node scripts/repository-snapshot.mjs",
     "check:i18n": "npm run runtime:check && node scripts/check-i18n.mjs",
     "route:withdraw": "npm run runtime:check && node scripts/withdraw-route.mjs",
-    "check": "npm run validate:content && npm run check:freshness && npm run check:i18n && npm run lint && npm run typecheck && npm run build && npm run test:unit",
+    "check": "npm run validate:content && npm run check:freshness && npm run check:household-mobility && npm run check:i18n && npm run lint && npm run typecheck && npm run build && npm run test:unit && npm run test:browser:built",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
   },
   "dependencies": {
@@ -55,8 +59,10 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "^4.20260702.1",
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "4.2.1",
     "@types/d3-geo": "3.1.1",
     "@types/node": "22.19.19",

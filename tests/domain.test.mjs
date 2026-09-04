@@ -115,6 +115,11 @@ const baseClaims = [
     kind: "traveller_applicability",
     applies: true,
   }),
+  makeClaim("claim.entry-point", {
+    kind: "entry_restriction",
+    restriction: "named_entry_points",
+    entryPoints: ["Example Border"],
+  }),
 ];
 
 const baseRoute = schemas.documentRouteSchema.parse({
@@ -584,7 +589,7 @@ test("open now requires a ready profile for every adult and child", () => {
     sources,
     automationRun: baseAutomationRun,
     household: household(2, [8, 12]),
-    journey: { origin: "moscow", arrivalOn: "2026-09-10" },
+    journey: { origin: "moscow", arrivalOn: "2026-09-10", entryPoint: "Example Border" },
     asOf: "2026-09-02T00:00:00.000Z",
   });
   assert.equal(ready.presentation, "open_now");
@@ -600,7 +605,7 @@ test("application routes require per-traveller authorization and an allowed entr
   });
   applicationClaims.push(
     makeClaim("claim.evisa", { kind: "requirement", requirement: { kind: "entry_authorization", authorizationKind: "evisa", obligation: "required" } }),
-    makeClaim("claim.entry-point", { kind: "entry_restriction", restriction: "named_entry_points", entryPoints: ["Delhi Airport"] }),
+    makeClaim("claim.application-entry-point", { kind: "entry_restriction", restriction: "named_entry_points", entryPoints: ["Delhi Airport"] }),
   );
   const route = schemas.documentRouteSchema.parse({ ...baseRoute, kind: "evisa", claimIds: applicationClaims.map((claim) => claim.id) });
   const profile = household(2, [8, 12]);
@@ -621,7 +626,7 @@ test("one missing child passport prevents open now", () => {
     sources: new Map([[primarySource.id, primarySource]]),
     automationRun: baseAutomationRun,
     household: profile,
-    journey: { origin: "moscow", arrivalOn: "2026-09-10" },
+    journey: { origin: "moscow", arrivalOn: "2026-09-10", entryPoint: "Example Border" },
     asOf: "2026-09-02T00:00:00.000Z",
   });
   assert.equal(result.household.state, "missing_documents");
@@ -734,7 +739,7 @@ test("an application route is not open until every traveller has authorization",
     sources,
     automationRun: automationRunFor(applicationClaims),
     household: readyHousehold,
-    journey: { origin: "moscow", arrivalOn: "2026-09-10" },
+    journey: { origin: "moscow", arrivalOn: "2026-09-10", entryPoint: "Example Border" },
     asOf: "2026-09-02T00:00:00.000Z",
   });
   assert.equal(withAuthorizations.presentation, "open_now");

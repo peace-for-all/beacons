@@ -1,6 +1,13 @@
 import { createHash } from "node:crypto";
+import { execFile } from "node:child_process";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { promisify } from "node:util";
+
+const execFileAsync = promisify(execFile);
 
 export function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -40,6 +47,34 @@ function normalizeForMatch(value) {
   return value.normalize("NFC").replace(/\s+/g, " ").trim();
 }
 
+export function normalizeExtractedPdf(value) {
+  return value
+    .normalize("NFC")
+    .replace(/\f/g, "\n")
+    .replace(/[\t\v ]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+export async function extractPdfText(body) {
+  const directory = await mkdtemp(join(tmpdir(), "beacons-evidence-pdf-"));
+  const inputPath = join(directory, "source.pdf");
+  const outputPath = join(directory, "source.txt");
+  try {
+    await writeFile(inputPath, body);
+    await execFileAsync("/usr/bin/pdftotext", ["-layout", "-enc", "UTF-8", inputPath, outputPath], {
+      timeout: 20_000,
+      maxBuffer: 1024 * 1024,
+    });
+    const text = normalizeExtractedPdf(await readFile(outputPath, "utf8"));
+    if (text.length < 80) throw new Error("normalized_body_too_short");
+    return text;
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+}
+
 function boundedExtract(text, start, end) {
   const extractStart = Math.max(0, start - 160);
   const extractEnd = Math.min(text.length, end + 160);
@@ -48,13 +83,34 @@ function boundedExtract(text, start, end) {
 
 export function inspectFragment(normalizedText, check) {
   const haystack = normalizeForMatch(normalizedText);
-  const matches = check.requiredText.map((required) => {
-    const needle = normalizeForMatch(required);
+  let searchStart = 0;
+  let searchEnd = haystack.length;
+  if (check.locatorAnchor) {
+    const anchor = normalizeForMatch(check.locatorAnchor);
     const positions = [];
     let offset = 0;
     while (offset <= haystack.length) {
-      const index = haystack.indexOf(needle, offset);
+      const index = haystack.indexOf(anchor, offset);
       if (index < 0) break;
+      positions.push(index);
+      offset = index + Math.max(anchor.length, 1);
+    }
+    if (positions.length === 0) {
+      return { id: check.id, claimIds: check.claimIds, status: "missing", reasonCode: "locator_anchor_missing" };
+    }
+    if (positions.length !== 1) {
+      return { id: check.id, claimIds: check.claimIds, status: "ambiguous", reasonCode: "locator_anchor_not_unique" };
+    }
+    searchStart = positions[0] + anchor.length;
+    searchEnd = Math.min(haystack.length, searchStart + check.maximumSpanCharacters);
+  }
+  const matches = check.requiredText.map((required) => {
+    const needle = normalizeForMatch(required);
+    const positions = [];
+    let offset = searchStart;
+    while (offset <= searchEnd) {
+      const index = haystack.indexOf(needle, offset);
+      if (index < 0 || index + needle.length > searchEnd) break;
       positions.push(index);
       offset = index + Math.max(needle.length, 1);
     }
@@ -193,7 +249,7 @@ function expectedMimeMatches(expected, contentType, body) {
   return false;
 }
 
-export async function fetchOfficialSource({ source, checks, policy, fetchImpl = fetch, dnsLookup = lookup, observedAt }) {
+export async function fetchOfficialSource({ source, checks, policy, fetchImpl = fetch, dnsLookup = lookup, observedAt, pdfTextExtractor = extractPdfText }) {
   const requested = new URL(source.url);
   const allowedHosts = [requested.hostname, ...source.allowedRedirectHosts];
   const redirectChain = [];
@@ -242,8 +298,9 @@ export async function fetchOfficialSource({ source, checks, policy, fetchImpl = 
       normalizedSha256 = sha256(normalizedText);
       normalization = "canonical-json-v1";
     } else {
-      normalizedSha256 = rawSha256;
-      normalization = "binary-pdf-v1";
+      normalizedText = await pdfTextExtractor(body);
+      normalizedSha256 = sha256(normalizedText);
+      normalization = "pdftotext-layout-v1";
     }
     return {
       schemaVersion: 2,
