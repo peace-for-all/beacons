@@ -136,6 +136,7 @@ test("a destination opens as one modular, editable departure plan", async ({ pag
   const plan = page.locator(".action-plan");
   await expect(plan.getByRole("heading", { name: "Departure plan" })).toBeVisible();
   await expect(plan.locator('[data-action-module]')).toHaveCount(5);
+  await expect(plan.locator('input:not([type="checkbox"]), textarea')).toHaveCount(0);
   const moduleBoxes = await plan.locator('[data-action-module]').evaluateAll((items) => items.map((item) => {
     const box = item.getBoundingClientRect();
     return { left: box.left, top: box.top, width: box.width };
@@ -157,12 +158,10 @@ test("a destination opens as one modular, editable departure plan", async ({ pag
 
   await plan.getByRole("tab", { name: /Fly/ }).click();
   await expect(plan.getByRole("link", { name: "Search live flights" })).toBeVisible();
-  await plan.getByLabel("Flight or route note").fill("Direct flight shortlist");
 
   await plan.getByRole("tab", { name: /First stay/ }).click();
   await expect(plan.getByRole("link", { name: "Search cancellable first stays" })).toBeVisible();
-  await plan.getByRole("textbox", { name: "Address", exact: true }).fill("First-night address");
-  await expect(plan.getByRole("tab", { name: /First stay/ })).toContainText("First address added");
+  await expect(plan.locator('[data-action-panel="stay"] input[type="checkbox"]')).not.toHaveCount(0);
   await expect(plan.locator('[data-action-panel="where"]')).toBeHidden();
   await expect(page.locator(".research-details")).not.toHaveAttribute("open", "");
 });

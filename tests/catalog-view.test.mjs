@@ -425,7 +425,6 @@ test("the departure workspace exposes five focused modules and produces one comp
     packing,
     firstStayChecks,
     checked: new Set(["pack.documents", "stay.cancellable"]),
-    notes: { travelRoute: "Direct flight", travelDate: "12 September", stayName: "Example hotel", stayAddress: "Example address", stayContact: "Late check-in confirmed", stayTransfer: "Airport taxi" },
     origin: "Moscow",
     airport: departure.airport,
     phases,
@@ -446,8 +445,10 @@ test("the departure workspace exposes five focused modules and produces one comp
   assert.match(html, /Set a written work departure plan/);
   assert.match(text, /1\. Where[\s\S]*2\. Documents[\s\S]*3\. Take[\s\S]*4\. Fly[\s\S]*5\. First stay/);
   assert.match(text, /☑ Passports/);
-  assert.match(text, /Example hotel[\s\S]*Example address[\s\S]*Airport taxi/);
-  assert.match(text, /Personal note|not verified|planning candidate/i);
+  assert.doesNotMatch(html, /<textarea\b/i);
+  assert.doesNotMatch(html, /Flight or route note|Departure date and time|Property or host|Contact and arrival instructions|Airport transfer/);
+  assert.doesNotMatch(text, /Personal note|Not entered/);
+  assert.match(text, /planning candidate/i);
   assert.match(text, /Your move sequence/);
 });
 
