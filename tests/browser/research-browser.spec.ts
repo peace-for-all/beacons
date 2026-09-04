@@ -86,6 +86,37 @@ test("mobile details use a labelled dialog and return focus on close", async ({ 
   await expect(option).toBeFocused();
 });
 
+test("a destination opens as one modular, editable departure plan", async ({ page }) => {
+  await page.goto("/en");
+  await page.locator(".beacon-marker").first().click();
+  const plan = page.locator(".action-plan");
+  await expect(plan.getByRole("heading", { name: "Departure plan" })).toBeVisible();
+  await expect(plan.locator('[data-action-module]')).toHaveCount(5);
+  await expect(plan.locator('[data-action-panel="where"]')).toBeVisible();
+  await expect(plan.locator('[data-action-panel="documents"]')).toBeHidden();
+  const accessibility = await new AxeBuilder({ page }).include(".action-plan").analyze();
+  expect(accessibility.violations).toEqual([]);
+
+  await plan.getByRole("tab", { name: /Documents/ }).click();
+  await expect(plan.locator('[data-action-panel="documents"]')).toBeVisible();
+  await expect(plan.getByText("Adult 1", { exact: true })).toBeVisible();
+
+  await plan.getByRole("tab", { name: /Take/ }).click();
+  await expect(plan.locator('[data-action-panel="pack"]')).toBeVisible();
+  await plan.locator('[data-action-panel="pack"] input[type="checkbox"]').first().check();
+
+  await plan.getByRole("tab", { name: /Fly/ }).click();
+  await expect(plan.getByRole("link", { name: "Search live flights" })).toBeVisible();
+  await plan.getByLabel("Flight or route note").fill("Direct flight shortlist");
+
+  await plan.getByRole("tab", { name: /First stay/ }).click();
+  await expect(plan.getByRole("link", { name: "Search cancellable first stays" })).toBeVisible();
+  await plan.getByRole("textbox", { name: "Address", exact: true }).fill("First-night address");
+  await expect(plan.getByRole("tab", { name: /First stay/ })).toContainText("First address added");
+  await expect(plan.locator('[data-action-panel="where"]')).toBeHidden();
+  await expect(page.locator(".research-details")).not.toHaveAttribute("open", "");
+});
+
 test("origin selection moves the visible origin and route geometry", async ({ page }) => {
   await page.goto("/en");
   const origin = page.locator(".origin");

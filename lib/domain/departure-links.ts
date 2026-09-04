@@ -16,10 +16,12 @@ export function departureLinks(placeId: string, origin: DepartureOrigin) {
   const destination = destinations[placeId];
   if (!destination) return null;
   const query = encodeURIComponent(`Flights from ${originNames[origin]} to ${destination.city} today`);
+  const stayQuery = encodeURIComponent(`cancellable first stay in ${destination.city}`);
   return {
     origin,
     airport: destination.airport,
     flightSearch: `https://www.google.com/travel/flights?q=${query}`,
+    staySearch: `https://www.google.com/travel/search?q=${stayQuery}`,
     costGuide: destination.costGuide,
   };
 }

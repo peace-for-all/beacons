@@ -16,11 +16,14 @@ const { evaluateClaimEvidence } = await vite.ssrLoadModule("/lib/domain/freshnes
 const { evaluateHouseholdCounts } = await vite.ssrLoadModule("/lib/domain/household-eligibility.ts");
 const { buildTravelDocumentChecklists } = await vite.ssrLoadModule("/lib/domain/travel-document-checklist.ts");
 const { buildRelocationPlan } = await vite.ssrLoadModule("/lib/domain/relocation-plan.ts");
+const { buildFirstStayChecks, buildPackingList } = await vite.ssrLoadModule("/lib/domain/departure-action-plan.ts");
+const { departureLinks } = await vite.ssrLoadModule("/lib/domain/departure-links.ts");
 const { householdMobility } = await vite.ssrLoadModule("/lib/content/household-mobility.ts");
 const { BeaconsApp } = await vite.ssrLoadModule("/components/beacons/beacons-app.tsx");
 const { BeaconDetail } = await vite.ssrLoadModule("/components/beacons/beacon-detail.tsx");
 const { DocumentChecklist, formatChecklistsForCopy, writeChecklistToClipboard } = await vite.ssrLoadModule("/components/beacons/document-checklist.tsx");
 const { RelocationPlan, formatRelocationPlanForCopy } = await vite.ssrLoadModule("/components/beacons/relocation-plan.tsx");
+const { ActionPlanWorkspace, formatDepartureActionPlan } = await vite.ssrLoadModule("/components/beacons/action-plan-workspace.tsx");
 const { MapToolbar } = await vite.ssrLoadModule("/components/beacons/map-toolbar.tsx");
 const { messages } = await vite.ssrLoadModule("/lib/i18n/messages.ts");
 const { ReviewsPage } = await vite.ssrLoadModule("/components/beacons/localized-pages.tsx");
@@ -395,6 +398,49 @@ test("the move stepper shows one stage at a time while full copy preserves the w
   assert.match(html, /Copy full plan/);
   assert.equal((html.match(/aria-label="Copy phase:/g) ?? []).length, 1);
   assert.match(html, /Documents and preparations/);
+});
+
+test("the departure workspace exposes five focused modules and produces one complete plan", () => {
+  const place = places.find((item) => item.id === "place.belgrade");
+  const mobilityRule = householdMobility.rules.find((rule) => rule.placeId === "place.belgrade");
+  assert.ok(place && mobilityRule);
+  const household = { adults: 2, children: 1, dogs: 1 };
+  const members = buildTravelDocumentChecklists({ place, mobilityRule, household, lang: "en", asOf: testAsOf });
+  const phases = buildRelocationPlan({ place, household, lang: "en" });
+  const packing = buildPackingList(household, "en");
+  const firstStayChecks = buildFirstStayChecks(household, "en");
+  const departure = departureLinks(place.id, "MOW");
+  const html = renderToStaticMarkup(React.createElement(ActionPlanWorkspace, { place, household, members, phases, lang: "en", t: messages.en, origin: "MOW", departure }));
+  const text = formatDepartureActionPlan({
+    destination: "Belgrade, Serbia",
+    route: "Visa-free route",
+    stay: "Confirm current stay limit",
+    uncertainty: "First accommodation not verified",
+    members,
+    packing,
+    firstStayChecks,
+    checked: new Set(["pack.documents", "stay.cancellable"]),
+    notes: { travelRoute: "Direct flight", travelDate: "12 September", stayName: "Example hotel", stayAddress: "Example address", stayContact: "Late check-in confirmed", stayTransfer: "Airport taxi" },
+    origin: "Moscow",
+    airport: departure.airport,
+    phases,
+    t: messages.en,
+  });
+
+  assert.equal((html.match(/data-action-module=/g) ?? []).length, 5);
+  assert.equal((html.match(/role="tab"/g) ?? []).length, 5);
+  assert.equal((html.match(/aria-selected="true"/g) ?? []).length, 1);
+  assert.match(html, /Departure plan/);
+  assert.match(html, /Where/);
+  assert.match(html, /Documents/);
+  assert.match(html, /Take/);
+  assert.match(html, /Fly/);
+  assert.match(html, /First stay/);
+  assert.match(text, /1\. Where[\s\S]*2\. Documents[\s\S]*3\. Take[\s\S]*4\. Fly[\s\S]*5\. First stay/);
+  assert.match(text, /☑ Passports/);
+  assert.match(text, /Example hotel[\s\S]*Example address[\s\S]*Airport taxi/);
+  assert.match(text, /Personal note|not verified|planning candidate/i);
+  assert.match(text, /Your move sequence/);
 });
 
 test("the move stepper has direct English and Russian position choices", () => {
