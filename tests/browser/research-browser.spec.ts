@@ -12,7 +12,7 @@ for (const lang of ["en", "ru"] as const) {
 }
 
 test("the map remains inside the initial desktop and mobile viewport", async ({ page }) => {
-  for (const viewport of [{ width: 1280, height: 720 }, { width: 390, height: 844 }]) {
+  for (const viewport of [{ width: 1280, height: 720 }, { width: 390, height: 844 }, { width: 320, height: 568 }]) {
     await page.setViewportSize(viewport);
     await page.goto("/en");
     const box = await page.locator('[data-surface="map"]').boundingBox();
@@ -47,9 +47,23 @@ test("mobile map starts below the compact header and overlays remain mutually ex
   await page.getByRole("button", { name: "Project pages" }).click();
   await expect(page.locator("#project-menu")).toBeVisible();
   await expect(page.locator("#map-filter-panel")).toBeHidden();
+  const menu = await page.locator("#project-menu").boundingBox();
+  expect(menu).not.toBeNull();
+  expect(menu!.x).toBeGreaterThanOrEqual(0);
+  expect(menu!.x + menu!.width).toBeLessThanOrEqual(viewport.width);
 
   await page.getByRole("button", { name: "Project pages" }).click();
   await page.getByRole("button", { name: "Filters" }).click();
+  const primaryTouchTargets = page.locator(".brand-home, .site-nav-mobile > button, .topbar-actions a, .map-toolbar-buttons > button, .map-filter-heading > button, .clear-filter-button");
+  const targetSizes = await primaryTouchTargets.evaluateAll((targets) => targets.filter((target) => {
+    const style = getComputedStyle(target);
+    return style.visibility !== "hidden" && style.display !== "none";
+  }).map((target) => {
+    const rect = target.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  }));
+  expect(targetSizes.length).toBeGreaterThan(0);
+  expect(targetSizes.every(({ width, height }) => width >= 44 && height >= 44)).toBe(true);
   await page.getByRole("button", { name: "Close filters" }).click();
   await expect(page.locator("#map-filter-panel")).toBeHidden();
 
@@ -58,6 +72,11 @@ test("mobile map starts below the compact header and overlays remain mutually ex
   expect(staticHeader).not.toBeNull();
   expect(staticHeader!.height).toBeLessThanOrEqual(80);
   await expect(page.getByRole("button", { name: "Project pages" })).toBeVisible();
+  await page.getByRole("button", { name: "Project pages" }).click();
+  const staticMenu = await page.locator("#project-menu").boundingBox();
+  expect(staticMenu).not.toBeNull();
+  expect(staticMenu!.x).toBeGreaterThanOrEqual(0);
+  expect(staticMenu!.x + staticMenu!.width).toBeLessThanOrEqual(viewport.width);
 });
 
 test("keyboard selection opens details and close restores focus", async ({ page }) => {
