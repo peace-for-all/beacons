@@ -201,36 +201,49 @@
           "requirementId": "first72.accommodation_and_registration",
           "status": "incomplete",
           "claimIds": ["claim.serbia-arrival-registration-host", "claim.serbia-arrival-registration-self"],
+          "absenceRecordIds": ["record.serbia.first72.accommodation.not_collected.v1"],
           "gap": { "summary": "Registration responsibility is current, but no cancellable first accommodation or host capability is observed.", "workstreams": ["source", "schema", "operations"] }
         },
         {
           "requirementId": "first72.arrival_transfer",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.first72.arrival_transfer.not_collected.v1"],
           "gap": { "summary": "No arrival transfer or fallback transfer is recorded.", "workstreams": ["schema", "transport", "operations"] }
         },
         {
           "requirementId": "first72.communication_and_payment",
           "status": "missing",
+          "absenceRecordIds": [
+            "record.serbia.first72.communication.not_collected.v1",
+            "record.serbia.first72.payment.not_collected.v1"
+          ],
           "gap": { "summary": "No working communication path or payment fallback is recorded.", "workstreams": ["source", "schema", "operations"] }
         },
         {
           "requirementId": "first72.food_medicine_and_healthcare",
           "status": "missing",
+          "absenceRecordIds": [
+            "record.serbia.first72.food_medicine.not_collected.v1",
+            "record.serbia.first72.urgent_healthcare.not_collected.v1"
+          ],
           "gap": { "summary": "Food, medication, and urgent healthcare guidance is not recorded.", "workstreams": ["source", "schema", "safety", "operations"] }
         },
         {
           "requirementId": "first72.child_and_pet_needs",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.first72.child_pet.not_collected.v1"],
           "gap": { "summary": "Essential child and optional pet arrival needs are not represented in a corridor packet.", "workstreams": ["source", "schema", "safety", "operations"] }
         },
         {
           "requirementId": "first72.trusted_contact_check_in",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.first72.trusted_contact.not_collected.v1"],
           "gap": { "summary": "No device-local trusted-contact check-in plan is represented.", "workstreams": ["schema", "safety", "product"] }
         },
         {
           "requirementId": "first72.failure_paths",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.first72.failure_paths.not_collected.v1"],
           "gap": { "summary": "Entry, transport, payment, and accommodation failure paths are not structured.", "workstreams": ["schema", "safety", "operations", "product"] }
         },
 
@@ -264,16 +277,19 @@
         {
           "requirementId": "safety.emergency_numbers",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.safety.emergency_numbers.not_collected.v1"],
           "gap": { "summary": "Police, ambulance, fire, and general emergency numbers are not in a validated operational packet.", "workstreams": ["source", "schema", "safety"] }
         },
         {
           "requirementId": "safety.consular_and_lost_document",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.safety.consular.not_collected.v1"],
           "gap": { "summary": "Applicable consular assistance and lost-document procedures are not collected.", "workstreams": ["source", "schema", "safety"] }
         },
         {
           "requirementId": "safety.medical_and_insurance_contacts",
           "status": "missing",
+          "absenceRecordIds": ["record.serbia.safety.medical_insurance.not_collected.v1"],
           "gap": { "summary": "Urgent medical and insurance-assistance contacts are not collected.", "workstreams": ["source", "schema", "safety"] }
         },
         {

@@ -37,6 +37,9 @@ try {
   const { journeyGuidanceCollectionSchema, validateJourneyGuidance } = await vite.ssrLoadModule(
     "/lib/domain/journey-guidance.ts",
   );
+  const { evaluateFirst72Packet } = await vite.ssrLoadModule(
+    "/lib/domain/first-72-hour-readiness.ts",
+  );
   const raw = JSON.parse(await readFile(catalogPath, "utf8"));
   const catalog = contentCatalogSchema.parse(raw);
   const monitoringConfig = monitoringConfigSchema.parse(
@@ -112,6 +115,16 @@ try {
     manifests: corridorRequirements.manifests,
     asOf: new Date().toISOString(),
   });
+  const first72Packets = corridorRequirements.manifests.map((manifest) =>
+    evaluateFirst72Packet({
+      manifest,
+      operationalRecords: journeyGuidance.operationalRecords,
+      asOf: new Date().toISOString(),
+    }),
+  );
+  if (first72Packets.some((packet) => packet.actionReady)) {
+    throw new Error("A research-target first-72-hour packet cannot be action-ready");
+  }
   for (const manifest of corridorRequirements.manifests) {
     await readFile(new URL(`../${manifest.decisionRecord}`, import.meta.url), "utf8");
   }
@@ -119,7 +132,8 @@ try {
     .map((manifest) => {
       const summary = summarizeCorridorManifest(manifest);
       const closure = summarizeLegalStageClosure(manifest);
-      return `${manifest.id}: ${summary.required} required, ${summary.optional} optional; ${summary.statuses.current} current, ${summary.statuses.incomplete} incomplete, ${summary.statuses.contradictory} contradictory, ${summary.statuses.missing} missing, ${summary.statuses.not_applicable} not applicable; legal closure ${closure.current} current, ${closure.incomplete} incomplete, ${closure.evidenceGapSlots} evidence-gap slots, ${closure.runtimeInputSlots} runtime-input slots, ${closure.unclassifiedSlots} unclassified, researchClosureReady=${closure.researchClosureReady}, actionReady=${closure.actionReady}`;
+      const first72 = first72Packets.find((packet) => packet.corridorId === manifest.id);
+      return `${manifest.id}: ${summary.required} required, ${summary.optional} optional; ${summary.statuses.current} current, ${summary.statuses.incomplete} incomplete, ${summary.statuses.contradictory} contradictory, ${summary.statuses.missing} missing, ${summary.statuses.not_applicable} not applicable; legal closure ${closure.current} current, ${closure.incomplete} incomplete, ${closure.evidenceGapSlots} evidence-gap slots, ${closure.runtimeInputSlots} runtime-input slots, ${closure.unclassifiedSlots} unclassified, researchClosureReady=${closure.researchClosureReady}, actionReady=${closure.actionReady}; first72=${first72?.coverageState ?? "not_evaluated"}, first72ActionReady=${first72?.actionReady ?? false}`;
     })
     .join("; ");
   process.stdout.write(

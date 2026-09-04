@@ -357,10 +357,86 @@ const departureObservationSchema = z.object({
   }
 });
 
+export const first72ArrangementKindSchema = z.enum([
+  "accommodation",
+  "arrival_transfer",
+  "communication",
+  "food",
+  "medicine",
+  "payment",
+  "urgent_healthcare",
+  "child_needs",
+  "pet_needs",
+  "trusted_contact",
+  "failure_path",
+]);
+
+export const operationalContactKindSchema = z.enum([
+  "police",
+  "ambulance",
+  "fire",
+  "general_emergency",
+  "consular",
+  "medical",
+  "insurance",
+  "domestic_violence",
+  "child_safeguarding",
+]);
+
+const first72ArrangementPayloadSchema = z.object({
+  kind: z.literal("first_72_hour_arrangement"),
+  arrangementKind: first72ArrangementKindSchema,
+  confirmationState: z.enum(["confirmed", "pending"]),
+  travellerScope: z.enum(["all_travellers", "adults", "children", "optional_pet"]),
+  provider: z.string().trim().min(1).optional(),
+  summary: semanticallyBoundLocalizedTextSchema,
+  fallback: semanticallyBoundLocalizedTextSchema,
+  relatedContactRecordIds: z.array(identifierSchema).default([]),
+}).strict().superRefine((arrangement, context) => {
+  if (
+    arrangement.confirmationState === "confirmed" &&
+    ["accommodation", "arrival_transfer"].includes(arrangement.arrangementKind) &&
+    !arrangement.provider
+  ) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ["provider"], message: "A confirmed accommodation or transfer needs a named provider" });
+  }
+  if (new Set(arrangement.relatedContactRecordIds).size !== arrangement.relatedContactRecordIds.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ["relatedContactRecordIds"], message: "Related contact record IDs must be unique" });
+  }
+});
+
+const operationalContactPayloadSchema = z.object({
+  kind: z.literal("operational_contact"),
+  contactKind: operationalContactKindSchema,
+  label: semanticallyBoundLocalizedTextSchema,
+  dial: z.discriminatedUnion("kind", [
+    z.object({ kind: z.literal("e164"), value: z.string().regex(/^\+[1-9]\d{6,14}$/) }).strict(),
+    z.object({ kind: z.literal("local_short_code"), value: z.string().regex(/^\d{3,6}$/) }).strict(),
+  ]).optional(),
+  address: semanticallyBoundLocalizedTextSchema.optional(),
+  usage: semanticallyBoundLocalizedTextSchema,
+  coverage: z.enum(["serbia_national", "belgrade", "russian_nationals_in_serbia", "provider_specific"]),
+  availability: z.enum(["always", "published_hours", "not_established"]),
+  languageSupport: z.array(z.enum(["serbian", "english", "russian", "not_established"])).min(1),
+  clickToCall: z.boolean(),
+  copyable: z.boolean(),
+  offlineAvailable: z.boolean(),
+}).strict().superRefine((contact, context) => {
+  if (!contact.dial && !contact.address) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ["dial"], message: "An operational contact needs a dial string or address" });
+  }
+  if (contact.clickToCall && !contact.dial) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ["clickToCall"], message: "Click to call requires a dial string" });
+  }
+  if (new Set(contact.languageSupport).size !== contact.languageSupport.length) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ["languageSupport"], message: "Contact languages must be unique" });
+  }
+});
+
 const operationalPayloadSchema = z.union([
   departureObservationSchema,
-  z.object({ kind: z.literal("first_72_hour_arrangement"), arrangementKind: z.enum(["accommodation", "arrival_transfer", "food", "medicine", "payment", "trusted_contact", "failure_path"]), confirmationState: z.enum(["confirmed", "pending", "not_collected"]), provider: z.string().trim().min(1).optional() }).strict(),
-  z.object({ kind: z.literal("operational_contact"), contactKind: z.enum(["police", "ambulance", "fire", "general_emergency", "consular", "medical", "insurance", "domestic_violence", "child_safeguarding"]), phone: z.string().regex(/^\+[1-9]\d{6,14}$/).optional(), address: z.string().trim().min(1).optional(), clickToCall: z.boolean(), copyable: z.boolean(), offlineAvailable: z.boolean() }).strict(),
+  first72ArrangementPayloadSchema,
+  operationalContactPayloadSchema,
   z.object({ kind: z.literal("health_guidance"), topic: z.enum(["medicine", "urgent_care", "insurance_access", "child_health"]), detail: semanticallyBoundLocalizedTextSchema }).strict(),
   z.object({ kind: z.literal("housing_guidance"), topic: z.enum(["initial_accommodation", "registration_capability", "deposit", "fraud_check", "fallback"]), detail: semanticallyBoundLocalizedTextSchema }).strict(),
   z.object({ kind: z.literal("communication_path"), channel: z.enum(["mobile_data", "voice", "messaging", "trusted_contact", "offline_copy"]), availability: z.enum(["confirmed", "pending", "not_collected"]), detail: semanticallyBoundLocalizedTextSchema }).strict(),
@@ -379,6 +455,22 @@ const operationalPayloadSchema = z.union([
     proofPacketIds: z.array(identifierSchema),
     privateFieldsIncluded: z.literal(false),
   }).strict(),
+]);
+
+const operationalPayloadExpectationSchema = z.union([
+  z.object({ kind: z.literal("departure_observation"), itineraryRole: z.enum(["primary", "fallback"]) }).strict(),
+  z.object({
+    kind: z.literal("first_72_hour_arrangement"),
+    arrangementKind: first72ArrangementKindSchema,
+    scenario: z.enum(["primary", "fallback", "entry_failure", "transport_failure", "payment_failure", "accommodation_failure"]).optional(),
+  }).strict(),
+  z.object({ kind: z.literal("operational_contact"), contactKind: operationalContactKindSchema }).strict(),
+  z.object({ kind: z.literal("health_guidance"), topic: z.enum(["medicine", "urgent_care", "insurance_access", "child_health"]) }).strict(),
+  z.object({ kind: z.literal("housing_guidance"), topic: z.enum(["initial_accommodation", "registration_capability", "deposit", "fraud_check", "fallback"]) }).strict(),
+  z.object({ kind: z.literal("communication_path"), channel: z.enum(["mobile_data", "voice", "messaging", "trusted_contact", "offline_copy"]) }).strict(),
+  z.object({ kind: z.literal("cost_observation"), component: z.enum(["travel", "entry", "accommodation", "deposit", "food", "local_transport", "communications", "insurance", "registration", "emergency_reserve", "return_reserve", "other"]) }).strict(),
+  z.object({ kind: z.literal("stay_timeline_input") }).strict(),
+  z.object({ kind: z.literal("plan_snapshot") }).strict(),
 ]);
 
 const operationalRecordBase = {
@@ -404,8 +496,16 @@ export const operationalRecordSchema = z.union([
   z.object({
     ...operationalRecordBase,
     recordState: z.literal("not_collected"),
+    expectedPayloads: z.array(operationalPayloadExpectationSchema).min(1),
     absenceReason: semanticallyBoundLocalizedTextSchema,
-  }).strict(),
+  }).strict().superRefine((record, context) => {
+    if (record.expectedPayloads.some((expected) => record.recordKind !== expected.kind)) {
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["expectedPayloads"], message: "Record kind and every expected payload kind must agree" });
+    }
+    if (new Set(record.expectedPayloads.map((expected) => JSON.stringify(expected))).size !== record.expectedPayloads.length) {
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["expectedPayloads"], message: "Expected payloads must be unique" });
+    }
+  }),
   z.object({
     ...operationalRecordBase,
     recordState: z.enum(["observed", "not_found", "known_not_operating"]),
@@ -712,6 +812,7 @@ export function validateJourneyGuidance({
   const decisionByClaimId = new Map(authoritativeRun.decisions.map((decision) => [decision.claimId, decision]));
   const proofById = new Map((authoritativeRun.proofPackets ?? []).map((packet) => [packet.id, packet]));
   const claimRequirementBindings = new Map<string, Set<string>>();
+  const boundAbsenceRecordIds = new Set<string>();
 
   for (const manifest of manifests) {
     for (const entry of manifest.requirements) {
@@ -728,6 +829,25 @@ export function validateJourneyGuidance({
         if (entry.status === "current" && (record.recordState === "not_collected" || ("validUntilExclusive" in record && record.validUntilExclusive <= asOf))) {
           throw new Error(`Corridor slot ${requirementKey(entry.requirementId, entry.origin)} cannot be current with absent or expired operational evidence`);
         }
+      }
+      for (const recordId of entry.absenceRecordIds) {
+        const record = recordById.get(recordId);
+        if (
+          !record ||
+          record.recordState !== "not_collected" ||
+          record.corridorId !== manifest.id ||
+          record.requirementId !== entry.requirementId ||
+          record.origin !== entry.origin
+        ) {
+          throw new Error(`Corridor slot ${requirementKey(entry.requirementId, entry.origin)} has an invalid explicit absence record binding`);
+        }
+        if (!policy.permittedRecordKinds.includes(record.recordKind)) {
+          throw new Error(`Corridor slot ${requirementKey(entry.requirementId, entry.origin)} binds absence kind ${record.recordKind} outside policy ${policy.id}`);
+        }
+        if (boundAbsenceRecordIds.has(recordId)) {
+          throw new Error(`Explicit absence record ${recordId} is bound more than once`);
+        }
+        boundAbsenceRecordIds.add(recordId);
       }
     }
   }
@@ -820,6 +940,9 @@ export function validateJourneyGuidance({
     if (!definition || (definition.scope === "origin_variant") !== Boolean(record.origin) || (record.origin && !manifest.origins.includes(record.origin))) throw new Error(`Operational record ${record.id} has the wrong requirement or origin scope`);
     const recordPolicy = policyById.get(definition.authorityPolicyId);
     if (!recordPolicy?.permittedRecordKinds.includes(record.recordKind)) throw new Error(`Operational record ${record.id} has a record kind outside its requirement policy`);
+    if (record.recordState === "not_collected" && !boundAbsenceRecordIds.has(record.id)) {
+      throw new Error(`Explicit absence record ${record.id} is not bound to its manifest slot`);
+    }
     if (record.recordState !== "not_collected") {
       const payloadSegmentIds = new Set(record.payload.kind === "departure_observation" ? record.payload.segments.map((segment) => segment.segmentId) : []);
       for (const binding of record.sourceBindings) {
@@ -836,6 +959,14 @@ export function validateJourneyGuidance({
       if (record.validUntilExclusive <= record.observedAt) throw new Error(`Operational record ${record.id} has a non-positive validity interval`);
       if (record.observedAt > asOf) throw new Error(`Operational record ${record.id} has a future observation`);
       if (Date.parse(record.validUntilExclusive) - Date.parse(record.observedAt) > recordPolicy.maximumAgeHours * 60 * 60 * 1000) throw new Error(`Operational record ${record.id} exceeds policy freshness`);
+      if (record.payload.kind === "first_72_hour_arrangement") {
+        for (const contactRecordId of record.payload.relatedContactRecordIds) {
+          const contact = recordById.get(contactRecordId);
+          if (!contact || contact.recordState !== "observed" || contact.payload.kind !== "operational_contact" || contact.corridorId !== record.corridorId || contact.validUntilExclusive <= asOf) {
+            throw new Error(`First-72-hour arrangement ${record.id} has an invalid related contact`);
+          }
+        }
+      }
     }
     const recordPlace = catalog.places.find((place) => place.routeIds.includes(record.routeId));
     if (!recordPlace || record.jurisdictions.destinationJurisdiction !== jurisdictionId(recordPlace.country.en)) throw new Error(`Operational record ${record.id} has the wrong destination jurisdiction`);

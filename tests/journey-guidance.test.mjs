@@ -48,9 +48,10 @@ test("the checked-in guidance release is research-only and represents both origi
   const collection = parseAndValidate();
   assert.equal(collection.authorityPolicies.length, 11);
   assert.equal(collection.guidanceItems.length, 6);
-  assert.equal(collection.operationalRecords.length, 4);
+  assert.equal(collection.operationalRecords.length, 16);
   assert.ok(collection.authorityPolicies.every((policy) => !policy.mayEmitDoThis));
-  assert.ok(collection.operationalRecords.every((record) => record.recordState === "observed"));
+  assert.equal(collection.operationalRecords.filter((record) => record.recordState === "observed").length, 4);
+  assert.equal(collection.operationalRecords.filter((record) => record.recordState === "not_collected").length, 12);
 
   const evaluated = guidance.evaluateGuidanceCollection({ collection, manifest, catalog, evidenceReports, asOf });
   assert.ok(evaluated.every((item) => item.actionState !== "do_this"));
@@ -134,6 +135,30 @@ test("policy, proof, jurisdiction, origin, and dependency tampering fail closed"
     asOf,
   }), /invalid operational record binding/);
 
+  const absenceRecord = structuredClone(rawManifests);
+  absenceRecord.manifests[0].requirements.find((entry) =>
+    entry.requirementId === "first72.arrival_transfer"
+  ).absenceRecordIds[0] = "record.serbia.first72.payment.not_collected.v1";
+  assert.throws(() => guidance.validateJourneyGuidance({
+    collection: guidance.journeyGuidanceCollectionSchema.parse(rawGuidance),
+    catalog,
+    evidenceReports,
+    manifests: corridor.corridorRequirementManifestCollectionSchema.parse(absenceRecord).manifests,
+    asOf,
+  }), /invalid explicit absence record binding/);
+
+  const unboundAbsence = structuredClone(rawManifests);
+  unboundAbsence.manifests[0].requirements.find((entry) =>
+    entry.requirementId === "first72.arrival_transfer"
+  ).absenceRecordIds = [];
+  assert.throws(() => guidance.validateJourneyGuidance({
+    collection: guidance.journeyGuidanceCollectionSchema.parse(rawGuidance),
+    catalog,
+    evidenceReports,
+    manifests: corridor.corridorRequirementManifestCollectionSchema.parse(unboundAbsence).manifests,
+    asOf,
+  }), /not bound to its manifest slot/);
+
   const cycle = structuredClone(rawGuidance);
   cycle.guidanceItems.find((item) => item.id === "guidance.serbia.entry_route.v1").dependencies = ["guidance.serbia.host_registration.v1"];
   assert.throws(() => parseAndValidate(cycle), /dependency cycle/);
@@ -211,6 +236,7 @@ test("bilingual consequential numbers and structured record distinctions are enf
       destinationJurisdiction: "jurisdiction.serbia",
       transit: { state: "not_established" },
     },
+    expectedPayloads: [{ kind: "departure_observation", itineraryRole: "primary" }],
     absenceReason: { en: "No observation collected.", ru: "Наблюдение не собрано." },
   });
   assert.equal(absent.recordState, "not_collected");

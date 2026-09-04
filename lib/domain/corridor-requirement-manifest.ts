@@ -227,6 +227,7 @@ export const corridorRequirementEntrySchema = z
     status: inventoryStatusSchema,
     claimIds: z.array(identifierSchema).default([]),
     operationalRecordIds: z.array(identifierSchema).default([]),
+    absenceRecordIds: z.array(identifierSchema).default([]),
     gap: z
       .object({
         summary: z.string().trim().min(1),
@@ -251,6 +252,12 @@ export const corridorRequirementEntrySchema = z
     if (new Set(entry.operationalRecordIds).size !== entry.operationalRecordIds.length) {
       context.addIssue({ code: z.ZodIssueCode.custom, path: ["operationalRecordIds"], message: "Operational record bindings must be unique" });
     }
+    if (new Set(entry.absenceRecordIds).size !== entry.absenceRecordIds.length) {
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["absenceRecordIds"], message: "Absence record bindings must be unique" });
+    }
+    if (entry.absenceRecordIds.some((id) => entry.operationalRecordIds.includes(id))) {
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["absenceRecordIds"], message: "A record cannot be both evidence and an explicit absence" });
+    }
     if (entry.gap && new Set(entry.gap.workstreams).size !== entry.gap.workstreams.length) {
       context.addIssue({ code: z.ZodIssueCode.custom, path: ["gap", "workstreams"], message: "Gap workstreams must be unique" });
     }
@@ -258,16 +265,16 @@ export const corridorRequirementEntrySchema = z
       context.addIssue({ code: z.ZodIssueCode.custom, path: ["gap", "remainingKinds"], message: "Gap remaining kinds must be unique" });
     }
     const evidenceBindingCount = entry.claimIds.length + entry.operationalRecordIds.length;
-    if (entry.status === "current" && (evidenceBindingCount === 0 || entry.gap || entry.notApplicable)) {
+    if (entry.status === "current" && (evidenceBindingCount === 0 || entry.absenceRecordIds.length > 0 || entry.gap || entry.notApplicable)) {
       context.addIssue({ code: z.ZodIssueCode.custom, path: ["status"], message: "A current slot needs evidence bindings and cannot retain a gap" });
     }
     if (["incomplete", "contradictory"].includes(entry.status) && (evidenceBindingCount === 0 || !entry.gap || entry.notApplicable)) {
       context.addIssue({ code: z.ZodIssueCode.custom, path: ["status"], message: "An incomplete or contradictory slot needs evidence bindings and gap work" });
     }
     if (entry.status === "missing" && (evidenceBindingCount !== 0 || !entry.gap || entry.notApplicable)) {
-      context.addIssue({ code: z.ZodIssueCode.custom, path: ["status"], message: "A missing slot cannot bind evidence and must record gap work" });
+      context.addIssue({ code: z.ZodIssueCode.custom, path: ["status"], message: "A missing slot cannot bind evidence and must record gap work; explicit absence records are allowed" });
     }
-    if (entry.status === "not_applicable" && (evidenceBindingCount !== 0 || entry.gap || !entry.notApplicable)) {
+    if (entry.status === "not_applicable" && (evidenceBindingCount !== 0 || entry.absenceRecordIds.length > 0 || entry.gap || !entry.notApplicable)) {
       context.addIssue({ code: z.ZodIssueCode.custom, path: ["status"], message: "Not applicable needs a structured decision and no evidence or gap binding" });
     }
     if (entry.requirementId.startsWith("legal.") && entry.gap && !entry.gap.remainingKinds) {

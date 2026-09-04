@@ -21,9 +21,21 @@ set `mayEmitDoThis: false` while the corridor remains a research target.
 
 Operational absence is structured. `not_collected` means no observation has
 been made; it is not `not_found`, `known_not_operating`, zero, safe, or
-unavailable. Moscow and Saint Petersburg observations never transfer. Saved
+unavailable. A manifest binds these through `absenceRecordIds`, separately from
+claims and observed `operationalRecordIds`, so recording a precise gap cannot
+improve its inventory status. Each absence names the expected structured
+payloads, such as primary and fallback transfer, payment, urgent care, or a
+failure branch. Moscow and Saint Petersburg observations never transfer. Saved
 guidance pins policy, manifest, item, claim, proof, and record revisions and
 becomes `recheck` when a dependency or expiry changes.
+
+The first-72-hour evaluator derives `not_established`, `partial`, `current`, or
+`blocked` coverage from the complete seven-slot packet, record state, and exact
+expiry boundary. Coverage is not action authority: the Serbia packet remains
+non-actionable while the corridor is research-only or activation is disabled.
+Operational contacts distinguish international numbers from local short codes,
+require usage and coverage metadata, and cannot enable click-to-call without a
+dial string.
 
 Departure observations pin an inclusive planning window, a dated departure,
 every timezone-aware segment, elapsed duration, transfer points, carrier and

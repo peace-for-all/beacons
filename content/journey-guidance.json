@@ -32,7 +32,7 @@
       "permittedSourceRoles": ["transit_rule", "carrier_rule", "dated_operational_observation"],
       "permittedSourceAuthorities": ["foreign_ministry", "transport_operator", "other"],
       "permittedSourcePrecedence": ["official_rule", "official_guidance", "operational_official", "secondary"],
-      "permittedRecordKinds": ["departure_observation"],
+      "permittedRecordKinds": ["departure_observation", "first_72_hour_arrangement"],
       "officialPrimaryRequired": false,
       "minimumIndependentLineages": 1,
       "operationalObservationsAllowed": true,
@@ -74,7 +74,7 @@
       "permittedSourceRoles": ["destination_official_guidance", "dated_operational_observation"],
       "permittedSourceAuthorities": ["immigration_authority", "other"],
       "permittedSourcePrecedence": ["official_rule", "official_guidance", "operational_official", "secondary"],
-      "permittedRecordKinds": ["health_guidance"],
+      "permittedRecordKinds": ["health_guidance", "first_72_hour_arrangement"],
       "officialPrimaryRequired": false,
       "minimumIndependentLineages": 1,
       "operationalObservationsAllowed": true,
@@ -620,6 +620,194 @@
         "durationMinutes": 535,
         "operatingState": "scheduled"
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.accommodation.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.accommodation_and_registration",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "accommodation", "scenario": "primary" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "accommodation", "scenario": "fallback" }
+      ],
+      "absenceReason": { "en": "No first-night accommodation or fallback has been selected or checked.", "ru": "Основное и запасное жильё на первую ночь не выбраны и не проверены." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.arrival_transfer.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.arrival_transfer",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "arrival_transfer", "scenario": "primary" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "arrival_transfer", "scenario": "fallback" }
+      ],
+      "absenceReason": { "en": "No primary or fallback transfer from BEG has been checked.", "ru": "Основной и запасной трансфер из BEG не проверены." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.communication.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.communication_and_payment",
+      "recordKind": "communication_path",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "communication_path", "channel": "mobile_data" },
+        { "kind": "communication_path", "channel": "voice" },
+        { "kind": "communication_path", "channel": "offline_copy" }
+      ],
+      "absenceReason": { "en": "No tested mobile, voice, or offline communication path is recorded.", "ru": "Проверенный канал мобильной, голосовой или офлайн-связи не зафиксирован." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.payment.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.communication_and_payment",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "payment", "scenario": "primary" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "payment", "scenario": "fallback" }
+      ],
+      "absenceReason": { "en": "No tested primary payment method or fallback is recorded.", "ru": "Проверенные основной и запасной способы оплаты не зафиксированы." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.food_medicine.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.food_medicine_and_healthcare",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "food", "scenario": "primary" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "medicine", "scenario": "primary" }
+      ],
+      "absenceReason": { "en": "No first-72-hour food or medication arrangement is recorded.", "ru": "План питания и лекарств на первые 72 часа не зафиксирован." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.urgent_healthcare.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.food_medicine_and_healthcare",
+      "recordKind": "health_guidance",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [{ "kind": "health_guidance", "topic": "urgent_care" }],
+      "absenceReason": { "en": "No route-scoped urgent healthcare guidance has been checked.", "ru": "Экстренная медицинская помощь для этого маршрута не проверена." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.child_pet.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.child_and_pet_needs",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "child_needs", "scenario": "primary" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "pet_needs", "scenario": "primary" }
+      ],
+      "absenceReason": { "en": "Child arrival needs and the optional pet path are not bound to this corridor.", "ru": "Потребности детей по прибытии и необязательный маршрут с питомцем не привязаны к этому коридору." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.trusted_contact.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.trusted_contact_check_in",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [{ "kind": "first_72_hour_arrangement", "arrangementKind": "trusted_contact", "scenario": "primary" }],
+      "absenceReason": { "en": "No device-local trusted-contact check-in plan exists.", "ru": "Локальный план связи с доверенным контактом не создан." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.first72.failure_paths.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "first72.failure_paths",
+      "recordKind": "first_72_hour_arrangement",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "failure_path", "scenario": "entry_failure" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "failure_path", "scenario": "transport_failure" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "failure_path", "scenario": "payment_failure" },
+        { "kind": "first_72_hour_arrangement", "arrangementKind": "failure_path", "scenario": "accommodation_failure" }
+      ],
+      "absenceReason": { "en": "Entry, transport, payment, and accommodation failure paths are not established.", "ru": "Действия при отказе во въезде и сбоях транспорта, оплаты или жилья не установлены." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.safety.emergency_numbers.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "safety.emergency_numbers",
+      "recordKind": "operational_contact",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "operational_contact", "contactKind": "police" },
+        { "kind": "operational_contact", "contactKind": "ambulance" },
+        { "kind": "operational_contact", "contactKind": "fire" },
+        { "kind": "operational_contact", "contactKind": "general_emergency" }
+      ],
+      "absenceReason": { "en": "Serbia emergency numbers have not been admitted to the versioned operational packet.", "ru": "Экстренные номера Сербии не включены в версионированный оперативный пакет." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.safety.consular.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "safety.consular_and_lost_document",
+      "recordKind": "operational_contact",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.russia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [{ "kind": "operational_contact", "contactKind": "consular" }],
+      "absenceReason": { "en": "The applicable Russian consular emergency contact and lost-document procedure are not in the packet.", "ru": "Экстренный контакт российского консульства и порядок действий при утрате документов не включены в пакет." }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "record.serbia.safety.medical_insurance.not_collected.v1",
+      "revision": 1,
+      "corridorId": "corridor.serbia-belgrade.alpha.v1",
+      "routeId": "route.serbia-visa-free-30",
+      "requirementId": "safety.medical_and_insurance_contacts",
+      "recordKind": "operational_contact",
+      "recordState": "not_collected",
+      "jurisdictions": { "ruleJurisdiction": "jurisdiction.serbia", "travellerNationality": "RU", "originJurisdiction": "jurisdiction.russia", "destinationJurisdiction": "jurisdiction.serbia", "transit": { "state": "none" } },
+      "expectedPayloads": [
+        { "kind": "operational_contact", "contactKind": "medical" },
+        { "kind": "operational_contact", "contactKind": "insurance" }
+      ],
+      "absenceReason": { "en": "No urgent medical or traveller-specific insurance assistance contact is recorded.", "ru": "Контакты экстренной медицинской помощи и страховой поддержки для путешественников не зафиксированы." }
     }
   ]
 }

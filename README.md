@@ -64,6 +64,11 @@ collected route facts can produce only
 Coverage and blockers are shown per route; one current fact never promotes the
 whole destination.
 
+The Serbia first-72-hour packet now records exact expected-but-uncollected
+arrangements and contacts separately from evidence. Its evaluator reports the
+next unresolved packet requirement and automatically demotes missing, expired,
+or non-observed operational records; it does not create travel instructions.
+
 Текущий манифест задаёт полный перечень требований, но сам по себе не разрешает
 действовать. До выполнения политики, доказательств, области применимости и всех
 зависимостей конкретного пункта собранный факт остаётся «Сначала проверить» и

@@ -619,6 +619,19 @@ research dossier.
 
 ### Phase 5 — add real departure and first-72-hour feasibility
 
+**Status:** in progress. The 2026-09-04 contract slice introduces a complete
+seven-slot first-72-hour evaluator, structured expected-but-uncollected records,
+and separate manifest absence bindings. Accommodation, transfer, communication,
+payment, food, medicine, urgent care, child/pet needs, trusted contact, four
+failure scenarios, and emergency/consular/medical contact gaps can now be named
+without counting as evidence. Operational contacts distinguish local short
+codes from international numbers and fail closed around calling, scope,
+availability, language, and offline metadata. The Serbia packet remains
+`not_established`, research-only, and non-actionable. No contact, provider,
+payment method, accommodation, fare, or new source was admitted by this slice.
+The complete repository gate passes 142 unit tests and 8 built-site browser and
+accessibility tests.
+
 **Purpose:** turn a legal possibility into an executable physical route with a
 fallback.
 
@@ -929,6 +942,9 @@ Complete these in order before beginning broad new feature work:
 - [x] Close Stage 3 for research-browser scope by classifying every legal
   residual as an evidence gap, future runtime input, or both; preserve
   `actionReady: false` and request no personal trip data.
+- [x] Establish the first-72-hour arrangement/contact contracts, explicit
+  absence bindings, and fail-closed packet evaluator without changing the
+  6 current / 18 incomplete / 36 missing manifest baseline.
 - [ ] When an explicit product need exists, define the remaining
   departure/contact/stay/cost schemas and complete one corridor vertically.
 
