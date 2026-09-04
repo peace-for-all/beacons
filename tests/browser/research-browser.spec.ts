@@ -157,6 +157,14 @@ test("research load makes no third-party request and remains usable at 200 perce
   });
   await page.goto("/en");
   expect(external).toEqual([]);
+  const readingSizes = await page.locator("body, .site-nav-desktop a, .map-caption").evaluateAll((elements) => elements.map((element) => Number.parseFloat(getComputedStyle(element).fontSize)));
+  expect(readingSizes[0]).toBeGreaterThanOrEqual(19);
+  expect(readingSizes.slice(1).every((size) => size >= 16)).toBe(true);
+  await page.locator(".beacon-marker").first().click();
+  const detailReadingSizes = await page.locator(".detail-safety-banner p, .action-plan-heading p:not(.action-plan-kicker), .action-module > p, .action-summary dd").evaluateAll((elements) => elements.map((element) => Number.parseFloat(getComputedStyle(element).fontSize)));
+  expect(detailReadingSizes.length).toBeGreaterThan(0);
+  expect(detailReadingSizes.every((size) => size >= 16)).toBe(true);
+  await page.getByRole("button", { name: "Close details" }).click();
   await page.evaluate(() => { document.documentElement.style.zoom = "2"; });
   const firstOption = page.locator(".beacon-marker").first();
   await expect(firstOption).toBeVisible();

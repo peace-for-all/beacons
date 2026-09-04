@@ -59,7 +59,7 @@ export function BeaconMap({ places, selectedId, detailOpen, lang, t, camera, ori
   const lastPinchDistance = useRef<number | null>(null);
   const screenPoints = useMemo(() => new Map(places.map((place) => [place.id, cameraPoint(map.project(place.coordinates), camera, size.width, size.height)])), [camera, map, places, size]);
   const originPoint = cameraPoint(origin, camera, size.width, size.height);
-  const captionClearance = size.width < 768 ? 120 : 68;
+  const captionClearance = size.width < 360 ? 190 : size.width < 768 ? 160 : 68;
   const labelLayouts = useMemo(() => new Map(layoutMarkerLabels(
     places.map((place) => ({ id: place.id, ...screenPoints.get(place.id)! })), size.width, size.height, { labelWidth: size.width < 768 ? 118 : 176, labelHeight: 42, edgePadding: size.width < 768 ? 12 : 8, obstacles: [{ left: size.width - 64, top: 0, width: 64, height: 178 }, { left: 0, top: size.height - captionClearance, width: size.width, height: captionClearance }] },
   ).map((layout) => [layout.id, layout])), [captionClearance, places, screenPoints, size]);
