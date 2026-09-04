@@ -433,14 +433,17 @@ test("the departure workspace exposes five focused modules and produces one comp
   });
 
   assert.equal((html.match(/data-action-module=/g) ?? []).length, 5);
-  assert.equal((html.match(/role="tab"/g) ?? []).length, 5);
-  assert.equal((html.match(/aria-selected="true"/g) ?? []).length, 1);
+  assert.equal((html.match(/role="tab"/g) ?? []).length, 8);
+  assert.equal((html.match(/aria-selected="true"/g) ?? []).length, 2);
   assert.match(html, /Departure plan/);
   assert.match(html, /Where/);
   assert.match(html, /Documents/);
   assert.match(html, /Take/);
   assert.match(html, /Fly/);
   assert.match(html, /First stay/);
+  assert.equal((html.match(/data-stage-choice=/g) ?? []).length, 3);
+  assert.equal((html.match(/data-phase=/g) ?? []).length, 3);
+  assert.match(html, /Set a written work departure plan/);
   assert.match(text, /1\. Where[\s\S]*2\. Documents[\s\S]*3\. Take[\s\S]*4\. Fly[\s\S]*5\. First stay/);
   assert.match(text, /☑ Passports/);
   assert.match(text, /Example hotel[\s\S]*Example address[\s\S]*Airport taxi/);

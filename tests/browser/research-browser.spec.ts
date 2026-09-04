@@ -113,6 +113,18 @@ test("mobile details use a labelled dialog and return focus on close", async ({ 
   await expect(documents).not.toContainText("Confirm before travel");
   const documentLayout = await documents.evaluate((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth }));
   expect(documentLayout.scrollWidth).toBeLessThanOrEqual(documentLayout.clientWidth);
+  const additional = dialog.locator(".action-additional");
+  await additional.locator(":scope > summary").click();
+  await expect(additional.locator("[data-stage-choice]")).toHaveCount(3);
+  await expect(additional.locator('[data-phase="prepare_local"]')).toBeVisible();
+  await expect(additional.getByText("Set a written work departure plan", { exact: false })).toBeVisible();
+  await additional.getByRole("tab", { name: /I am arranging entry and the trip/ }).click();
+  await expect(additional.locator('[data-phase="prepare_local"]')).toBeHidden();
+  await expect(additional.getByText("Arrange cancellable initial accommodation", { exact: false })).toBeVisible();
+  await additional.getByRole("tab", { name: /I have arrived at the destination/ }).click();
+  await expect(additional.getByText("Check that every passport and authorisation was accepted", { exact: false })).toBeVisible();
+  const additionalLayout = await additional.evaluate((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth }));
+  expect(additionalLayout.scrollWidth).toBeLessThanOrEqual(additionalLayout.clientWidth);
   await page.getByRole("button", { name: "Close details" }).click();
   await expect(dialog).toBeHidden();
   await expect(option).toBeFocused();

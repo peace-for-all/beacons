@@ -51,7 +51,7 @@ export function formatRelocationPlanForCopy(destination: string, phases: Relocat
   ].join("\n");
 }
 
-export function RelocationPlan({ place, phases, members, lang, t }: { place: PlaceView; phases: RelocationPhase[]; members: MemberTravelChecklist[]; lang: Lang; t: Messages }) {
+export function RelocationPlan({ place, phases, members, lang, t, nested = false, includeDocuments = true }: { place: PlaceView; phases: RelocationPhase[]; members: MemberTravelChecklist[]; lang: Lang; t: Messages; nested?: boolean; includeDocuments?: boolean }) {
   const [copied, setCopied] = useState("");
   const [selectedPhaseId, setSelectedPhaseId] = useState<RelocationPhaseId>(phases[0]?.id ?? "prepare_local");
   const [completedTasks, setCompletedTasks] = useState<Set<string>>(() => new Set());
@@ -73,8 +73,8 @@ export function RelocationPlan({ place, phases, members, lang, t }: { place: Pla
       return next;
     });
   };
-  return <section className="relocation-plan" aria-labelledby="relocation-plan-title">
-    <div className="relocation-plan-heading"><div><h3 id="relocation-plan-title">{t.relocationPlanTitle}</h3><p>{t.relocationPlanNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyFullPlan} title={t.copyFullPlan} onClick={() => copy("all", formatRelocationPlanForCopy(destination, phases, members, t))}>{copied === "all" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
+  return <section className={`relocation-plan${nested ? " nested" : ""}`} aria-labelledby={nested ? undefined : "relocation-plan-title"} aria-label={nested ? t.actionAdditionalSequence : undefined}>
+    {!nested && <div className="relocation-plan-heading"><div><h3 id="relocation-plan-title">{t.relocationPlanTitle}</h3><p>{t.relocationPlanNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyFullPlan} title={t.copyFullPlan} onClick={() => copy("all", formatRelocationPlanForCopy(destination, phases, members, t))}>{copied === "all" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>}
     <Tabs className="relocation-stage-tabs" value={selectedPhaseId} onValueChange={(value) => setSelectedPhaseId(value as RelocationPhaseId)}>
       <div className="relocation-stage-prompt"><strong>{t.relocationStageQuestion}</strong><span>{t.relocationStageHint}</span></div>
       <TabsList className="relocation-stage-list" aria-label={t.relocationStageQuestion}>{phases.map((phase, phaseIndex) => <TabsTrigger key={phase.id} className="relocation-stage-trigger" value={phase.id} data-stage-choice={phase.id}>
@@ -90,7 +90,7 @@ export function RelocationPlan({ place, phases, members, lang, t }: { place: Pla
             const status = taskStatus(task, t);
             return <li key={task.id}><label htmlFor={checkboxId}><input id={checkboxId} type="checkbox" checked={checked} onChange={(event) => setTaskComplete(task.id, event.currentTarget.checked)} /><span><small>{task.timing}</small>{task.text}</span></label>{status && <span className={`relocation-task-status ${task.status}`}>{status}</span>}{task.notes.map((note) => <p key={note}>{note}</p>)}{task.sources.length > 0 && <span className="relocation-task-sources">{uniqueSources(task).map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer" aria-label={`${t.officialSources} ${index + 1}: ${source.publisher}`}>[{index + 1}]</a>)}</span>}</li>;
           })}</ul>
-          {phase.id === "prepare_local" && <DocumentChecklist place={place} members={members} lang={lang} t={t} nested />}
+          {includeDocuments && phase.id === "prepare_local" && <DocumentChecklist place={place} members={members} lang={lang} t={t} nested />}
         </TabsContent>;
       })}
     </Tabs>
