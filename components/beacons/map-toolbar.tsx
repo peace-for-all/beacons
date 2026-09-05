@@ -2,14 +2,14 @@
 
 import { GitCompareArrows, SlidersHorizontal, X } from "lucide-react";
 import type { Messages } from "@/lib/i18n/messages";
-import type { DepartureOrigin } from "@/lib/domain/departure-links";
+import { DEFAULT_DEPARTURE_WINDOW, type DepartureOrigin, type DepartureWindow } from "@/lib/domain/departure-links";
 
 export type RouteFilter = "all" | "visa_free" | "application";
 export type ConfidenceFilter = "all" | "checked" | "attention";
 
 export function MapToolbar({
-  t, total, shown, routeFilter, confidenceFilter, adultCount, childrenCount, dogCount, origin, pinnedCount, open,
-  onOpenChange, onRouteFilter, onConfidenceFilter, onAdultCount, onChildrenCount, onDogCount, onOrigin, onClear, onCompare,
+  t, total, shown, routeFilter, confidenceFilter, adultCount, childrenCount, dogCount, origin, departureWindow, pinnedCount, open,
+  onOpenChange, onRouteFilter, onConfidenceFilter, onAdultCount, onChildrenCount, onDogCount, onOrigin, onDepartureWindow, onClear, onCompare,
 }: {
   t: Messages;
   total: number;
@@ -20,6 +20,7 @@ export function MapToolbar({
   childrenCount: number;
   dogCount: number;
   origin: DepartureOrigin;
+  departureWindow: DepartureWindow;
   pinnedCount: number;
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -29,6 +30,7 @@ export function MapToolbar({
   onChildrenCount: (count: number) => void;
   onDogCount: (count: number) => void;
   onOrigin: (origin: DepartureOrigin) => void;
+  onDepartureWindow: (window: DepartureWindow) => void;
   onClear: () => void;
   onCompare: () => void;
 }) {
@@ -50,8 +52,13 @@ export function MapToolbar({
       </fieldset>
       <p className="household-filter-note">{t.householdCountNote}</p>
       <label>{t.departureOrigin}<select value={origin} onChange={(event) => onOrigin(event.target.value as DepartureOrigin)}><option value="MOW">{t.originMoscow}</option><option value="LED">{t.originSaintPetersburg}</option></select></label>
+      <label>{t.departureWindow}<select value={departureWindow} onChange={(event) => onDepartureWindow(event.target.value as DepartureWindow)}><DepartureWindowOptions t={t} /></select></label>
       <p role="status">{count}</p>
-      {(routeFilter !== "all" || confidenceFilter !== "all" || adultCount !== 2 || childrenCount > 0 || dogCount > 0) && <button type="button" className="clear-filter-button" onClick={onClear}>{t.clearFilters}</button>}
+      {(routeFilter !== "all" || confidenceFilter !== "all" || adultCount !== 2 || childrenCount > 0 || dogCount > 0 || departureWindow !== DEFAULT_DEPARTURE_WINDOW) && <button type="button" className="clear-filter-button" onClick={onClear}>{t.clearFilters}</button>}
     </div>}
   </div>;
+}
+
+export function DepartureWindowOptions({ t }: { t: Messages }) {
+  return <><option value="week">{t.departureWindowWeek}</option><option value="month">{t.departureWindowMonth}</option><option value="three_months">{t.departureWindowThreeMonths}</option></>;
 }

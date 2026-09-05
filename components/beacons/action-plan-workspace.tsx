@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy, ExternalLink, FileText, House, Luggage, MapPinned, Plane } from "lucide-react";
+import { Check, Copy, ExternalLink, FileText, House, Luggage, Plane } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { buildFirstStayChecks, buildPackingList, type PracticalChecklistItem } from "@/lib/domain/departure-action-plan";
@@ -15,7 +15,7 @@ import { DocumentChecklist, formatMemberChecklistsForCopy, writeChecklistToClipb
 import { formatRelocationPlanForCopy, RelocationPlan } from "./relocation-plan";
 import { routeKindLabel } from "./status";
 
-type ModuleId = "where" | "documents" | "pack" | "travel" | "stay";
+type ModuleId = "documents" | "pack" | "travel" | "stay";
 
 function checklist({ items, checked, onChange }: { items: PracticalChecklistItem[]; checked: Set<string>; onChange: (id: string, value: boolean) => void }) {
   return <ul className="action-checklist">{items.map((item) => <li key={item.id}>
@@ -59,7 +59,7 @@ export function formatDepartureActionPlan({ destination, route, stay, uncertaint
 export function ActionPlanWorkspace({ place, household, members, phases, lang, t, origin, departure }: {
   place: PlaceView; household: HouseholdCountProfile; members: MemberTravelChecklist[]; phases: RelocationPhase[]; lang: Lang; t: Messages; origin: DepartureOrigin; departure: ReturnType<typeof departureLinks>;
 }) {
-  const [selected, setSelected] = useState<ModuleId>("where");
+  const [selected, setSelected] = useState<ModuleId>("documents");
   const [checked, setChecked] = useState<Set<string>>(() => new Set());
   const [copyState, setCopyState] = useState<"" | "copied" | "error">("");
   const route = place.routes[0];
@@ -86,23 +86,21 @@ export function ActionPlanWorkspace({ place, household, members, phases, lang, t
       setCopyState("error");
     }
   };
-  const modules: { id: ModuleId; title: string; summary: string; icon: typeof MapPinned }[] = [
-    { id: "where", title: t.actionWhere, summary: destination, icon: MapPinned },
+  const modules: { id: ModuleId; title: string; summary: string; icon: typeof FileText }[] = [
     { id: "documents", title: t.actionDocuments, summary: t.actionDocumentsSummary.replace("{people}", String(members.length)).replace("{items}", String(documentCount)), icon: FileText },
     { id: "pack", title: t.actionPack, summary: t.actionPackSummary.replace("{items}", String(packing.length)), icon: Luggage },
     { id: "travel", title: t.actionTravel, summary: t.actionTravelSummary.replace("{origin}", origin).replace("{airport}", airport), icon: Plane },
     { id: "stay", title: t.actionFirstStay, summary: t.actionFirstStaySummary, icon: House },
   ];
   return <section className="action-plan" aria-labelledby="action-plan-title">
-    <div className="action-plan-heading"><div><p className="action-plan-kicker">{t.actionPlanDestination}</p><h3 id="action-plan-title">{t.actionPlanTitle}</h3><p>{t.actionPlanNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyFullPlan} title={t.copyFullPlan} onClick={copyPlan}>{copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
+    <div className="action-plan-heading"><div><h3 id="action-plan-title">{t.actionPlanTitle}</h3><p>{t.actionPlanNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyFullPlan} title={t.copyFullPlan} onClick={copyPlan}>{copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
     <p className="action-plan-local-note">{t.actionPlanLocalNote}</p>
     <Tabs value={selected} onValueChange={(value) => setSelected(value as ModuleId)} className="action-module-tabs">
       <span className="sr-only" id="action-module-question">{t.actionPlanModuleQuestion}</span>
-      <TabsList className="action-module-list" aria-labelledby="action-module-question">{modules.map((module, index) => {
+      <TabsList className="action-module-list" aria-labelledby="action-module-question">{modules.map((module) => {
         const Icon = module.icon;
-        return <TabsTrigger key={module.id} value={module.id} className="action-module-trigger" data-action-module={module.id}><span className="action-module-index">{index + 1}</span><Icon aria-hidden="true" /><span><strong>{module.title}</strong><small>{module.summary}</small></span></TabsTrigger>;
+        return <TabsTrigger key={module.id} value={module.id} className="action-module-trigger" data-action-module={module.id}><Icon aria-hidden="true" /><span><strong>{module.title}</strong><small>{module.summary}</small></span></TabsTrigger>;
       })}</TabsList>
-      <TabsContent value="where" className="action-module" data-action-panel="where"><h4>{destination}</h4><dl className="action-summary"><div><dt>{t.actionPlanRoute}</dt><dd>{routeText}</dd></div><div><dt>{t.actionPlanStay}</dt><dd>{stayText}</dd></div><div><dt>{t.actionPlanBlocker}</dt><dd>{uncertainty}</dd></div></dl><p className="action-warning">{t.actionPlanCandidateNotice}</p></TabsContent>
       <TabsContent value="documents" className="action-module" data-action-panel="documents"><DocumentChecklist place={place} members={members} lang={lang} t={t} nested /></TabsContent>
       <TabsContent value="pack" className="action-module" data-action-panel="pack"><h4>{t.actionPack}</h4><p>{t.actionPackNotice}</p>{checklist({ items: packing, checked, onChange: setCheck })}</TabsContent>
       <TabsContent value="travel" className="action-module" data-action-panel="travel"><h4>{originLabel} → {airport}</h4><p>{t.actionTravelNotice}</p>{departure && <a className="action-external-link" href={departure.flightSearch} target="_blank" rel="noreferrer">{t.searchLiveFlights}<ExternalLink aria-hidden="true" /></a>}</TabsContent>

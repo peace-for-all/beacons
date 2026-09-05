@@ -18,14 +18,61 @@ const vite = await createServer({
 const guidance = await vite.ssrLoadModule("/lib/domain/journey-guidance.ts");
 const corridor = await vite.ssrLoadModule("/lib/domain/corridor-requirement-manifest.ts");
 const first72 = await vite.ssrLoadModule("/lib/domain/first-72-hour-readiness.ts");
-const [rawGuidance, rawManifests] = await Promise.all([
+const departureReadiness = await vite.ssrLoadModule("/lib/domain/departure-readiness.ts");
+const [rawGuidance, rawManifests, rawCatalog] = await Promise.all([
   readFile(new URL("../content/journey-guidance.json", import.meta.url), "utf8").then(JSON.parse),
   readFile(new URL("../content/corridor-requirements.json", import.meta.url), "utf8").then(JSON.parse),
+  readFile(new URL("../content/catalog.json", import.meta.url), "utf8").then(JSON.parse),
 ]);
 const collection = guidance.journeyGuidanceCollectionSchema.parse(rawGuidance);
 const manifest = corridor.corridorRequirementManifestCollectionSchema.parse(rawManifests).manifests[0];
 
 after(async () => vite.close());
+
+test("the departure summary stays timing-neutral, origin-specific, and fail-closed", () => {
+  const result = departureReadiness.summarizeDepartureReadiness(manifest, "moscow", {
+    operationalRecords: collection.operationalRecords,
+    sources: rawCatalog.sources,
+    asOf: "2026-09-05T08:00:00.000Z",
+  });
+
+  assert.equal(result.assessed, true);
+  assert.equal(result.actionReady, false);
+  assert.deepEqual({ current: result.current, total: result.total, unresolved: result.unresolved }, { current: 5, total: 45, unresolved: 40 });
+  assert.equal(result.categories.legal, "confirm");
+  assert.equal(result.categories.departure, "not_established");
+  assert.equal(result.categories.first_72_hours, "not_established");
+  assert.equal(result.categories.money, "not_established");
+  assert.equal(result.categories.safety, "not_established");
+  assert.equal(result.categories.offline, "not_established");
+  assert.deepEqual(result.householdScope, { minimumAdults: 1, maximumAdults: 2, childCount: 2, childAgeMin: 6, childAgeMax: 17 });
+  assert.equal(result.unresolvedFirst72.length, 7);
+  assert.deepEqual(result.itineraryLeads.map((lead) => ({
+    role: lead.role,
+    path: lead.path,
+    freshness: lead.freshness,
+    daysUntilDeparture: lead.daysUntilDeparture,
+    sources: lead.sources.length,
+  })), [
+    { role: "primary", path: ["SVO", "BEG"], freshness: "recheck", daysUntilDeparture: 6, sources: 2 },
+    { role: "fallback", path: ["VKO", "IST", "BEG"], freshness: "recheck", daysUntilDeparture: 11, sources: 5 },
+  ]);
+
+  const otherOrigin = departureReadiness.summarizeDepartureReadiness(manifest, "saint_petersburg", {
+    operationalRecords: collection.operationalRecords,
+    sources: rawCatalog.sources,
+    asOf: "2026-09-04T08:00:00.000Z",
+  });
+  assert.equal(otherOrigin.itineraryLeads.length, 2);
+  assert.deepEqual(otherOrigin.itineraryLeads[0].path, ["LED", "BEG"]);
+  assert.equal(otherOrigin.itineraryLeads[0].freshness, "current");
+
+  const unassessed = departureReadiness.summarizeDepartureReadiness(undefined, "moscow");
+  assert.equal(unassessed.assessed, false);
+  assert.equal(unassessed.actionReady, false);
+  assert.equal(unassessed.categories.legal, "not_established");
+  assert.equal(unassessed.householdScope, null);
+});
 
 test("the Serbia first-72-hour packet exposes exact uncollected subjects without gaining authority", () => {
   const result = first72.evaluateFirst72Packet({

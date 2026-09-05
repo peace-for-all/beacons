@@ -60,11 +60,12 @@ export function DocumentChecklist({ place, members, lang, t, nested = false }: {
       setCopied("error");
     }
   };
-  const Heading = nested ? "h5" : "h3";
+  const Heading = nested ? "h4" : "h3";
+  const MemberHeading = nested ? "h5" : "h4";
   return <section className={`document-checklists${nested ? " nested" : ""}`} aria-labelledby="document-checklists-title">
     <div className="document-checklists-heading"><div><Heading id="document-checklists-title">{t.documentChecklistTitle}</Heading><p>{t.documentChecklistNotice}</p></div><button className="icon-copy-button" type="button" aria-label={t.copyAllChecklists} title={t.copyAllChecklists} onClick={() => copy("all", members)}>{copied === "all" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
     <div className="member-checklists">{members.map((member) => <article key={member.id} className="member-checklist">
-      <div className="member-checklist-heading"><h4>{memberLabel(member, t)}</h4><button className="icon-copy-button" type="button" aria-label={`${t.copyChecklist}: ${memberLabel(member, t)}`} title={`${t.copyChecklist}: ${memberLabel(member, t)}`} onClick={() => copy(member.id, [member])}>{copied === member.id ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
+      <div className="member-checklist-heading"><MemberHeading>{memberLabel(member, t)}</MemberHeading><button className="icon-copy-button" type="button" aria-label={`${t.copyChecklist}: ${memberLabel(member, t)}`} title={`${t.copyChecklist}: ${memberLabel(member, t)}`} onClick={() => copy(member.id, [member])}>{copied === member.id ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}</button></div>
       <ul>{member.items.map((item, itemIndex) => {
         const checkboxId = `${place.id}-${member.id}-document-${itemIndex + 1}`;
         const status = statusLabel(item, t);

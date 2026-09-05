@@ -5,12 +5,13 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { Sheet, SheetClose, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import type { PlaceView } from "@/lib/domain/catalog-view";
-import { departureLinks, type DepartureOrigin } from "@/lib/domain/departure-links";
+import { departureLinks, matchesDepartureWindow, type DepartureOrigin, type DepartureWindow } from "@/lib/domain/departure-links";
+import type { DepartureReadinessByPlace } from "@/lib/domain/departure-readiness";
 import type { Lang, Messages } from "@/lib/i18n/messages";
 import { CitedFact, FactCitations, makeSourceNumbers } from "./fact-citations";
 import { confidenceStatus, routeKindLabel } from "./status";
 
-export function OptionCompareSheet({ places, lang, t, origin, open, onOpenChange, onRemove }: { places: PlaceView[]; lang: Lang; t: Messages; origin: DepartureOrigin; open: boolean; onOpenChange: (open: boolean) => void; onRemove: (id: string) => void }) {
+export function OptionCompareSheet({ places, readinessByPlace, lang, t, origin, departureWindow, open, onOpenChange, onRemove }: { places: PlaceView[]; readinessByPlace: DepartureReadinessByPlace; lang: Lang; t: Messages; origin: DepartureOrigin; departureWindow: DepartureWindow; open: boolean; onOpenChange: (open: boolean) => void; onRemove: (id: string) => void }) {
   const [phone, setPhone] = useState(false);
   useEffect(() => {
     const query = window.matchMedia("(max-width: 767px)");
@@ -21,15 +22,25 @@ export function OptionCompareSheet({ places, lang, t, origin, open, onOpenChange
     <SheetTitle>{t.comparisonTitle}</SheetTitle><SheetClose className="detail-sheet-close" aria-label={t.closeComparison}><X aria-hidden="true" /></SheetClose>
     <p className="compare-safety-note"><strong>{t.researchOnlyTitle}.</strong> {t.researchOnlyNotice}</p>
     {places.length === 0 ? <p className="compare-empty">{t.comparisonEmpty}</p> : <div className="comparison-scroll"><table><thead><tr><th scope="col">{t.routeSummary}</th>{places.map((place) => <th scope="col" key={place.id}><span>{place.city[lang]}</span><small>{place.country[lang]}</small><button type="button" onClick={() => onRemove(place.id)}>{t.unpinOption}</button></th>)}</tr></thead><tbody>
+      <CompareRow label={departureHeading(departureWindow, t)} values={places.map((place) => { const readiness = readinessByPlace[place.id]?.[origin]; const lead = readiness?.itineraryLeads.find((item) => matchesDepartureWindow(item.daysUntilDeparture, departureWindow)) ?? readiness?.itineraryLeads[0]; return readiness?.assessed ? <><strong>{readiness.actionReady ? t.readinessReady : t.readinessNotReady}</strong><br /><span>{t.readinessCoverage.replace("{current}", String(readiness.current)).replace("{total}", String(readiness.total)).replace("{unresolved}", String(readiness.unresolved))}</span>{lead && <><br /><span>{formatComparisonDate(lead.departureOn, lang)} · {lead.path.join(" → ")} · {lead.freshness === "current" ? t.itineraryCurrent : t.itineraryRecheck} · {matchesDepartureWindow(lead.daysUntilDeparture, departureWindow) ? t.itineraryMatchesWindow : t.itineraryOutsideWindow}</span></>}</> : <><strong>{t.readinessNotReady}</strong><br /><span>{t.readinessNoPacket}</span></>; })} />
       <CompareRow label={t.routeKind} values={places.map((place) => { const route = place.routes[0]; const claim = route?.claims.find((item) => item.fact.kind === "route_availability") ?? route?.claims[0]; return route ? <>{routeKindLabel(route.kind, t)}{claim && <FactCitations claim={claim} sourceNumbers={placeSourceNumbers(place)} t={t} />}</> : t.notEstablished; })} />
       <CompareRow label={t.nominalStay} values={places.map((place) => { const claim = place.routes[0]?.claims.find((item) => item.fact.kind === "stay_rule" && !item.actionQuarantine); return claim ? <CitedFact claim={claim} lang={lang} sourceNumbers={placeSourceNumbers(place)} t={t} /> : t.notEstablished; })} />
       <CompareRow label={t.routeRequirements} values={places.map((place) => { const requirements = place.routes.flatMap((route) => route.claims).filter((claim) => ["requirement", "application_timing", "entry_restriction", "arrival_registration"].includes(claim.fact.kind)); const sourceNumbers = placeSourceNumbers(place); return requirements.length ? <>{requirements.slice(0, 3).map((claim) => <CitedFact key={claim.id} claim={claim} lang={lang} sourceNumbers={sourceNumbers} t={t} className="summary-fact" />)}</> : t.noRequirementCollected; })} />
       <CompareRow label={t.primaryUncertainty} values={places.map((place) => place.unknowns[0]?.[lang] ?? t.notEstablished)} />
       <CompareRow label={t.informationStatus} values={places.map((place) => coverageStatus(place, t))} />
-      <CompareRow label={t.practicalDeparture} values={places.map((place) => { const links = departureLinks(place.id, origin); return links ? <><strong>{t.arrivalAirport}: {links.airport}</strong><br /><a href={links.flightSearch} target="_blank" rel="noreferrer">{t.searchLiveFlights}</a></> : t.departureNotCollected; })} />
+      <CompareRow label={t.liveTravelSearch} values={places.map((place) => { const links = departureLinks(place.id, origin, departureWindow); return links ? <><strong>{t.arrivalAirport}: {links.airport}</strong><br /><a href={links.flightSearch} target="_blank" rel="noreferrer">{t.searchLiveFlights}</a></> : t.departureNotCollected; })} />
       <CompareRow label={t.firstMonthEstimate} values={places.map((place) => { const links = departureLinks(place.id, origin); return links ? <><span>{t.estimateNotCollected}</span><br /><a href={links.costGuide} target="_blank" rel="noreferrer">{t.browseCostGuide}</a></> : t.estimateNotCollected; })} />
     </tbody></table></div>}
   </SheetContent></Sheet>;
+}
+
+function departureHeading(window: DepartureWindow, t: Messages) {
+  const timing = window === "week" ? t.departureWindowWeek : window === "month" ? t.departureWindowMonth : t.departureWindowThreeMonths;
+  return `${t.practicalDeparture} · ${timing}`;
+}
+
+function formatComparisonDate(value: string, lang: Lang) {
+  return new Date(`${value}T00:00:00.000Z`).toLocaleDateString(lang === "ru" ? "ru-RU" : "en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 }
 
 function CompareRow({ label, values }: { label: string; values: ReactNode[] }) {

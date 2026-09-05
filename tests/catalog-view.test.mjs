@@ -17,7 +17,7 @@ const { evaluateHouseholdCounts } = await vite.ssrLoadModule("/lib/domain/househ
 const { buildTravelDocumentChecklists } = await vite.ssrLoadModule("/lib/domain/travel-document-checklist.ts");
 const { buildRelocationPlan } = await vite.ssrLoadModule("/lib/domain/relocation-plan.ts");
 const { buildFirstStayChecks, buildPackingList } = await vite.ssrLoadModule("/lib/domain/departure-action-plan.ts");
-const { departureLinks } = await vite.ssrLoadModule("/lib/domain/departure-links.ts");
+const { departureLinks, matchesDepartureWindow } = await vite.ssrLoadModule("/lib/domain/departure-links.ts");
 const { householdMobility } = await vite.ssrLoadModule("/lib/content/household-mobility.ts");
 const { BeaconsApp } = await vite.ssrLoadModule("/components/beacons/beacons-app.tsx");
 const { BeaconDetail } = await vite.ssrLoadModule("/components/beacons/beacon-detail.tsx");
@@ -215,18 +215,38 @@ test("household count filtering excludes only a confirmed over-limit result", ()
   assert.equal(evaluateHouseholdCounts(serbia, rules.get(serbia.id), { adults: 2, children: 0, dogs: 1 }, "2026-09-18T12:00:00.000+03:00").dogs, "stale");
 });
 
-test("the map toolbar exposes adult, child, and dog count filters", () => {
+test("the map toolbar exposes departure timing and household count filters", () => {
   const noop = () => {};
   const html = renderToStaticMarkup(React.createElement(MapToolbar, {
     t: messages.en, total: 7, shown: 7, routeFilter: "all", confidenceFilter: "all", adultCount: 2, childrenCount: 0, dogCount: 0,
-    origin: "MOW", pinnedCount: 0, open: true, onOpenChange: noop, onRouteFilter: noop, onConfidenceFilter: noop,
-    onAdultCount: noop, onChildrenCount: noop, onDogCount: noop, onOrigin: noop, onClear: noop, onCompare: noop,
+    origin: "MOW", departureWindow: "week", pinnedCount: 0, open: true, onOpenChange: noop, onRouteFilter: noop, onConfidenceFilter: noop,
+    onAdultCount: noop, onChildrenCount: noop, onDogCount: noop, onOrigin: noop, onDepartureWindow: noop, onClear: noop, onCompare: noop,
   }));
   assert.match(html, /Household count/);
   assert.match(html, />Adults</);
   assert.match(html, />Children</);
   assert.match(html, />Dogs</);
+  assert.match(html, /Expected departure/);
+  for (const timing of ["About a week", "About a month", "About 3 months"]) assert.match(html, new RegExp(timing));
   assert.match(html, /one document checklist per adult, child, and dog/);
+});
+
+test("approximate departure windows drive matching and live flight searches", () => {
+  assert.equal(matchesDepartureWindow(0, "week"), true);
+  assert.equal(matchesDepartureWindow(14, "week"), true);
+  assert.equal(matchesDepartureWindow(15, "week"), false);
+  assert.equal(matchesDepartureWindow(15, "month"), true);
+  assert.equal(matchesDepartureWindow(45, "month"), true);
+  assert.equal(matchesDepartureWindow(46, "three_months"), true);
+  assert.equal(matchesDepartureWindow(120, "three_months"), true);
+  assert.equal(matchesDepartureWindow(null, "three_months"), false);
+
+  const weekQuery = new URL(departureLinks("place.belgrade", "MOW", "week").flightSearch).searchParams.get("q");
+  const monthQuery = new URL(departureLinks("place.belgrade", "MOW", "month").flightSearch).searchParams.get("q");
+  const threeMonthQuery = new URL(departureLinks("place.belgrade", "MOW", "three_months").flightSearch).searchParams.get("q");
+  assert.match(weekQuery, /about one week from now/);
+  assert.match(monthQuery, /about one month from now/);
+  assert.match(threeMonthQuery, /about three months from now/);
 });
 
 test("household evidence has a periodic unattended renewal workflow", async () => {
@@ -245,7 +265,7 @@ test("detail leads with aligned decision facts and keeps proof mechanics seconda
   assert.ok(html.indexOf("At a glance") < html.indexOf("Sources for this route"));
   assert.match(html, /What we currently know/);
   assert.match(html, /Sourced, not checked|Current and checked|Sources disagree/);
-  assert.match(html, /Leaving soon/);
+  assert.match(html, /Departure readiness/);
   assert.match(html, /Sources for this route/);
   assert.match(html, /read them directly before making your own decision/i);
   assert.match(html, /target="_blank"/);
@@ -405,7 +425,7 @@ test("the move stepper shows one stage at a time while full copy preserves the w
   assert.match(html, /Documents and preparations/);
 });
 
-test("the departure workspace exposes five focused modules and produces one complete plan", () => {
+test("the departure workspace exposes four immediate modules and produces one complete plan", () => {
   const place = places.find((item) => item.id === "place.belgrade");
   const mobilityRule = householdMobility.rules.find((rule) => rule.placeId === "place.belgrade");
   assert.ok(place && mobilityRule);
@@ -431,11 +451,11 @@ test("the departure workspace exposes five focused modules and produces one comp
     t: messages.en,
   });
 
-  assert.equal((html.match(/data-action-module=/g) ?? []).length, 5);
-  assert.equal((html.match(/role="tab"/g) ?? []).length, 8);
+  assert.equal((html.match(/data-action-module=/g) ?? []).length, 4);
+  assert.equal((html.match(/role="tab"/g) ?? []).length, 7);
   assert.equal((html.match(/aria-selected="true"/g) ?? []).length, 2);
-  assert.match(html, /Departure plan/);
-  assert.match(html, /Where/);
+  assert.match(html, /Prepare this option/);
+  assert.doesNotMatch(html, /data-action-module="where"/);
   assert.match(html, /Documents/);
   assert.match(html, /Take/);
   assert.match(html, /Fly/);

@@ -105,8 +105,8 @@ test("mobile details use a labelled dialog and return focus on close", async ({ 
   await expect(copyButton).toHaveText("");
   const copyBox = await copyButton.boundingBox();
   expect(copyBox).not.toBeNull();
-  expect(copyBox!.width).toBe(44);
-  expect(copyBox!.height).toBe(44);
+  expect(copyBox!.width).toBeCloseTo(44, 2);
+  expect(copyBox!.height).toBeCloseTo(44, 2);
   await dialog.getByRole("tab", { name: /Documents/ }).click();
   const documents = dialog.locator('[data-action-panel="documents"]');
   await expect(documents).toBeVisible();
@@ -130,21 +130,51 @@ test("mobile details use a labelled dialog and return focus on close", async ({ 
   await expect(option).toBeFocused();
 });
 
-test("a destination opens as one modular, editable departure plan", async ({ page }) => {
+test("a destination opens with a decision brief and four immediate preparation modules", async ({ page }) => {
   await page.goto("/en");
   await page.locator(".beacon-marker").first().click();
   const plan = page.locator(".action-plan");
-  await expect(plan.getByRole("heading", { name: "Departure plan" })).toBeVisible();
-  await expect(plan.locator('[data-action-module]')).toHaveCount(5);
+  await expect(page.getByRole("heading", { name: "Departure readiness" })).toBeVisible();
+  const brief = page.locator(".decision-brief");
+  await expect(brief).toContainText("Not ready for departure");
+  await expect(brief).toContainText("Route packet assessed for this origin");
+  await expect(brief).toContainText("Checklist context");
+  await expect(brief.locator(".readiness-context")).toContainText("Moscow");
+  await expect(brief.locator(".readiness-context")).toContainText("Adults: 2");
+  await expect(brief.locator(".readiness-context")).toContainText("Children: 0");
+  await expect(brief.locator(".readiness-context")).toContainText("Dogs: 0");
+  await expect(brief).toContainText("Research scope: 1–2 adults · 2 children aged 6–17");
+  await expect(brief).toContainText("5 of 45 required checks current · 40 unresolved");
+  await expect(brief.locator(".readiness-gates li")).toHaveCount(4);
+  await expect(brief.getByText("Entry and documents").locator("..")).toContainText("Confirm first");
+  await expect(brief.getByText("Bookable itinerary").locator("..")).toContainText("Not established");
+  await brief.locator(".decision-packet-details > summary").click();
+  await expect(brief.locator(".itinerary-lead-list > li")).toHaveCount(2);
+  await expect(brief.locator(".itinerary-lead-list > li").first()).toContainText("Primary lead · 11 Sept 2026");
+  await expect(brief.locator(".itinerary-lead-list > li").first()).toContainText("SVO → BEG · 3 h 5 min · Matches selected timing");
+  await expect(brief.locator(".itinerary-lead-list > li").first()).toContainText("Recheck required");
+  await expect(brief.locator(".first72-gap-list li")).toHaveCount(7);
+  await expect(brief.locator(".first72-gap-list")).toContainText("Accommodation and registration");
+  await expect(brief.locator(".first72-gap-list")).toContainText("Failure paths");
+  const departureWindow = brief.getByLabel("Expected departure");
+  await expect(departureWindow.locator("option")).toHaveCount(3);
+  await departureWindow.selectOption("month");
+  await expect(departureWindow).toHaveValue("month");
+  await expect(brief.locator(".itinerary-lead-list > li").first()).toContainText("Outside selected timing");
+  await expect(plan.getByRole("heading", { name: "Prepare this option" })).toBeVisible();
+  await expect(plan.locator('[data-action-module]')).toHaveCount(4);
   await expect(plan.locator('input:not([type="checkbox"]), textarea')).toHaveCount(0);
   const moduleBoxes = await plan.locator('[data-action-module]').evaluateAll((items) => items.map((item) => {
     const box = item.getBoundingClientRect();
     return { left: box.left, top: box.top, width: box.width };
   }));
-  expect(moduleBoxes.every((box) => Math.abs(box.left - moduleBoxes[0].left) < 1 && Math.abs(box.width - moduleBoxes[0].width) < 1)).toBe(true);
-  expect(moduleBoxes.every((box, index) => index === 0 || box.top > moduleBoxes[index - 1].top)).toBe(true);
-  await expect(plan.locator('[data-action-panel="where"]')).toBeVisible();
-  await expect(plan.locator('[data-action-panel="documents"]')).toBeHidden();
+  expect(moduleBoxes.every((box) => Math.abs(box.width - moduleBoxes[0].width) < 1)).toBe(true);
+  expect(Math.abs(moduleBoxes[0].top - moduleBoxes[1].top)).toBeLessThan(1);
+  expect(moduleBoxes[1].left).toBeGreaterThan(moduleBoxes[0].left);
+  expect(Math.abs(moduleBoxes[2].top - moduleBoxes[3].top)).toBeLessThan(1);
+  expect(moduleBoxes[2].top).toBeGreaterThan(moduleBoxes[0].top);
+  await expect(plan.locator('[data-action-panel="where"]')).toHaveCount(0);
+  await expect(plan.locator('[data-action-panel="documents"]')).toBeVisible();
   const accessibility = await new AxeBuilder({ page }).include(".action-plan").analyze();
   expect(accessibility.violations).toEqual([]);
 
@@ -162,8 +192,11 @@ test("a destination opens as one modular, editable departure plan", async ({ pag
   await plan.getByRole("tab", { name: /First stay/ }).click();
   await expect(plan.getByRole("link", { name: "Search cancellable first stays" })).toBeVisible();
   await expect(plan.locator('[data-action-panel="stay"] input[type="checkbox"]')).not.toHaveCount(0);
-  await expect(plan.locator('[data-action-panel="where"]')).toBeHidden();
   await expect(page.locator(".research-details")).not.toHaveAttribute("open", "");
+  await brief.getByRole("button", { name: "Change checklist context" }).click();
+  await expect(page.locator("#beacon-detail")).toBeHidden();
+  await expect(page.locator("#map-filter-panel")).toBeVisible();
+  await expect(page.locator("#map-filter-panel").getByLabel("Expected departure")).toHaveValue("month");
 });
 
 test("origin selection moves the visible origin and route geometry", async ({ page }) => {
@@ -179,6 +212,27 @@ test("origin selection moves the visible origin and route geometry", async ({ pa
   expect(await route.getAttribute("d")).not.toBe(beforeRoute);
 });
 
+test("comparison follows the selected departure timing and shows a dated route lead", async ({ page }) => {
+  await page.goto("/en");
+  await page.getByRole("button", { name: /Filters/ }).click();
+  await page.locator("#map-filter-panel").getByLabel("Expected departure").selectOption("month");
+  await page.getByRole("button", { name: "Close filters" }).click();
+  const markers = page.locator(".beacon-marker");
+  await markers.first().click();
+  await page.getByRole("button", { name: "Pin for comparison" }).click();
+  await page.getByRole("button", { name: "Close details" }).click();
+  await markers.nth(1).click();
+  await page.getByRole("button", { name: "Pin for comparison" }).click();
+  await page.getByRole("button", { name: "Close details" }).click();
+  await page.getByRole("button", { name: /2 pinned/ }).click();
+
+  const comparison = page.getByRole("dialog", { name: "Option comparison" });
+  const readinessRow = comparison.getByRole("row", { name: /Departure readiness · About a month/ });
+  await expect(readinessRow).toContainText("5 of 45 required checks current · 40 unresolved");
+  await expect(readinessRow).toContainText("11 Sept 2026 · SVO → BEG · Recheck required · Outside selected timing");
+  await expect(readinessRow).toContainText("No complete route packet has been assessed for this origin");
+});
+
 test("research load makes no third-party request and remains usable at 200 percent zoom", async ({ page }) => {
   const external: string[] = [];
   page.on("request", (request) => {
@@ -191,7 +245,7 @@ test("research load makes no third-party request and remains usable at 200 perce
   expect(readingSizes[0]).toBeGreaterThanOrEqual(19);
   expect(readingSizes.slice(1).every((size) => size >= 16)).toBe(true);
   await page.locator(".beacon-marker").first().click();
-  const detailReadingSizes = await page.locator(".detail-safety-banner p, .action-plan-heading p:not(.action-plan-kicker), .action-module > p, .action-summary dd").evaluateAll((elements) => elements.map((element) => Number.parseFloat(getComputedStyle(element).fontSize)));
+  const detailReadingSizes = await page.locator(".decision-brief-notice, .decision-facts dd, .action-plan-heading p, .action-module > p").evaluateAll((elements) => elements.map((element) => Number.parseFloat(getComputedStyle(element).fontSize)));
   expect(detailReadingSizes.length).toBeGreaterThan(0);
   expect(detailReadingSizes.every((size) => size >= 16)).toBe(true);
   await page.getByRole("button", { name: "Close details" }).click();
