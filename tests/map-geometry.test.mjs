@@ -7,7 +7,7 @@ import { createServer } from "vite";
 const root = fileURLToPath(new URL("..", import.meta.url));
 const vite = await createServer({ appType: "custom", configFile: false, logLevel: "silent", root, resolve: { alias: { "@": root } }, server: { middlewareMode: true, hmr: false } });
 const { createRegionalMap, MAP_DATASET, MOSCOW_COORDINATES, SAINT_PETERSBURG_COORDINATES } = await vite.ssrLoadModule("/lib/map/world-map.ts");
-const { INITIAL_MAP_CAMERA, cameraPoint, ensurePointVisible, panCamera, zoomCameraAt } = await vite.ssrLoadModule("/lib/map/map-camera.ts");
+const { INITIAL_MAP_CAMERA, cameraPoint, ensurePointVisible, panCamera, pinchCamera, zoomCameraAt } = await vite.ssrLoadModule("/lib/map/map-camera.ts");
 const { layoutMarkerLabels } = await vite.ssrLoadModule("/lib/map/marker-layout.ts");
 after(async () => vite.close());
 
@@ -59,6 +59,13 @@ test("camera zoom and pan remain finite and within the visible frame", () => {
   const panned = panCamera(zoomed, 9_000, -9_000, 760, 620);
   assert.equal(panned.x, 1140);
   assert.equal(panned.y, -930);
+});
+
+test("two-pointer pinch zooms the map around the gesture and follows its center", () => {
+  const zoomed = pinchCamera(INITIAL_MAP_CAMERA, { distance: 100, center: { x: 160, y: 284 } }, { distance: 200, center: { x: 180, y: 294 } }, 320, 568);
+  assert.deepEqual(zoomed, { scale: 2, x: 20, y: 10 });
+  const returned = pinchCamera(zoomed, { distance: 200, center: { x: 180, y: 294 } }, { distance: 100, center: { x: 160, y: 284 } }, 320, 568);
+  assert.deepEqual(returned, INITIAL_MAP_CAMERA);
 });
 
 test("marker collision layout displaces or suppresses labels but never geographic anchors", () => {

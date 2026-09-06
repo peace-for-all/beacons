@@ -1,10 +1,10 @@
 import { MapPin, Minus, Plus, RotateCcw } from "lucide-react";
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { PlaceView } from "@/lib/domain/catalog-view";
 import type { DepartureOrigin } from "@/lib/domain/departure-links";
 import type { Lang, Messages } from "@/lib/i18n/messages";
 import { createRegionalMap, MAP_DATASET, MOSCOW_COORDINATES, SAINT_PETERSBURG_COORDINATES } from "@/lib/map/world-map";
-import { cameraPoint, ensurePointVisible, INITIAL_MAP_CAMERA, panCamera, type MapCamera, zoomCameraAt } from "@/lib/map/map-camera";
+import { cameraPoint, ensurePointVisible, INITIAL_MAP_CAMERA, panCamera, pinchCamera, type MapCamera, zoomCameraAt } from "@/lib/map/map-camera";
 import { layoutMarkerLabels } from "@/lib/map/marker-layout";
 import { placeStatus, routeKindLabel } from "./status";
 
@@ -20,6 +20,7 @@ type Props = {
   onSelect: (id: string, activator: HTMLButtonElement) => void;
 };
 type StageSize = { width: number; height: number };
+type PinchGesture = { distance: number; center: { x: number; y: number } };
 
 const INITIAL_STAGE_SIZE: StageSize = { width: 760, height: 620 };
 const roundPixel = (value: number) => Math.round(value * 1_000) / 1_000;
@@ -56,7 +57,7 @@ export function BeaconMap({ places, selectedId, detailOpen, lang, t, camera, ori
   const originCoordinates = departureOrigin === "LED" ? SAINT_PETERSBURG_COORDINATES : MOSCOW_COORDINATES;
   const origin = map.project(originCoordinates);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
-  const lastPinchDistance = useRef<number | null>(null);
+  const lastPinch = useRef<PinchGesture | null>(null);
   const screenPoints = useMemo(() => new Map(places.map((place) => [place.id, cameraPoint(map.project(place.coordinates), camera, size.width, size.height)])), [camera, map, places, size]);
   const originPoint = cameraPoint(origin, camera, size.width, size.height);
   const captionClearance = size.width < 360 ? 190 : size.width < 768 ? 160 : 68;
@@ -64,6 +65,17 @@ export function BeaconMap({ places, selectedId, detailOpen, lang, t, camera, ori
     places.map((place) => ({ id: place.id, ...screenPoints.get(place.id)! })), size.width, size.height, { labelWidth: size.width < 768 ? 118 : 176, labelHeight: 42, edgePadding: size.width < 768 ? 12 : 8, obstacles: [{ left: size.width - 64, top: 0, width: 64, height: 178 }, { left: 0, top: size.height - captionClearance, width: size.width, height: captionClearance }] },
   ).map((layout) => [layout.id, layout])), [captionClearance, places, screenPoints, size]);
   const zoom = (factor: number) => onCameraChange((current) => zoomCameraAt(current, factor, { x: size.width / 2, y: size.height / 2 }, size.width, size.height));
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return;
+    const preventNativePinch = (event: Event) => event.preventDefault();
+    stage.addEventListener("gesturestart", preventNativePinch, { passive: false });
+    stage.addEventListener("gesturechange", preventNativePinch, { passive: false });
+    return () => {
+      stage.removeEventListener("gesturestart", preventNativePinch);
+      stage.removeEventListener("gesturechange", preventNativePinch);
+    };
+  }, [stageRef]);
   const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if ((event.target as HTMLElement).closest("button, a")) return;
     if (event.ctrlKey || event.metaKey) return;
@@ -88,7 +100,10 @@ export function BeaconMap({ places, selectedId, detailOpen, lang, t, camera, ori
     pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
     if (pointers.current.size === 2) {
       const [first, second] = [...pointers.current.values()];
-      lastPinchDistance.current = Math.hypot(first.x - second.x, first.y - second.y);
+      lastPinch.current = {
+        distance: Math.hypot(first.x - second.x, first.y - second.y),
+        center: { x: (first.x + second.x) / 2, y: (first.y + second.y) / 2 },
+      };
     }
     event.currentTarget.setPointerCapture(event.pointerId);
   };
@@ -100,11 +115,25 @@ export function BeaconMap({ places, selectedId, detailOpen, lang, t, camera, ori
       onCameraChange((current) => panCamera(current, event.clientX - previous.x, event.clientY - previous.y, size.width, size.height));
       return;
     }
-    // Browser pinch zoom remains available; custom dragging only tracks one pointer.
+    if (pointers.current.size === 2 && lastPinch.current) {
+      event.preventDefault();
+      const [first, second] = [...pointers.current.values()];
+      const bounds = event.currentTarget.getBoundingClientRect();
+      const nextPinch = {
+        distance: Math.hypot(first.x - second.x, first.y - second.y),
+        center: { x: (first.x + second.x) / 2 - bounds.left, y: (first.y + second.y) / 2 - bounds.top },
+      };
+      const previousPinch = {
+        ...lastPinch.current,
+        center: { x: lastPinch.current.center.x - bounds.left, y: lastPinch.current.center.y - bounds.top },
+      };
+      onCameraChange((current) => pinchCamera(current, previousPinch, nextPinch, size.width, size.height));
+      lastPinch.current = { ...nextPinch, center: { x: nextPinch.center.x + bounds.left, y: nextPinch.center.y + bounds.top } };
+    }
   };
   const endPointer = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!pointers.current.delete(event.pointerId)) return;
-    lastPinchDistance.current = null;
+    lastPinch.current = null;
     if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
   };
   const onDoubleClick = (event: React.MouseEvent<HTMLDivElement>) => {

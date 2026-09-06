@@ -22,6 +22,37 @@ test("the map remains inside the initial desktop and mobile viewport", async ({ 
   }
 });
 
+test("a two-finger mobile gesture zooms the map instead of the page", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/en");
+  const stage = page.locator('[data-surface="map"]');
+  await expect(stage).toHaveCSS("touch-action", "none");
+  expect(await stage.evaluate((element) => element.dispatchEvent(new Event("gesturestart", { bubbles: true, cancelable: true })))).toBe(false);
+  const camera = stage.locator(".map-camera");
+  const before = await camera.getAttribute("style");
+  const box = await stage.boundingBox();
+  expect(box).not.toBeNull();
+
+  await stage.evaluate((element) => {
+    element.setPointerCapture = () => {};
+    element.releasePointerCapture = () => {};
+    element.hasPointerCapture = () => false;
+  });
+  const dispatch = (type: string, pointerId: number, clientX: number, clientY: number) => stage.dispatchEvent(type, { pointerId, pointerType: "touch", button: 0, clientX, clientY, bubbles: true, cancelable: true });
+  const centerX = box!.x + box!.width / 2;
+  const centerY = box!.y + box!.height / 2;
+  await dispatch("pointerdown", 1, centerX - 40, centerY);
+  await dispatch("pointerdown", 2, centerX + 40, centerY);
+  await dispatch("pointermove", 1, centerX - 80, centerY);
+  await dispatch("pointermove", 2, centerX + 80, centerY);
+  await dispatch("pointerup", 1, centerX - 80, centerY);
+  await dispatch("pointerup", 2, centerX + 80, centerY);
+
+  await expect(camera).not.toHaveAttribute("style", before!);
+  await expect(camera).toHaveAttribute("style", /scale\([2-4](?:\.|\))/);
+  expect(await page.evaluate(() => window.visualViewport?.scale ?? 1)).toBe(1);
+});
+
 test("mobile map starts below the compact header and overlays remain mutually exclusive", async ({ page }) => {
   const viewport = { width: 360, height: 697 };
   await page.setViewportSize(viewport);

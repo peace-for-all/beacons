@@ -22,6 +22,18 @@ export function zoomCameraAt(camera: MapCamera, factor: number, point: { x: numb
   }, width, height);
 }
 
+export function pinchCamera(
+  camera: MapCamera,
+  previous: { distance: number; center: { x: number; y: number } },
+  current: { distance: number; center: { x: number; y: number } },
+  width: number,
+  height: number,
+) {
+  if (previous.distance <= 0 || current.distance <= 0) return camera;
+  const zoomed = zoomCameraAt(camera, current.distance / previous.distance, previous.center, width, height);
+  return panCamera(zoomed, current.center.x - previous.center.x, current.center.y - previous.center.y, width, height);
+}
+
 export function cameraPoint(point: { x: number; y: number }, camera: MapCamera, width: number, height: number) {
   return { x: (point.x - width / 2) * camera.scale + width / 2 + camera.x, y: (point.y - height / 2) * camera.scale + height / 2 + camera.y };
 }
